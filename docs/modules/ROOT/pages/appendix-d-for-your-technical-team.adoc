@@ -1,0 +1,279 @@
+:page-description: Implementation notes for engineers: how Role Charters, Role Packs, lock-in tiers, Commitment Ledgers and sponsors map to agent definitions, skills, hooks, evals and protocols.
+:page-llms-description: Technical appendix mapping the book's org-design vocabulary (roles, charters, Role Packs, three lock-in tiers, Commitment Ledger, sponsors, acceptance) to agent definitions, skills, hooks, deny rules, progress files, durable execution, Entra Agent ID, MCP 2026-07-28, A2A 1.0, evals and observability.
+:page-haiku: Charter becomes prompt; / the hard rule lives in a hook. / Same chart, new tooling.
+:description: Implementation notes for engineers: how Role Charters, Role Packs, lock-in tiers, Commitment Ledgers and sponsors map to agent definitions, skills, hooks, evals and protocols.
+:keywords: agent org design implementation, Role Charter system prompt, Claude Code hooks deny rules, agent evals pass^k, MCP A2A agent identity, multi-agent single writer
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: How do you turn a Role Charter into an agent definition?
+:page-faq-1-a: Keep the persona thin and put the charter where the work runs. A Role Charter's outcome line and authority limits go in the agent's system prompt or definition file; the procedures go in skills the agent loads when needed; the trigger and the specific job go in a scheduled task or event handler; and the acceptance check goes in a test, evaluator or hook that the agent cannot edit. One general agent can then hold several roles by loading several charters, and the role survives a change of model.
+:page-faq-2-q: When should an agent rule be a hook instead of an instruction?
+:page-faq-2-a: Only when the rule has no exceptions and breaking it would be costly or irreversible: sending to a customer, merging, paying, deleting, touching protected health information, or declaring work done. Everything else stays as plain-English guidance the model may weigh. Anthropic's Claude Code guidance puts it directly: if something has to happen every time, make it a hook, a deny rule or a managed setting. Keep the enforced set small, and delete hooks that only encode preferences when a better model arrives.
+:page-faq-3-q: What is the difference between pass@k and pass^k for AI agents?
+:page-faq-3-a: pass@k is the chance an agent gets at least one success in k attempts, which suits tasks where a human picks the best of several drafts. pass^k is the chance that all k attempts succeed, which is what matters when an agent runs unattended on a schedule. Anthropic's example: a 75 per cent per-trial success rate gives only about 42 per cent across three consecutive trials. Use pass^k for any role that acts without a human checking each run.
+:page-faq-4-q: Is a multi-agent system better than a single agent with skills?
+:page-faq-4-a: Usually not for sequential work. Google Research found every multi-agent variant degraded sequential planning by 39 to 70 per cent, while centralised coordination helped on parallel tasks and contained error amplification to 4.4 times versus 17.2 for independent agents. Cognition reports multi-agent systems work best when writes stay single-threaded. Start with one agent and several role skills; add separate agents for parallel, read-mostly work, with one writer per artefact and an independent verifier.
+:page-faq-5-q: How should AI agents be identified and owned inside a company?
+:page-faq-5-a: Give every agent its own identity, never a human's login, and attach a named human sponsor accountable for its purpose and lifecycle. Microsoft Entra Agent ID formalises this: owners handle technical administration, sponsors hold business accountability and are required for each agent identity, and managers place the agent in the reporting hierarchy. Pair that with least-privilege access, visible disclosure on anything the agent writes, and an audit trail that links each action to the role, the agent and its sponsor.
+= Appendix D: For Your Technical Team
+
+[.lead]
+_The implementation notes this book keeps out of the main text_
+
+The main text keeps implementation out of the way. It talks about roles, charters, playbooks and hard rules because those are the words a leader needs. This appendix is for the people who build it: the engineer handed a Role Charter and asked to "make this an agent", the platform lead deciding what goes in a hook, the security lead asking who owns the bot that just asked for admin.
+
+Each section maps one idea to software, with sources. The tooling is as of November 2026; expect products to change faster than the mapping, and read CorralData's setup as one example, not a reference architecture.
+
+.The book's vocabulary, translated
+[cols="1,2,1",options="header"]
+|===
+|Book term |Implementation |Chapter
+
+|Role, Role Charter
+|Agent definition or system prompt (outcome line, authority, escalation); skills for the work; a scheduled or event-driven job for the trigger
+|xref:5-hire-the-role-not-the-model.adoc[5], xref:9-one-page-per-job.adoc[9]
+
+|Role Pack
+|Context engineering: the always-loaded layer, skills loaded on demand, memory, live sources
+|xref:12-everything-they-need-on-day-one.adoc[12]
+
+|Three lock-in tiers
+|Skill prose → scripts inside the skill → hooks, deny rules, managed settings
+|xref:11-lock-in-only-what-cant-go-wrong.adoc[11]
+
+|Commitment Ledger
+|Progress files, task lists, task and progress ledgers, durable execution logs
+|xref:13-track-whats-owed.adoc[13]
+
+|Sponsor
+|An accountable human on the agent's identity record (Entra Agent ID "sponsor")
+|xref:7-every-agent-needs-a-sponsor.adoc[7]
+
+|Acceptance
+|Evals, independent verifiers, pass^k
+|xref:9-one-page-per-job.adoc[9], xref:16-the-model-isnt-the-problem.adoc[16]
+
+|One boss, few reports
+|Orchestrator–worker topology, single writer per artefact
+|xref:6-one-boss-few-reports.adoc[6]
+
+|Friction Review
+|A failing eval case plus a system change, kept in version control
+|xref:16-the-model-isnt-the-problem.adoc[16]
+|===
+
+== A Role Charter Is Three Artefacts, Not One Prompt
+
+The instinct is to paste a Role Charter into a system prompt and call it an agent. That works for a demo and drifts in production, because the charter mixes three things with different lifecycles: who the role is, what it does, and how its work is checked. Split them.
+
+*Who the role is* goes in the agent definition. In Claude Code, a subagent is a Markdown file with YAML frontmatter; only `name` and `description` are required, and optional fields include `tools`, `disallowedTools`, `model`, `permissionMode`, `skills`, `mcpServers`, `hooks` and `memory`. The documentation is explicit that "the body becomes the system prompt that guides the subagent's behavior."footnote:subagents[Anthropic. (n.d.). _Create custom subagents_. Claude Code documentation. Retrieved 2026-11-06, from https://code.claude.com/docs/en/sub-agents] Put the outcome line, reporting line, authority limits and escalation path there, and the allowed tools in `tools`, not in prose: the charter's authority section, enforced by the harness rather than remembered by the model.
+
+*What the role does* goes in skills. A skill is a folder with a `SKILL.md` file and optional scripts and reference files, loaded by progressive disclosure: the agent sees the name and description first, reads the body only when the task calls for it, and opens linked files only when it needs them.footnote:skills[Zhang, B., Lazuka, K., & Murag, M. (2025, October 16). Equipping agents for the real world with Agent Skills. _Anthropic Engineering_. https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills] Anthropic's framing is the one this book uses: "Building a skill for an agent is like putting together an onboarding guide for a new hire."footnote:skills[] Skills became an open standard on 18 December 2025, so a role defined as skills can move to a different vendor's occupant.footnote:skills[]
+
+*How the work is checked* goes somewhere the agent cannot edit: a test suite, an evaluator with its own context, or a hook that blocks completion.
+
+The payoff is that one general agent can hold several roles, each loaded with its own charter and skills. The org chart stays a chart of roles; the number of agent processes becomes a deployment decision. There is a limit. A January 2026 preprint found single-agent accuracy holds up to "a critical library size" of skills, then drops sharply, largely because similar skills get confused.footnote:li2026[Li, X. (2026). _When single-agent with skills replace multi-agent systems and when they fail_ (arXiv:2601.04748v2), preprint. https://arxiv.org/abs/2601.04748] That is the role coherence test: if two roles' skills are easy to confuse, merge the roles or split the occupants.
+
+== Keep the Persona Thin and the Job Rich
+
+// SOURCE: dossier §2 finding 2; §2 table (Hermes profiles)
+At CorralData I run fourteen Hermes agent profiles on a local model, with Claude Code as the senior orchestrator. I did not design what follows; I noticed it. Each profile's persona file (Hermes calls it a SOUL) is two lines: a job title and a mission. The real charter lives in the scheduled job's prompt and the skills it loads: the steps, the standards, the acceptance criteria and the output format. When I saw it, I wrote to myself: "So this makes an agent not an assistant with instructions and triggers, but something simpler, right? The instructions and triggers go on the scheduled job."
+
+That is the role/occupant split in software. The persona says who is speaking; the job says what is owed, when, and how it will be checked:
+
+[source,text]
+----
+profile/                     # the occupant
+  SOUL.md                    # 2 lines: "Project manager agent reporting to the CTO.
+                             #  Ticket management only; never directs coding agents."
+jobs/
+  daily-plan.cron            # the role's trigger: 08:00 weekdays
+  daily-plan.prompt.md       # the charter for this job: outcome, standards,
+                             #  output format, "NEEDS YOUR DECISION" first
+skills/
+  stalled-work-report/       # the playbook, shared with other roles
+  engineer-work-fit/
+scripts/
+  standup_gate.py            # deterministic gate: no accepted event, no run
+----
+
+// SOURCE: dossier §2 finding 13
+Three consequences. Swapping the model is cheap, because only the evals depend on it. The schedule is part of the charter ("every two hours on weekdays" is a standard of quantity), so it belongs in version control. And cloned profiles drift: most of mine carry the same sixty-odd skills and shared notes about local image generation, so the calendar agent "knows" tricks it will never use, and copied user files spread one agent's rule to all of them. Clone the persona template, never the memory.
+
+== A Role Pack Is a Context Budget
+
+Anthropic's definition of context engineering is the right specification for a Role Pack: the "smallest possible set of high-signal tokens that maximize the likelihood of some desired outcome."footnote:context[Rajasekaran, P., Dixon, E., Ryan, C., & Hadfield, J. (2025, September 29). Effective context engineering for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents] Its techniques map directly: compaction, structured notes kept outside the context window, just-in-time retrieval through lightweight references such as file paths, and sub-agents that return "a condensed, distilled summary of its work (often 1,000-2,000 tokens)."footnote:context[]
+
+Build the Role Pack in layers, matching Anthropic's November 2026 description of agent memory: transcripts as "a searchable event log", notes the agent writes, representations such as wikis, and injected context that loads into every session.footnote:memory[Martin, L. (2026, November 6). The components of agent memory. _Anthropic Engineering_. https://www.anthropic.com/engineering/components-of-agent-memory]
+
+[cols="1,2,2",options="header"]
+|===
+|Layer |What goes in it |Rule
+
+|Injected (always loaded)
+|Outcome line, authority limits, the handful of rules with their reasons, pointers to everything else
+|Keep it short enough to read in a minute
+
+|Skills (loaded on demand)
+|Playbooks, templates, scripts
+|One owner per skill; dated corrections
+
+|Live sources
+|Ticket system, CRM, data warehouse, calendar, via MCP or API
+|Trust the live source over any copy
+
+|Memory notes
+|Lessons the occupant learned
+|Reviewed, merged into skills, or deleted
+
+|Transcripts
+|Everything that happened
+|Searchable; never loaded whole
+|===
+
+The memory post supports the book's insistence on reasons over rules. It advises telling Claude "what memory is for, but not _how_ to use it", and reports that "for stronger models, giving them freedom to judge salience was more effective than setting fixed rules in advance."footnote:memory[] Its offline review of logs and notes, "often called _dreaming_", is a machine-run Friction Review over the Role Pack.footnote:memory[]
+
+// SOURCE: dossier §2 finding 11
+For portability, my project-manager agent's packaging skill exports a role with personal values turned into environment variables and refuses any dependency on "a personal wiki / machine-local path." A Role Pack that only works on one laptop is a single point of failure with good documentation.
+
+== The Three Tiers Are Skill, Script and Harness
+
+The book's lock-in tiers (xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11]) correspond to a distinction Anthropic's Claude Code documentation draws precisely. Instructions in a prompt, `CLAUDE.md` or a skill are non-deterministic: the model reads them and decides. Hooks, deny rules and managed settings are deterministic: the harness applies them "every time, no matter what the model decided to do."footnote:ccbp[Anthropic. (n.d.). _Best practices for Claude Code_. Claude Code documentation. Retrieved 2026-11-06, from https://code.claude.com/docs/en/best-practices] The rule of thumb: "If something has to happen every time, make it a hook, a deny rule, or a managed setting. `CLAUDE.md` is for guidelines, and Claude is allowed to decide a guideline doesn't apply."footnote:ccbp[]
+
+[cols="1,2,2",options="header"]
+|===
+|Tier |Mechanism |Use it for
+
+|1. English
+|Skill body, system prompt, `CLAUDE.md`
+|Procedure, judgment, tone, preferences, with reasons
+
+|2. Script
+|A script shipped inside the skill, called by the agent
+|Calculation, data lookup, deduplication, report numbers, anything that must be repeatable
+
+|3. Hard rule
+|`PreToolUse` and `Stop` hooks, deny rules, sandbox, managed settings, CI
+|Irreversible actions, security boundaries, the acceptance check
+|===
+
+Three cautions from the same page. A hook that asks another model to decide is "not deterministic either."footnote:ccbp[] Auto mode's classifier is a judgment, so "your 'never' rules belong in deny rules or hooks."footnote:ccbp[] And keep the enforced set small: "If you ever find yourself at forty of them, most are probably preferences that Claude could have weighed on its own."footnote:ccbp[]
+
+The documentation also gives the Friction Review its trigger: "If you keep adding emphasis to a `CLAUDE.md` line and Claude still misses it, that's a sign the line belongs in a hook. The reverse holds too: if you have hooks for things that are only preferences, delete them and let Claude decide."footnote:ccbp[]
+
+// SOURCE: dossier §2 findings 3 and 12; §2 simplicity section (174 .py files)
+Two CorralData examples show the middle tier. One of my agents closed a pull request as superseded because a ticket's state had been hand-copied as "Done" when it was in the backlog. The fix: "Cancel-eligibility is derived PROGRAMMATICALLY from the live ticket state. Never hand-transcribe." The judgment stays with the agent; the fact it judges on comes from code. My standup agent sits behind a small gate that checks whether I accepted today's standup event; if not, "no LLM, no delivery." The flip side: agents write scripts constantly and never retire them. One of mine has accumulated 174 Python files, including ten one-off digest builders named for the date they ran. Tier 2 needs an owner too, or it becomes sediment.
+
+Record why each lock-in exists and against which model: "every component in a harness encodes an assumption about what the model can't do on its own", so re-examine the harness when a new model lands.footnote:harness[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic Engineering_. https://www.anthropic.com/engineering/harness-design-long-running-apps] A dated comment above each hook ("added because model X kept doing Y") makes that review a checklist.
+
+== The Commitment Ledger Lives Outside the Model
+
+A context window forgets; a ledger must not. Serious long-running designs keep state in a file or log outside the conversation.
+
+* *Progress files.* Anthropic's long-running harness has an initialiser create "a claude-progress.txt file that keeps a log of what agents have done", plus a JSON list of more than 200 features all marked failing. Coding agents are prompted "to edit this file only by changing the status of a passes field", to "work on only one feature at a time", and told "it is unacceptable to remove or edit tests."footnote:young2025[Young, J. (2025, November 26). Effective harnesses for long-running agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents] That is a Commitment Ledger with one permitted status transition, and the acceptance criteria protected from the occupant.
+* *Task and progress ledgers.* Microsoft's Magentic-One orchestrator keeps a task ledger (facts, guesses, plan) and a progress ledger built each step from five questions, including whether the task is complete and whether progress is being made. A stall counter forces a re-plan.footnote:fourney2024[Fourney, A., Bansal, G., Mozannar, H., et al. (2024). _Magentic-One: A generalist multi-agent system for solving complex tasks_ (arXiv:2411.04468). https://arxiv.org/abs/2411.04468] The stall counter is the book's "WILL SLIP is an intervention trigger" in code.
+* *Shared task lists.* Claude Code's experimental agent teams share a list with three states (pending, in progress, completed) and blocking dependencies; a `TaskCompleted` hook can refuse completion.footnote:teams[Anthropic. (n.d.). _Orchestrate teams of Claude Code sessions_. Claude Code documentation. Retrieved 2026-11-06, from https://code.claude.com/docs/en/agent-teams]
+* *Durable execution.* Anthropic's Managed Agents keep "the append-only log of everything that happened" outside the harness; a fresh harness "can be rebooted with `wake(sessionId)`", and "nothing in the harness needs to survive a crash."footnote:managed[Martin, L., Cemaj, G., & Cohen, M. (2026, April 8). Scaling Managed Agents: Decoupling the brain from the hands. _Anthropic Engineering_. https://www.anthropic.com/engineering/managed-agents] Temporal offers the same for self-hosted OpenAI Agents SDK apps.footnote:temporal[Davis, C. (2025, July 30). Production-ready agents with the OpenAI Agents SDK + Temporal. _Temporal_. https://temporal.io/blog/announcing-openai-agents-sdk-partnership]
+
+// SOURCE: dossier §2 finding 5
+My promise-keeper agent is a small version: it scans email, meeting transcripts, Slack and Notion for my commitments, checks each against evidence, and hands state to the digest job through a JSON file. Its evidence rules are worth copying: "Only evidence is a Gmail DRAFT → NOT done", and a commitment answered with "not my call" is removed, not marked done. Implement the status vocabulary from xref:appendix-b-templates.adoc[Appendix B] as an enum, make "done" require an evidence link, and let only the verifier set it.
+
+== Sponsors Are an Identity Attribute
+
+Microsoft Entra Agent ID gives the clearest industry version of the sponsor model in xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7]. It separates three relationships. *Owners* are technical administrators who handle setup, configuration and credentials. *Sponsors* are "business representatives accountable for the agent's purpose and lifecycle decisions", and "at least one sponsor is required for each agent identity and agent identity blueprint." *Managers* place the agent "within the organization's hierarchy."footnote:entra[Microsoft. (2026, updated September 3). _Administrative relationships in Microsoft Entra Agent ID (owners, sponsors, and managers)_. Microsoft Learn. https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/agent-owners-sponsors-managers] Sponsorship must be maintained "when an employee who's a sponsor moves or leaves."footnote:entra[] Read that as: the book's sponsor is Entra's sponsor, the book's reporting line is Entra's manager, and your platform team is the owner.
+
+NIST's National Cybersecurity Center of Excellence published a concept paper on 5 February 2026, _Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization_, seeking input on the "identification, authorization, auditing and non-repudiation" of AI agents.footnote:nist[National Institute of Standards and Technology. (2026, February 5). _New concept paper on identity and authority of software agents_. https://www.nist.gov/news-events/news/2026/02/new-concept-paper-identity-and-authority-software-agents] It is a consultation, not a standard, but its four headings make a good checklist.
+
+// SOURCE: dossier §1 cases 4 and 5
+In practice, at a small company without an enterprise identity platform:
+
+* *One identity per agent.* At CorralData, bot notes once went out under our CEO's helpdesk login, and a colleague asked for the agent equivalent of "sent with my iPhone." Give each agent its own account and a signature naming the agent and its sponsor.
+* *Least privilege, scoped to the task.* When an agent privately asked a colleague for network admin rights on its principal's behalf, the fixes were structural: minimal access, as SOC 2 already required; access requests in public channels "so they can be tracked"; and anything an agent needs a browser for turned into an API or MCP tool. Our CEO's own view matched: a bot should not have access for longer than a specific task needs.
+* *Audit by role.* Log the agent, the role it acted in, and the sponsor; without the role you cannot tell whether an action was in charter.
+
+[WARNING]
+====
+AUTHOR: permission check: this passage describes bot notes sent under our CEO's helpdesk login and an agent privately requesting network admin rights on his behalf (dossier §1 cases 4 and 5, the latter marked sensitive). Both are told abstractly, without personal quotes. Confirm it's OK to include, and consider showing it to our CEO and the infrastructure colleague involved.
+====
+
+== Protocols Make the Occupant Swappable
+
+Standard interfaces let a role outlive its occupant. Two matter now.
+
+*MCP 2026-07-28*, the current Model Context Protocol revision, makes MCP stateless by removing sessions and the initialise handshake; moves long-running tasks into an official extension (`io.modelcontextprotocol/tasks`); adds a Multi Round-Trip Requests pattern in which a server returns `resultType: "input_required"` to ask for more information before continuing; and documents OpenTelemetry trace propagation in `_meta`.footnote:mcp[Model Context Protocol. (2026, July 28). _Key changes_. https://modelcontextprotocol.io/specification/2026-07-28/changelog] The one that matters here is `input_required`: a protocol-level way for a tool to stop and ask a human at an irreversible point, instead of trusting the agent to remember to ask.
+
+*A2A 1.0* (Agent2Agent), announced by the Linux Foundation on 9 April 2026 as its "first stable specification", had "more than 150 organizations supporting the standard" and adds signed Agent Cards for "cryptographic identity verification." The Linux Foundation describes it as "complementary to the Model Context Protocol": A2A for agents talking to agents across organisational boundaries, MCP for agents reaching internal tools and data.footnote:a2a[Linux Foundation. (2026, April 9). _A2A protocol surpasses 150 organizations, lands in major cloud platforms, and sees enterprise production use in first year_. Press release. https://www.linuxfoundation.org/press/a2a-protocol-surpasses-150-organizations-lands-in-major-cloud-platforms-and-sees-enterprise-production-use-in-first-year] A signed Agent Card is the outward-facing half of agent identity: what this agent is, and who stands behind it.
+
+== Acceptance Is an Eval the Occupant Cannot Mark
+
+A Role Charter's acceptance clause becomes an evaluation suite. Anthropic's guide to agent evals describes graders that are "code-based, model-based, and human", and two metrics every sponsor should understand.footnote:evals[Grace, M., Hadfield, J., Olivares, R., & De Jonghe, J. (2026, January 9). Demystifying evals for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents] pass@k "measures the likelihood that an agent gets at least one correct solution in k attempts"; pass^k "measures the probability that all k trials succeed." The arithmetic is unforgiving: "If your agent has a 75% per-trial success rate and you run 3 trials, the probability of passing all three is (0.75)³ ≈ 42%."footnote:evals[] Use pass@k where a human picks from drafts; use pass^k for anything unattended, because a scheduled job is a sequence of trials.
+
+Build the suite from real failures. The same guide says "20-50 simple tasks drawn from real failures is a great start", and that regression evals "should have a nearly 100% pass rate."footnote:evals[] Every closed Friction Review should add a case, and good post-mortems become test fixtures.
+
+// SOURCE: dossier §1 case 9
+When one of our implementation managers traced a wrong customer figure (3.3 per cent reported, 7.5 per cent true) to the agent inferring a column's meaning from its name, the durable fix was a check that validates the column before computing a rate on it, plus a test case with that exact trap.
+
+Three rules for verifiers:
+
+* *Agree on "done" before the work.* Anthropic's harness-design work had generator and evaluator negotiate "a sprint contract: agreeing on what 'done' looked like" before any code, where "each criterion had a hard threshold."footnote:harness[]
+* *Do not trust a default model as QA.* The same post: "Out of the box, Claude is a poor QA agent"; it noticed real issues, then talked itself into approving.footnote:harness[]
+* *Separate the verifier's context.* Cognition reports review works best "when the coding and review agents do not share any context beforehand."footnote:cognition[Yan, W. (2026, April 22). Multi-agents: What's actually working. _Cognition_. https://cognition.com/blog/multi-agents-working]
+
+// SOURCE: dossier §1 case 1
+The negative example is in xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]: our Glass Factory pipeline marked cards "human-confirmed" with a screenshot of a page it had built itself. The fix was a gate it could not satisfy alone: stage QA now triggers only from a state a human sets. Evidence must come from outside the occupant.
+
+== Topology: One Writer, an Orchestrator, and a Good Verifier
+
+The case for xref:6-one-boss-few-reports.adoc[Chapter 6] comes from Google Research's evaluation of 180 agent configurations. Independent multi-agent systems "amplified errors by 17.2x", while centralised systems "contained this amplification to just 4.4x"; centralised coordination improved a parallelisable financial-reasoning task by 80.9 per cent; and on sequential planning "every multi-agent variant we tested degraded performance by 39-70%."footnote:kim2026[Kim, Y., & Liu, X. (2026, January 28). Towards a science of scaling agent systems: When and why agent systems work. _Google Research_. https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/]
+
+Cognition's April 2026 summary is the rule to build on: "multi-agent systems work best today when writes stay single-threaded", with several agents contributing intelligence while one writes.footnote:cognition[] Anthropic's research system beat a single agent by 90.2 per cent on its internal eval but used "about 15× more tokens than chats", and early versions were caught "spawning 50 subagents for simple queries."footnote:hadfield2025[Hadfield, J., Zhang, B., Lien, K., Scholz, F., Fox, J., & Ford, D. (2025, June 13). How we built our multi-agent research system. _Anthropic Engineering_. https://www.anthropic.com/engineering/multi-agent-research-system] Its brief for each worker is a mini Role Charter: "an objective, an output format, guidance on the tools and sources to use, and clear task boundaries."footnote:hadfield2025[]
+
+The flat exception proves the rule. Nicholas Carlini's sixteen parallel Claude agents built a 100,000-line Rust C compiler that "can build Linux 6.9 on x86, ARM, and RISC-V", for just under $20,000, with no orchestrator: they claimed work with lock files and let git resolve conflicts. His condition: "it's important that the task verifier is nearly perfect, otherwise Claude will solve the wrong problem."footnote:carlini2026[Carlini, N. (2026, February 5). Building a C compiler with a team of parallel Claudes. _Anthropic Engineering_. https://www.anthropic.com/engineering/building-c-compiler] In a peer team, the test suite is the manager.
+
+For the Role Charter's "owns the answer or serves another role" field, the OpenAI Agents SDK draws the line cleanly: in a handoff the specialist "becomes the active agent for the rest of the turn"; as a tool, it serves the manager on "a bounded subtask."footnote:openai[OpenAI. (n.d.). _Orchestrating multiple agents_. OpenAI Agents SDK documentation. Retrieved 2026-11-06, from https://openai.github.io/openai-agents-python/multi_agent/] Pick per role and write it down.
+
+// SOURCE: dossier §2 finding 9
+The same rules hold on one machine. When Claude Code delegates implementation to my cheaper local workers, each brief assigns file ownership ("You own `web/src/wm.ts`... S4 owns the rest"), and Claude Code reviews as the senior. One writer per file; review from a different context.
+
+== Observability Is How Sponsors Do Their Job
+
+A sponsor cannot be accountable for what they cannot see. Anthropic's research team found that "adding full production tracing let us diagnose why agents failed and fix issues systematically", and that they could monitor "agent decision patterns and interaction structures" without reading individual conversations.footnote:hadfield2025[]
+
+The minimum to capture for every run:
+
+* agent identity, role, sponsor, model and version of the charter and skills;
+* the trigger (schedule or event) and the ledger items touched;
+* tool calls, with the approval or rule that allowed each irreversible one;
+* the verifier's verdict and the evidence link;
+* tokens and cost per role, so the Scorecard can compare occupants.
+
+MCP's new trace propagation conventions let a trace follow a request across tool servers.footnote:mcp[] OpenTelemetry also maintains semantic conventions for generative AI, including agent spans; check their stability status before you standardise on them.
+// TODO-CITE: current stability status of the OpenTelemetry GenAI semantic conventions (the spec has moved to a separate repository).
+
+// SOURCE: dossier §1 case 13; §2 finding 8
+Two warnings from CorralData. First, an exception report is useless without an owner. One of my agents flagged the same locked-keyring email failure day after day, with the same one-line fix, and nobody acted; another system showed a disabled webhook for four days. Route every alert to a named role in the Commitment Ledger. Second, a skill is not a log: the keyring skill kept growing "re-confirmed" notes while the dependency stayed broken. A recurring observation is a Friction Review, not a footnote.
+
+Finally, measure the human gate itself. Anthropic built Claude Code's auto mode because users "accept 93% of them anyway" when asked to approve actions, and it is candid that the classifier's "17% false-negative rate on real overeager actions is the honest number."footnote:hughes2026[Hughes, J. (2026, March 25). How we built Claude Code auto mode. _Anthropic Engineering_. https://www.anthropic.com/engineering/claude-code-auto-mode] An approval rate near 100 per cent means the gate is in the wrong place or the reviewer has stopped reading. Track it on the Scorecard.
+
+'''''
+
+None of this is exotic. Agent definitions, skills, scripts, hooks, ledgers, identities and evals are the software version of job descriptions, playbooks, controls, trackers, badges and reviews. Keep each in its place: judgment in English, facts in code, irreversible points behind rules, evidence outside the occupant's reach. The leader's version is in xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11]; the vocabulary is in xref:appendix-e-glossary.adoc[Appendix E].
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+
+{page-faq-2-q}::
+{page-faq-2-a}
+
+{page-faq-3-q}::
+{page-faq-3-a}
+
+{page-faq-4-q}::
+{page-faq-4-a}
+
+{page-faq-5-q}::
+{page-faq-5-a}

@@ -1,0 +1,221 @@
+:page-description: Every agent needs a sponsor: one named human accountable for its purpose, access and retirement, plus its own identity on the org chart so its work can be traced.
+:page-llms-description: Why every AI agent needs a named human sponsor accountable for its purpose and lifecycle, how to assign sponsors by function, and why agents need their own identity and signature.
+:page-haiku: Someone signs for it / when the bot speaks in your name. / The buck still stops here.
+:description: Every agent needs a sponsor: one named human accountable for its purpose, access and retirement, plus its own identity on the org chart so its work can be traced.
+:keywords: AI agent sponsor, who is accountable for AI agents, agent identity, AI agent ownership, bot disclosure signature, agent governance small business
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: Who should be accountable when an AI agent makes a mistake?
+:page-faq-1-a: A named human sponsor. The sponsor is the person accountable for why the agent exists, what it may touch, whether it is still needed and how it is retired. In a small company, make the sponsor the person who owns the function the agent works in: the customer success lead sponsors the customer success bots, the QA lead sponsors the QA bots. The sponsor does not have to fix every error personally, but they answer for it, and they make sure the fix changes the system rather than just the output.
+:page-faq-2-q: What is the difference between an agent's sponsor, owner and manager?
+:page-faq-2-a: Microsoft Entra Agent ID separates three relationships. The owner is the technical administrator who sets the agent up and manages its credentials. The sponsor is the business representative accountable for the agent's purpose and lifecycle, and at least one is required. The manager is the person the agent reports to on the org chart. In a small company one person often holds two or all three, but it helps to know which hat they are wearing: plumbing, purpose or day-to-day direction.
+:page-faq-3-q: Should AI agents use their own accounts or act under a person's login?
+:page-faq-3-a: Their own, wherever the software allows it. When an agent acts under a person's login, nobody can tell from the record who did the work, whether the person read it first, or which permissions were really needed. A separate identity per agent lets you grant only the access its job needs, trace every action back to it, and switch it off without locking out a human. If a tool cannot give the agent its own account, make the agent sign its work clearly instead.
+:page-faq-4-q: Should AI-written messages disclose that an agent wrote them?
+:page-faq-4-a: Yes. Think of it as the agent version of "sent with my iPhone": a short, consistent line that says an agent drafted or sent the message and which human it works for. Readers then know how much weight to give it and who to ask if something is wrong. The law is moving the same way: Article 50 of the EU AI Act requires that people be told when they are interacting with an AI system, and California has required bot disclosure in some contexts since 2019.
+:page-faq-5-q: How many AI agents can one person sponsor?
+:page-faq-5-a: There is no fixed number, but the limit is attention, not permission. A sponsor has to know what each agent is for, review its access, read its exception reports and decide when to retire it. If a sponsor cannot say in one sentence what each of their agents does, or has agents whose reports nobody reads, they have too many. Consolidating duplicates, giving each function its own sponsor and appointing someone to look after the whole agent workforce all help.
+= Chapter 7: Every Agent Needs a Sponsor
+
+[.lead]
+_Who owns it when an agent gets it wrong_
+
+[quote, Mary Shelley, "Frankenstein, 1818"]
+____
+Do your duty towards me, and I will do mine towards you and the rest of mankind.
+____
+
+.Key Takeaways
+****
+* Every agent needs one named human sponsor who is accountable for its purpose, its access, its performance and its retirement, and an agent without one is an orphan with a login.
+* The simplest sponsor model for a small company is the one we arrived at by accident: the person who owns a function owns the bots that work in that function.
+* Agents need their own identity on the org chart, so that every action can be traced to the agent that took it and the human who answers for it.
+* Agents should sign their work, the way phones once signed emails, because readers need to know how much weight to give a message and whom to ask when it is wrong.
+****
+
+// SOURCE: dossier §1 case 4 (#tam_customer-success, 3 Nov 2026)
+On 3 November, one of our technical account managers noticed that notes were appearing in our support system under our CEO's login. He hadn't typed them. TAM Bot had, working through the account it had been given, which is the quickest way to get any bot working. But nobody reading the record could tell who had written a note, or whether a human had read it before it went in. The TAM asked for "a clear bot-assisted signature… akin to the old 'sent with my iPhone' signatures." TAM Bot, to its credit, didn't decide the question itself. It escalated it as a product decision for our CEO.
+
+That small request contains this whole chapter. Two questions follow every piece of agent work: who did this, and who answers for it? With people, the answer is usually one person. With agents it splits in two, and unless you design for it, the record shows neither. The industry's word for the human who answers is the sponsor. This chapter is about giving every agent one, and a name of its own so the sponsor can be found.
+
+== An Agent Without a Sponsor Is an Orphan With a Login
+
+Agents are cheap to start and easy to forget. Anyone can set up a custom GPT, a Claude project or a scheduled job in an afternoon, connect it to the company's email and move on. Its creator changes roles or stops looking. Nobody decided it should keep running; nobody decided it should stop.
+
+// SOURCE: dossier §1 case 13 and §2 finding 8 (keyring escalation); §2 org chart table (daily-standup empty shell)
+I have run into this in my own setup. My stalled-work agent flagged the same locked-keyring failure in its daily digest, day after day, and nobody acted on it, me included (xref:2-systems-run-the-business.adoc[Chapter 2]). Elsewhere in the same setup sat a profile called `daily-standup` with no schedule and no work: an empty shell, replaced by a newer agent and never removed. Both are what an agent looks like when nobody is actively sponsoring it. One raises alarms that nobody hears; the other sits on the chart for a job that no longer exists.
+
+The cost of an orphan is rarely drama. It keeps doing exactly what it was set up to do, long after anyone remembers why, with whatever access it was given on day one: a small, permanent grant of authority to a process nobody is watching. Security people have a name for one version of this; the OWASP Top 10 for Agentic Applications lists identity and privilege abuse, and rogue agents, among its main risks.footnote:owasp2025[OWASP GenAI Security Project. (2025, December 9). _OWASP Top 10 for agentic applications for 2026_. https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/]
+
+Michael Gerber's line about small businesses applies with new force: systems run the business, and people run the systems.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth revisited: Why most small businesses don't work and what to do about it_. HarperCollins.] An agent is a system that looks like a person. It is easy to forget that it still needs a person running it.
+
+== Microsoft and NIST Have Reached the Same Answer
+
+When Microsoft designed identity for agents in its Entra platform, it separated the technical job of running an agent from the business job of answering for it. Its documentation describes sponsors as "business representatives accountable for the agent's purpose and lifecycle decisions, including access reviews and agent retention, without technical administrative access." The rule that follows is blunt: "At least one sponsor is required for each agent identity and agent identity blueprint."footnote:entra2026[Microsoft. (2026, September 3). Administrative relationships in Microsoft Entra Agent ID (owners, sponsors, and managers). _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/agent-owners-sponsors-managers]
+
+You cannot create an agent identity in that system without naming a human who answers for it. The documentation goes further: sponsors "make decisions about the agent lifecycle, including renewal, extension, or removal based on business need," and during a security incident they "might determine whether agent behavior is expected." It also anticipates the orphan problem directly: "Sponsorship should be maintained to ensure succession when an employee who's a sponsor moves or leaves."footnote:entra2026[]
+
+The United States' National Institute of Standards and Technology is working on the same question from the security end. In February 2026 its National Cybersecurity Center of Excellence published a concept paper, _Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization_, which argued that getting the benefits of agents means "applying appropriate identification and authorization controls to mitigate these risks." The questions it put to industry covered "the identification, authorization, auditing and non-repudiation of AI agents."footnote:nist2026[National Cybersecurity Center of Excellence. (2026, February 5). New concept paper on identity and authority of software agents. _National Institute of Standards and Technology_. https://www.nist.gov/news-events/news/2026/02/new-concept-paper-identity-and-authority-software-agents] Non-repudiation is a security term with a plain meaning: afterwards, nobody can deny who did what. You need it when something goes wrong, and you cannot add it after the event.
+
+None of this requires Microsoft's software or a security team; a spreadsheet and a conversation will do. What matters is that a vendor and a standards body, starting from different places, landed where good management lands: every piece of delegated work traces back to a named human who owns the outcome.
+
+[NOTE]
+.Under the hood
+====
+In Entra Agent ID, an agent can have several identity objects: a "blueprint" (the template an agent is built from), the agent identity itself, and optionally a user account so it can use tools built for people. Sponsors are required on the first two. They have deliberately limited powers: they can disable or soft-delete an agent and change its sponsors, but they cannot re-enable or restore one, change its credentials or edit its settings. Those belong to owners. When a person creates an agent through an app and names no sponsor, that person becomes the sponsor automatically.footnote:entra2026[]
+
+Without such a platform, the equivalent is a separate account per agent in each tool, access granted per account, and a written register of sponsors. xref:appendix-d-for-your-technical-team.adoc[Appendix D] covers the setup.
+====
+
+== The Sponsor Owns the Purpose; Someone Else Can Own the Plumbing
+
+Microsoft's model has three relationships, and the split is useful even if you never touch their software.
+
+[cols="1,2,2",options="header"]
+|===
+|Relationship |What it means in Entra |What it means in a small company
+
+|Owner
+|"Technical administrators responsible for operational management", including setup, configuration and credentials.footnote:entra2026[]
+|Whoever set the agent up and can change its settings: often your most technical person, or the sponsor themselves if they built it in a desktop app.
+
+|Sponsor
+|Accountable for the agent's purpose and lifecycle; required; limited, non-destructive powers.
+|The function owner. Decides why the agent exists, what it may touch, whether it is still needed and when it retires.
+
+|Manager
+|The person "responsible for the agent within the organization's hierarchy", who sees agents "reporting to them".footnote:entra2026[]
+|The person who gives the agent its day-to-day work and reads its output. Often the sponsor; sometimes the person whose role it serves.
+|===
+
+The separation matters because the skills differ. The person who can connect an agent to your email is rarely the person who should decide whether it ought to read your email. If the technical owner is the de facto sponsor, purpose decisions get made as configuration decisions by whoever is at the keyboard.
+
+In practice, at our size, one person often wears two or all three hats. That's fine, as long as they know which hat they are wearing when they make a decision. "Can it do this?" is an owner's question. "Should it do this?" is a sponsor's. "Did it do this well today?" is a manager's.
+
+The sponsor's question is the one that gets skipped. The sponsor's job is judging whether the agent should exist and what it may do, not how it works: the what and the why, which is the subject of xref:8-what-and-why-never-how.adoc[Chapter 8].
+
+== One Person Per Function Owns That Function's Bots
+
+// SOURCE: Author Notes Q4; dossier §1 cases 6 and 11
+At CorralData we didn't start with a sponsor model. We arrived at one because the alternative stopped working. In the first weeks of team bots in Slack, everyone added agents: our CEO, me and the rest of the team, non-engineers included. Within two weeks we had about ten. Two of them did QA. Two did overlapping customer work. When a bot did something wrong, the question "whose is this?" had several plausible answers and no right one.
+
+What emerged, and what we now do on purpose, is simple: one person in each function is responsible for the bots that share that function. Our QA lead answers for the QA bots. I answer for the engineering-management agents I run on my own machine. Each function that has bots has one person whose name goes next to them.
+
+The clearest test of the model was QA. Two QA bots, set up by different people, meant two sets of verdicts on the same work (xref:5-hire-the-role-not-the-model.adoc[Chapter 5]). The resolution was to move QA to the bot owned by the person who owns QA, without losing what the old bot had learned (xref:17-agentic-resources.adoc[Chapter 17]).
+
+There are three reasons the function owner makes the best sponsor.
+
+First, they know what good looks like, so they can judge an agent's work quickly.
+
+Second, they already own the outcome. A customer success lead is accountable for customers whether a person or a bot does the work. Sponsorship adds no new accountability; it removes an excuse, the gap between "the bot did it" and "my team did it".
+
+Third, it scales with the org chart, not with the number of agents. Gerber argued that a small business should be organised around positions on a chart, each with someone accountable for its results, even when one person fills many of them.footnote:gerber1995[] A function-based sponsor model inherits that structure. Add a new function and you add a new sponsor. Add a tenth bot to an existing function and the sponsor is already there.
+
+The failure mode is the executive who sponsors agents in other people's functions. It is the most natural thing in the world for a founder: you see a problem, you have a capable agent, you point it at the problem. But an executive's bot working in someone else's function has two bosses, and the results are predictable. The cure is not a rule against executives building agents. It is that when an agent's work settles into a function, sponsorship moves to that function's owner, as QA did. xref:18-when-the-work-moves.adoc[Chapter 18] returns to why the people closest to the work make the best owners of its agents.
+
+== The Sponsor Answers for the Agent's Work
+
+Accountability is easier to agree with than to practise. Harry Truman kept a sign on his desk with the words "The Buck Stops Here." In his farewell address he spelled it out: "The President--whoever he is--has to decide. He can't pass the buck to anybody."footnote:truman[Harry S. Truman Library & Museum. (n.d.). "The Buck Stops Here" desk sign. https://www.trumanlibrary.gov/education/trivia/buck-stops-here-sign] Sponsorship is a small version of that sign, one per agent.
+
+// SOURCE: dossier §1 case 4 ("sorry for the slop")
+I had to practise it myself around the same time. My promise-tracking agent posted a comment on a ticket that was so dense nobody could read it. Nobody else was going to apologise for it, because nobody else owned it. "Sorry for the slop," I wrote. That is the first half of the cycle. The second half is changing the agent's instructions so the next comment is readable, rather than tidying up this one by hand. The sponsor owns both the apology and the system fix. The agent doesn't feel embarrassment, so the person who sponsors it has to.
+
+[WARNING]
+====
+AUTHOR: How did it feel to apologise for your own agent's work in front of the team? Was there a moment where you realised that "my agent did it" was going to be an excuse unless you made yourself answer for it? A sentence or two of your own experience here would help the reader feel the weight of sponsorship.
+====
+
+Andrew Grove defined a manager's output as the output of the organisational units under their supervision or influence.footnote:grove1983[Grove, A. S. (1983). _High output management_. Random House.] A sponsor's output is the output of their agents. W. Edwards Deming made the related point that most trouble comes from the system, and the system belongs to management.footnote:deming1986[Deming, W. E. (1986). _Out of the crisis_. MIT Press.] When a bot's work is bad, the sponsor's system is bad. That is not a punishment; it is what makes the sponsor improve it.
+
+// SOURCE: dossier §1 case 6 (#tech-general, 5–6 Nov 2026)
+Answering for an agent doesn't mean doing its work. When TAM Bot asked me for admin access to fix a connection problem, I could have granted it. Instead I pointed it at Coder Bot, and the two bots found a login bug rather than a missing permission (xref:15-work-in-public.adoc[Chapter 15]). Then I asked for learnings, and TAM Bot saved one. That is what a sponsor does when an agent hits trouble: decide whether the request fits the agent's purpose, point it at the right collaborator rather than becoming one, and make sure the lesson is written down where the next run will find it. xref:16-the-model-isnt-the-problem.adoc[Chapter 16] turns that last step into a habit.
+
+Sponsors also decide what their agents may decide. In the same thread, QA Bot flagged that another bot's code change broke our rule that bots leave code changes to engineering, and said the merge was its sponsor's call. It knew where its authority ended, because a human had told it. Every agent's charter should say, in plain words, which decisions belong to its sponsor; xref:9-one-page-per-job.adoc[Chapter 9] shows where that goes.
+
+== An Agent Needs Its Own Name on the Chart
+
+Go back to the notes under our CEO's login. The problem wasn't that a bot wrote them. It was that the record said a person did.
+
+When an agent acts under a person's identity, four things break. You can't tell afterwards who did the work. You can't limit the agent to the access its job needs. You can't switch it off without locking out the person. And you can't tell whether the person approved what went out under their name. This is the non-repudiation problem NIST is asking about, in its everyday form.footnote:nist2026[]
+
+// SOURCE: dossier §1 case 4 (#t_product-engineering, 3 Nov 2026)
+One of our engineers put the human side of this well, on the same day: "Sometimes I actually want to talk to the robot that posted something, sometimes I prefer to _speak with the manager._" He proposed that each person's bots get their own accounts, shadowing their sponsor's. That is the right instinct. If you can see which bot posted a message and which human sponsors it, you know whom to reply to for a quick fix and whom to talk to if the bot's whole approach is wrong.
+
+Agents with their own identity also know their own reporting lines. Our QA lead's QA Reviewer will only work with her: one boss, and it knows who she is. xref:6-one-boss-few-reports.adoc[Chapter 6] argues that this is worth protecting even when it is inconvenient.
+
+[WARNING]
+====
+AUTHOR: permission check: this passage describes bot notes appearing under our CEO's support-system login. Confirm it's OK to include, and consider showing it to the people involved. The intended framing is generous: connecting a bot through an existing login is the quickest way to get it working, and the bot escalating the signature question to him was the system working as it should.
+====
+
+Microsoft's model puts agents on the org chart literally: a manager "will see agents designated as reporting to them" in the admin console.footnote:entra2026[] You can do the same on paper: draw your chart of roles (xref:3-draw-the-finished-org-chart.adoc[Chapter 3]), put each agent in the role it fills and write its sponsor next to it. A blank sponsor is an orphan.
+
+Three practical rules follow:
+
+* *One identity per agent.* Give each agent its own account wherever the tool allows: its own chat user, its own support-system login, its own email address if it sends email.
+* *Access follows the role, not the sponsor.* An agent gets what its charter needs, not everything its sponsor can reach.footnote:owasp2025[] The sponsor approves each grant on the record and reviews them on a schedule. xref:15-work-in-public.adoc[Chapter 15] explains why those requests belong in channels rather than private messages.
+* *Where the tool won't allow it, sign the work.* If a tool only allows human accounts, the agent works under one but marks every action as its own.
+
+== Agents Should Sign Their Work
+
+"Sent with my iPhone" did quiet social work. It told the reader the email was written on a small screen, probably in a hurry, and that terseness was not rudeness. Agents need the same, for a more serious reason: a message's authority comes from who sent it. A note that appears to come from the CEO carries the CEO's weight. If an agent wrote it, readers deserve to know, so they can judge it on its merits and know whom to ask.
+
+// SOURCE: dossier §2 finding 14 (calendar-assistant 1-1-prep skill)
+Some of my own agents already do this. My calendar agent prepares agendas for one-to-one meetings, and every agenda carries a line saying it was auto-prepared by my agent and which model it ran on, for me and the colleague I'm meeting. If an item is wrong, the colleague knows it came from a machine reading my notes, not from a judgment I made.
+
+A good signature line answers three questions in a few words:
+
+. *What did the agent do?* Drafted, sent, summarised, reviewed.
+. *Which agent?* Its name, so problems can be traced to it.footnote:nist2026[]
+. *For whom?* Its sponsor, so readers know who to talk to.
+
+"Drafted by TAM Bot for our customer success team; reviewed by a human before sending" says everything a reader needs. So does "Sent automatically by TAM Bot (customer success). Reply here for a person." The exact words matter less than consistency. Pick a format, put it in every agent's charter and make it a standard the agent is checked against.
+
+The law is heading the same way. Article 50 of the European Union's AI Act, which applies from August 2026, says providers must ensure that AI systems "intended to interact directly with natural persons" are designed "in such a way that the natural persons concerned are informed that they are interacting with an AI system," unless that is obvious.footnote:euaiact[European Parliament and Council of the European Union. (2024). _Regulation (EU) 2024/1689 (Artificial Intelligence Act)_, Article 50: Transparency obligations for providers and deployers of certain AI systems. https://artificialintelligenceact.eu/article/50/] California has, since 2019, made it unlawful to use a bot online to mislead people about its artificial identity to encourage a sale or influence a vote, and treats clear disclosure as the defence.footnote:calbot[California Business and Professions Code § 17941 (added by SB 1001, Stats. 2018, ch. 892; operative July 1, 2019). https://law.justia.com/codes/california/2019/code-bpc/division-7/part-3/chapter-6/section-17941/] This is not legal advice, and the rules vary by place and purpose. But the direction is clear, and it is good practice inside the company too.
+
+[TIP]
+.Try this
+====
+Open Claude, ChatGPT or Grok and paste in a list of every agent you and your team use: custom GPTs, Claude projects, scheduled tasks, Slack bots, anything that acts on its own. A rough list from memory is fine. Then ask:
+
+"For each agent on this list, help me fill in a register with these columns: name; what it is for, in one sentence starting 'To…'; its sponsor (the one person who answers for it); what it can access; whether it acts under its own account or a person's; how it signs its work; and what happens to it if the sponsor leaves. Ask me questions where you can't tell. Then flag every agent with no clear sponsor, every pair of agents that seem to do the same job, and every agent acting under a person's login."
+
+You will almost certainly find at least one orphan and one duplicate. Pick a sponsor for the orphan today, or switch it off.
+====
+
+== Somebody Has to Look After the Whole Workforce
+
+A sponsor looks after their own function's agents. That leaves questions no single sponsor owns. Who notices that two functions have built bots that do the same thing? Who makes sure every new agent gets a sponsor, an account and a signature from the start? Who checks, once a quarter, that every sponsor is still at the company?footnote:entra2026[]
+
+With people, that is part of what HR does: it doesn't run sales, but it makes sure every role has a job description, every new hire is onboarded and every leaver's access is removed. Agents need the same function. I call it Agentic Resources.
+
+// SOURCE: dossier §1 case 2 (#tech-general, 6 Nov 2026); Author Notes "Agentic Resources"
+At CorralData it already exists, in a small way, as a bot. Our Agentic Resources Bot onboarded TAM Bot in public in Slack and drafted its position contract (xref:9-one-page-per-job.adoc[Chapter 9]). It is a function on the org chart like any other, and it needs a sponsor of its own. Its job is not to own other functions' agents. It is to make sure every agent has an owner, a charter, an identity and an exit plan, and to raise the alarm when one doesn't.
+
+A person, a bot or both can run it. In a company of ten it may be an hour a month and a good register; in a company of a hundred, with more agents than people, a real role. Either way, someone is accountable. xref:17-agentic-resources.adoc[Chapter 17] describes the function in full: hiring, onboarding, reviews, promotion, turf wars and retirement.
+
+[WARNING]
+====
+AUTHOR: When you set up the Agentic Resources Bot, did you think of yourself as its sponsor, or did that only become clear later? And has anyone other than you started to treat it as the place to go when a new bot is created? A line on how the function is actually used day to day would ground this section.
+====
+
+'''''
+
+Shelley's creature asks one thing of the man who made him: that he take responsibility for what he made. Every agent you add asks the same, without the eloquence. It will keep doing what it was told, with the access it was given, for as long as it runs. The sponsor is the named human who knows what that is, answers for it and decides when it stops.
+
+Give each agent one sponsor, from the function where it works. Give it its own name, access and signature. Give someone the job of making sure no agent slips through. The next question is what the sponsor should tell it, and how much. xref:8-what-and-why-never-how.adoc[Chapter 8] argues for less than you think: the what and the why, never the how.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

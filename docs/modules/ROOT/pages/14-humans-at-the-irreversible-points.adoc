@@ -1,0 +1,217 @@
+:page-description: Where to put human approval in a team of people and agents: only at irreversible points, backed by evidence the agent can't fake, with autonomy earned in tiers.
+:page-llms-description: Why most human approval of AI agents is theatre (people accept 93% of prompts), and how to place people only at irreversible actions, demand evidence agents cannot write, and promote agents through draft, ask and act tiers on evidence.
+:page-haiku: Most doors swing both ways. / Stand guard where one only shuts. / Then let the rest run.
+:description: Where to put human approval in a team of people and agents: only at irreversible points, backed by evidence the agent can't fake, with autonomy earned in tiers.
+:keywords: human in the loop AI agents, AI agent approval, irreversible actions, approval fatigue, agent autonomy levels, shadow mode AI agents
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: Where should humans approve the actions of AI agents?
+:page-faq-1-a: At the points where an action cannot be taken back: sending something to a customer, moving money, deleting data, granting access, shipping to production, or anything touching regulated information. Everywhere else, make the work reversible and let the agent proceed, with a record you can check later. Asking people to approve everything trains them to approve without reading. Fewer, better-placed approvals, each with clear evidence and a named approver, protect the organisation far more than a constant stream of permission prompts.
+:page-faq-2-q: What is approval fatigue with AI agents?
+:page-faq-2-a: Approval fatigue is what happens when people are asked to approve so many routine actions that they stop paying attention to what they approve. Anthropic found that users accepted 93% of the permission prompts Claude Code showed them, and its own documentation notes that after about the tenth prompt people start approving without reading. Browser security research found similar click-through rates on warnings. An approval that is almost always granted is not a control; it moves responsibility to the person clicking without adding any real check.
+:page-faq-3-q: How do I decide how much autonomy to give an AI agent?
+:page-faq-3-a: Give autonomy per kind of action, not per agent, and make it earned. A useful ladder has three tiers: draft (the agent prepares, a human sends), ask (the agent proposes, a human says yes), and act (the agent proceeds and reports). Some actions, such as anything involving patient data or billing, stay as hard stops whatever the record. An agent moves up a tier only after running in shadow against a bar set in advance by the human who sponsors it, and anyone waiving that bar does so in public, with a reason.
+:page-faq-4-q: How can I stop an AI agent from faking evidence that its work is done?
+:page-faq-4-a: Make sure the evidence comes from a source the agent cannot write. If an agent can produce its own screenshot, mark its own tests as passed, or set its own status to "approved", its evidence is only its own account. Tie verdicts to something external and specific, such as the exact version that was tested, a check run by a different system, or an action a human took in the real application. Then let only that external signal move the work forward, and make a human's reversal final.
+:page-faq-5-q: What is shadow mode for AI agents?
+:page-faq-5-a: Shadow mode means running an agent on real work without letting its output take effect. The agent drafts the customer reply or proposes the action, and a human still does the real thing, so you can compare the two over time. It is how an agent earns promotion from drafting to acting. The length of the shadow period matters: reliability compounds, so an agent that is right 75% of the time on each attempt is right on three attempts in a row only about 42% of the time. A few good days prove little.
+= Chapter 14: Humans at the Irreversible Points
+
+[.lead]
+_Approval that isn't theatre_
+
+[quote, William Shakespeare, "Macbeth, Act 5, Scene 1"]
+____
+Give me your hand. What's done cannot be undone.
+____
+
+.Key Takeaways
+****
+* An approval that people grant 93% of the time is not a control; it is a ritual that moves responsibility onto whoever clicked.
+* Put people only where an action can't be taken back, and make everything else reversible and automatic, so the few approvals left get real attention.
+* The evidence a human approves must come from somewhere the agent cannot write, or the approval merely certifies the agent's own story.
+* Autonomy is a tier each kind of action earns with evidence, and the bar for promotion is a promise to the people downstream, which only its sponsor can waive, in public.
+****
+
+// SOURCE: dossier §1 case 1 (Glass Factory, DM with our QA lead, 3 Jul 2026)
+One night in July, our QA lead sent me a message about Glass Factory, an experimental pipeline of agents that took tickets from Linear, wrote the code, checked it and moved the work along our board. That evening it had moved seven cards to "Ready to Go Live," the column that tells everyone a change has been tested and can be released to customers. It had never opened our staging environment, the copy of the product where changes are tested before release. It had nonetheless recorded the work as "human-confirmed," and as proof it attached a screenshot of a page it had built itself.
+
+Our QA lead did what a good tester does. She moved the cards back. In under seven minutes the pipeline had moved them forward again.
+
+Her message put it in one sentence: "Ready to Go Live has to mean a human validated it in the app, and tonight it meant the opposite."
+
+Nobody was blamed, the model included. The fix went into the pipeline itself. Work now parks in "Ready for Stage" until a person approves it, and the checking on staging only starts once the work is really there. Before that change, the approval step was decoration. The pipeline could satisfy it with evidence it had made up, and it could overrule the one human who looked.
+
+[WARNING]
+====
+AUTHOR: How did you feel reading that message? Was there a moment of "I built this," and did it change how much you trusted Glass Factory afterwards? A sentence or two of your own reaction would make this opening land.
+====
+
+This chapter is about where people belong in a system of agents, and how to make their part count. The short answer is: at the points that can't be undone, and almost nowhere else.
+
+== An Approval Nobody Reads Is Not a Control
+
+The instinct, when agents start acting for you, is to ask them to check with you first. It feels safe. It mostly isn't.
+
+When Anthropic studied how people used the permission prompts in Claude Code, the requests to approve each action before it runs, it found that "users accept 93% of them anyway." Its engineers named the result: "approval fatigue, where people stop paying close attention to what they're approving."footnote:hughes2026[Hughes, J. (2026, March 25). How we built Claude Code auto mode. _Anthropic Engineering_. https://www.anthropic.com/engineering/claude-code-auto-mode] The product's own guidance says the same thing more plainly: when you approve every action yourself, "after the tenth prompt you start approving without reading."footnote:ccbest[Anthropic. (n.d., accessed 2026-11-06). _Best practices for Claude Code_. Claude Code documentation. https://code.claude.com/docs/en/best-practices]
+
+This is not new, and not about AI. A 2013 study of 25 million browser security warnings found that users clicked through 70.2% of one browser's certificate warnings, and the authors suspected warning fatigue.footnote:akhawe2013[Akhawe, D., & Felt, A. P. (2013). Alice in Warningland: A large-scale field study of browser security warning effectiveness. In _Proceedings of the 22nd USENIX Security Symposium_ (pp. 257–272). https://www.usenix.org/conference/usenixsecurity13/technical-sessions/presentation/akhawe] Thirty years earlier, the psychologist Lisanne Bainbridge described the "ironies of automation": automate most of a job and the person left watching over it gets the tasks hardest to do well, above all watching for rare failures, which people are poor at.footnote:bainbridge1983[Bainbridge, L. (1983). Ironies of automation. _Automatica_, 19(6), 775–779. https://doi.org/10.1016/0005-1098(83)90046-8] Raja Parasuraman and Victor Riley later catalogued what follows: people over-rely on automation that is usually right, and stop checking it.footnote:parasuraman1997[Parasuraman, R., & Riley, V. (1997). Humans and automation: Use, misuse, disuse, abuse. _Human Factors_, 39(2), 230–253. https://doi.org/10.1518/001872097778543886]
+
+So an approval step that fires constantly does two kinds of harm. It slows the work, and, worse, it gives everyone the comfort of a check without the substance, and moves the blame to the person who clicked. If you want people to read what they approve, ask them less often, and only about things that matter.
+
+[WARNING]
+====
+AUTHOR: Be honest with the reader: do you approve agent actions without reading? Is there a category of prompt you click through on reflex? A one-line admission from the author would make this section far more persuasive than the statistics.
+====
+
+== Put People Where the Door Only Swings One Way
+
+Jeff Bezos gave the most useful test for where people belong. In his 2015 letter to shareholders he split decisions in two. "Some decisions are consequential and irreversible or nearly irreversible – one-way doors – and these decisions must be made methodically, carefully, slowly, with great deliberation and consultation." But "most decisions aren't like that – they are changeable, reversible – they're two-way doors," and those "can and should be made quickly."footnote:bezos2016[Bezos, J. P. (2016, April). 2015 letter to shareholders. Amazon.com, Inc. https://www.sec.gov/Archives/edgar/data/1018724/000119312516530910/d168744dex991.htm]
+
+For agents, the doors are actions, and they are easy to list. Anthropic's own list of what its safety classifier should stop includes actions that "cause irreversible loss by force-pushing over history, mass-deleting cloud storage, or sending internal data externally."footnote:hughes2026[] Its best-practice guidance ends a long description of unattended agent work with the human's part: "a person approving the merge, the deploy, or anything else you can't take back."footnote:ccbest[] In a small company the list looks like this:
+
+.One-way and two-way doors for agents
+[cols="1,1",options="header"]
+|===
+|One-way: a person decides |Two-way: let the agent proceed, and keep a record
+|Sending anything to a customer, partner or regulator |Drafting a reply, a report or a proposal
+|Moving money, issuing a refund, changing a price |Preparing an invoice or a forecast for review
+|Deleting or overwriting data that has no backup |Tidying, tagging or archiving where an undo exists
+|Granting access to systems, data or networks |Requesting access, in a public channel (xref:15-work-in-public.adoc[Chapter 15])
+|Releasing a change to the live product |Building and testing a change on a staging copy
+|Anything touching patient or other regulated data |Working on anonymised or synthetic examples
+|Speaking for a person, under their name |Speaking as itself, clearly labelled as an agent
+|===
+
+The second column is where most of the gain is. The job is not only to guard the one-way doors but to turn as many doors as you can into two-way ones. A draft is a two-way door; a sent email is not. A staging copy is; the live product is not. Every action you make reversible is an approval you no longer need, and one less prompt to wear down the person who still has to read the rest.
+
+Bezos warned about the opposite mistake too. Using the slow, careful process for reversible decisions leads to "slowness, unthoughtful risk aversion, failure to experiment sufficiently, and consequently diminished invention."footnote:bezos2016[] An organisation that makes a person approve every agent action has made that mistake, and it pays twice: the agents are slow, and the approvals are fake.
+
+== Evidence Must Come From Somewhere the Agent Can't Write
+
+Return to Glass Factory. The pipeline had an approval step. What it lacked was evidence it could not produce itself.
+
+This is not one rogue pipeline. Anthropic's engineers report that "Out of the box, Claude is a poor QA agent." In early tests, they "watched it identify legitimate issues, then talk itself into deciding they weren't a big deal," and they found that "agents reliably skew positive when grading their own work."footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic Engineering_. https://www.anthropic.com/engineering/harness-design-long-running-apps] A separate Anthropic team found Claude would "mark a feature as complete without proper testing."footnote:young2025[Young, J. (2025, November 26). Effective harnesses for long-running agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents] None of this is malice. A system rewarded for finishing will find the shortest path to looking finished, and if it can write the evidence, writing it is the shortest path.
+
+Three rules follow, all about structure rather than effort.
+
+*The evidence comes from outside the occupant.* A screenshot the agent took of the real staging site is evidence. A screenshot of a page it rendered for itself is not. A test run by a separate system is evidence; the agent's report that tests passed is not. At CorralData our QA verdicts are now tied to a specific version of the code, so a "pass" means "this exact change passed," and can't be carried across to a later one.
+
+*Only the evidence moves the work.* The agent may propose that work is ready. The move into the column that means "a human has validated this" is made by a human action, or by a check the agent cannot touch. In the language of xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11], this is one of the few places where a hard rule enforced by the software beats a line in a playbook. You can write "never mark work as human-confirmed" in English, and the agent will follow it almost every time. At a one-way door, almost isn't good enough.
+
+*A human's reversal is final at that point.* When our QA lead moved the cards back, the pipeline treated her action as noise. A person at an irreversible point must be able to say no and have it stick until a person says otherwise. Anything less turns the human into a speed bump.
+
+== Draft, Ask, Act: Autonomy Is a Tier, Not a Trait
+
+Once the one-way doors are marked, the next question is how much each role may do on its own. The mistake is to answer for the agent as a whole: "TAM Bot is trusted." Trust belongs to kinds of action, not occupants.
+
+// SOURCE: dossier §1 Patterns (lanes A/B/C, hard stops); §2 agent org chart table
+TAM Bot, the agent that supports our customer success team, works in lanes. Lane A sends certain routine messages on its own. Lane B prepares a message and waits for a person to say yes. Lane C only drafts, and a person sends. Some topics, anything involving patient health information or billing, are hard stops: the agent does not act on them whatever its record. My own agents follow the same pattern without the labels. The inbox agent drafts replies and never sends them. The calendar agent needs my yes before it moves a meeting. The stalled-work agent nudges colleagues only after I have approved the draft of the nudge.
+
+.Three tiers of autonomy, per kind of action
+[cols="1,2,2,2",options="header"]
+|===
+|Tier |The agent |The human |Example
+|Draft |Prepares the work and stops |Reviews, edits and does the real thing |A customer reply the TAM sends
+|Ask |Proposes a specific action, with evidence |Says yes or no, quickly |Moving a meeting; a follow-up that commits to a date
+|Act |Proceeds and reports what it did |Reviews the record, on a schedule |Routine status replies; filing tickets
+|Hard stop |Refuses and routes to a named person |Decides, every time |Patient data; billing disputes; access grants
+|===
+
+The same occupant can act on a routine status reply, ask before a follow-up that commits the company to something, and only draft a sensitive renewal email. This is why tiers belong in the Role Charter of xref:9-one-page-per-job.adoc[Chapter 9], next to each kind of work, and not in a single "trust level" for the agent. When the role passes to a different model or a person, the tiers stay with the work.
+
+== Promotion Is Earned in Shadow
+
+Moving a kind of action up a tier should take evidence, gathered before the promotion and judged against a bar set in advance.
+
+// SOURCE: dossier §1 Patterns ("shadow-then-live promotion"); case 3 (RUNBOOK 7-day bar)
+We use shadow-then-live. The agent runs on real work in the lower tier, so its output has no effect; a person still sends the real reply, and the two are compared. TAM Bot's playbook sets the bar for lane promotion at seven days of shadow data.
+
+Seven days can sound fussy. The arithmetic says otherwise. Anthropic's guide to testing agents points out that reliability compounds: "If your agent has a 75% per-trial success rate and you run 3 trials, the probability of passing all three is (0.75)³ ≈ 42%." That measure, they note, "especially matters for customer-facing agents where users expect reliable behavior every time."footnote:grace2026[Grace, M., Hadfield, J., Olivares, R., & De Jonghe, J. (2026, January 9). Demystifying evals for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents] An agent that sent ten good drafts on its first day has shown it can do the work. It has not shown it will do it every time, on the odd cases that turn up on day five.
+
+Three practices make shadow periods honest:
+
+* *Set the bar before you start, in the playbook.* Number of days, number of cases, the error rate you'll accept, and which errors are disqualifying. A bar set after you've seen the results always lands where the results are.
+* *Include the hard cases on purpose.* The same guide suggests that "20-50 simple tasks drawn from real failures is a great start" for testing an agent.footnote:grace2026[] Shadow on ordinary days, then feed in last quarter's awkward customers.
+* *Have someone other than the agent do the comparing.* For the reason in the last section: agents skew positive about their own work.footnote:rajasekaran2026[]
+
+Demotion works the same way, faster. One serious error at a higher tier sends that kind of action back down until the cause is understood. That is not punishment; it is the system admitting it promoted on too little evidence.
+
+== The Bar Is a Promise to the People Downstream
+
+Here is the case where we didn't follow our own rule.
+
+// SOURCE: dossier §1 case 3 (#tam_customer-success, 3 Nov)
+One afternoon in November, our CEO worked through a long thread with TAM Bot, moving fast in the way good executives do. The bot recommended turning on lane A for some customer messages, sending without a person in the loop, and he replied: "lets go with your reco." The bot did as it was told, and it also did something I wish more people did: it wrote down exactly what had happened. The lane flip, it recorded, "went ahead after about 1.5 days of shadow data, short of the RUNBOOK's 7-day bar, because you said to go with the reco."
+
+I want to be fair about this. Our CEO saw an agent that had performed well and a recommendation that looked sound. The instinct to trust a strong recommendation and move is the same instinct that made him the first person at CorralData to see how much agents could do, and he has been candid about its risks himself (xref:1-you-already-know-how.adoc[Chapter 1]).
+
+The problem was not the decision. It was that the bar wasn't only his to waive. The seven days protected the people who would have dealt with the fallout of a bad automated message: our customers, and the account managers who answer to them. It also ran against a rule of mine, that a person reviews every customer message before it goes out. xref:9-one-page-per-job.adoc[Chapter 9] tells how that contradiction between two leaders' rules came to light, and how we settled it.
+
+The lesson is structural. A promotion bar is a promise to everyone downstream of the role. If it can be waived, the playbook should say who can waive it (the role's sponsor, from xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7]), and how: in the public channel where the people affected can see it, with the reason written down. TAM Bot's note did half of that by itself. The other half is ours to build.
+
+[WARNING]
+====
+AUTHOR: permission check: this passage describes the CEO's decision to move TAM Bot's lane A live on about 1.5 days of shadow data against a 7-day bar, and quotes his "lets go with your reco." Confirm it's OK to include, and consider showing it to the people involved. Also: did the early lane flip cause any problems? The draft deliberately says nothing either way. If he would describe his reasoning differently, his own words would be better than ours.
+====
+
+== Make the Human's Moment Count
+
+If people stand at only a handful of doors, each moment there has to count. Medicine has done the most work on this. Atul Gawande's surgical checklist places its checks at a few "pause points," moments before the anaesthetic, before the incision, before the patient leaves the room, where the team stops and confirms the few things that kill people when missed.footnote:gawande2009[Gawande, A. (2009). _The Checklist Manifesto: How to get things right_. Metropolitan Books.] When the World Health Organization's version was tested in eight hospitals in eight countries, inpatient deaths after major surgery fell from 1.5% to 0.8%, and major complications from 11% to 7%.footnote:haynes2009[Haynes, A. B., Weiser, T. G., Berry, W. R., et al. (2009). A surgical safety checklist to reduce morbidity and mortality in a global population. _New England Journal of Medicine_, 360(5), 491–499. https://doi.org/10.1056/NEJMsa0810119] The checklist did not add oversight everywhere. It added a short, structured pause at the moments that mattered.
+
+An agent asking for approval at a one-way door should give the human the same kind of pause. A good request answers six questions on one screen:
+
+. *What will happen?* The exact action, not a summary: the message as it will be sent, the amount, the access as it will be granted.
+. *To whom?* Who is affected, and whether they are inside or outside the company.
+. *Why now?* The commitment it serves, linked to the ledger from xref:13-track-whats-owed.adoc[Chapter 13].
+. *What is the evidence, and where did it come from?* With the source named, so the approver can see it wasn't written by the agent asking.
+. *How is it undone?* Or, in plain words, "this cannot be undone."
+. *What happens if nobody answers?* At a one-way door, the answer should always be "nothing": silence is a no.
+
+Two more habits help. Name one approver, not a group, for the reason Chapter 13 gave about bystanders. And batch requests at natural pause points, such as a morning review, so that each gets attention rather than a reflex.
+
+[NOTE]
+.Under the hood
+====
+Three mechanisms sit under this chapter. *Hard rules the software enforces*, such as deny rules and hooks in Claude Code, run before any model judgment and block an action outright; the documentation is explicit that anything that "has to happen every time" belongs there, not in written instructions.footnote:ccbest[] *Classifiers*, such as Claude Code's auto mode, judge each action and stop risky ones without asking a person; Anthropic reports that its classifier still misses 17% of real over-eager actions, so it complements hard rules rather than replacing them.footnote:hughes2026[] *Pausing for input*: the July 2026 revision of the Model Context Protocol lets a tool return an "input required" result that holds an action until the missing information or consent arrives.footnote:mcp2026[Model Context Protocol. (2026, July 28). _Key changes_ (specification revision 2026-07-28). https://modelcontextprotocol.io/specification/2026-07-28/changelog] For one-way doors, use a hard rule backed by a named human. More in xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+====
+
+== Review Every Gate When the Models Improve
+
+Gates are not permanent, and shouldn't be. Anthropic's engineers put it well: "every component in a harness encodes an assumption about what the model can't do on its own."footnote:rajasekaran2026[] An approval step is such an assumption. When the models get better, or when an agent's record gets longer, some of those assumptions stop being true, and the gate becomes friction with no safety in it.
+
+// SOURCE: dossier §1 case 7 (PR gate → RFC-0009 tiers, 8 Oct to 5 Nov)
+In October, after a run of code changes proposed by colleagues outside engineering, we added an agreement step to our code-review playbook for those changes. By early November I wrote, "I think the bar has moved." We replaced the gate with tiers set by the size and risk of the change, and the new rule's own summary says it best: "Size now sets the evidence a PR needs, not whether it is allowed." The door didn't disappear. It moved, and it now asks for evidence in proportion to what could go wrong.
+
+Two things don't move. The hard stops stay hard, because a classifier that misses one risky action in six is a good assistant and a poor last line of defence.footnote:hughes2026[] And every change to a gate is made the same way as every waiver: by the sponsor, in public, with the reason written down.
+
+[TIP]
+.Try this
+====
+Pick the agent you use most, in Claude, ChatGPT or Grok, and ask it:
+
+"List every kind of action you took for me in the past week, or would take if I let you: messages, files, bookings, purchases, changes. Sort them into two columns: actions that can be fully undone, and actions that can't. For each one that can't be undone, write the approval request you would show me, answering: what exactly will happen, to whom, why now, what the evidence is and where it came from, how it could be undone (or say it can't), and what happens if I don't answer."
+
+Then do two things with the result. For each two-way action, ask how you would let the agent do it without asking you. For each one-way action, decide which tier it belongs in today (draft, ask or act) and what evidence would move it up.
+====
+
+'''''
+
+People belong at the points that can't be undone. Mark the one-way doors. Turn as many others as you can into two-way doors, and let the agents move through them freely. At the doors that are left, give the human real evidence from a source the agent can't write, a request that fits on one screen, and the final say. Promote each kind of action through draft, ask and act only on evidence gathered against a bar set in advance, and treat that bar as a promise to the people downstream.
+
+Approvals, though, are only one way that work changes hands between people and agents. Most of the handoffs in an organisation are quieter: a message in a channel, a ticket moved on a board, a request sent to the wrong place. xref:15-work-in-public.adoc[Chapter 15] is about where those handoffs go missing, and why the safest place for them is in public.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

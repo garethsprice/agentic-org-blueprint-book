@@ -1,0 +1,65 @@
+:page-description: How the first draft of this book was built by an org chart of AI agents — researchers, writers and an editor — using the method the book describes.
+:page-llms-description: How The Blueprint's first draft was produced by a team of AI agents organised with the book's own method — roles, briefs, sponsors and verification — and what the human author still had to do.
+:page-llms-optional: true
+:page-haiku: The book was its own / first case study — eight writers, / one brief, one sponsor.
+:page-toclevels: 0
+:description: How the first draft of this book was built by an org chart of AI agents — researchers, writers and an editor — using the method the book describes.
+:keywords: AI-assisted writing, multi-agent writing, Claude, agentic organisation, book methodology
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: Was The Blueprint written by AI?
+:page-faq-1-a: The first draft was produced by a team of AI agents working to a detailed brief, in a single extended session with Claude. The thesis, the architecture, the case material and the judgment about what is true came from the author, who is responsible for every claim in the finished book. The agents researched, drafted and checked; the human decided.
+:page-faq-2-q: How was the book's first draft organised?
+:page-faq-2-a: The same way the book recommends organising any work shared by people and agents. Three research agents gathered evidence from the author's Slack workspace, his local agent configuration and current published research. One writing brief served as the role pack for eight writing agents, each owning specific chapters. An orchestrating agent integrated, built and checked the result, and the author acted as sponsor.
+:page-faq-3-q: How were privacy and copyright handled?
+:page-faq-3-a: The writing brief set hard rules. Colleagues appear by role, never by name; customer and patient data never appear; sensitive episodes are told abstractly and flagged for the author's permission. The writers were told not to open the E-Myth course materials that influenced the book, and an automated check compares the draft against those materials for overlapping phrases.
+:page-faq-4-q: What did the author have to do himself?
+:page-faq-4-a: Everything the agents could not: supply the thesis and the lived experience, decide which cases could be told and how, check every quote and citation, fill the AUTHOR blocks marking where only first-hand experience will do, and sign off. The first draft is the textbook; the last mile is still the author's.
+:page-faq-5-q: What did building the book teach about organising agents?
+:page-faq-5-a: The same lessons the book teaches. A single brief kept eight writers consistent. Clear ownership of files prevented collisions. Rules about privacy and sources had to be explicit because agents follow what is written, not what is meant. And verification — checking that a cited source says what the draft claims — was the job that most needed a human.
+= How This Book Was Built
+
+== A Book About Organising Agents, Written by Organised Agents
+
+_Applied Alchemy_ was drafted in a single long conversation with Claude: one human, one model, chapter after chapter.
+This book was built differently, because by the time I came to write it the way I worked had changed — and the change is the subject of the book.
+
+The first draft of _The Blueprint_ was produced in one evening by a small organisation of agents, set up the way the book says to set one up.
+
+* *Three researchers* worked in parallel. One read my company's Slack, read-only, looking for moments where people and agents worked together, collided or failed. One read my local agent configuration — the job descriptions, schedules and rules of the agents that run parts of my working day. One surveyed the published state of the art in agent orchestration as of autumn 2026, and was asked specifically to find the strongest arguments _against_ this book's approach.
+* *One research dossier* collected what they found, with sources, and with every sensitive item flagged.
+* *One writing brief* acted as the Role Pack for every writer: the reader, the argument, the vocabulary, the chapter format, the citation rules, and hard rules on privacy and copyright.
+* *Eight writers* each owned specific chapters and nothing else. No two touched the same file.
+* *An orchestrating agent* — the editor, in effect — wrote the front matter, integrated the chapters, built the site, and ran the checks: links, structure, and an automated comparison against the E-Myth course materials to catch phrasing that stayed too close to its source.
+* *I was the sponsor.* I supplied the thesis, the cases, the answers to the questions only I could answer, and the decisions about what could be told. I am accountable for every claim that survives into the finished book.
+
+[WARNING]
+====
+AUTHOR: Your reflections on the process. What surprised you? What did the agents get wrong that you had to fix? Was the experience of delegating a book to an org chart of agents closer to managing people than you expected, or further? The reader will want to know whether the method held up when you used it on yourself.
+====
+
+== The Parts That Are Still Mine
+
+The agents could tell you what Google Research found about error amplification in multi-agent systems.
+They could not tell you what it felt like, on the first day our team started adding bots to Slack, to watch two QA bots argue about whose job it was — or why that moment sent me back to a book I had read in my twenties, running a small IT company that was outgrowing my ability to delegate.
+
+Every `AUTHOR:` block in this draft marks a place where only first-hand experience will do, or where a story involves real colleagues and needs their blessing before it is told.
+The draft is the textbook.
+The last mile is mine.
+
+_-- Gareth Price, November 2026_
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

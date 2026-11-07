@@ -1,0 +1,48 @@
+* xref:index.adoc[Home]
+* xref:author.adoc[About the Author]
+* xref:process.adoc[How This Book Was Built]
+* xref:acknowledgements.adoc[Acknowledgements]
+
+.Part I: The Shift
+* xref:introduction.adoc[Introduction]
+* xref:1-you-already-know-how.adoc[You Already Know How to Do This]
+* xref:2-systems-run-the-business.adoc[Systems Run the Business]
+* xref:3-draw-the-finished-org-chart.adoc[Draw the Finished Org Chart First]
+
+.Part II: The Destination
+* xref:4-know-what-its-for.adoc[Know What It's For]
+
+.Part III: The Org Chart
+* xref:5-hire-the-role-not-the-model.adoc[Hire the Role, Not the Model]
+* xref:6-one-boss-few-reports.adoc[One Boss, Few Reports]
+* xref:7-every-agent-needs-a-sponsor.adoc[Every Agent Needs a Sponsor]
+* xref:8-what-and-why-never-how.adoc[What and Why, Never How]
+
+.Part IV: Writing It Down
+* xref:9-one-page-per-job.adoc[One Page Per Job]
+* xref:10-bet-on-plain-english.adoc[Bet on Plain English]
+* xref:11-lock-in-only-what-cant-go-wrong.adoc[Lock In Only What Can't Go Wrong]
+* xref:12-everything-they-need-on-day-one.adoc[Everything They Need on Day One]
+
+.Part V: Running the Machine
+* xref:13-track-whats-owed.adoc[Track What's Owed, Not What's Done]
+* xref:14-humans-at-the-irreversible-points.adoc[Humans at the Irreversible Points]
+* xref:15-work-in-public.adoc[Work in Public]
+
+.Part VI: Getting Better
+* xref:16-the-model-isnt-the-problem.adoc[The Model Isn't the Problem]
+* xref:17-agentic-resources.adoc[Agentic Resources]
+
+.Part VII: The Human Side
+* xref:18-when-the-work-moves.adoc[When the Work Moves]
+* xref:19-from-doing-to-delegating.adoc[From Doing to Delegating]
+* xref:20-your-job-now.adoc[Your Job Now]
+
+.Appendices
+* xref:appendix-a-first-thirty-days.adoc[The First Thirty Days]
+* xref:appendix-b-templates.adoc[Templates]
+* xref:appendix-c-worked-example.adoc[A Worked Example]
+* xref:appendix-d-for-your-technical-team.adoc[For Your Technical Team]
+* xref:appendix-e-glossary.adoc[Glossary]
+* xref:appendix-f-recommended-reading.adoc[Recommended Reading]
+* xref:appendix-g-ai-org-design-advisor.adoc[Your AI Org Design Advisor]

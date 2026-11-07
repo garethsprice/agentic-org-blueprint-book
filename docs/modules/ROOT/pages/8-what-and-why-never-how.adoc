@@ -1,0 +1,214 @@
+:page-description: Brief AI agents the way great executives brief people: state the outcome, the reason and the bar for done, and leave the method to the agent doing the work.
+:page-llms-description: How to brief AI agents with what and why rather than how, why over-specified instructions hold capable models back, and how a verification bar replaces step-by-step procedure.
+:page-haiku: Say where, not which road. / The able find their own way. / Tell them why it counts.
+:description: Brief AI agents the way great executives brief people: state the outcome, the reason and the bar for done, and leave the method to the agent doing the work.
+:keywords: how to brief AI agents, delegate to AI agents, what and why not how, AI agent instructions, Bitter Lesson for managers, executive AI delegation
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: How should I write instructions for an AI agent?
+:page-faq-1-a: Describe the outcome you want, why it matters, the constraints it must respect and how you will know it is done. Leave out the steps unless a step is itself a requirement, such as a legal check. Capable models are better at finding a method than most of us are at writing one down, and a method you specify goes stale as the model improves. The reason behind the request is the part the agent cannot discover for itself, so it deserves the most care.
+:page-faq-2-q: Isn't "what and why, never how" just vague delegation?
+:page-faq-2-a: No. Vague briefs fail just as badly as over-specified ones. Anthropic describes the target as the "right altitude": specific enough to guide behaviour, flexible enough to leave the model room. A good what-and-why brief is precise about the outcome, the boundaries and the bar for done. It is silent only about the method. If two agents given your brief would do duplicate or conflicting work, the brief is too vague. If it reads like a recipe, it is too detailed.
+:page-faq-3-q: Why shouldn't executives tell agents how to do a task?
+:page-faq-3-a: Because the executive usually knows the least about how the work is actually done, and the agent will carry out the method faithfully even when it is wrong. A how-brief from a senior person also carries authority it has not earned: an agent's output appears to come from the executive, so the people receiving it hesitate to push back. Tell the agent what you want and why, route the work to the people or roles who own the method, and judge the result against an agreed bar.
+:page-faq-4-q: What is the Bitter Lesson and how does it apply to managing AI agents?
+:page-faq-4-a: Rich Sutton's 2019 essay argued that, over 70 years of AI research, general methods that use more computation beat approaches that build in human knowledge. For managers, the lesson is that detailed procedures you write for an agent often help in the short term and hold it back as models improve. Anthropic's engineers make the same point about agent scaffolding: every component encodes an assumption about what the model cannot do, and those assumptions go stale. Write purpose, not procedure, and revisit your instructions when models change.
+:page-faq-5-q: How do I know an agent did the work properly if I don't tell it how?
+:page-faq-5-a: Agree what "done" means before the work starts, and check the evidence rather than the method. A verification bar might be a test that must pass, a figure that must reconcile with a source, a sample a human reviews, or a link to the finished item. Our project-management agent treats the method as an opaque box: work counts as complete only when evidence is posted on the ticket. If you can't say what evidence would convince you, you aren't ready to delegate the task yet.
+= Chapter 8: What and Why, Never How
+
+[.lead]
+_Briefing agents the way great executives brief people_
+
+[quote, George S. Patton Jr., "War As I Knew It, 1947"]
+____
+Never tell people how to do things. Tell them what to do and they will surprise you with their ingenuity.
+____
+
+.Key Takeaways
+****
+* Brief agents with the outcome, the reason, the constraints and the bar for done, and leave the method to whoever does the work.
+* Executives delegate to agents easily, but they tend to delegate the wrong layer: the how, or other people's work, which turns the agent into a way around the org chart.
+* The Bitter Lesson applies to management: detailed procedures help capable agents in the short term and hold them back as models improve, so write purpose, not procedure.
+* A verification bar replaces the instructions: if you can't say what evidence would show the work is done, you aren't ready to delegate it.
+****
+
+// SOURCE: dossier §2 finding 1 (memory files alex-core-system-prs.md, cs-requests-what-why-not-how.md, rfc-what-why-not-how.md); §1 case 6 (27 Oct rule)
+In October, our engineers began receiving code changes in our core systems that no engineer had asked for. They had been written by Claude, at the direction of agents working for our CEO. Some arrived with requests to review changes that had already been closed. The pattern is a familiar one to anyone who has handed an agent a problem: a leader sees something that needs fixing, asks an agent to fix it, and the agent does what agents do. It produces a fix.
+
+On 19 October I wrote to him: "Please update your agents to ONLY supply WHAT the outcome should be and WHY it is important, NEVER HOW." I added that anything AI-written should say so, because a message that appears to come from the CEO carries enormous authority whether or not he wrote it. A week later, after another bot-written change, it became a standing rule: agents and bots file tickets that say what and why, and leave the code to engineering. We later extended it to customer success staff using Claude.
+
+[WARNING]
+====
+AUTHOR: permission check: this passage describes our CEO's agents opening code changes against core systems, your 19 October message, and the standing rule that followed. Confirm it's OK to include, and consider showing it to him before publication. The chapter frames his behaviour as the natural failure mode of a good instinct and includes his own self-corrections later on; check that framing feels fair to him.
+====
+
+That rule is the most useful sentence I have written about agents. This chapter is about why it works, why it applies to every brief you write, and why it is harder for executives to follow than for anyone else.
+
+== The Instinct Is Right; the Layer Is Wrong
+
+Start with what our CEO got right, because most readers of this book will get it right too. He saw the power of agents before almost anyone else in the company. He treated them the way he treats people: short requests, quick status checks and a steady push toward more autonomy. He delegated without hesitation. Most executives do, which is why, as xref:1-you-already-know-how.adoc[Chapter 1] argues, they take to agents faster than anyone.
+
+The trouble is the layer. A person who is delegated to brings their own knowledge of how the work is done, and the organisation around them pushes back if the request doesn't fit. An agent brings the executive's framing and very little resistance. Ask an agent to "clean up the customer list" and it will clean up the customer list, by whatever method it can find, in whichever system it can reach. The method is now the executive's method, however little they know about the system.
+
+Two things go wrong. The first is that the executive is delegating the *how*: the agent's output is a solution, not a problem statement, and the people who own the system are asked to accept or reject it rather than solve the problem. The second is that the executive is often delegating *other people's work*. The fix lands in engineering's systems, or customer success's accounts, without passing through the people who own them. The agent becomes a way around the org chart. In the language of xref:1-you-already-know-how.adoc[Chapter 1], the executive has slipped from Shape work back into Do work, the trap Michael Gerber described in founders who can't stop doing the technical work themselves.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth revisited: Why most small businesses don't work and what to do about it_. HarperCollins.]
+
+// SOURCE: dossier §1 case 8 (19–20 Oct)
+Our CEO has said as much himself (xref:1-you-already-know-how.adoc[Chapter 1]). When an automated sweep started reopening tickets people had already closed, the rule he set in its place was exactly right: "if you closed it, it stays closed unless the customer replies." That is a what-and-why rule. It says what must be true, and leaves the agent to work out how.
+
+Andrew Grove offered a way to think about how much direction to give. The right style, he argued, depends on the "task-relevant maturity" of the person doing the work: close, structured direction for someone new to a task; agreement on objectives and light monitoring for someone experienced.footnote:grove1983[Grove, A. S. (1983). _High output management_. Random House.] Most executives brief agents as if they had the maturity of a first-day intern, then send their work out as if it came from a senior engineer. Frontier models are closer to the second than the first. Brief them that way.
+
+== Purpose Travels; Procedure Goes Stale
+
+The epigraph comes from a general's memoir, not a management book, but it is the clearest statement of the principle I know. George Patton's notes on command in _War As I Knew It_ include the line "Never tell people how to do things," and in the same passage he observes that issuing an order is only about 5 per cent of command. "The other ninety-five per cent is to insure, by personal observation, or through the interposing of staff officers, that the order is carried out."footnote:patton1947[Patton, G. S., Jr. (1947). _War as I knew it_. Houghton Mifflin. "Reflections and Suggestions."] What, not how; then check.
+
+Peter Drucker made the same argument for knowledge work. The effective executive, he wrote, focuses on contribution: on the results the organisation needs, not on the effort or the method.footnote:drucker1967[Drucker, P. F. (1967). _The effective executive_. Harper & Row.] His earlier idea of management by objectives rested on the same base: agree the objective with the person who will do the work, then let them direct themselves toward it.footnote:drucker1954[Drucker, P. F. (1954). _The practice of management_. Harper & Brothers.]
+
+What is new is that the evidence for this now comes from the agents themselves. In November 2026 Anthropic published an account of how Claude uses memory across long tasks. Its finding about instructions is blunt: "it helps to tell Claude what memory is for, but not _how_ to use it." When the team tried giving models fixed rules about what to remember, such as recording only failures, the stronger models lost much of the benefit memory had given them. "For stronger models, giving them freedom to judge salience was more effective than setting fixed rules in advance, and those rules could end up weakening performance."footnote:martin2026[Martin, L. (2026, November 6). The components of agent memory. _Anthropic Engineering_. https://www.anthropic.com/engineering/components-of-agent-memory]
+
+Rules that a weaker model needed made a stronger model worse.footnote:martin2026[] Every procedure you write into an agent's instructions is a bet that you know a better method than the model will find. Increasingly, you don't, and your procedure will outlive the model it was written for.
+
+The purpose doesn't go stale. "Keep the monthly report fast enough that clients stop complaining, because slow reports cost us renewals" is as true for next year's model as for this year's. "Add an index to these three tables" is true until somebody changes the tables.
+
+[WARNING]
+====
+AUTHOR: What did it feel like to write the 19 October message? Was it a hard message to send to your CEO, and how did he take it? The reader is likely to be in his position, not yours, so a sentence on how it landed, and what made it land well, would help them hear it.
+====
+
+== The Bitter Lesson Applies to Managers
+
+In 2019 the computer scientist Rich Sutton argued that, over 70 years of AI research, general methods that use computation have beaten methods that build in human knowledge, which "always helps in the short term" and is "personally satisfying" but "does not work in the long run."footnote:sutton2019[Sutton, R. (2019, March 13). The bitter lesson. _Incomplete Ideas_. http://www.incompleteideas.net/IncIdeas/BitterLesson.html] xref:10-bet-on-plain-english.adoc[Chapter 10] makes the full case, including what it taught us at CorralData. Here the point is narrower. The lesson transfers almost unchanged to briefing. Every time you write down exactly how you would do a task, you are building in how you think you think. It helps today. It feels good. And it caps the agent at your own understanding of the work.
+
+Anthropic's engineers say the same about the harnesses they build around their models: "every component in a harness encodes an assumption about what the model can't do on its own, and those assumptions are worth stress testing, both because they may be incorrect, and because they can quickly go stale as models improve."footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic Engineering_. https://www.anthropic.com/engineering/harness-design-long-running-apps]
+
+Your briefs are a harness. Each step you specify encodes an assumption that the agent couldn't have found that step itself. Test those assumptions when the model changes.
+
+There is a counterweight, and one of our engineers named it early. Coding models are rewarded for making things work, not for keeping a codebase maintainable, so they "get no better at keeping a codebase maintainable" on their own. That is a real limit, and the answer is not to start dictating the how. It is to put maintainability into the *what* and the *bar*: the change must fit the existing structure, must pass the review that a human engineer's change would face, and must not add a second way of doing something the system already does. xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11] covers when a requirement deserves a hard rule rather than a sentence.
+
+== "What and Why" Does Not Mean "Vague"
+
+The commonest misreading of this chapter is that a good brief is a short one. A good brief is precise about everything except the method.
+
+Anthropic learned this building its multi-agent research system. Its lead agent first gave sub-agents "simple, short instructions like 'research the semiconductor shortage,'" and found these "often were vague enough that subagents misinterpreted the task or performed the exact same searches as other agents." One explored the 2021 car-chip crisis while two others duplicated each other on current supply chains. The fix was not to tell them how to search. It was to give each one "an objective, an output format, guidance on the tools and sources to use, and clear task boundaries."footnote:hadfield2025[Hadfield, J., et al. (2025, June 13). How we built our multi-agent research system. _Anthropic Engineering_. https://www.anthropic.com/engineering/multi-agent-research-system]
+
+Anthropic's guidance on writing instructions for agents describes the target as the "right altitude": "the Goldilocks zone between two common failure modes." At one extreme is "brittle if-else hardcoded" instruction; at the other, guidance that is "overly general or falsely assume[s] shared context." The aim is to be "specific enough to guide behavior effectively, yet flexible enough to provide the model with strong heuristics."footnote:rajasekaran2025[Rajasekaran, P., et al. (2025, September 29). Effective context engineering for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents]
+
+"Falsely assumes shared context" is the executive's particular failure. You know why the request matters. You know the customer who complained, the board meeting next week, the deal that depends on it. The agent knows none of it. Claude Code's own documentation gives a good test for what to write down: "Only write down what Claude can't find by reading the repo." What it can't find is "a decision your team made in a meeting," or knowledge that "lives in one person's head."footnote:ccbp[Anthropic. (n.d., accessed 2026-11-06). Best practices for Claude Code. _Claude Code documentation_. https://code.claude.com/docs/en/best-practices] Translate that out of software: the agent can usually work out the how. What it can never work out is the why. That is the part only you can supply, and the part executives most often leave out.
+
+A complete what-and-why brief has five parts, which map closely onto Anthropic's list for its sub-agents.footnote:hadfield2025[]
+
+[cols="1,3,2",options="header"]
+|===
+|Part |What it says |Example
+
+|Outcome
+|What must be true when the work is done, stated as a result rather than an activity.
+|"Every overdue invoice over 30 days has a reminder sent or a reason it hasn't."
+
+|Why
+|The reason it matters, and anything the agent can't see: the customer, the deadline, the decision it feeds.
+|"Cash is tight this quarter and two large clients pay late by habit."
+
+|Boundaries
+|What it must not do, touch or decide; whose work it must not do; who owns the systems it will need.
+|"Don't offer discounts. Disputes go to the finance lead."
+
+|Bar for done
+|The evidence that will show the outcome is met, agreed before the work starts.
+|"A list of every invoice, its status and a link to the message sent."
+
+|Decisions reserved
+|What the agent must bring back to a human rather than decide.
+|"Anything over £10,000, and anything a client has disputed."
+|===
+
+What the table leaves out is the steps. If a step matters for a reason outside the work itself, such as a legal requirement or a safety check, it isn't really a method; it's a boundary, and it goes in that row with the reason attached.
+
+== The Verification Bar Replaces the Instructions
+
+If you don't tell an agent how to do something, how do you know it did it properly? You check the result against a bar you agreed in advance. This is Patton's other 95 per cent.footnote:patton1947[]
+
+// SOURCE: dossier §2 delegation thesis (wiki/process/delegation.md)
+Our engineering wiki puts it in one line: "Delegate problems with a verification bar attached — never diffs." A diff is a proposed code change. The rule says that a delegated task should arrive as a problem with a test attached, not as somebody's solution waiting to be approved. The person or agent doing the work chooses the method; the bar decides whether it worked.
+
+// SOURCE: dossier §2 finding 6 (project-manager cron prompt and USER.md)
+I applied the same rule to my own project-management agent. Its scope is "ticket management only." It "must NOT direct coding agents; the 'how' is an opaque box and completion is verified only by evidence posted on the ticket." It doesn't care how an engineer or a coding agent fixed something. It cares whether the evidence is there. It is told to treat "WILL SLIP" as "an INTERVENTION trigger, not a status note," to "ground any 'on track' claim in the REFERENCE CLASS" of similar past work, and to use "direct language ('will slip', not 'slightly at risk')." That is a manager that manages results, not methods.
+
+Drucker's version of management by objectives had a second half that is often forgotten: self-control. People direct themselves toward an objective when they can measure their own progress against it.footnote:drucker1954[] A verification bar does the same for an agent. If the bar is clear, the agent can check its own work before you do. If the bar is "make it good", it can't, and neither can you.
+
+The bar also protects the people downstream. With a bar, the receiver of the work can say "this doesn't meet the bar" without arguing with the requester's method, or with the requester's rank.
+
+A useful test before you delegate anything: can you write down what evidence would convince you it is done? If not, you are not ready to delegate. You are ready to think.
+
+[TIP]
+.Try this
+====
+Find the last three instructions you gave an AI agent or assistant: a custom GPT's instructions, a Claude project's description, a long prompt you reuse, a request you made of a Slack bot. Paste one into Claude, ChatGPT or Grok and ask:
+
+"Rewrite this brief so it says only what outcome I want, why it matters, what the agent must not do or decide, and what evidence will show it is done. Remove every instruction about method unless it is really a boundary, and if so, say why. Then list the things you'd need to know about why I want this that aren't in the original, and ask me for them."
+
+Answer its questions. Then run the old brief and the new one side by side on the same task and compare the results. Most people find the new brief is longer, clearer about the result, and silent about the steps.
+====
+
+== A Brief From the Top Carries Weight It Hasn't Earned
+
+There is a reason the what-and-why rule is harder for executives than for anyone else. Their briefs carry rank.
+
+When an individual contributor's agent opens a questionable change, a colleague reviews it as a colleague's work. When an executive's agent does the same, the change arrives with the executive's authority attached, and the reviewer has to decide whether to push back on the CEO's request, the CEO's agent's method, or both. That is why my 19 October message asked for AI-written text to say so: the authority of the sender's name was doing work the content hadn't earned. xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7] argues that every agent should sign its work; this is one of the reasons why.
+
+The cost doesn't fall on the executive. It falls on the people who receive the output. They do the review, they absorb the risk and they untangle the results when the method was wrong. In our case it fell on engineers reviewing code they hadn't asked for, and on the people whose systems the changes touched. xref:19-from-doing-to-delegating.adoc[Chapter 19] looks at this from their side: reviewing other people's agent output, all day, is one of the fastest ways to burn people out.
+
+The standing rule fixes this structurally rather than personally. It doesn't ask executives to restrain themselves, which rarely lasts. It changes what an agent's output is allowed to be. An agent working for anyone outside engineering produces a ticket: what should be true, and why. The ticket goes into the same queue as every other request, is prioritised by the people who own the work, and is done by whoever owns the method. Executives' agents get the same gates as anyone else's.
+
+// SOURCE: dossier §1 case 6 (#tech-general, 5–6 Nov 2026)
+Rules like this only work if the agents know them, and the best evidence that ours does came from one of the bots. Reviewing a code change another bot had opened, QA Bot flagged that it broke the rule that "bots file a Linear ticket and leave the PR to engineering" (a PR being a proposed code change), and left the merge decision to a human. The rule had become part of how the agents themselves understand their jobs.
+
+[WARNING]
+====
+AUTHOR: permission check: this section describes the cost of executive agent use falling on engineers and other ICs, with our CEO as the example. Confirm it's OK to include, and consider showing it to him. It deliberately avoids individual names, private messages and anything about a person's performance; check that the "ICs absorb the costs" paragraph reads as a structural point rather than a complaint.
+====
+
+[NOTE]
+.Under the hood
+====
+At CorralData the rule lives in layers. It is written in plain English in our team memory and in the bots' instructions, so every bot knows it. The code-review skill our agents use carries the evidence tiers described in the next section. And bots leave code changes to engineering: merging is a human decision. Claude Code's documentation draws the same distinction: "If something has to happen every time, make it a hook, a deny rule, or a managed setting." Written instructions "are for guidelines, and Claude is allowed to decide a guideline doesn't apply."footnote:ccbp[] xref:appendix-d-for-your-technical-team.adoc[Appendix D] describes how to set up each layer.
+====
+
+== The Line Moves as Trust Is Earned
+
+"Never how" is a rule about who owns the method, not a permanent ban on anyone outside a function touching its work. The line can move, and ours has.
+
+// SOURCE: dossier §1 case 7 (1 Oct to 5 Nov 2026)
+The argument started before the standing rule, when our CEO made a fair case that non-engineers' changes waited months for review, and I worried about untested changes landing on our engineers. We were both right. Within five weeks we had replaced an agreement gate with tiers: "Size now sets the evidence a PR needs, not whether it is allowed." A small change from anyone, with the right evidence, can now go through. A large one needs more. xref:10-bet-on-plain-english.adoc[Chapter 10] tells the story, and why the policy lives in a plain-English skill rather than in software.
+
+That is the right shape for any delegation boundary. The question is not "may this person's agent touch this system?" but "what evidence does work of this size and risk need?" As an agent or a person proves they can meet a higher bar reliably, the boundary moves. xref:14-humans-at-the-irreversible-points.adoc[Chapter 14] describes how autonomy is earned this way.
+
+== Write the Brief, Then Get Out of the Way
+
+The hardest part of a what-and-why brief is stopping. Having explained the outcome and the reason, most of us want to add a helpful paragraph on how we'd approach it. Delete it. If the approach is a real constraint, it belongs in the boundaries with a reason. If it's a suggestion, the agent will probably find something better, and if it doesn't, the bar will catch it.
+
+Then ask the agent a question that flips the relationship. I recently asked my agents: "What can you as an agent do automatically for me, and what decisions do you need from me?" The agent proposes the how. I keep the what, the why and the decisions only I should make.
+
+// SOURCE: dossier §2 delegation thesis (4 Nov 2026 question to agents)
+There is a version of this for executives in particular. Before you send an agent at a problem, ask whose function it is in. If it's yours, brief the agent with what and why. If it's someone else's, brief *them*, with what and why, and let them decide whether an agent is part of the how. The urge to skip that step is strongest exactly when you can see the fix. That is when it matters most.
+
+'''''
+
+Patton's line works for agents for the same reason it worked for soldiers: those closest to the work see more than the person giving the order. Agents now read a system faster than you can describe it and find methods you wouldn't. What they can't find is why the work matters, what must not happen and what counts as done. That is your job when you delegate, and it is the whole of it.
+
+Write the outcome, the reason, the boundaries and the bar. Keep the decisions that should stay with a human. Route other people's work to other people. Then get out of the way and check the evidence. The next question is where those briefs live once they become a role rather than a one-off task. xref:9-one-page-per-job.adoc[Chapter 9] puts them on one page.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

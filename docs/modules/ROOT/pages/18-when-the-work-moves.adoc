@@ -1,0 +1,231 @@
+:page-description: How to move work from people to AI agents honestly: decide in the open, give the people closest to the work ownership of its agents, and be clear about what changes.
+:page-llms-description: A guide for leaders moving work from people to AI agents: make it an explicit decision, be open, fair and firm, let domain experts own the agents, and build new career paths.
+:page-haiku: The work walks away. / Tell the hands that held it first, / then give them the reins.
+:description: How to move work from people to AI agents honestly: decide in the open, give the people closest to the work ownership of its agents, and be clear about what changes.
+:keywords: moving work to AI agents, AI and jobs, AI change management, who should own AI agents, AI career paths, telling employees about AI automation
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: How do I tell my team that AI agents will take over some of their work?
+:page-faq-1-a: Before the work moves, not after. Say in a public channel which tasks are moving, from which role to which agent, who will sponsor that agent, what evidence will show it is working, and what the person currently doing the work will do instead. Talk to the affected person first, privately, so the announcement is not news to them. Avoid hinting. People cope better with a clear change they disagree with than with a vague one they have to guess at.
+:page-faq-2-q: Who should own an AI agent that takes over someone's job?
+:page-faq-2-a: By default, the person who did the work. They know its edge cases and failure modes, they can tell when the agent's output is wrong, and they have the strongest interest in the work being done well. Making them the agent's sponsor turns a loss into a promotion: from doing the task to owning the system that does it. Only choose someone else if the person is leaving, does not want the role, or the work is being restructured across several roles.
+:page-faq-3-q: Is it fair to ask employees whether they have tried using AI before helping them?
+:page-faq-3-a: It is a fair expectation, set in advance and applied to everyone, including leaders. It is less fair as a question asked of one person, in public, under pressure. Then it reads as a judgment of them rather than a question about the work. Ask it of the role instead, in planning: which parts of this role could an agent do, what would it need, and who would check it? Give people time and support to learn before treating AI use as a standard.
+:page-faq-4-q: Will AI agents eliminate entry-level jobs?
+:page-faq-4-a: Some early evidence points that way. Stanford research using payroll data found that employment of workers aged 22 to 25 in the occupations most exposed to AI has fallen well behind their less-exposed peers, with declines concentrated where AI substitutes for human tasks rather than complementing them. Leaders should plan deliberately for how juniors will learn when agents do the routine tasks that used to train them: shadowing agents, running Friction Reviews, and sponsoring small agents under supervision.
+:page-faq-5-q: What new career paths exist when agents do more of the work?
+:page-faq-5-a: The work shifts from doing tasks to designing, owning and checking the systems that do them. New paths include sponsoring agents in your own function, writing and maintaining role charters and playbooks, running Friction Reviews and test sets, and working in the Agentic Resources function that manages the agent workforce. These roles reward domain expertise and judgment, which is why the people who did the work are often the best candidates for them.
+= Chapter 18: When the Work Moves
+
+[.lead]
+_Moving work from people to agents, honestly_
+
+[quote, Alfred, Lord Tennyson, "The Passing of Arthur, Idylls of the King"]
+____
+The old order changeth, yielding place to new, +
+And God fulfils himself in many ways, +
+Lest one good custom should corrupt the world.
+____
+
+.Key Takeaways
+****
+* Work is already moving from people to agents in most organisations, and the leader's job is to make each move an explicit, public decision rather than something the person doing the work discovers afterwards.
+* "Have you tried asking the AI?" is a fair expectation when it is set in advance for everyone, and an unfair one when it is asked of one person under pressure.
+* The people closest to the work make the best owners of its agents, because they know the failure modes and can tell when the output is wrong.
+* Moving work honestly means being open about what moves, fair about who gains, and firm that some work will not come back, while building career paths that run through the agents rather than around them.
+****
+
+In February 2024, Klarna announced that its AI assistant had handled 2.3 million conversations in its first month, "two-thirds of Klarna's customer service chats," and was "doing the equivalent work of 700 full-time agents."footnote:klarna2024[Klarna. (2024, February 27). Klarna AI assistant handles two-thirds of customer service chats in its first month. _Klarna press release_. https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/] It became one of the most quoted examples of work moving from people to machines.
+
+Fifteen months later, Klarna's chief executive, Sebastian Siemiatkowski, told Bloomberg that the company would hire people for customer service again. The AI had been cheaper, he said, but the result was of "lower quality." "Really, investing in the quality of human support is the way of the future for us."footnote:shibu2025[Shibu, S. (2025, May 9). Klarna is hiring customer service agents after AI couldn't cut it on calls, according to the company's CEO. _Entrepreneur_. https://www.entrepreneur.com/business-news/klarna-ceo-reverses-course-by-hiring-more-humans-not-ai/491396 Reporting a Bloomberg interview.]
+
+Neither announcement was the whole story, and Klarna did not abandon AI. But work that moves for the wrong reasons, or without the people who understood it, can come back, and the cost of the round trip falls on customers and on the staff who were let go or left to clean up.
+
+This chapter is about moving work honestly. Not whether it moves (it will) but how: who decides, who is told, who owns the agents that take it on, and what happens to the people whose work it was.
+
+== Work Is Moving Whether or Not Anyone Decides It Should
+
+In April 2025, Shopify's chief executive, Tobi Lütke, published an internal memo after hearing it was being leaked. Its central instruction, as widely reported, was that before asking for more headcount, teams must demonstrate why they cannot get what they want done using AI. Shopify also said it would add questions about AI use to its performance and peer reviews.footnote:riehl2025[Riehl, A. (2025, April 7). Shopify CEO Tobi Lütke tells employees to prove AI can't do the job before asking for resources. _BetaKit_. https://betakit.com/shopify-ceo-tobi-lutke-tells-employees-to-prove-ai-cant-do-the-job-before-asking-for-resources/] Whatever you think of the policy, it was a decision, made in the open and applied across the company.
+
+The early labour-market evidence suggests the effects are real. Economists at Stanford's Digital Economy Lab, using payroll records, found that employment of workers aged 22 to 25 in the occupations most exposed to AI "now stands 19% below where it would be had it kept pace with that of their less-exposed peers." The declines were concentrated "in occupations where AI usage primarily substitutes for human tasks"; where AI mainly complements workers, employment was flat or rising.footnote:brynjolfsson2026[Brynjolfsson, E., Chandar, B., & Chen, R. (2025; revised 2026, August 12). Canaries in the coal mine? Six facts about the recent employment effects of artificial intelligence. _Stanford Digital Economy Lab_. https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/] That distinction, between agents that replace a task and agents that extend a person, will run through the rest of this chapter.
+
+// SOURCE: dossier §1 case 3; §1 case 11; §1 case 8
+At CorralData the movement is smaller and closer. TAM Bot was asked to research the work of our technical account managers and learn from them. QA reviews moved from one agent to another, and some of what our QA lead used to do by hand is now done by her own bot. Customer emails have been drafted and sent by agents on people's behalf. Some of this was planned. Some of it happened because someone with an agent and a free afternoon decided to get on with it.
+
+That last kind is the problem. In a small, fast company, the default way work moves is not a decision. It is someone with an agent doing a task that used to belong to someone else, and the someone else finding out afterwards. This chapter argues for replacing that default with a decision.
+
+[WARNING]
+====
+AUTHOR: Has CorralData made any explicit commitment to the team about jobs and agents, for example that no one will lose their role because of agents this year, or the opposite? Whatever the honest answer is, the reader will want to hear it from you. If there is no commitment, say why.
+====
+
+== When Work Moves Without a Decision, the Person Who Did It Finds Out Last
+
+// SOURCE: dossier §1 case 8 [Sensitive] — told abstractly, no personal quotes from the IC
+One episode at CorralData taught me more about this than any policy discussion. An executive, frustrated on our customers' behalf that some follow-up work was overdue, used agents to draft and send the outstanding customer emails on a colleague's behalf, signed as written jointly by the AI and the executive. At around the same time, that colleague was repairing customer dashboards by hand. In a public channel, the executive asked whether the colleague had tried asking the AI how to speed the work up, and if not, why not.
+
+Every part of that is understandable. The executive could see, correctly, that AI could do much of this work faster. Customers were waiting. The question was genuine, asked by someone who uses AI for almost everything. It is the same instinct, to delegate and move, that makes executives good at working with agents in the first place (xref:1-you-already-know-how.adoc[Chapter 1]).
+
+And yet, from the colleague's side, the experience was different. Work that was theirs had been done around them: emails had gone to their customers without them. They were doing careful work by hand while being asked, in front of others, why they weren't using a tool to go faster. Earlier, an automated sweep had reopened customer tickets they had closed, which made it harder to see what genuinely needed their attention.
+
+To the executive's real credit, when that earlier problem was raised, the response was immediate and generous: "this one's on me." He also set a rule that fixed the whole class of error: "if you closed it, it stays closed unless the customer replies." That is a Friction Review in two sentences, and exactly the right instinct.
+
+[WARNING]
+====
+AUTHOR: permission check: this passage describes the "did you try asking Claude?" exchange in #tam_customer-success (19–20 Oct) and the earlier ticket-reopening sweep, abstracted and without the colleague's words. It is framed as a good instinct without a structure, and includes the CEO's own "this one's on me". Confirm it's OK to include, and consider showing it to both the CEO and the colleague involved before publication. If either is uncomfortable, the chapter's argument survives with this replaced by a hypothetical.
+====
+
+The lesson is structural, not personal. Nobody had decided that this work was moving from the colleague to an agent, so nobody had said who owned the agent's output, who would check it, who would clean up when it went wrong, or what the colleague's role was now. The colleague absorbed those costs by default, as individual contributors do unless the structure assigns them somewhere else (xref:19-from-doing-to-delegating.adoc[Chapter 19]).
+
+Lisanne Bainbridge described a version of this in 1983, writing about automated industrial plants. Her "ironies of automation" included the observation that automating a process tends to leave the human operator with the tasks the designers could not automate, which are often the hardest, while removing the routine practice that kept the operator's skills sharp.footnote:bainbridge1983[Bainbridge, L. (1983). Ironies of automation. _Automatica_, 19(6), 775–779. https://doi.org/10.1016/0005-1098(83)90046-8] When work moves to an agent without a decision, the person left behind gets the leftovers: the exceptions, the cleanup and the blame, without the authority to change the system that produced them.
+
+== "Have You Tried the AI?" Is the Right Question in the Wrong Place
+
+The question at the centre of that episode deserves a fair hearing, because in a different setting it is exactly the right one. A leader who never asks whether work could be done faster with agents is not doing their job.
+
+The difference is where and when the question is asked. Asked of one person, in public, while they are under pressure, it is heard as a judgment: you are slow, and it is your fault. Asked of a _role_, in advance, as part of planning, it is design: which parts of this role could an agent hold, what would it need, who would check its work, and what would the person do instead?
+
+Shopify's memo is an instructive contrast. Whatever its merits, it set the expectation in advance, for everyone, in writing, and tied it to a specific decision (asking for headcount) rather than to an individual's performance in a difficult week.footnote:riehl2025[] People can disagree with a rule like that and still know where they stand.
+
+{empty}W. Edwards Deming made "drive out fear" one of his fourteen points for management, arguing that people cannot work effectively, or report problems honestly, when they are afraid.footnote:deming1986[Deming, W. E. (1986). _Out of the crisis_. MIT Press.] Fear is the natural response to work moving without warning. A person who suspects their job is being quietly automated will not tell you where the agent is failing; they will hide the failures or fix them by hand. Google's reliability engineers build their post-mortems on the opposite assumption, that "everyone involved in an incident had good intentions," precisely so that people will report what really happened.footnote:sre[Lunney, J., & Lueder, S. (2016). Postmortem culture: Learning from failure. In B. Beyer, C. Jones, J. Petoff, & N. R. Murphy (Eds.), _Site reliability engineering_. O'Reilly Media. https://sre.google/sre-book/postmortem-culture/] Hidden failures are disastrous for an organisation trying to learn from its agents (xref:16-the-model-isnt-the-problem.adoc[Chapter 16]).
+
+So keep the question, and move it. Put it in the role's charter review, not in the team channel. Apply it to every role, including the leader's own. And give people time, examples and support to answer it before you treat AI use as a standard they are judged against.
+
+== The People Closest to the Work Make the Best Owners of Its Agents
+
+If work is going to move to agents, someone has to sponsor those agents (xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7]). The tempting choice is whoever built the agent, often a leader or the most enthusiastic AI user. The better choice, nearly always, is the person who did the work.
+
+// SOURCE: dossier §1 case 11
+The clearest example at CorralData is QA. In November, responsibility moved from the bot that first did it to QA Reviewer, which belongs to our QA lead (xref:17-agentic-resources.adoc[Chapter 17] tells the handover from the agents' side). What mattered on the people side was that the person who understood QA best now owned the agent doing it. She insisted that the knowledge the old bot had gathered not be lost, and that both run in parallel before anything was switched off. Those are the instincts of someone who knows what a missed defect costs.
+
+There are three reasons the domain expert makes the best sponsor.
+
+_They know the failure modes._ Someone who has done a job for a year knows where it goes wrong: the customer who always phrases things ambiguously, the data source that is stale on Mondays, the edge case the manual never mentions. That knowledge is exactly what an agent's playbooks need. Anthropic compares writing an agent skill to "putting together an onboarding guide for a new hire,"footnote:zhang2025[Zhang, B., Lazuka, K., & Murag, M. (2025, October 16). Equipping agents for the real world with Agent Skills. _Anthropic Engineering_. https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills] and the best onboarding guides are written by the people who have done the job.
+
+_They can tell when the output is wrong._ An executive can tell whether an email sounds professional. Only the person who handles the account can tell whether it says the right thing.
+
+_They bear the consequences._ When an agent in their domain fails, they are the ones who hear about it from the customer. Giving them ownership aligns the authority to change the agent with the cost of its mistakes.
+
+Microsoft's guidance for its agent identity platform reaches the same conclusion from a governance angle: once an agent is in use, its sponsors "typically come from teams using the agent."footnote:entra2026[Microsoft. (2026, updated September 3). Administrative relationships in Microsoft Entra Agent ID (owners, sponsors, and managers). _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/agent-owners-sponsors-managers] _Team Topologies_ makes the parallel argument about human teams: a team aligned to a stream of work should own it end to end, without depending on others to make changes on its behalf.footnote:skelton2019[Skelton, M., & Pais, M. (2019). _Team topologies: Organizing business and technology teams for fast flow_. IT Revolution.] And Deming, again, argued that management should remove the barriers that rob workers of their pride of workmanship.footnote:deming1986[] Making someone the owner of the system that does their old work is one of the most direct ways to do that.
+
+// SOURCE: dossier §1 case 10
+People often claim this ownership themselves if you let them. When our CEO once offered to "just knock this out now" using agents, one of our technical account managers replied simply: "then leave it to me." That is the healthiest exchange in this chapter: a leader offering help, and the person closest to the work claiming it.
+
+[WARNING]
+====
+AUTHOR: permission check: this section quotes the CEO's "just knock this out now" offer and a TAM's reply, presented as healthy: the person closest to the work claiming it. Confirm it's OK to include, and consider showing it to the CEO and the TAM involved.
+====
+
+// SOURCE: Author Notes Q4
+This is why CorralData's emerging model makes one person in each function responsible for the bots that share their function. It is not a rule about bots. It is a rule about who understands the work.
+
+== Be Open: Say What Is Moving, to Whom, and Why, Before It Moves
+
+Honest work moves have three qualities: they are open, fair and firm. Open comes first, because without it the other two are invisible.
+
+Being open means the move is announced before it happens, in a place everyone affected can see, and that the person currently doing the work hears it first, privately, from their manager. It means naming the role and the work, not the person, and saying why. "Because the agent is cheaper" is an honest reason, and better than a vague one. "Because the work will be more consistent and you'll have time for the accounts that need judgment" is better, if it is true.
+
+A simple _work-move notice_, a short post in a team channel, makes this routine.
+
+[cols="1,2",options="header"]
+|===
+|Field |What to write
+
+|What is moving
+|The specific tasks, not the whole job. "Drafting first responses to routine support questions", not "support".
+
+|From and to
+|The role that did it and the agent (or agents) that will. Name the agent and its sponsor.
+
+|Why
+|The real reason: speed, consistency, cost, freeing time for higher-judgment work.
+
+|Evidence bar
+|What has to be true, for how long, before the move is final. A shadow period with a written standard (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]).
+
+|What the person gains
+|Their new or changed responsibilities: sponsoring the agent, handling exceptions, taking on other work.
+
+|Cleanup owner
+|Who fixes it when the agent gets it wrong, and how that is reported.
+
+|Review date
+|When the move will be looked at again, and by whom.
+|===
+
+The notice also protects the leader. It forces the questions that the overdue-emails episode skipped: who owns the output, who checks it, who cleans up. If you cannot fill in the table, the work is not ready to move.
+
+[TIP]
+.Try this
+====
+Open Claude, ChatGPT or Grok and describe your own job, or a role you manage, as a list of the recurring tasks it involves in a typical month. Then ask:
+
+"Sort these tasks into three groups: keep (needs my judgment or relationships), delegate to an AI agent (could be done by an agent with clear instructions and a check), and delegate to a person. For each task in the agent group, say what the agent would need to know, who should check its work, and what could go wrong. Then draft the work-move notice I would want to receive if someone moved these tasks away from me: what is moving, why, the evidence bar, what I would gain, who owns cleanup, and when it will be reviewed."
+
+Read the notice as if it were about you. If anything in it would worry you, fix that before you send a real one to anyone else.
+====
+
+== Be Fair: The Person Losing the Task Gets First Claim on the Agent
+
+Fairness in work moves comes down to a simple default: the person whose work is moving has first claim on the agent that takes it on. They sponsor it, write or approve its playbooks, check its output during the shadow period and decide when it is ready. If they don't want that role, or are leaving, someone else takes it, but the offer comes to them first. And when a sponsor moves on, the sponsorship must move too; Microsoft's guidance calls for sponsorship to be maintained "to ensure succession when an employee who's a sponsor moves or leaves."footnote:entra2026[]
+
+This default turns what feels like a loss into a promotion: from doing the task to owning the system that does it. It also keeps the knowledge in the organisation: the person who understands the work teaches it to the agent, rather than being quietly replaced by an agent that never learnt what they knew.
+
+// SOURCE: dossier §2 delegation thesis (wiki)
+Being made to check an agent you did not choose, built by someone else, on work you used to own, is the worst version of the change; Bainbridge noted long ago that monitoring automation is itself demanding, draining work.footnote:bainbridge1983[] Owning the agent is the best version. At CorralData that renegotiated deal is still more proposal than practice; xref:19-from-doing-to-delegating.adoc[Chapter 19] takes it up from the individual's side.
+
+Fairness also means credit. When an agent in someone's domain does well, the sponsor should hear about it in public, just as they would for a person on their team. Andy Grove's point that a manager's output is the output of the organisation they run applies here: the sponsor's output now includes the agent's.footnote:grove1983[Grove, A. S. (1983). _High output management_. Random House.]
+
+[WARNING]
+====
+AUTHOR: Your own experience of having work moved away from you, either in your 20s running the IT company or more recently as agents took over parts of the CTO job. Did it feel like a loss or a relief? Which tasks were hardest to let go of? A short first-person passage here would make "fair" concrete.
+====
+
+== Be Firm: Some Work Will Leave, and Saying So Is Kinder Than Hinting
+
+Openness and fairness are not the same as promising that nothing will change. Some work will move to agents and not come back. Some roles will shrink. Some organisations will hire fewer people than they otherwise would have. Pretending otherwise leaves people guessing, and guessing is worse than knowing.
+
+Klarna's reversal is sometimes read as proof that AI can't really do the work.footnote:shibu2025[] That is the wrong lesson. The company's own first-month figures showed the agent could carry an enormous volume.footnote:klarna2024[] The right lesson is that the decision about what moves should be made on quality as well as cost, and revisited when the evidence comes in. Firmness means making the decision clearly and holding to it until the evidence says otherwise, not drifting in response to whoever complains loudest.
+
+Firmness applies upwards too. When work moves to a leader's agent, that agent faces the same gates as anyone else's: what-and-why briefs (xref:8-what-and-why-never-how.adoc[Chapter 8]), human approval at the irreversible points (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]), and the agreement of the person whose work it is. If anything, a senior person's agent needs firmer gates, because colleagues find it harder to push back.
+
+Being firm is also how you protect the people whose work is not moving. A clear statement that "these tasks are moving; these are not" removes the background anxiety that every job is quietly under review.
+
+== Career Paths Now Run Through the Agents
+
+The hardest question in this chapter is what happens to careers, particularly at the start of them.
+
+The Stanford findings on young workers matter here.footnote:brynjolfsson2026[] Many of the tasks agents do best (first drafts, routine research, standard responses, simple checks) are the tasks that used to teach junior people how the work is done. Another of Bainbridge's ironies applies: when the routine practice disappears, so does the skill it built, and the person is left responsible for the hard exceptions without the experience that would have prepared them.footnote:bainbridge1983[] If juniors never do the routine work, how do they become the seniors who can tell when an agent is wrong?
+
+There is no settled answer, but there are some promising paths, and they all run through the agents rather than around them.
+
+_Sponsoring small agents under supervision._ A junior person can sponsor an agent for a narrow role, with a senior person reviewing. They learn the work by teaching it and checking it, and the senior reviewer can loosen supervision task by task as the junior's maturity on each task grows, as Grove recommended for people.footnote:grove1983[]
+
+_Running Friction Reviews._ The best post-mortem I saw at CorralData this year came from an implementation manager, not an engineer (xref:16-the-model-isnt-the-problem.adoc[Chapter 16]). Analysing why an agent failed teaches a great deal about the work, and organisations will need more of the skill.
+
+_Writing and maintaining playbooks._ The person who keeps a role's Role Pack accurate (xref:12-everything-they-need-on-day-one.adoc[Chapter 12]) becomes the organisation's expert on how that work is done.
+
+_Agentic Resources._ The function that manages the agent workforce (xref:17-agentic-resources.adoc[Chapter 17]) is a new kind of job, drawing on HR, operations and domain knowledge. Commentators have been calling for such a function since at least 2024;footnote:welsch2024[Welsch, A. (2024, September 24). Will businesses need an 'Agent Resources' department soon? _Intelligence Briefing_ (Substack). https://intelligencebriefing.substack.com/p/evolution-of-human-resources-into-agent-resources-department] Soofi Safavi's list of its duties, from keeping a registry of agents to retiring stale ones, reads like a job description.footnote:safavi2026[Safavi, S. (2026, May 29). Your company needs Agent Resources. _Substack_. https://soofixyz.substack.com/p/your-company-needs-agent-resources]
+
+None of these paths is automatic. They have to be designed, offered and supported, in the same way a good company designs a graduate programme. Michael Gerber argued that a business should not depend on any one extraordinary person: the systems hold the standard, and people, well trained, run the systems.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth revisited: Why most small businesses don't work and what to do about it_. HarperCollins.] The same design discipline that lets agents fill roles can give people a path from one role to the next.
+
+'''''
+
+Work moving from people to agents is not a crisis to be managed or a secret to be kept. It is a change to the organisation's design, and it can be done well or badly. Done badly, it happens by accident: someone with an agent takes over someone else's work, and the person who did it finds out afterwards, cleans up and wonders whether they are next. Done well, it is a decision made in the open, owned by the person closest to the work, with a clear evidence bar, a named owner for the cleanup, and a new role for the person whose task has moved.
+
+The leader's job is to make it the second kind. That starts with you: with what you delegate, how you delegate it and to whom. But it also depends on the people on the receiving end making their own hardest shift, from doing the work to delegating it. xref:19-from-doing-to-delegating.adoc[Chapter 19] turns to them.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

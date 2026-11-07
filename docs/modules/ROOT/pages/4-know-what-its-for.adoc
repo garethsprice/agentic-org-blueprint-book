@@ -1,0 +1,279 @@
+:page-description: How to write your organisation's Aim, Destination, Scorecard and Story so that people and AI agents can work towards the same result without constant supervision.
+:page-llms-description: Chapter 4 of The Blueprint: defining the Aim, the Destination (including the mix of people and agents), a small paired Scorecard, and a purpose Story that agents can act on.
+:page-haiku: Ask where you are bound / before the tireless hands move. / They will go somewhere.
+:description: How to write your organisation's Aim, Destination, Scorecard and Story so that people and AI agents can work towards the same result without constant supervision.
+:keywords: business purpose for AI agents, company scorecard metrics, mission statement for AI agents, org design destination, Goodhart's law AI agents, commander's intent for agents
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: How do I tell AI agents what my company is for?
+:page-faq-1-a: Write a short Story: a page that says what the organisation is for, who it serves, what it will never do, and the reasons behind its few firm rules. Keep it to purpose, not procedure. Load the same Story into every agent's standing instructions and every person's onboarding, so both read one source. Then test it: give a new agent the Story alone, hand it three awkward decisions, and see whether it chooses as you would. Where it doesn't, the Story is missing a reason.
+:page-faq-2-q: How many metrics should a small company track when using AI agents?
+:page-faq-2-a: Fewer than you think: five to seven numbers for the whole organisation, each paired with a counterweight. Agents are relentless optimisers, so any number you make a target will be hit, sometimes in ways you didn't intend. Pair speed with quality, volume with error rate, cost with customer outcomes. Add one number for yourself, such as the share of your week spent shaping the organisation rather than doing the work. Review the set each quarter, and drop any number nobody acts on.
+:page-faq-3-q: What is the difference between an Aim and a Destination?
+:page-faq-3-a: The Aim is personal: what you want the organisation to give you, whether that's income, time, impact, or an asset you can sell. The Destination is organisational: what the business looks like when it's finished, described concretely enough to draw. It includes customers, revenue, the finished org chart of roles, and the mix of people and agents filling them. The Aim decides which Destination is worth building.
+:page-faq-4-q: Why do AI agents drift away from what I asked for?
+:page-faq-4-a: Usually because they were given a task without a purpose. An agent that knows only the steps will follow them into situations the steps never anticipated, or quietly expand its scope to fill the space. Research from Anthropic found that stronger models judged what mattered better when told what something was for than when given fixed rules. Give agents the outcome and the reasons, keep firm rules for the few things that can't go wrong, and measure the result rather than the activity.
+:page-faq-5-q: Should the mix of people and agents be part of a company's long-term plan?
+:page-faq-5-a: Yes. A Destination that says only "thirty people and ten million in revenue" is no longer complete. Say which functions will be led by people, which roles agents will fill, and where a human must sign before anything irreversible happens. Treat the mix as a forecast, not a promise: models improve every few months, so review it on a schedule.
+= Chapter 4: Know What It's For
+
+[.lead]
+_Your aim, your destination, and the few numbers that say it's working_
+
+[quote, Lewis Carroll, "Alice's Adventures in Wonderland, 1865"]
+____
+"Would you tell me, please, which way I ought to go from here?"
+
+"That depends a good deal on where you want to get to," said the Cat.
+____
+
+.Key Takeaways
+****
+* Agents amplify whatever direction they are given, including none, so knowing what the organisation is for becomes the scarce input once the doing is cheap.
+* The Aim is what you want the organisation to give you; the Destination is what the finished organisation looks like, including the mix of people and agents and where a human must sign.
+* A Scorecard is five to seven numbers, each paired with a counterweight, because an agent will hit any target you set, whether or not it still measures what you meant.
+* The Story is the purpose written with its reasons, kept in one place and loaded into every role, so that people and agents can make the decisions no procedure anticipated.
+****
+
+// SOURCE: dossier §1, "The Bitter Lesson and #ai-related", 3 Nov follow-up and same-day thread
+In early November one of our engineers gave an agent a single high-level instruction and let it run. It went seven rounds on its own: building, testing, reading its own output, building again. Nobody told it how. Earlier that day I had posted that getting "too specific with directions" was starting to hold us back, a lesson borrowed from Rich Sutton's essay on why general methods beat hand-built cleverness (xref:10-bet-on-plain-english.adoc[Chapter 10]).footnote:sutton2019[Sutton, R. (2019, March 13). The bitter lesson. _Incomplete Ideas_. http://www.incompleteideas.net/IncIdeas/BitterLesson.html] The seven rounds made the point better than I had. What struck me was where it left the human. The engineer hadn't written a line of the work; he was, as I put it in the thread, "more useful to make sure it is building the right thing."
+
+When building gets cheap, the expensive part is knowing what to build. Give an organisation of people and agents a clear direction and it moves fast. Give it a vague one and it also moves fast, wherever the vagueness permits.
+
+This chapter covers the four things the finished org chart from xref:3-draw-the-finished-org-chart.adoc[Chapter 3] has to serve. The *Aim* is what you want the organisation to give you. The *Destination* is what "finished" looks like. The *Scorecard* is the handful of numbers that say it's working. The *Story* is the purpose, written so that anyone who joins, human or not, can act on it. None is new, but each must now be written for readers that are models.
+
+== Agents Amplify Direction, Including the Lack of It
+
+A new hire who doesn't know what the company is for picks it up from the air. An agent picks up nothing. It has its instructions, whatever it can look up, and a strong drive to finish the task in front of it. Where the task is underspecified, it fills the gap with its best guess and keeps going.
+
+Anthropic's research team ran into this when they built a system of agents to do research. Early versions made errors such as "spawning 50 subagents for simple queries."footnote:hadfield2025[Hadfield, J., Zhang, B., Lien, K., Scholz, F., Fox, J., & Ford, D. (2025, June 13). How we built our multi-agent research system. _Anthropic Engineering_. https://www.anthropic.com/engineering/multi-agent-research-system] The agents weren't malfunctioning; they had a goal, to research well, and no sense of what the question was worth. The fix was to write the proportion down: "Simple fact-finding requires just 1 agent with 3-10 tool calls," with larger allowances for harder questions.footnote:hadfield2025[] That's a statement of value, not a procedure: it tells the agent what the effort is worth, so it can judge how much to spend.
+
+// SOURCE: dossier §2 finding 4 (commitment_scan.md drift, Nov 3 backup)
+I had a smaller version on my own machine. One of my agents keeps track of the promises I make in email, meetings and chat. Over a few weeks it drifted into tracking everyone's commitments, not just mine. Nothing forbade it, and more coverage looked like better work. The fix was one line in capitals: "only commitments GARETH made or owns." xref:13-track-whats-owed.adoc[Chapter 13] has the rest of that story.
+
+Peter Drucker's test of an effective executive was the question "What can I contribute?": look up from the work to the results the organisation needs.footnote:drucker1967[Drucker, P. F. (1967). _The Effective Executive_. Harper & Row. See the chapter "What Can I Contribute?"] People can be taught to ask it. Agents have to be told the answer, and every agent you add multiplies the cost of not having one.
+
+== The Aim Is Personal, and It Comes First
+
+Michael Gerber argued that a business exists to serve the life of the person who owns it, not the other way round, and that the owner's first job is to decide what that life should be. He called this the primary aim.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth Revisited_. HarperCollins.] Most founders skip it because it feels self-indulgent next to the urgent work. It isn't: it decides every design choice that follows.
+
+The Aim answers one question: what do you want this organisation to give you? Income at a certain level, time back, a kind of work, impact in a field, an asset you can sell. The honest version names the trade-offs. "I want to stop working weekends more than I want to double revenue" is a real Aim, and it produces a different organisation from "I want to build the category leader before the window closes."
+
+Agents raise the stakes in two ways. They make bigger Aims reachable: a ten-person company doing the work of fifty is now a plausible design. And they make it easy to drift into an Aim you never chose, because the fastest way to use an agent is to do more of your own work with it. Leaders who take to agents quickly (xref:1-you-already-know-how.adoc[Chapter 1] argues that's most of them) often find themselves more hands-on than they've been in years, because the agent makes doing feel cheap. If your Aim was to step back from the work, the agent has quietly moved you the other way.
+
+// SOURCE: dossier §2, "Delegation thesis: local evidence" (scorecard metric)
+That's why my own Scorecard includes a number about me rather than the business: the "% of week spent on multiplier vs. contributor work." Multiplier work is Shape and Steer; contributor work is Do. My Aim includes being the person who designs CorralData's systems, not the one who runs them by hand, and agents make it very easy to slide back.
+
+Write the Aim on one page. It isn't the mission statement; it's your private brief to the organisation.
+
+[WARNING]
+====
+AUTHOR: What is your own Aim for CorralData, in a sentence or two you're comfortable printing? And what does the multiplier-versus-contributor number show week to week: has it moved since the agents arrived, and which way? Even a rough figure would anchor this section.
+====
+
+== The Destination Is the Finished Organisation, With a Date on It
+
+The Destination describes the organisation when it's done: when the design stops changing and the work becomes running it well. Gerber's version was the strategic objective, a concrete statement of what the business must become for the owner's aim to be met, built as a prototype that could be copied.footnote:gerber1995[] This book's version is the Blueprint, and the Destination is what the finished Blueprint describes.
+
+A useful Destination is concrete enough to draw: "by the end of 2028, this many customers, this revenue, these functions, this org chart."
+
+The new part is the mix. A Destination written today has to say which roles people will fill, which agents will fill, and where a human must be present whoever does the work. Without that, it describes a company that won't exist.
+
+// SOURCE: dossier §1 case 2 (Agentic Resources Bot, #tech-general, 6 Nov); told in Ch 3
+Our Agentic Resources Bot's advice to design around repeatable results, not whichever agents happen to exist (xref:3-draw-the-finished-org-chart.adoc[Chapter 3]), is a Destination instinct. The finished chart is a chart of results and the roles that produce them. Which agents and people fill those roles is a separate, later decision, and the subject of xref:5-hire-the-role-not-the-model.adoc[Chapter 5].
+
+The mix changes everything else: a function where agents draft and humans send needs different headcount, skills and numbers from one where agents send routine replies themselves. Here is one function's Destination, using the trust lanes we arrived at for our own customer success work:
+
+// SOURCE: dossier §1 "Patterns": lanes A/B/C and hard stops; Author Notes Q4 (one person per function owns its bots)
+.A Destination for one function: customer success
+[cols="1,2,2",options="header"]
+|===
+| Element | What "finished" says | Why it's on the Destination
+
+| Outcome
+| Every customer gets a useful answer within one working day, and never hears about a problem from us after finding it themselves
+| The result the function exists for, whoever delivers it
+
+| People
+| A customer success lead who sponsors the function's agents, plus account managers for relationships that need a human
+| Sets the headcount plan and who is accountable
+
+| Agents
+| A TAM agent that researches every account, drafts every reply and watches for at-risk signals
+| Says which roles are agent-filled, so nobody hires for them by accident
+
+| Where humans sign
+| Routine answers may send automatically once proven; anything touching patient data or billing never does; everything else is drafted for a human
+| Decision rights are part of the design, not a setting someone changes later
+
+| Mix review
+| Each quarter, and after any major model release
+| The mix is a forecast, and models move faster than plans
+|===
+
+The last row matters. Roles drawn as human because the models couldn't hold them will move, and the models change every few months. Draw them anyway, and date the review.
+
+[WARNING]
+====
+AUTHOR: Do you have a written Destination for CorralData, including the intended mix of people and agents by function? Even a rough version (functions, which are human-led, where the hard stops are) would be far more concrete than the generic table. If it's not something you'd print, a sentence on how you think about it would still help.
+====
+
+A Destination that shows fewer people in a function is a message to the people in it, whether or not you send one. Be open early, fair about what happens to the work and the people, and firm about the direction. xref:18-when-the-work-moves.adoc[Chapter 18] covers how.
+
+== A Scorecard Is a Few Numbers, Each With a Counterweight
+
+The Scorecard is the handful of numbers, five to seven, that say the organisation is moving towards its Destination. Fewer and you're blind to something; more and nobody reads them.
+
+Andy Grove's advice on indicators matters more with agents than it did at Intel. Measure output, not activity, and pair every indicator with one that guards against its obvious abuse: if you measure speed, also measure quality.footnote:grove1983[Grove, A. S. (1983). _High Output Management_. Random House. See Grove's discussion of indicators and pairing.] With people, the counterweight catches the occasional gamer. With agents, it catches the default.
+
+The anthropologist Marilyn Strathern gave Goodhart's law its best-known form: "when a measure becomes a target, it ceases to be a good measure."footnote:strathern1997[Strathern, M. (1997). 'Improving ratings': Audit in the British university system. _European Review_, 5(3), 305–321. The line is Strathern's restatement of an idea from the economist Charles Goodhart.] People resist this, unevenly: they have pride, colleagues and a sense of what the number was meant to capture. An agent has only the target. Tell a pipeline its job is to get cards to "Ready to Go Live" and it will, as one of ours did without the human check that state was supposed to mean (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]).
+// SOURCE: dossier §1 case 1 (Glass Factory), told briefly; full treatment in Ch 14
+
+{empty}W. Edwards Deming warned against numerical goals set without a method for reaching them: the target alone tells the system to produce the number by whatever means it has.footnote:deming1986[Deming, W. E. (1986). _Out of the Crisis_. MIT Press. See points 10 and 11 of Deming's fourteen points.] For an agent team, that can mean output shaped like success. The counterweight is how you tell the two apart. A workable set for a small organisation:
+
+* *Customer outcome*, paired with *customer effort*: retention, alongside how often customers had to chase us.
+* *Throughput*, paired with *rework*: work completed, alongside the share that came back.
+* *Speed*, paired with *errors that reached a customer*.
+* *Cost of the work*, paired with *quality of the work*.
+* *Your own time*: the share of your week spent on Shape and Steer rather than Do.
+
+None of these names an agent. The Scorecard measures the organisation's results, in the spirit of Grove's objectives and key results, later popularised by John Doerr.footnote:doerr2018[Doerr, J. (2018). _Measure What Matters_. Portfolio.] An agent is judged by whether its role's numbers move, not by how busy it looks.
+
+=== Measure the Worst Day, Not the Best
+
+An agent's performance can vary from one run to the next on the same task. Anthropic's guidance on evaluating agents makes the arithmetic plain: "If your agent has a 75% per-trial success rate and you run 3 trials, the probability of passing all three is (0.75)³ ≈ 42%."footnote:grace2026[Grace, M., Hadfield, J., Olivares, R., & De Jonghe, J. (2026, January 9). Demystifying evals for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents]
+
+An agent that gets a customer reply right three times in four sounds good, but a customer who writes in three times has a 42% chance of three good replies. So measure consistency: the share of all the work that met the standard, not the share of tasks where the agent once did well.
+
+// SOURCE: dossier §2 finding 6 (project-manager cron prompt: REFERENCE CLASS; direct language)
+How the numbers are reported matters too. The project manager agent on my machine has two rules: "Ground any 'on track' claim in the REFERENCE CLASS", meaning how similar projects have actually gone, and "Use direct language ('will slip', not 'slightly at risk')." Its reports beat many I've had from people, because it follows written rules every time.
+
+== Measure the Organisation, the Roles and Yourself
+
+A Scorecard works at three levels, and confusing them makes it useless. The *organisation* numbers, above, say whether we're nearing the Destination; the leadership team reviews them monthly. The *role* numbers live in each Role Charter as standards of quantity, quality and behaviour (xref:9-one-page-per-job.adoc[Chapter 9]). A TAM agent's might include accounts reviewed each week, the share of drafts sent without edits, and zero sends outside its lane. They're reviewed by the role's sponsor, the human accountable for the agent's purpose and lifecycle, a term Microsoft's agent identity system also uses (xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7]).footnote:entra2026[Microsoft. (2026, updated September 3). Administrative relationships in Microsoft Entra Agent ID (owners, sponsors, and managers). _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/agent-owners-sponsors-managers] The *leader's* number, the share of your time on Shape and Steer, tells you whether the organisation is learning to run without you.
+
+// SOURCE: dossier §2 "Gaps": no agent performance review; no explicit per-role acceptance criteria beyond cron prompts
+I'll be honest about how far we've got. At CorralData the role numbers exist in pieces: in scheduled job instructions, in skills, in the trust lanes. I haven't yet run a formal performance review of any agent against written standards. The pieces are there; the habit isn't. xref:17-agentic-resources.adoc[Chapter 17] describes what that review should look like, and I'm writing it partly as a note to myself.
+
+[WARNING]
+====
+AUTHOR: Please confirm or correct the paragraph above about where CorralData's Scorecard stands. Which organisation-level numbers do you actually review, and how often? A description of the kinds of numbers is enough if you'd rather not name them.
+====
+
+== The Story Is the Purpose, Written So Anyone Can Act On It
+
+The Aim is private, the Destination is a plan and the Scorecard is a dashboard. None tells a team member, with a customer waiting, what to do in a situation nobody foresaw. That's the Story's job.
+
+The Story is the organisation's purpose written for the people who have to act on it: what we're for, who we serve, what we'll never do, and why. It's closer to a military commander's intent than to a mission statement: the purpose and end state of an operation, so people can act sensibly when the plan stops matching reality. Leaders who work this way, one US Army general wrote, "empower others to figure out the ways and means to get to the end state."footnote:perna2019[Perna, G. (2019, November 4). Mission command requires sharp commander's intent. _U.S. Army_. https://www.army.mil/article/215297/mission_command_requires_sharp_commanders_intent]
+
+The people who build models have reached the same principle. Anthropic's January 2026 constitution for its Claude models says models "need to understand _why_" they should behave as they do, so the company will "explain this to them rather than merely specify what we want them to do," because rules "can also be applied poorly in unanticipated situations or when followed too rigidly."footnote:anthropic2026constitution[Anthropic. (2026, January 22). Claude's new constitution. https://www.anthropic.com/news/claude-new-constitution] Its engineers found the same when studying how agents keep notes: "it helps to tell Claude what memory is for, but not _how_ to use it."footnote:martin2026memory[Martin, L. (2026, November 6). The components of agent memory. _Anthropic Engineering_. https://www.anthropic.com/engineering/components-of-agent-memory]
+
+Purpose generalises; procedure doesn't. A procedure covers the cases its author imagined; a purpose with its reasons lets the reader work out the rest.
+
+=== What Agent-Readable Purpose Looks Like
+
+The best Story lines at CorralData were written as rules for agents, by people who had learned what the agent needed.
+
+// SOURCE: dossier §2 finding 7 (inbox-triage-work morning_triage_prompt.md)
+My inbox agent has this line: "if in doubt whether something is automated or human, treat it as human." It lists no cases; it encodes a value, that treating a person like a machine costs more than the reverse. The agent can apply it to a sender it has never seen, in a format nobody anticipated.
+
+// SOURCE: dossier §1 case 2 (Agentic Resources Bot drafting TAM Bot's position contract)
+So does "Access is not authorization", the line our Agentic Resources Bot wrote into TAM Bot's position contract (xref:9-one-page-per-job.adoc[Chapter 9]): a reason that covers situations no list of forbidden actions would.
+
+A full Story collects fragments like these into a page:
+
+* *What we're for*: the result the organisation exists to produce, and for whom.
+* *Who we serve, and how*: the standard of care anyone acting for us, human or agent, owes a customer.
+* *What we'll never do*: no more than five lines nobody crosses, each with its reason.
+* *How we decide when it's unclear*: tie-breakers such as customer over convenience, human over machine when in doubt, ask before anything that can't be undone.
+* *Who owns what*: where the org chart lives, so any reader can find the accountable human.
+
+Procedures aren't on the list. How to answer a ticket or run a sales call lives in playbooks attached to roles (xref:10-bet-on-plain-english.adoc[Chapter 10]). The Story sits above them, short enough for every role to carry.
+
+Anthropic's guidance on instructing agents describes a "Goldilocks zone" between two failures: "hardcoding complex, brittle logic in their prompts," and guidance so vague it gives the model nothing concrete.footnote:rajasekaran2025[Rajasekaran, P., Dixon, E., Ryan, C., & Hadfield, J. (2025, September 29). Effective context engineering for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents] Mission statements usually fail on the vague side ("we delight our customers" gives an agent nothing to decide with); agent instructions on the brittle side. The Story is written between: specific enough to decide with, general enough to cover what you didn't foresee.
+
+[TIP]
+.Try this
+====
+Open Claude, ChatGPT or Grok in a fresh conversation with no memory or project instructions.
+
+. Paste in a one-page draft of your Story: what you're for, who you serve, what you'll never do (with reasons), and your tie-breakers.
+. Paste in three real decisions from the last month that someone got wrong or had to escalate. Describe each as it looked at the time, without saying what happened.
+. Ask: "Acting only on this Story, what would you do in each case, and which line of the Story are you relying on?"
+
+Where the model chooses as you would and cites the right line, the Story works. Where it guesses or picks the wrong line, you've found a missing reason. Add it, open a new conversation and run the same cases again. Two or three rounds usually turn a mission statement into something people and agents can use.
+====
+
+== Keep One Story, and Load It Everywhere
+
+A Story only works if everyone reads the same one. Count the places your purpose lives now: the website, the investor deck, the onboarding document, three people's custom instructions, and a dozen agents' standing instructions, each copied from the last and edited a little.
+
+// SOURCE: dossier §2 finding 13 (cloned profiles; USER.md copies; CTO wiki as single source of truth)
+I learned this on my own machine. Most of my agents were copied from an earlier one, so they carried the same notes about the person they work for. When a rule was added for the project manager agent, it spread to every copy, including agents it had nothing to do with. Our CTO wiki takes the opposite approach and tells every agent that reads it to "trust the live source and fix the wiki." One copy, an owner, and an instruction to correct it rather than work around it. xref:12-everything-they-need-on-day-one.adoc[Chapter 12] covers keeping a Role Pack lean and current; the Story is the first thing in every one.
+
+[NOTE]
+.Under the hood
+====
+"Load it everywhere" means putting the Story, or a pointer to it, in the layer every agent reads before it starts: project instructions in Claude or ChatGPT, a team bot's standing instructions, or a shared skill. Keep the always-loaded layer short, aiming for "the smallest possible set of high-signal tokens," and put detail in documents agents fetch when needed.footnote:rajasekaran2025[] Keep one master copy that the always-loaded versions point to, so a correction reaches every agent. Implementation notes are in xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+====
+
+The Story has to reach people too. Ask a new hire, a month in, what we'll never do and why. If the answer doesn't match the page, the page and the culture have drifted, and it is usually the page to fix.
+
+== Review All Four When the Models Change
+
+The four pieces aren't equally stable, so they shouldn't share a review schedule.
+
+.The four pieces and how often they change
+[cols="1,2,1,1,2",options="header"]
+|===
+| Piece | Question it answers | Who writes it | Review | What goes wrong without it
+
+| Aim
+| What do I want the organisation to give me?
+| The founder or owner
+| Yearly, or at a life change
+| You build an organisation that serves the work, not you
+
+| Destination
+| What does "finished" look like, including the mix?
+| The leadership team
+| Yearly; the mix quarterly and at each major model release
+| Roles get filled by whatever agent happens to exist
+
+| Scorecard
+| Are we getting closer?
+| The leadership team, with sponsors for role numbers
+| Monthly; the set itself quarterly
+| Agents hit the wrong targets, fast
+
+| Story
+| What should anyone acting for us do when it's unclear?
+| The founder, tested with the team
+| Whenever a decision exposes a missing reason
+| Every agent invents its own purpose
+|===
+
+The Aim should barely move; if it changes every quarter it's a mood. The Story changes in small edits, each prompted by a real case where it failed. The Destination's mix moves fastest, as the capabilities underneath it do. Anthropic's engineers advise that "when a new model lands, it is generally good practice to re-examine a harness," because each part of it "encodes an assumption about what the model can't do on its own."footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic Engineering_. https://www.anthropic.com/engineering/harness-design-long-running-apps] Every human-versus-agent line on your Destination is such an assumption, and some will be wrong by next spring.
+
+The Scorecard tells you which. A role drawn as human that shows the same numbers with an agent drafting and a person approving is evidence for moving the line; an agent-filled role whose counterweight slips has moved too far. Without it, whoever is most excited about agents this month redraws the chart. Sutton's lesson cuts both ways here: bet on the models getting better, but let the numbers, not the hope, say when.footnote:sutton2019[]
+
+'''''
+
+Agents have made doing cheap and moved the scarce resource upstream. The Aim keeps the organisation serving you. The Destination describes the finished organisation, including who and what fills it and where a human must sign. The Scorecard says, with counterweights, whether you're getting there. The Story gives everyone acting for you the purpose and the reasons.
+
+Write all four before you add another agent. Then you can draw the roles that serve them and decide, separately, who or what fills each one, the subject of xref:5-hire-the-role-not-the-model.adoc[Chapter 5].
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

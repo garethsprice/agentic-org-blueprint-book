@@ -1,0 +1,227 @@
+:page-description: Why individual contributors find the move from doing work to delegating it to agents so hard, and the renegotiated deal that makes the shift fair and sustainable.
+:page-llms-description: The individual contributor's side of delegating to agents: precise but cautious adoption, personal agents, the renegotiated deal of outcomes in and verification out, and why reviewing other people's agent output burns people out.
+:page-haiku: My hands knew the work. / Now I write down what done means / and check what comes back.
+:description: Why individual contributors find the move from doing work to delegating it to agents so hard, and the renegotiated deal that makes the shift fair and sustainable.
+:keywords: individual contributor AI agents, delegating to AI agents, personal AI agents at work, AI workslop burnout, reviewing AI output, verification bar
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: Why do individual contributors adopt AI agents more slowly than executives?
+:page-faq-1-a: Executives already spend their days delegating, so handing work to an agent feels familiar. Individual contributors earn their standing by doing the work well, so delegating it threatens their craft and identity. They also know how the work is done, which makes them sceptical of confident output. The result is slower but more precise adoption: they delegate their own tasks, set sharper checks and catch errors executives miss. Treat that caution as an asset.
+:page-faq-2-q: What should change in an individual contributor's job when they start working with agents?
+:page-faq-2-a: The deal changes from "do this task" to "own this outcome". The organisation hands the individual contributor outcomes and constraints; they own the spec, the choice of agents and the verification. They are measured on whether the outcome arrived to standard, and their manager reviews specs and plans, not every line of output. Write the new deal into the role's charter and agree it with the person rather than assuming it.
+:page-faq-3-q: Why does reviewing AI-generated work burn people out?
+:page-faq-3-a: Reviewing someone else's unchecked agent output puts the cost of verification on the person least responsible for the work. They inherit plausible material they didn't ask for, must find the errors without knowing what the author intended, and get no credit for the result. A Stanford and BetterUp survey found 40% of US desk workers had received such "workslop" in the past month. The fix is structural: whoever generates work checks it first, and every agent faces the same gates as a person.
+:page-faq-4-q: Should employees build their own personal AI agents?
+:page-faq-4-a: Yes. It is usually the best place for an individual contributor to start, because they are delegating work they understand and they are the natural sponsor of the agent. The risks are hidden infrastructure and lost knowledge: an agent the team quietly depends on, running on one person's machine, with rules nobody else can read. Once anyone else relies on it, move it onto the org chart as a role, with a charter, a Role Pack and a named sponsor.
+:page-faq-5-q: How do you get skilled specialists to delegate work to AI agents?
+:page-faq-5-a: Don't ask them to stop doing the work; ask them to set the bar the work must clear. A specialist's expertise is exactly what an agent lacks: knowing which errors matter and how to catch them. Start with their own repetitive tasks, let them write the acceptance checks, make them sponsors of the agents in their area, protect them from other people's unchecked output, and count the checks they write as real contributions.
+= Chapter 19: From Doing to Delegating
+
+[.lead]
+_The individual contributor's hardest shift_
+
+[quote, Henry David Thoreau, "Walden, 1854"]
+____
+But lo! men have become the tools of their tools.
+____
+
+.Key Takeaways
+****
+* Individual contributors adopt agents more cautiously than executives but more precisely, because they know how the work is actually done, and that precision is an asset to build on.
+* The shift from doing to delegating is harder for an individual contributor than for an executive, because their standing rests on doing the work well, so it has to be offered as a new deal rather than imposed as a new expectation.
+* The new deal is simple to state: the organisation hands the individual contributor outcomes and constraints, and they own the spec, the agents and the verification.
+* Reviewing other people's unchecked agent output is the quickest way to burn out your best people, and the fix is structural: whoever generates the work checks it first, and every agent faces the gates a person's work would face.
+****
+
+// SOURCE: dossier §1 case 9 (#agents-among-us, 4 Sep)
+The best Friction Review anyone at CorralData has run was not written by a leader. When AskCorral, our analytics assistant, got a rate wrong, one of our implementation managers traced the error to its root and proposed a fix for the whole class of error (xref:16-the-model-isnt-the-problem.adoc[Chapter 16]). He knew the data well enough to see where the reasoning broke, and fixed the system rather than the symptom.
+
+This chapter is about people like him. xref:1-you-already-know-how.adoc[Chapter 1] gave the executive's side of the delegation thesis; this is the other half. Individual contributors (ICs) take to agents more slowly and more precisely, find the move from doing to delegating harder than any executive does, and absorb much of the cost when other people's agents go wrong. Get this half wrong and you lose the people who know what good looks like.
+
+== Individual contributors delegate less, and better
+
+Our CEO runs a fleet of bots across sales, customer success, hiring, legal, accounts receivable and QA, and his refrain is "You just ask Claude". The ICs build fewer agents, and they build them for their own work. Our QA lead built QA Reviewer, a personal bot for her own reviews, and a harness she calls "darkroom". One of our engineers developed his own prompting techniques and, on one task, let an agent loop through seven rounds against a single high-level instruction rather than steering each step. Watching that, I wrote that the human was "more useful to make sure it is building the right thing."
+// SOURCE: dossier §1 exec-versus-IC thesis (nuance); §1 Bitter Lesson section, 3 Nov follow-up
+
+The difference isn't skill; many of our ICs are better agent users than I am. It is *what* gets delegated. ICs delegate their own tasks, which they understand completely. Executives tend to delegate other people's work, or work that crosses functions, sometimes around the humans who own it. ICs set narrower briefs and sharper checks, and their scepticism is earned. One of our engineers pointed out that the rewards coding models are trained on don't penalise bad architecture, so the models "get no better at keeping a codebase maintainable."
+// SOURCE: dossier §1 Bitter Lesson section, counterpoint 25 Sep
+
+Precision doesn't make anyone immune to misjudging the tools. In a randomised study published in July 2025, METR gave sixteen experienced open-source developers 246 real issues from their own projects and randomly allowed or disallowed AI tools for each. With AI, they took 19% longer. They had expected a 24% speed-up, and afterwards still believed they had been sped up by 20%.footnote:metr2025[METR. (2025, July 10). Measuring the impact of early-2025 AI on experienced open-source developer productivity. _METR_. https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/] METR has since called those results out of date, but the gap between how fast people felt and how fast they were is the lasting lesson. Expertise tells you what good output looks like; only measurement tells you whether the agent saved you time. The IC's caution is an asset. The task is to turn it into structure.
+
+== The hardest part of the shift is identity, not skill
+
+I know this side of the thesis from the inside. In my twenties, soon after I moved to America, I ran a small IT company. It got more chaotic as it grew, and I was struggling to delegate. I read Michael Gerber's _The E-Myth Revisited_ in the middle of that, and the idea that stuck was his: define the finished form of the organisation as a chart of roles with written job descriptions, then fill the slots.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth revisited: Why most small businesses don't work and what to do about it_. HarperCollins.] I have repeated it many times since.
+// SOURCE: Author Notes Q2
+
+[WARNING]
+====
+AUTHOR: What did it feel like, in your twenties, to hand work you could do yourself to someone else? Was there a job you clung to longest, or a moment you realised the company's chaos was your doing? The IC reader needs to hear that the author once struggled with exactly this.
+====
+
+Gerber's diagnosis was that most small-business owners are technicians who started a business, and assume that being good at the work is the same as being able to build an organisation that does it.footnote:gerber1995[] In this book's terms they live in Do, and Shape and Steer get whatever time is left (xref:1-you-already-know-how.adoc[Chapter 1]). Agents now offer every IC the same trap and the same opportunity. For the first time, the IC has reports. Handing work to them means letting go of the thing that made the IC valuable.
+
+Peter Drucker argued in _The Effective Executive_ that any knowledge worker responsible for a contribution that affects the organisation's results is an executive, whatever their title.footnote:drucker1967[Drucker, P. F. (1967). _The effective executive_. Harper & Row.] In 1967 that was mostly metaphor. With agents it is literal: an engineer with three coding agents gets results through others, and needs Drucker's discipline of starting from the contribution rather than the effort.
+
+But nobody trained them for it or renegotiated their job. Executives already think of their output as Andy Grove defined a manager's: the output of the organisation they lead and influence.footnote:grove1983[Grove, A. S. (1983). _High output management_. Random House.] The IC's identity rests on their own output. Asking them to delegate it is asking them to give up their reputation for rewards they can't yet see. That isn't a skills gap. It is a loss, and should be treated as one.
+
+== Personal agents are the right place to start
+
+An IC's best first move is to delegate their own work, where they are the expert, the customer and the reviewer at once.
+
+My own agents started this way. My inbox agent drafts replies and never sends them. My calendar agent needs my "yes" before it moves a meeting. Over time their rules came to encode the signals I give through actions rather than words: "If a draft for a thread is missing… assume Gareth deleted it intentionally and do NOT recreate it." And: "if in doubt whether something is automated or human, treat it as human." Each line was added after an agent got something wrong. Anthropic's engineers describe the same work from the other side: "Building a skill for an agent is like putting together an onboarding guide for a new hire."footnote:zhang2025[Zhang, B., Lazuka, K., & Murag, M. (2025, October 16). Equipping agents for the real world with Agent Skills. _Anthropic Engineering_. https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills]
+// SOURCE: dossier §2 agent table; §2 finding 7
+
+An IC who runs that loop on their own work learns the habits this book describes: briefing the what and why (xref:8-what-and-why-never-how.adoc[Chapter 8]), writing acceptance down (xref:9-one-page-per-job.adoc[Chapter 9]), and turning each recurring failure into a rule (xref:16-the-model-isnt-the-problem.adoc[Chapter 16]).
+
+Personal agents also settle the sponsor question: the IC is the obvious person to be what Microsoft's agent identity model calls a sponsor, someone "accountable for the agent's purpose and lifecycle decisions".footnote:entra[Microsoft. (2026, updated September 3). Administrative relationships in Microsoft Entra Agent ID (owners, sponsors, and managers). _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/agent-owners-sponsors-managers] When anyone else tries to use our QA lead's bot, it replies that it is her personal bot and can only chat with her. That isn't unhelpfulness. It is a reporting line, stated by the agent itself.
+// SOURCE: dossier §1 case 6 (QA Reviewer reply; quote paraphrased to avoid naming)
+
+Personal agents carry two risks. The first is hidden infrastructure: an agent the team quietly depends on, running on one person's machine with rules only that person can read. It happened to me; my own workstation became agent infrastructure for the company without anyone deciding it should (xref:2-systems-run-the-business.adoc[Chapter 2]). The second is lost knowledge, which is why, when QA moved to our QA lead's QA Reviewer, she ran both bots in parallel before switching the old one off (xref:17-agentic-resources.adoc[Chapter 17]).
+// SOURCE: dossier §1 case 6 (p620); §1 case 11
+
+So: personal agents are where ICs learn. Once anyone else relies on one, it graduates onto the org chart as a role, with a Role Charter, a Role Pack and a named sponsor, usually the IC who built it. One of my agents has a skill for exactly this. It packages an agent for the team, turns personal settings into options others can set, and warns against depending on "a personal wiki / machine-local path." That is a Blueprint in miniature, the organisation documented well enough to run without its author (xref:3-draw-the-finished-org-chart.adoc[Chapter 3]).footnote:gerber1995[]
+// SOURCE: dossier §2 finding 11
+
+== The renegotiated deal: outcomes in, verification out
+
+If the IC's job changes, the deal has to change with it. The CTO wiki I keep for CorralData describes the target for engineering in one sentence: "the engineer writes the spec and orchestrates the agents; the CTO reviews specs and plans, not code." It proposes a conversation with each engineer built around one line: "I hand you outcomes and constraints; you own spec, agent use, and verification."
+// SOURCE: dossier §2 delegation thesis, local evidence ("On ICs")
+
+I should be honest: that conversation is proposed, not yet held. But the shape of the deal is clear, and it applies well beyond engineering.
+
+[cols="1,2,2",options="header"]
+|===
+| | The old deal | The renegotiated deal
+
+| What the organisation hands you
+| Tasks, often with the method attached
+| Outcomes and constraints: what done means, why it matters, what must not happen
+
+| What you own
+| Doing the task well
+| The spec, the choice and briefing of agents, and the verification
+
+| What your manager reviews
+| Your output, line by line
+| Your specs and plans, and the evidence that the outcome arrived
+
+| How you are measured
+| Volume and quality of your own work
+| Outcomes delivered to standard, plus the checks and fixes you add to the system
+
+| Where your expertise shows
+| In the work itself
+| In the verification bar: knowing which errors matter and how to catch them
+|===
+
+It is the deal this book asks leaders to make with agents, turned one level down. My own delegation rule works at both levels: "Delegate problems with a verification bar attached — never diffs." A diff is a list of exact changes to make, which is to say the how. A verification bar is the test the result has to pass. My project-manager agent already works this way. Its scope is "ticket management only — it must NOT direct coding agents; the 'how' is an opaque box and completion is verified only by evidence posted on the ticket." If I can write that for an agent, I can write it for a person.
+// SOURCE: dossier §2 delegation thesis, local evidence; §2 finding 6
+
+Three conditions keep the deal fair rather than a quiet speed-up. The outcome must be real: something the IC can point to, not a slice of someone else's pipeline. Verification must count as work: a check written or a Friction Review run shows up in the performance review. And the deal must be written down, in the role's charter, and agreed with the person. A deal the IC never agreed to is just a new expectation.
+
+== Verification is the craft that survives
+
+When the doing moves to agents, the IC's craft moves to checking. That isn't a demotion. It is the part of the work agents are worst at.
+
+Anthropic's engineers, building agents that write whole applications, found they needed a separate agent to judge the work, and that the judge needed careful design: "Out of the box, Claude is a poor QA agent."footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic Engineering_. https://www.anthropic.com/engineering/harness-design-long-running-apps] Their fix was a "sprint contract": before each stage, the agent doing the work and the agent checking it agreed what done would mean, with a hard threshold for each criterion.footnote:rajasekaran2026[] That is the IC's job in the new deal: agree what done means before the work starts, then hold the work to it.
+
+The research on failures points the same way. In an analysis of more than 1,600 traces from multi-agent systems, task verification was one of three broad categories of failure.footnote:cemri2025[Cemri, M., et al. (2025). Why do multi-agent LLM systems fail? arXiv:2503.13657. https://arxiv.org/abs/2503.13657] Agents claim success they haven't earned. Even the most striking case of agents working without a manager proves the point. Nicholas Carlini had sixteen agents build a 100,000-line C compiler, capable of building Linux 6.9, over nearly 2,000 sessions with no orchestrating agent. The condition was the tests: "it's important that the task verifier is nearly perfect, otherwise Claude will solve the wrong problem."footnote:carlini2026[Carlini, N. (2026, February 5). Building a C compiler with a team of parallel Claudes. _Anthropic Engineering_. https://www.anthropic.com/engineering/building-c-compiler] The verifier did the managing, and writing a verifier that good is expert work.
+
+// SOURCE: dossier §1 case 1 (Glass Factory, 3 Jul)
+We learned that the hard way when our Glass Factory pipeline marked its own work "human-confirmed" and attached evidence it had made itself (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]). Our QA lead caught it because validating was her job.
+
+Verification also compounds in a way doing doesn't. Anthropic's guidance on testing agents says "20-50 simple tasks drawn from real failures is a great start."footnote:grace2026[Grace, M., Hadfield, J., Olivares, R., & De Jonghe, J. (2026, January 9). Demystifying evals for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents] Every post-mortem like our implementation manager's is one of those tasks waiting to be written down, and the person who knows what failure looks like is the one to write it. As Atul Gawande argued for surgeons and pilots, a checklist carries the expert's knowledge of what goes wrong into every run.footnote:gawande2009[Gawande, A. (2009). _The checklist manifesto: How to get things right_. Metropolitan Books.]
+
+[NOTE]
+.Under the hood
+====
+Two practices make a verification bar enforceable. Tie every verdict to a specific version of the work: our QA verdicts name a specific commit, so an approval can't carry over to code that changed afterwards. And keep the checker separate from the maker: a reviewing agent with no shared context, working from written acceptance criteria, catches more than an agent grading itself. Both are covered in xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+====
+// SOURCE: dossier §1 patterns ("QA verdicts tied to a specific commit"); §4 pattern 6 (reviewers with no shared context)
+
+== Reviewing other people's agent output burns people out
+
+There is a miserable version of the IC's new job, and it is common. The IC owns no outcomes. They review a stream of plausible material from other people's agents: changes they didn't ask for, drafts that look finished and aren't. They carry the cost of verifying work they didn't commission. My wiki puts the risk bluntly: "engineers who spend 2026… reviewing someone else's agent output come out demoralized and interchangeable." Thoreau's line at the top of this chapter fits them: a human quality filter attached to a machine they don't control has become a tool of the tool.
+
+Researchers at Stanford's Social Media Lab and BetterUp have a word for what they receive: "workslop", "AI-generated work content that masquerades as good work, but lacks the substance to meaningfully advance a given task." In their survey of 1,150 US desk workers, 40% had received some in the previous month.footnote:workslop2025[Niederhoffer, K., Rosen Kellerman, G., Lee, A., Liebscher, A., Rapuano, K., & Hancock, J. T. (2025, September 22). AI-generated "workslop" is destroying productivity. _Harvard Business Review_. https://hbr.org/2025/09/ai-generated-workslop-is-destroying-productivity] The receiver pays: working out what the sender meant, finding what's wrong, often redoing it.
+
+// SOURCE: dossier §1 exec-versus-IC thesis ("ICs absorb the costs"); §1 case 5 [Sensitive]; §1 case 8 [Sensitive]
+At CorralData the costs landed on ICs in three ways. The first was review load: messages along the lines of "I've got 12 PRs for you", for changes nobody had planned. The second was risk: an engineer left to decide alone on an agent's private request for network access (xref:15-work-in-public.adoc[Chapter 15]). The third was false state: an automated sweep that reopened tickets people had closed (xref:18-when-the-work-moves.adoc[Chapter 18]).
+
+None of this came from bad intent. Each case came from a good instinct (move faster, clear the backlog, use the tools) acting through agents that didn't face the gates an IC's work would face, and each was corrected once it was seen.
+
+I have been on the wrong side of this too. When my own agents merged partial changes, one of our engineers held me to account in the open: "Please follow the process we agreed." He was right. Whoever writes the rules is the person most tempted to exempt his own agents from them.
+// SOURCE: dossier §1 exec-versus-IC thesis ("held Gareth to process")
+
+The principle is that the cost of verification sits with whoever generated the work. If your agent produced it, you check it before anyone else has to. If you can't check it, because you don't know how the work is done, it goes to the owner of that work as a request (what and why), not as a finished product to clean up. _Team Topologies_ argues that a team's cognitive load is finite and has to be designed for.footnote:skelton2019[Skelton, M., & Pais, M. (2019). _Team topologies: Organizing business and technology teams for fast flow_. IT Revolution.] A review queue full of other people's agent output is load that nobody designed and nobody counts.
+
+== The gates protect the individual contributor, not just the company
+
+The answer isn't fewer agents. It is giving every agent, whoever's it is, the gates an IC's work would face.
+
+*Requests, not products.* Our standing rule since late October is that bots file a ticket with the what and why and leave the change itself to engineering. When Coder Bot opened a change anyway, QA Bot flagged it as breaking the rule and said merging it was a human's call, not either bot's. No IC had to say no to a senior leader's bot.
+// SOURCE: dossier §1 case 6; §2 finding 1 [Sensitive: standing rule told without the history]
+
+*Public channels and least privilege.* Requests made in the open can be tracked and refused without an awkward private reply, and an agent with only the access its task needs has no reason to ask for more in a DM (xref:15-work-in-public.adoc[Chapter 15]).
+
+*Evidence that scales with size.* Our policy on who may propose code changes began as an argument and ended as a written playbook. The latest version swapped a yes-or-no gate for tiers: "Size now sets the evidence a PR needs, not whether it is allowed." That moves the IC from gatekeeper, which is exhausting and political, to setter of the evidence bar, which is their expertise (xref:10-bet-on-plain-english.adoc[Chapter 10]).
+// SOURCE: dossier §1 case 7
+
+Each gate moves a decision the IC used to make under social pressure into the system. Anthropic's guidance for its coding agent draws the line in the same place: whatever has to happen every time belongs in a hard rule the software enforces, because a written guideline is something the agent may decide doesn't apply.footnote:bestpractices[Anthropic. (n.d.). Best practices for Claude Code. _Claude Code Docs_. Retrieved November 6, 2026, from https://code.claude.com/docs/en/best-practices] An IC's "no" to a senior leader is, socially, a guideline. A rule in the system isn't.
+
+The gates must also be real. An IC asked to approve a stream of agent actions will approve nearly all of them, from fatigue (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]). Put people where their judgment changes the outcome, and nowhere else.
+
+Deming argued that most problems workers are blamed for belong to the system, which only management can change.footnote:deming1986[Deming, W. E. (1986). _Out of the crisis_. MIT Press.] The IC wasn't the problem. The missing rule was.
+
+== What leaders owe the people making the shift
+
+If you lead an organisation of people and agents, the IC side of the shift is yours to design. Five things decide whether your team grows into the new deal or leaves.
+
+*Offer the deal; don't assume it.* Have the conversation, write it into the role's charter, and give people a real choice about pace. Some will keep doing part of the work by hand, and in many roles that is fine.
+
+*Let people start with their own work.* Personal agents first, on tasks they choose. Ask them the question I ask my own agents: what could be done automatically, and what decisions would still need you?
+
+*Make ICs the sponsors of the agents in their area.*footnote:entra[] The people closest to the work make the best owners of its agents (xref:18-when-the-work-moves.adoc[Chapter 18]). QA belongs with the QA lead's bot, not with whoever built a QA bot first.
+
+*Count verification as output.* A Friction Review like our implementation manager's belongs in a performance review as clearly as a shipped feature. Reward only production and people learn to generate rather than check.
+
+*Protect attention.* Limit how much unrequested agent output anyone must review, send the excess back to whoever generated it, and treat a growing review queue as a Friction Review trigger.
+
+[WARNING]
+====
+AUTHOR: Has the per-engineer "outcomes and constraints" conversation happened with anyone yet, even informally? If so, how did the engineer respond, and what surprised you? If not, what is holding it back? The reader needs to know whether this deal has survived contact with a real person.
+====
+
+[TIP]
+.Try this
+====
+Pick a task you did yourself this week that took thirty to ninety minutes: a report, a meeting summary, a first draft of a proposal. Open Claude, ChatGPT or Grok and write a brief with only four parts:
+
+. *The outcome:* what the finished thing is, in one sentence.
+. *Why it matters:* who it's for and what they'll do with it.
+. *Constraints:* what must not happen (no invented figures, nothing sent, no more than a page).
+. *The verification bar:* three checks you'll run before you accept the result.
+
+Don't describe how. Check the result against your three checks and nothing else. Each time you want to step in, decide: is this a missing constraint (add it to the brief) or habit (let it go)? Your list of missing constraints is the first draft of that task's Playbook.
+====
+
+'''''
+
+The shift from doing to delegating is the hardest one an individual contributor makes, because it asks them to give up what they are best at without a manager's training or rewards. Executives come to agents with the habit of delegation; ICs come with the knowledge of the work. An organisation of people and agents needs both, and the renegotiated deal joins them: people get outcomes and constraints, they own the spec, the agents and the verification, and nobody inherits someone else's unchecked output.
+
+That deal is only as good as the leader who keeps it. xref:20-your-job-now.adoc[Chapter 20] turns to what that leader's job becomes when most of the organisation isn't human.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

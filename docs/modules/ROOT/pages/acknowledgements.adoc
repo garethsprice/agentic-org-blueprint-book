@@ -1,0 +1,67 @@
+:page-description: Acknowledgements for The Blueprint — the people, books and ideas it builds on, including Michael E. Gerber's E-Myth work.
+:page-llms-description: Acknowledgements for The Blueprint, including its debt to Michael E. Gerber's E-Myth books and the colleagues and agents whose work supplied its cases.
+:page-llms-optional: true
+:page-haiku: No one builds alone — / not the founder, not the bot. / Thanks to all the hands.
+:page-toclevels: 0
+:description: Acknowledgements for The Blueprint — the people, books and ideas it builds on, including Michael E. Gerber's E-Myth work.
+:keywords: acknowledgements, Michael Gerber, E-Myth, organisation design, The Blueprint
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: Is The Blueprint affiliated with E-Myth?
+:page-faq-1-a: No. The Blueprint is an independent work. It acknowledges a debt to Michael E. Gerber's ideas, especially those in The E-Myth Revisited, and cites them where they are used, but it is not affiliated with, endorsed by or sponsored by Michael E. Gerber, E-Myth Worldwide or their successors. E-Myth is a trademark of its owner.
+:page-faq-2-q: Which E-Myth ideas does The Blueprint build on?
+:page-faq-2-a: Chiefly the idea that a business should be designed as a system that people operate, organised around roles rather than the individuals who happen to fill them, with the finished organisation chart drawn first and every position given a written description of the result it exists to produce. The Blueprint rebuilds those ideas, in its own words and with its own examples, for organisations where some positions are filled by AI agents.
+:page-faq-3-q: What other influences shaped the book?
+:page-faq-3-a: W. Edwards Deming on systems as the source of most problems, Peter Drucker on managing for results, Andy Grove on managerial output and on matching supervision to a report's maturity, lean manufacturing's standard work, Atul Gawande on checklists, Matthew Skelton and Manuel Pais on cognitive load, and Rich Sutton's essay The Bitter Lesson.
+:page-faq-4-q: Where do the book's case studies come from?
+:page-faq-4-a: From the author's own company, CorralData, where people and AI agents share the work. Colleagues appear by role rather than name, customer and patient information never appears, and sensitive episodes are told only with the agreement of the people involved.
+:page-faq-5-q: Can I use the templates in this book?
+:page-faq-5-a: Yes. The templates in Appendix B were designed for this book and are offered for readers to copy, adapt and use in their own organisations, including by pasting them into Claude, ChatGPT or Grok.
+= Acknowledgements
+
+This book stands on other people's shoulders, and some of those people are not people.
+
+== Michael E. Gerber
+
+In my twenties I read Michael E. Gerber's _The E-Myth Revisited_ while running a small IT company that had outgrown my ability to delegate.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth Revisited: Why Most Small Businesses Don't Work and What to Do About It_. HarperCollins.]
+Its argument — that a business should be designed as a system that people operate, organised around positions rather than personalities, with the finished organisation chart drawn before anyone fills the boxes — got me through that company, and I have repeated it to anyone who would listen ever since.
+When AI agents arrived on my team and immediately began to multiply, it was the first book I reached for.
+
+_The Blueprint_ rebuilds several of Gerber's ideas for organisations where some of the positions are filled by software.
+Where an idea is his, the text says so and cites him.
+The words, the examples, the templates and the method as a whole are this book's own.
+
+_The Blueprint_ is an independent work.
+It is not affiliated with, endorsed by or sponsored by Michael E. Gerber, E-Myth Worldwide or their successors.
+E-Myth is a trademark of its owner.
+
+== The Other Shoulders
+
+{empty}W. Edwards Deming, for the idea that most problems belong to the system rather than the worker.
+Peter Drucker, for managing by results.
+Andy Grove, for the insight that a manager's output is the output of the organisation, and that how closely you supervise should depend on how ready the report is for the task.
+Atul Gawande, for showing that checklists are a discipline of experts, not a crutch for novices.
+Matthew Skelton and Manuel Pais, for cognitive load as a design constraint.
+Rich Sutton, for _The Bitter Lesson_ — which turns out to be a lesson about management too.
+
+== The Team
+
+[WARNING]
+====
+AUTHOR: Thanks to colleagues at CorralData — by name if they are happy to be named here, even though the chapters refer to them only by role. Consider thanking the people whose episodes appear in the book for letting them be told. And, if you like, the bots: TAM Bot, QA Bot (archived, not deleted), QA Reviewer, Coder Bot and the Agentic Resources Bot, whose interview of TAM Bot made this book's argument better than I could.
+====
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

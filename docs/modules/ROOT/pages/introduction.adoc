@@ -1,0 +1,189 @@
+:page-description: Agent sprawl is an organisation design problem leaders already know how to solve. This introduction explains why, who the book is for, and how to use it.
+:page-llms-description: Introduction to The Blueprint: why multiplying AI agents is an org design problem, the author's route from a founder who couldn't delegate to a CTO delegating to agents, and a map of the book.
+:page-haiku: Bots bloom overnight / two QA bots, one question: / who do they answer?
+:description: Agent sprawl is an organisation design problem leaders already know how to solve. This introduction explains why, who the book is for, and how to use it.
+:keywords: agent sprawl, AI agents org chart, managing AI agents, organisation design for AI, people and agents, agentic organisation
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: What is agent sprawl?
+:page-faq-1-a: Agent sprawl is what happens when an organisation adds AI agents faster than it decides what each one is for. Different people build bots that overlap, two agents claim the same job, nobody knows who answers for a bot's mistakes, and the knowledge of how it all fits together lives in one person's head. It is not a technology failure. Each agent may work perfectly. It is an organisation design failure, and the remedies are the ones leaders already use for people: defined roles, one accountable owner, written standards and public handoffs.
+:page-faq-2-q: Do I need to be technical to organise AI agents in my business?
+:page-faq-2-a: No. The hard problems in running a team of people and agents are deciding what each role is for, who owns it, what good work looks like and where a human must approve. Those are management questions, and most of the answers can be written in plain English. Technical colleagues are needed for a few hard rules at the points that can't be undone, such as payments, customer data and production systems. This book keeps that detail in clearly marked sidebars and an appendix for your technical team.
+:page-faq-3-q: Should I build one AI agent per job or one agent that does everything?
+:page-faq-3-a: Start by designing roles, not agents. A role is a position with an outcome, standards and an owner; an agent is one possible occupant. Current research favours starting with a single capable agent and adding more only when there is a clear limit, because coordination between agents is expensive and error-prone. One general agent can hold several roles, each with its own written charter. How many agents fill your chart is a separate decision you can change later without redrawing the chart.
+:page-faq-4-q: Why does the window for small companies to benefit from AI agents feel so short?
+:page-faq-4-a: Small organisations can redesign themselves around agents in weeks, while large ones need years of change programmes. That gap is the opportunity. But capability is rising quickly, with METR finding that the length of tasks AI can complete has doubled roughly every seven months, and large companies are investing heavily. The advantage goes to small teams that design their organisation now, before their larger competitors finish catching up and before their own agent sprawl hardens into habit.
+:page-faq-5-q: What is Michael Gerber's idea of designing the org chart before hiring?
+:page-faq-5-a: Michael Gerber argued in The E-Myth Revisited that a small business should design its finished organisation first, as a chart of positions with written responsibilities, and only then fill those positions, even if the founder occupies most of them at the start. This book applies that idea to organisations of people and agents. The chart is a chart of roles; people and agents are occupants who can change without the role changing. Gerber is one influence among several, alongside Deming, Drucker, Grove and Team Topologies.
+= Introduction: The Day the Bots Multiplied
+
+[.lead]
+_Why agent sprawl is an org design problem you already know how to solve_
+
+// Epigraph: first printing, Schiller's Musen-Almanach für das Jahr 1798, verified at de.wikisource.org (Der_Zauberlehrling_(1798)). Translation is ours.
+[quote, Johann Wolfgang von Goethe, "Der Zauberlehrling, 1797"]
+____
+Herr, die Noth ist groß, +
+Die ich rief die Geister +
+Werd ich nun nicht los.
+
+_(Master, the need is great. The spirits that I summoned, I cannot now be rid of.)_
+____
+
+.Key Takeaways
+****
+* Agents have made it cheap to add workers and no easier to build an organisation, so most teams adopting them end up with overlapping bots, unclear ownership and one person holding it all together.
+* Agent sprawl is an organisation design problem, and the tools for it are old ones: roles defined before occupants, one accountable human per role, written standards and work done in public.
+* Small organisations can redesign themselves around agents far faster than large ones, but the window is short, and the advantage goes only to those who design rather than accumulate.
+* This book is written for business leaders who already use Claude, ChatGPT or Grok every day; it keeps code out of the main text and gives you something to try in your own tools in every chapter.
+****
+
+// SOURCE: Author Notes Q1; dossier §1 Patterns (agents in use, overlapping bots), §1 Simple and expressive (Grok Bot adoption), §1 case 10 (boards collision), §1 case 11 (QA Bot and QA Reviewer)
+On the first day we had Grok Bot at CorralData, our CEO added a handful of bots to our Slack. I added some of my own. So did the rest of the team. Each one did something useful, and each one had been set up by a different person for a different reason. By the end of the day we had two QA bots, built by different people, both reviewing the same work. Within two weeks there were about ten team bots: a TAM Bot for customer success, a Sales Bot, a Coder Bot, bots for legal, hiring, accounts receivable and marketing, and the two competing QA bots. Non-engineers had built several of them. Our CEO called it a "next level productivity hack", and he was right.
+
+It also started to feel as if it would soon descend into chaos. Over the following weeks two bots set up by different people began building the same customer boards (xref:1-you-already-know-how.adoc[Chapter 1]). A bot called Wrangler overlapped with TAM Bot. Nobody had decided which QA bot owned the release check, because nobody had decided that anyone needed to decide.
+
+I thought about drawing an org chart for the bots, then realised that was not a metaphor but the answer. This was a standard organisation design problem, the one every growing company meets when it hires faster than it defines jobs. The occupants were new. The problem was not.
+
+[WARNING]
+====
+AUTHOR: Add a line or two of your own colour to the opening scene: where you were when you noticed the two QA bots, what you felt, and whether you said anything in Slack at the time. The reader should feel the moment the "org chart for bots" idea arrived.
+====
+
+== Agent Sprawl Is an Organisation Design Problem
+
+Agents have made it cheap to add workers, not easier to build an organisation. Almost every team that brings agents in repeats the oldest mistake in small business: organising around whoever, or whatever, happens to be good at something. One agent quietly takes on six jobs. One person becomes the only one who knows how they all fit together. When either goes away, the work stops.
+
+The industry is beginning to notice the cost. In June 2025 Gartner predicted that more than 40% of agentic AI projects would be cancelled by the end of 2027, citing escalating costs and unclear business value, and estimated that only about 130 of the thousands of vendors selling "agentic" products were offering the real thing.footnote:gartner2025[Kachwala, Z. (2025, June 25). Over 40% of agentic AI projects will be scrapped by 2027, Gartner says. _Reuters_, via _The Star_. https://www.thestar.com.my/tech/tech-news/2025/06/25/over-40-of-agentic-ai-projects-will-be-scrapped-by-2027-gartner-says] Microsoft's 2025 Work Trend Index, a survey of 31,000 workers in 31 markets, predicted "the rise of the agent boss: someone who builds, delegates to, and manages agents", and proposed that organisations would need a new metric, the human-agent ratio.footnote:wti2025[Microsoft WorkLab. (2025, April 23). 2025: The year the Frontier Firm is born. _Work Trend Index Annual Report_. https://www.microsoft.com/en-us/worklab/work-trend-index/2025-the-year-the-frontier-firm-is-born]
+// VERIFY-QUOTE: Work Trend Index "agent boss" sentence was read through a summarising fetch; re-check wording at source.
+
+Most advice is about building agents: which model, which framework, which prompt. Very little is about organising them, yet the questions I was left with after that first day were not technical. Which QA bot owns the release check? Who answers for TAM Bot when it tells a customer something wrong? When two people's bots both want to build the same board, who decides? If I am on holiday and the agents stop, who knows how to start them again?
+
+Those are org chart questions, with well-worn answers you have probably used on people. This book's argument fits in three sentences. *Systems run the business. People and agents run the systems. Humans own the outcomes.*
+
+== I Learnt This Once Already, With People
+
+// SOURCE: Author Notes Q2
+In my twenties, soon after moving to America, I ran my first business: a small IT company. As it grew it became chaotic, and most of the chaos traced back to me: I couldn't delegate. Work routed through me because I knew how it was done, and the more the company grew the more it depended on the one person who could least afford to be its bottleneck.
+
+Around then I read Michael Gerber's _The E-Myth Revisited_. Gerber argues that most small businesses are started by people who are good at the work itself, and who then spend their lives working _in_ the business rather than _on_ it. His remedy is to treat the business as a prototype that could be reproduced: design the finished organisation first, as a chart of positions with written responsibilities, then fill the positions, even if the founder's own name sits in most of the boxes at the start.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth Revisited_. HarperCollins.] The idea that stuck with me was the simplest: define the final org chart around roles, then fill the slots. I have repeated it to founders many times since.
+
+[WARNING]
+====
+AUTHOR: A few concrete details about the IT company would ground this: roughly how many people, what kind of work, and one specific moment when your inability to delegate cost you something. Also, did drawing the finished org chart actually work for you then, or did it take years to stick?
+====
+
+Today I am a CTO, delegating to agents as well as people. The struggle has changed shape but not substance. Agents will do what the organisation tells them; the question is whether the organisation knows what to say. A founder who could not delegate to people taught me most of what I know about delegating to agents, because he was me.
+
+== The Answer Is Older Than the Technology
+
+Gerber is one influence among several, and this book is its own thing. W. Edwards Deming taught that most failures belong to the system, not the worker.footnote:deming1986[Deming, W. E. (1986). _Out of the Crisis_. MIT Press.] Peter Drucker taught executives to manage for results rather than activity.footnote:drucker1967[Drucker, P. F. (1967). _The Effective Executive_. Harper & Row.] Andy Grove defined a manager's output as the output of the organisation they run.footnote:grove1983[Grove, A. S. (1983). _High Output Management_. Random House.] Lean manufacturing showed that a standard way of working is the baseline for improvement, not its enemy. Atul Gawande showed that a short checklist can save lives in an operating theatre.footnote:gawande2009[Gawande, A. (2009). _The Checklist Manifesto_. Metropolitan Books.] Matthew Skelton and Manuel Pais showed that teams have a limit on how much they can hold in their heads, and that the shape of the organisation becomes the shape of what it builds.footnote:skelton2019[Skelton, M., & Pais, M. (2019). _Team Topologies_. IT Revolution.]
+
+What is striking is how closely the newest research on agents echoes these old ideas. LangChain's guidance on agent architecture opens with "Many agentic tasks are best handled by a single agent with well-designed tools", and advises adding more agents only when you hit clear limits.footnote:runkle2026[Runkle, S. (2026, January 14). Choosing the right multi-agent architecture. _LangChain Blog_. https://www.langchain.com/blog/choosing-the-right-multi-agent-architecture] Google Research found that agents working without a coordinator amplify one another's errors far more than agents whose work is checked (xref:6-one-boss-few-reports.adoc[Chapter 6]). Anthropic found that its multi-agent research system beat a single agent by 90.2% on its internal evaluation, but used about 15 times as many tokens as a chat, and that early versions made errors like "spawning 50 subagents for simple queries".footnote:hadfield2025[Hadfield, J., et al. (2025, June 13). How we built our multi-agent research system. _Anthropic Engineering_. https://www.anthropic.com/engineering/multi-agent-research-system] Microsoft's identity platform for agents now requires every agent to have a human sponsor, "accountable for the agent's purpose and lifecycle decisions".footnote:entra2026[Microsoft. (2026). Administrative relationships in Microsoft Entra Agent ID. _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/agent-owners-sponsors-managers]
+
+Read as a manager, those findings are familiar: don't hire a team when one capable person will do; a team without a lead compounds its mistakes; every worker needs someone who answers for them. The field is rediscovering the org chart.
+
+== The Window Is Short
+
+Small teams have always been able to beat large ones when the work rewards speed over scale. Instagram had 13 employees when Facebook agreed to buy it for about $1 billion in 2012.footnote:memmott2012[Memmott, M. (2012, April 9). Facebook is buying Instagram. _NPR, The Two-Way_. https://www.npr.org/sections/thetwo-way/2012/04/09/150292381/facebook-is-buying-instagram] WhatsApp had 55 when Facebook paid $19 billion for it two years later.footnote:chappell2014[Chappell, B. (2014, February 19). Facebook will buy WhatsApp message service for $19 billion. _NPR, The Two-Way_. https://www.npr.org/sections/thetwo-way/2014/02/19/279763675/facebook-will-buy-whatsapp-message-service-for-19-billion] Those were software companies before agents. Sam Altman has described a betting pool among his fellow technology chief executives for "the first year that there is a one-person billion-dollar company", which he called something that "would have been unimaginable without AI and now will happen."footnote:confino2024[Confino, P. (2024, February 4). Could AI create a one-person unicorn? Sam Altman thinks so—and Silicon Valley sees the technology 'waiting for us'. _Fortune_. https://fortune.com/2024/02/04/sam-altman-one-person-unicorn-silicon-valley-founder-myth/]
+
+You don't need to believe in one-person unicorns to see the shift. METR, a research group that measures AI capability, found that the length of tasks AI agents can complete had been doubling roughly every seven months for six years.footnote:metr2025[METR. (2025, March 19). Measuring AI ability to complete long tasks. https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/] A ten-person company can redesign itself around that in weeks. A ten-thousand-person company has to move layers of management, policy and habit first.
+
+That gap is the opportunity, and it will not last. Large organisations are investing heavily; in Microsoft's survey, 82% of leaders said they were confident they would use digital labour to expand their workforce capacity in the next twelve to eighteen months.footnote:wti2025[] Their size will slow them down, but not for ever. Meanwhile the small company's own agents multiply, and every week without design makes the redesign harder.
+
+== Who This Book Is For
+
+This book is for a business leader who has started working with agents, sees the power in them, and is wondering how to orchestrate them as they multiply. You might be a founder whose first agent has just taken over a job a person used to do. You might be an operator scaling a team that is part human and part model. You might be an executive trying to work out who is accountable when an agent gets something wrong in front of a customer.
+
+You probably spend much of your day in Claude, ChatGPT or Grok, and may have set up a custom GPT, a Claude project or a Slack bot. You don't need to be technical. You are convinced that AI gives small organisations leverage over larger ones, and that the window is short. What you want is an organisation that doesn't depend on you holding it together.
+
+If you are an executive, you have a head start. Delegation is your habit, and agents reward it. xref:1-you-already-know-how.adoc[Chapter 1] explains why that head start is real, and why it comes with a trap: leaders tend to delegate the wrong layer. If you are an individual contributor who has built your own agents, xref:19-from-doing-to-delegating.adoc[Chapter 19] is written for you, and the rest of the book will help you understand what your leaders are trying to build.
+
+== What You Will Not Find Here
+
+There is no code in the main text, and no comparison of vendors: the tools change too fast, and neither is where organisations succeed or fail. Technical detail sits in short "Under the hood" sidebars and in xref:appendix-d-for-your-technical-team.adoc[Appendix D], for your technical team.
+
+The book also bets on plain English. The simple, expressive option keeps beating the structured one, and the agents that spread fastest at CorralData were the ones anyone could instruct in a sentence. Rich Sutton's "The Bitter Lesson" makes the general case, and xref:10-bet-on-plain-english.adoc[Chapter 10] applies it to management.footnote:sutton2019[Sutton, R. (2019, March 13). The bitter lesson. _Incomplete Ideas_. http://www.incompleteideas.net/IncIdeas/BitterLesson.html] So most of what you will write is in English, and hard rules are kept for the points that can't go wrong.
+
+== The Map
+
+The book has seven parts, followed by appendices you can use on their own.
+
+[cols="1,2,3",options="header"]
+|===
+|Part |Chapters |The question it answers
+
+|I: The Shift
+|1–3
+|Why is this an organisation problem, and what do I already know that helps?
+
+|II: The Destination
+|4
+|What is the organisation for, and what does "finished" look like?
+
+|III: The Org Chart
+|5–8
+|What roles do I need, who owns each one, and how do I brief the occupants?
+
+|IV: Writing It Down
+|9–12
+|How do I document a role so that a person or an agent can do it well from day one?
+
+|V: Running the Machine
+|13–15
+|How do I track what is owed, put humans where they matter, and keep work visible?
+
+|VI: Getting Better
+|16–17
+|How do recurring failures become system fixes, and who looks after the agent workforce?
+
+|VII: The Human Side
+|18–20
+|How do I move work from people to agents honestly, and what is my job now?
+|===
+
+Part I sets out the shift. xref:1-you-already-know-how.adoc[Chapter 1] covers the executive's head start and the trap inside it, and introduces the three kinds of work: _Shape_, _Steer_ and _Do_. xref:2-systems-run-the-business.adoc[Chapter 2] rebuilds Gerber's and Deming's central idea for agents, and shows how model dependency has become the new people dependency. xref:3-draw-the-finished-org-chart.adoc[Chapter 3] introduces the _Blueprint_: your organisation documented well enough that you could stand it up again tomorrow.
+
+The rest of the book builds on those ideas. Part II defines your _Aim_, your _Destination_, your _Scorecard_ and your _Story_. Part III draws the chart, gives every agent a _Sponsor_ and shows how to brief occupants. Part IV writes each role down as a _Role Charter_, _Playbooks_ and a _Role Pack_. Part V adds the _Commitment Ledger_. Part VI introduces the _Friction Review_ and _Agentic Resources_, an HR function for agents. xref:appendix-e-glossary.adoc[Appendix E] defines every term.
+
+== How to Read This Book
+
+Read Part I first. It is short, and the rest of the book assumes its vocabulary. After that, read in order if you are starting from scratch, or go to the chapter that matches the problem in front of you. If you want a build order rather than an argument, start with xref:appendix-a-first-thirty-days.adoc[Appendix A], which takes you from your first agent to a full Blueprint in thirty days. xref:appendix-b-templates.adoc[Appendix B] has every template, and xref:appendix-g-ai-org-design-advisor.adoc[Appendix G] is a ready-made skill you can load into your own AI assistant to apply the book to your company.
+
+Each chapter has one "Try this" box: an exercise you can do today in the tools you already use. They are the most important part of the book, because you learn delegation by delegating. The examples throughout come from CorralData, the small healthcare analytics company where I am CTO, and where a team of people and a growing number of agents work side by side in Slack. I have tried to show what went wrong as well as what worked. Colleagues appear by role, not by name; bots appear by their names.
+
+[TIP]
+.Try this
+====
+Open Claude, ChatGPT or Grok and paste in this prompt, then answer its questions honestly:
+
+_"I want to take an inventory of every AI agent, custom GPT, assistant project, Slack bot and scheduled AI task used in my organisation. Ask me questions one at a time until we have a complete list. For each one, record: what it does, who set it up, who it answers to, what it can access, and what would break if it stopped tomorrow. Then show me the list as a table and point out any overlaps, any agent with no clear owner, and any person who appears in the 'who set it up' column more than three times."_
+
+Keep the table. You will use it in xref:3-draw-the-finished-org-chart.adoc[Chapter 3].
+====
+
+[WARNING]
+====
+AUTHOR: Consider adding one sentence here on what the CorralData team thought when you started treating the bots as an org chart. Was there scepticism? Did anyone push back on "Agentic Resources" as a name?
+====
+
+'''''
+
+The day the bots multiplied at CorralData was not a crisis; nothing broke. It was simply the first day it became obvious that we were building an organisation whether we meant to or not, and that an organisation built by accident would eventually need the one person who understood it to be everywhere at once. I had been that person before, in my twenties, and I did not want to be him again.
+
+You don't need a new discipline to avoid that. You need the one you already have, applied to a new kind of colleague: roles before occupants, an owner for every role, standards written down, and work done where everyone can see it. The rest of this book shows you how. xref:1-you-already-know-how.adoc[Chapter 1] starts with the skill you already have, and the trap inside it.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

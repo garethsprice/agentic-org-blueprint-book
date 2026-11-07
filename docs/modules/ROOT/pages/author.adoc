@@ -1,0 +1,51 @@
+:page-description: About Gareth Price — CTO at CorralData, author of Applied Alchemy, and a leader running a team of people and AI agents.
+:page-llms-description: About Gareth Price — CTO at CorralData, author of Applied Alchemy, former technologist at The New York Times and Codecademy, who runs a mixed team of people and AI agents.
+:page-llms-optional: true
+:page-schema: person
+:page-toclevels: 0
+:description: About Gareth Price — CTO at CorralData, author of Applied Alchemy, and a leader running a team of people and AI agents.
+:keywords: Gareth Price, CTO, CorralData, Applied Alchemy, AI agents, organisation design
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: Who wrote The Blueprint?
+:page-faq-1-a: The Blueprint was written by Gareth Price, CTO at CorralData, an AI-powered business intelligence platform serving the healthcare industry, and author of Applied Alchemy, a field guide for startup CTOs. He runs a team in which people and AI agents share the work, and the book's cases come from that team.
+:page-faq-2-q: What is Gareth Price's background?
+:page-faq-2-a: Gareth Price studied artificial intelligence at the University of Manchester, ran a small IT company after moving to the United States in his twenties, and has held engineering and leadership roles at The New York Times, Codecademy and CorralData, where he is CTO.
+:page-faq-3-q: What is CorralData?
+:page-faq-3-a: CorralData is an AI-powered business intelligence platform serving the healthcare industry. Its product lets healthcare organisations query their data in plain language. Internally, the company runs a mixed team of people and AI agents across engineering, QA, customer success, sales and operations.
+:page-faq-4-q: What is Applied Alchemy?
+:page-faq-4-a: Applied Alchemy: The Startup CTO's Field Guide to Building Technology Companies from Nothing is Gareth Price's first book. It maps the startup CTO's transformation from coder to manager to director to strategist, and is available free online at startupctobook.com.
+:page-faq-5-q: Why did Gareth Price write a book about organising AI agents?
+:page-faq-5-a: On the first day his company's team started adding AI agents to Slack, there were soon two competing QA bots and no clear owner for either. He recognised it as the same problem he had faced running his first business in his twenties — work organised around whoever happened to be available — and reached for the same answer: an org chart of roles, defined before anyone fills them.
+= About the Author
+
+Gareth Price is CTO at CorralData, an AI-powered business intelligence platform serving the healthcare industry, and the author of https://www.startupctobook.com/[_Applied Alchemy: The Startup CTO's Field Guide to Building Technology Companies from Nothing_].
+He runs a team in which a growing share of the work is done by agents — a project manager that reports to him, a promise-keeper that checks whether he did what he said he would, a QA reviewer that belongs to his QA lead, and a bot whose job is onboarding the other bots — and he has made most of the mistakes this book describes, usually before lunch.
+
+He came to the United States in his twenties and ran a small IT company that grew faster than his ability to delegate.
+A book about organising a business around roles rather than people got him through it, and the idea that stuck — draw the finished org chart first, then fill the boxes — is the idea this book rebuilds for a team where some of the boxes are filled by software.
+
+Before CorralData, Gareth was a technologist at The New York Times, where he worked on the Storylines team, and at Codecademy, where he built tools for the people who teach other people to code.
+He studied artificial intelligence at the University of Manchester, back when that was considered a respectable but mildly eccentric career choice.
+
+He writes about technology, leadership and AI at Res·cog.
+
+[WARNING]
+====
+AUTHOR: Check the bio. In particular: the IT company details (name? city? years?) and whether "a book about organising a business around roles" should name Gerber's _The E-Myth Revisited_ here (it is acknowledged by name on the Acknowledgements page).
+====
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

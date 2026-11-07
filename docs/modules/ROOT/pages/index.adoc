@@ -1,0 +1,109 @@
+:page-description: The field guide for business leaders whose teams now include AI agents — how to design an organisation of people and agents that works without you holding it together.
+:page-llms-description: Overview of The Blueprint, a field guide for business leaders building organisations where people and AI agents share the work, covering org charts of roles, role charters, plain-English playbooks, commitment ledgers, sponsors and Agentic Resources across 20 chapters.
+:page-schema: book
+:page-haiku: Bots multiply fast. / Draw the chart before the chaos — / roles first, then the names.
+:page-toclevels: 0
+:description: The field guide for business leaders whose teams now include AI agents — how to design an organisation of people and agents that works without you holding it together.
+:keywords: agentic organisation, AI agent org chart, managing AI agents, AI agents for business leaders, organisation design, delegation
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: What is The Blueprint about?
+:page-faq-1-a: The Blueprint is a field guide for business leaders whose teams now include AI agents. It argues that agent sprawl is an organisation design problem rather than a tooling problem, and shows how to solve it: design an org chart of roles before deciding who or what fills them, write a one-page charter for every role, keep procedures in plain English, track commitments against evidence, give every agent a human sponsor, and turn every recurring failure into a system fix.
+:page-faq-2-q: Who is The Blueprint written for?
+:page-faq-2-a: The primary reader is a founder, executive or operator who has started using AI agents in tools such as Claude, ChatGPT or Grok, sees the leverage they offer, and wants to know how to organise them as their numbers grow. The book assumes no technical background. Technical detail is kept in sidebars and a dedicated appendix for the reader's engineering team.
+:page-faq-3-q: Do I need to be technical to use this book?
+:page-faq-3-a: No. The method works in the desktop AI apps and team chat tools most leaders already use every day. Each chapter ends its main argument with a short exercise you can do in Claude, ChatGPT or Grok, and implementation detail such as scheduled jobs, enforcement rules and agent protocols is collected in Appendix D for whoever builds your systems.
+:page-faq-4-q: How is The Blueprint different from other books about AI agents?
+:page-faq-4-a: Most writing about agents is about building them. The Blueprint is about organising them alongside people. It draws on decades of thinking about systems and organisations — Gerber, Deming, Drucker, Grove — and tests it against real cases from a working company that runs a mixed team of humans and agents, including the failures, plus current research on how multi-agent systems succeed and fail.
+:page-faq-5-q: What is Agentic Resources?
+:page-faq-5-a: Agentic Resources is the book's name for HR for agents: a function on the org chart, run by a person, an agent or both, that owns the agent workforce. It writes job descriptions and role charters, onboards new agents in public, reviews their performance, promotes them to more autonomy, settles turf wars between duplicate bots, hands roles to new models, and retires agents without losing what they knew.
+= The Blueprint
+
+== A Field Guide to Building Organisations of People and Agents
+
+// AUTHOR: cover image and caption to come. Applied Alchemy used "too many hats"; something equally light here, e.g. an org chart sketched on a napkin with a few of the boxes labelled "bot".
+
+Your newest hire never sleeps, never takes a holiday, and will do exactly what you tell it to.
+
+That's the problem.
+
+Agents have made it cheap to add workers and no easier to build an organisation. Most teams bringing agents in are repeating the oldest mistake in small business: organising around whoever, or whatever, happens to be good at something. One agent quietly does six jobs. One person is the only one who knows how it all fits together. When either goes away, the business stops. Being able to build an agent isn't the same as being able to build an organisation of them.
+
+_The Blueprint_ is a practical method for designing a company where people and agents share the work: where every role, human or not, has a written outcome, clear standards and one person accountable for it, and where the whole organisation is documented well enough that you could stand it up again tomorrow. It draws on half a century of thinking about systems and organisations, from Deming and Drucker to Grove and Gerber, and rebuilds it for teams where half the org chart runs on a model.
+
+It is written for the leader who already lives in Claude, ChatGPT or Grok, who has seen what an agent can do in an afternoon, and who suspects — correctly — that the window in which small, fast organisations can outrun large, slow ones is open now and will not stay open long.
+
+== Table of Contents
+
+=== Front Matter
+
+* xref:author.adoc[About the Author]
+* xref:process.adoc[How This Book Was Built]
+* xref:acknowledgements.adoc[Acknowledgements]
+
+=== Part I: The Shift
+
+* xref:introduction.adoc[Introduction: The Day the Bots Multiplied]
+* xref:1-you-already-know-how.adoc[Chapter 1: You Already Know How to Do This]
+* xref:2-systems-run-the-business.adoc[Chapter 2: Systems Run the Business]
+* xref:3-draw-the-finished-org-chart.adoc[Chapter 3: Draw the Finished Org Chart First]
+
+=== Part II: The Destination
+
+* xref:4-know-what-its-for.adoc[Chapter 4: Know What It's For]
+
+=== Part III: The Org Chart
+
+* xref:5-hire-the-role-not-the-model.adoc[Chapter 5: Hire the Role, Not the Model]
+* xref:6-one-boss-few-reports.adoc[Chapter 6: One Boss, Few Reports]
+* xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7: Every Agent Needs a Sponsor]
+* xref:8-what-and-why-never-how.adoc[Chapter 8: What and Why, Never How]
+
+=== Part IV: Writing It Down
+
+* xref:9-one-page-per-job.adoc[Chapter 9: One Page Per Job]
+* xref:10-bet-on-plain-english.adoc[Chapter 10: Bet on Plain English]
+* xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11: Lock In Only What Can't Go Wrong]
+* xref:12-everything-they-need-on-day-one.adoc[Chapter 12: Everything They Need on Day One]
+
+=== Part V: Running the Machine
+
+* xref:13-track-whats-owed.adoc[Chapter 13: Track What's Owed, Not What's Done]
+* xref:14-humans-at-the-irreversible-points.adoc[Chapter 14: Humans at the Irreversible Points]
+* xref:15-work-in-public.adoc[Chapter 15: Work in Public]
+
+=== Part VI: Getting Better
+
+* xref:16-the-model-isnt-the-problem.adoc[Chapter 16: The Model Isn't the Problem]
+* xref:17-agentic-resources.adoc[Chapter 17: Agentic Resources]
+
+=== Part VII: The Human Side
+
+* xref:18-when-the-work-moves.adoc[Chapter 18: When the Work Moves]
+* xref:19-from-doing-to-delegating.adoc[Chapter 19: From Doing to Delegating]
+* xref:20-your-job-now.adoc[Chapter 20: Your Job Now]
+
+=== Appendices
+
+* xref:appendix-a-first-thirty-days.adoc[Appendix A: The First Thirty Days]
+* xref:appendix-b-templates.adoc[Appendix B: Templates]
+* xref:appendix-c-worked-example.adoc[Appendix C: A Worked Example]
+* xref:appendix-d-for-your-technical-team.adoc[Appendix D: For Your Technical Team]
+* xref:appendix-e-glossary.adoc[Appendix E: Glossary]
+* xref:appendix-f-recommended-reading.adoc[Appendix F: Recommended Reading]
+* xref:appendix-g-ai-org-design-advisor.adoc[Appendix G: Your AI Org Design Advisor]
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

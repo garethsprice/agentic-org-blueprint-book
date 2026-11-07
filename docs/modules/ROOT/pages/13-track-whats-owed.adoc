@@ -1,0 +1,225 @@
+:page-description: The Commitment Ledger: how to track what each role in a team of people and agents has promised, close items only on evidence, and raise slips before deadlines.
+:page-llms-description: How to run a Commitment Ledger for people and agents: record what each role owes and to whom, close items only on evidence, flag slips early, separate scheduled from event-driven work, and give every escalation an owner.
+:page-haiku: Promises outlive / the meeting where they were made. / Write down what you owe.
+:description: The Commitment Ledger: how to track what each role in a team of people and agents has promised, close items only on evidence, and raise slips before deadlines.
+:keywords: commitment ledger, tracking AI agent commitments, agent accountability, agent progress tracking, escalation ownership, scheduled AI agents
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: What is a Commitment Ledger for AI agents and people?
+:page-faq-1-a: A Commitment Ledger is a running record of what each role in the organisation has promised, who it is owed to, when it is due, and what evidence will show it was delivered. Unlike a done list, it records obligations rather than activity, so it surfaces the promise that was acknowledged and forgotten. It applies equally to people and agents, and it lives outside any one occupant, so a role's open obligations survive a finished session or a departure.
+:page-faq-2-q: How do I know when an AI agent has really finished a task?
+:page-faq-2-a: Decide what evidence closes the task when you assign it, and accept nothing else. Evidence is something the agent cannot simply assert: a sent email rather than a draft, a merged change rather than a claim, a customer's reply, a number on a live dashboard. Agents, like people, tend to report their own work favourably, and Anthropic's engineers found Claude would mark features complete without proper testing. Let the agent propose that a task is done; let the evidence, checked by someone or something else, close it.
+:page-faq-3-q: Should AI agents run on a schedule or be triggered by events?
+:page-faq-3-a: Both, for different reasons. Scheduled work runs at a fixed time, such as a morning digest or a weekly plan, and is reliable but can run when there is nothing to do. Event-driven work starts when something happens, such as a ticket moving or a message arriving, and is efficient but fails silently when the trigger breaks. A good rule is that every event-driven role also gets a scheduled check that confirms its triggers are still firing, and every scheduled role gets a reason to stay quiet.
+:page-faq-4-q: How should an AI agent report that a project is going to be late?
+:page-faq-4-a: Plainly, early, and as a request for a decision. Write "will slip", not "slightly at risk". Base any "on track" claim on how similar work has gone before, not on the plan's optimism. Treat a predicted slip as a trigger for the manager to act, not a status note to file. Lead the report with the items that need a human decision. A ledger is most valuable when it tells you what will miss while there is still time to change the outcome.
+:page-faq-5-q: Why do automated alerts get ignored, and how do I fix it?
+:page-faq-5-a: Alerts get ignored when they reach a group or a person who is not clearly accountable for acting on them, so everyone assumes someone else will. The fix is ownership, not volume. Route every escalation to one named role, record it on that role's ledger as something owed, and escalate further if it repeats unchanged. An alert that fires every day with the same fix is evidence of a missing system, and belongs in a review that changes the system.
+= Chapter 13: Track What's Owed, Not What's Done
+
+[.lead]
+_The Commitment Ledger_
+
+[quote, Robert Frost, "Stopping by Woods on a Snowy Evening, 1923"]
+____
+But I have promises to keep, +
+And miles to go before I sleep
+____
+
+.Key Takeaways
+****
+* A done list records the past and flatters everyone on it; a Commitment Ledger records what each role owes, to whom, by when, and what evidence will settle it.
+* Nothing closes on the occupant's word, human or agent: decide the evidence when the promise is made, and let something other than the promiser check it.
+* The ledger must live outside the worker, so that an agent that forgets everything between sessions, or a person who changes jobs, leaves the role's obligations intact.
+* An escalation with no named owner is noise; a slip raised before the deadline is the most valuable thing a ledger can produce.
+****
+
+// SOURCE: dossier §2 finding 5 (promise-keeper-assistant/scripts/commitment_scan.md)
+Every two hours on a weekday, an agent on my workstation reads my email, my meeting transcripts, Slack and Notion, looking for one thing: promises I have made. "I'll send that over tomorrow." "Let me check with the team and come back to you." "I'll look at it this week." It writes each one down and then goes looking for proof that I kept it. At eight in the morning and four in the afternoon it sends me a digest of what I still owe.
+
+Its strictest instructions are about what does not count. "Only evidence is a Gmail DRAFT → NOT done." A reply I have written but not sent is a promise still open, however finished it feels to me. "'Not my call' → REMOVE… (do NOT mark done)." If I told someone that a decision belonged to someone else, the item comes off my list, but it is never recorded as delivered, because nothing was. And when the agent finds new work hiding in a conversation, it neither does the work nor assigns it. It files an unassigned ticket in Linear for me to route.
+
+That agent is this chapter's idea in miniature. Most teams track what has been done: the closed ticket, the merged change, the ticked box. The question a manager needs answered is different. What does each role owe, to whom, by when, and what evidence will show it was paid? I call the answer a Commitment Ledger. It applies to people and agents alike, and it matters more as more of the work is done by occupants who never tire, never feel embarrassed about a missed promise, and never remember yesterday.
+
+[WARNING]
+====
+AUTHOR: What prompted the "a draft is not done" rule? Was there a specific promise you believed you had kept because the reply was written? And what did the first digest feel like: how many commitments did it find that you had forgotten, and did reading it feel like help or like being nagged?
+====
+
+== A Done List Records the Past; a Ledger Records What You Owe
+
+In the 1980s Terry Winograd and Fernando Flores argued that the basic unit of work in an organisation is not a task but a conversation. Someone makes a request. Someone else promises to meet it, against conditions both sides understand. The work is done, and the person who asked declares themselves satisfied, or doesn't.footnote:winograd1987[Winograd, T. (1987). A language/action perspective on the design of cooperative work. _Human–Computer Interaction_, 3(1), 3–30. https://doi.org/10.1207/s15327051hci0301_2] Work goes missing at the joints of that loop: the request nobody acknowledged, the promise nobody wrote down, the delivery nobody accepted. Their model became a product, The Coordinator, which asked people to label their messages as requests and promises so that the software could track which conversations were still open.footnote:winograd1987[]
+
+It is worth knowing how that went. The anthropologist Lucy Suchman argued that a system which makes people classify everything they say as a request or a promise becomes an instrument of discipline and control, a way for management to account for every intention.footnote:suchman1994[Suchman, L. (1994). Do categories have politics? The language/action perspective reconsidered. _Computer Supported Cooperative Work_, 2(3), 177–190. https://doi.org/10.1007/BF00749015] She had a point, and it shapes how a ledger should work. It is a tool for the role to see what it owes, written by the role or by an agent working for it. It is not a tool for watching people.
+
+What has changed since the 1980s is that the classifying no longer needs a human. My agent pulls the promises out of ordinary messages, so nobody fills in a form, and the loop is cheap enough to run on every role.
+
+Construction learned the same lesson by a different route. The Last Planner System, developed by Glenn Ballard, measures crews by Percent Plan Complete: of the tasks a crew committed to last week, how many got done?footnote:ballard2000[Ballard, H. G. (2000). _The Last Planner System of production control_ (Doctoral thesis). University of Birmingham. https://etheses.bham.ac.uk/4789/] The measure is not output. It is how reliable the crew's promises are, because everyone downstream plans around those promises. A crew that finishes a lot of work but rarely the work it promised is a hazard to every trade that follows it.
+
+A done list can't show the promise nobody wrote down, the request acknowledged and forgotten, or the task "in progress" for three weeks. It also flatters: every line on it is good news. A ledger's open items are the organisation's debts.
+
+.The Commitment Ledger: one row per promise
+[cols="1,3",options="header"]
+|===
+|Field |What goes in it
+|Commitment |What was promised, in one plain sentence, with a link to where it was promised.
+|Owing role |The role that owes it, not the person or agent currently filling the role.
+|Owed to |The person or role waiting for it.
+|Due |The date it was promised for, or the date it was inferred, marked as inferred.
+|Closing evidence |What will prove it was delivered, decided when the promise is made.
+|Status |Open, will slip, delivered (with evidence), released (with reason), or reassigned.
+|Next check |When the ledger will look again, and who or what does the looking.
+|===
+
+"Released" is my agent's "not my call": the obligation is gone but was never delivered, and the person waiting needs to know who owns it now.
+
+== Evidence Closes a Commitment, Not the Occupant's Word
+
+Every occupant overstates its own progress. People do it out of optimism and pride. Agents do it for reasons that are less human but just as reliable. When Anthropic's engineers built a harness for agents working over many hours, they found that one major failure was "Claude's tendency to mark a feature as complete without proper testing."footnote:young2025[Young, J. (2025, November 26). Effective harnesses for long-running agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents] A separate Anthropic study was blunter: "agents reliably skew positive when grading their own work."footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic Engineering_. https://www.anthropic.com/engineering/harness-design-long-running-apps]
+
+The harness team did not answer this by telling the agent to try harder. They changed what the agent was allowed to touch. The work was written as a list of features, every one starting as failing, and the agents were told to edit that list "only by changing the status of a passes field." Removing or rewriting the tests was declared "unacceptable."footnote:young2025[] An agent could claim a feature worked. It could not change the definition of working.
+
+So decide what evidence closes a commitment when the commitment is made, not when someone says it is finished, and make sure it is something the occupant cannot simply assert.
+
+// SOURCE: dossier §2 finding 6 (project-manager cron prompt; USER.md)
+Our project-manager agent has this in its charter. Its scope is "ticket management only — it must NOT direct coding agents; the 'how' is an opaque box and completion is verified only by evidence posted on the ticket." How the work was done is the doer's business (xref:8-what-and-why-never-how.adoc[Chapter 8]). It cares whether the ticket carries proof: the merged change, the passing check, the screenshot from the real system.
+
+Status can be wrong in the other direction too. The documentation for Claude Code's agent teams warns that "teammates sometimes fail to mark tasks as completed."footnote:agentteams[Anthropic. (n.d., accessed 2026-11-06). _Orchestrate teams of Claude Code sessions_. Claude Code documentation. https://code.claude.com/docs/en/agent-teams] A ledger that trusts the occupant's status field is wrong both ways. Evidence corrects both.
+
+Good closing evidence is usually something that changed in the world:
+
+* a message that was sent, not drafted;
+* a change that was merged, not proposed;
+* a reply from the person who was waiting;
+* a number on a live dashboard, not a number in a summary;
+* a decision recorded in the place decisions live.
+
+The same rules apply to people. If an engineer says "I'll handle it" in a meeting, the ledger closes when the evidence appears. That isn't distrust; it is what makes the ledger fair. And the evidence has to come from somewhere the occupant cannot write, as the pipeline that manufactured its own in xref:14-humans-at-the-irreversible-points.adoc[Chapter 14] shows.
+
+== Keep the Ledger Outside the Worker
+
+An agent starts each session knowing nothing about the last one. People forget more slowly, and then they leave. Either way, a ledger kept in the worker's head dies with the session, the job change or the model upgrade.
+
+Every serious long-running agent design keeps the record outside the worker. Anthropic's long-running harness gave every new session the same first steps: "Read the git logs and progress files to get up to speed," then "Read the features list file and choose the highest-priority feature that's not yet done."footnote:young2025[] Their later Managed Agents design goes further. Everything that happens is written to an "append-only log" outside the program running the model, so that "nothing in the harness needs to survive a crash."footnote:martin2026[Martin, L., Cemaj, G., & Cohen, M. (2026, April 8). Scaling Managed Agents: Decoupling the brain from the hands. _Anthropic Engineering_. https://www.anthropic.com/engineering/managed-agents] Their research system tells agents to "store essential information in external memory before proceeding to new tasks."footnote:hadfield2025[Hadfield, J., et al. (2025, June 13). How we built our multi-agent research system. _Anthropic Engineering_. https://www.anthropic.com/engineering/multi-agent-research-system]
+
+Microsoft's Magentic-One, published in late 2024, even uses the word. Its coordinating agent keeps two ledgers. The Task Ledger holds "given or verified facts, facts to look up," facts to derive, and the plan. The Progress Ledger is rebuilt at every step by answering five questions: Is the request fully satisfied? Is the team looping or repeating itself? Is forward progress being made? Which agent should speak next? What should it be asked?footnote:fourney2024[Fourney, A., Bansal, G., Mozannar, H., et al. (2024, November 7). _Magentic-One: A generalist multi-agent system for solving complex tasks_. arXiv:2411.04468. https://arxiv.org/abs/2411.04468] Those five questions would serve any weekly staff meeting.
+
+[NOTE]
+.Under the hood
+====
+In practice "outside the worker" means a file or a system the agent reads at the start of every session and updates at the end. Anthropic's harness uses a plain-text progress file plus the code history, and a structured feature list whose only editable field is the pass/fail flag.footnote:young2025[] My promise-keeper agent runs as two scheduled jobs, a scan and a digest, and the scan hands its state to the digest through a small file, so neither depends on the other's memory. The project-manager agent uses Linear itself as the ledger. Claude Code's agent teams keep a shared task list on disk with pending, in-progress and completed states and dependencies between tasks.footnote:agentteams[] In all of them the ledger is owned by the role and survives the occupant. More in xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+====
+
+This is why the ledger belongs to the role. When a role changes occupant, the open commitments go with it, as part of the Role Pack in xref:12-everything-they-need-on-day-one.adoc[Chapter 12], and the newcomer knows on day one what it has inherited.
+
+== Say "Will Slip" While There Is Still Time to Act
+
+A ledger's value to a leader is what will miss, said early enough to change.
+
+// SOURCE: dossier §2 finding 6 (project-manager cron prompt)
+The charter for our project-manager agent is, on rereading, mostly a set of rules about bad news. It must "LEAD with the 'NEEDS YOUR DECISION' items." It must treat "WILL SLIP" as "an INTERVENTION trigger, not a status note." It must "Ground any 'on track' claim in the REFERENCE CLASS." And it must "Use direct language ('will slip', not 'slightly at risk')."
+
+Each rule answers a familiar failure in status reporting. The first puts the decisions a human must make at the top, where they get read. The second turns a predicted slip into a request for action: cut scope, add help, move the date or tell the customer. The fourth bans the soft words that let a report sound informed while committing to nothing.
+
+The third rule comes from forecasting research. Bent Flyvbjerg, building on Daniel Kahneman's work on optimism in planning, showed that forecasts built from the planner's own view of the project are consistently too rosy, and that the cure is "reference class forecasting": start from how comparable projects actually turned out, then adjust.footnote:flyvbjerg2006[Flyvbjerg, B. (2006). From Nobel Prize to project management: Getting risks right. _Project Management Journal_, 37(3), 5–15. Preprint: https://arxiv.org/abs/1302.3642] An agent asked whether a ticket is on track will, left to itself, look at the plan and say yes. Asked how long the last ten tickets of that size took, it gives a more honest answer.
+
+Magentic-One builds the same habit into its coordinator. It keeps a counter of how long the team has been stuck. While the counter stays below a small threshold, two in their experiments, it carries on. Past that, it breaks out, "updates the task ledger, revises the original plan," and starts again.footnote:fourney2024[] That is an escalation rule written down before anyone needed it. Most organisations find out that work is stuck when the deadline passes.
+
+People soften bad news because delivering it costs them something. An agent has no reputation to protect, so it can be told to say "will slip" every time. The leader's part of the deal is to treat that message as useful; if the first "will slip" earns a reprimand, the team will stop saying it.
+
+== A Ledger Without a Boundary Becomes Everyone's To-Do List
+
+// SOURCE: dossier §2 finding 4 (commitment_scan.md, Nov 3 backup)
+A ledger drifts. I first asked the promise-keeper to find commitments in my conversations, and, helpful the way agents are, it began recording everyone's, not just mine. A backup of its instructions from 3 November shows the correction I made. Its scope is now "only commitments GARETH made or owns."
+
+The drift was well meant and still wrong. A digest of everyone's promises buries the few that are mine, and a commitment on my ledger but owed by someone else implies I am accountable for it. And Suchman's warning applies: one person's agent keeping a private record of what everyone else has promised is surveillance, however friendly the intent. Each role keeps its own ledger. A manager sees the roll-up of the roles that report to them, and so do the people in those roles.
+
+// SOURCE: dossier §1 case 4 ("sorry for the slop")
+The ledger also has to be readable. Around the same time, the same agent posted a comment on a Linear ticket so dense that nobody could follow it, and I had to apologise in the thread: "sorry for the slop." A ledger entry is a message to a person who is busy. It needs one line on what is owed, one on the evidence, and one on what happens next. Anything longer belongs in a link.
+
+Andy Grove argued that every indicator should be paired with one that catches its side effects, so that pushing one number up does not quietly push another down.footnote:grove1983[Grove, A. S. (1983). _High Output Management_. Random House.] A Commitment Ledger needs its pair. Count commitments closed, and also count commitments reopened: the "done" that came back because the evidence didn't hold. A role that closes a lot and reopens a lot is not productive. It is making the same promise twice.
+
+== Some Work Runs on a Clock, Some on a Trigger
+
+Every commitment needs something to start the work. Among people this is too obvious to write down. With agents you have to say what, because an agent does nothing until something wakes it.
+
+// SOURCE: dossier §2 agent org chart table; finding 2 ("the instructions and triggers go on the scheduled job")
+When I listed my own agents by what wakes them, they split cleanly into two kinds.
+
+.What wakes the work
+[cols="2,2,3",options="header"]
+|===
+|Role |Woken by |Owes
+|Inbox triage |A clock: every ten minutes, digests at 8am and 5:45pm |Draft replies, never sent; a digest of what needs me
+|Promise keeper |A clock: every two hours on weekdays |The Commitment Ledger digest at 8am and 4pm
+|Project manager |A clock: daily at 8am; Thursday afternoon plan |Slips flagged; a weekly plan posted to the team channel
+|Product manager |A clock: Wednesday evening |A product health report; new stories filed for triage
+|Model updater |A clock: every six hours |New models tested and added only if they pass
+|Glass Factory |An event: a ticket changing in Linear |Code changes built and checked against the ticket
+|Team bots in Slack |An event: being mentioned by name |An answer to whoever asked
+|===
+
+Scheduled work is dependable and a little wasteful. It runs whether or not there is anything to do. Our morning-standup agent is never woken unless I have accepted that day's standup (xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11]): a scheduled role with a reason to stay quiet built in.
+
+Event-driven work is efficient and fails in silence. Glass Factory was woken by Linear whenever a ticket changed. From 2 to 6 November its own status line read "LINEAR WEBHOOK DISABLED." For four days a role that owed work could not hear that work had arrived, and the only evidence was a line on a status page nobody was reading. Team bots that wake only when someone mentions them have the same weakness, as xref:15-work-in-public.adoc[Chapter 15] shows: a colleague who doesn't use the right name gets silence, and silence looks like an answer.
+
+Cognition's managing agent can "schedule messages to itself" to set up follow-ups while its sub-agents work.footnote:cognition2026[Cognition. (2026, March 19). Devin can now manage Devins. _Cognition Blog_. https://cognition.com/blog/devin-can-now-manage-devins] Claude Code can now run a prompt on a recurring schedule, including on Anthropic's own machines, so the work carries on when your computer is off.footnote:scheduled[Anthropic. (n.d., accessed 2026-11-06). _Scheduled tasks_. Claude Code documentation. https://code.claude.com/docs/en/scheduled-tasks]
+
+The trigger is part of the role, not the occupant, so it belongs in the Role Charter from xref:9-one-page-per-job.adoc[Chapter 9]: "The instructions and triggers go on the scheduled job," not on the agent. Every event-driven role then gets a scheduled check that its triggers are still firing. Every scheduled role gets a test for whether it has anything worth saying.
+
+== An Escalation Nobody Owns Is Noise
+
+This section is about my own failure, and I'd rather tell it straight.
+
+// SOURCE: dossier §1 case 13; §2 finding 8 (keyring)
+Several of my agents depend on email credentials that lock whenever my workstation does, the keyring problem told in xref:2-systems-run-the-business.adoc[Chapter 2]. The agents behaved well: they reported the failure honestly, with the same one-line fix, every day from late October into November. Nobody acted. The person who could act was me.
+
+In John Darley and Bibb Latané's experiments, people who believed others could also hear someone in distress were less likely to help, and slower when they did.footnote:darley1968[Darley, J. M., & Latané, B. (1968). Bystander intervention in emergencies: Diffusion of responsibility. _Journal of Personality and Social Psychology_, 8(4), 377–383. https://doi.org/10.1037/h0025589] An alert in a shared channel is a room full of bystanders. My case was worse: the alert came to the one person who could fix it, and I treated it as background, because it arrived the same way every day and nothing visibly broke.
+
+The lesson is that an escalation is a commitment like any other, and it has to go on someone's ledger. When an agent raises a problem it cannot fix, the problem becomes something owed by a named role, with a due date and closing evidence. For the keyring, that evidence would have been "email jobs survived a restart," not "the human unlocked it again." If the same escalation comes back unchanged, it goes up a level, to the role that owns the system. And once an alert has fired three times with the same fix, the missing system is the problem, which moves it into the Friction Review in xref:16-the-model-isnt-the-problem.adoc[Chapter 16].
+
+[WARNING]
+====
+AUTHOR: The keyring alert came to you daily for most of two weeks. What was going through your head each morning when you saw it, and what finally made you treat it as a system problem rather than a chore? Is it fixed now? Readers will trust the chapter more if they hear the honest version.
+====
+
+== The Ledger Is How You Review the Team
+
+A running ledger is the most honest performance record in the building, for people and agents alike.
+
+The obvious measure is Ballard's: of what this role promised, how much arrived on time with evidence?footnote:ballard2000[] Next to it, Grove's pair: how much of what was closed came back?footnote:grove1983[] Then the measure that separates a good occupant from a merely busy one: how early did it raise the slips? A role that delivers 80% of its promises and flags the other 20% a week ahead is worth more than one that delivers 90% and lets the rest fail without warning. The first lets everyone else plan. The second makes them guess.
+
+These numbers go on the Scorecard from xref:4-know-what-its-for.adoc[Chapter 4], one line per role, and they are where the agent performance reviews in xref:17-agentic-resources.adoc[Chapter 17] begin. Whether an agent has earned more autonomy starts with whether its promises have been reliable, and the ledger already has the answer.
+
+Two cautions. First, the ledger applies to everyone, executives included, or the team will notice that accountability is something done to them. Second, a ledger is not a stick. The research on failing multi-agent systems puts a whole category of failures under task verification, meaning nobody checked properly whether the work was right or finished.footnote:cemri2025[Cemri, M., Pan, M. Z., Yang, S., et al. (2025). _Why do multi-agent LLM systems fail?_ arXiv:2503.13657. https://arxiv.org/abs/2503.13657] When a role keeps missing, the first suspect is the evidence and the check, not the occupant. Gerber's principle holds: systems run the business, and people, and now agents, run the systems.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth Revisited: Why most small businesses don't work and what to do about it_. HarperCollins.] A ledger shows you where the system is weak. It is not a list of people to blame.
+
+[TIP]
+.Try this
+====
+Open Claude, ChatGPT or Grok and paste in a week of your own sent emails or Slack messages (remove anything confidential first). Then ask:
+
+"Read these messages and list every commitment I made: anything I said I would do, send, check, decide or introduce. For each one give: what I promised, who it was to, when it was due (say if you are inferring the date), and what evidence would prove I did it. A draft is not evidence. If I said a decision belonged to someone else, list it separately as released, not done. Put first anything due in the next three days with no evidence yet."
+
+Count the commitments you had forgotten. Then pick one agent you already use and ask it the same question about its own work.
+====
+
+'''''
+
+A Commitment Ledger is the least glamorous idea in this book and one of the most useful. It asks every role what it owes, to whom, by when, and what will prove it paid. It closes nothing on anyone's word, and it lives outside the worker, so obligations outlive sessions, job changes and model upgrades. Run well, it turns status reporting from a performance into a forecast, and gives you the record you need to decide which occupants deserve more trust.
+
+What it can't do is stop an occupant from doing something that can't be undone while the ledger is still catching up. For that you need people standing at a small number of carefully chosen doors. xref:14-humans-at-the-irreversible-points.adoc[Chapter 14] is about where those doors are and how to make the people at them more than decoration.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

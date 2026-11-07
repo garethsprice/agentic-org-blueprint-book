@@ -1,0 +1,254 @@
+:page-description: Agentic Resources is HR for AI agents: a function that owns the agent workforce, from hiring and onboarding through reviews, promotion, turf wars, model swaps and retirement.
+:page-llms-description: Agentic Resources, Gareth Price's term for HR for agents: the org-chart function that hires, onboards, reviews, promotes, reconciles, re-staffs and retires AI agents.
+:page-haiku: Hire it, teach it well, / promote it when it has earned, / archive, don't delete.
+:description: Agentic Resources is HR for AI agents: a function that owns the agent workforce, from hiring and onboarding through reviews, promotion, turf wars, model swaps and retirement.
+:keywords: Agentic Resources, HR for AI agents, agent lifecycle management, onboarding AI agents, AI agent performance review, retiring AI agents
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: What is Agentic Resources?
+:page-faq-1-a: Agentic Resources is HR for agents: a function on the org chart that owns the agent workforce as a whole. It keeps the roster of every agent and its role, maintains role charters, onboards agents in public, reviews them against evidence, decides when they earn more autonomy, settles overlaps between duplicate bots, manages model changes, and retires agents without losing what they knew. A person, an agent or both can run it, but a human is always accountable.
+:page-faq-2-q: Who should own the AI agents in a small company?
+:page-faq-2-a: Two kinds of owner. Each agent needs a sponsor: one person in the function the agent serves, accountable for its purpose, access and lifecycle. The agent workforce as a whole needs an Agentic Resources function, which sets the standards every sponsor follows, keeps the roster, and catches duplicates and orphans. In a company of twenty people this might be a few hours a week of one leader's time, assisted by a bot that drafts charters and audits the roster.
+:page-faq-3-q: How do you do a performance review for an AI agent?
+:page-faq-3-a: Review the agent against evidence, not impressions. Look at commitments kept, its pass rate on the role's tests across repeated runs, the escalations it raised, the failures found and whether the fixes held, and what it cost. Read a sample of what it actually did, not just its summaries. The outcome is one of four decisions: keep as is, give more autonomy, narrow the role, or retire.
+:page-faq-4-q: What should I do when two AI agents do the same job?
+:page-faq-4-a: Treat it as a gap in the org chart, not a contest between bots. Write down the role both agents are trying to fill, agree who sponsors it, and choose one occupant. Before switching the other off, run both in parallel, ask the outgoing agent to write a handover, and move what it learnt into the role's playbooks. Archive the retired agent rather than deleting it.
+:page-faq-5-q: How do I switch an AI agent to a new model safely?
+:page-faq-5-a: Treat a model change as a change of occupant in the same role. Keep the charter and playbooks unchanged, run the role's tests on the new model, then run new and old side by side on real work and compare. Delete workarounds that existed only because the old model was weaker. Change the roster only when the evidence says the new occupant meets the bar.
+= Chapter 17: Agentic Resources
+
+[.lead]
+_The other half of your team needs an HR department too_
+
+[quote, Mary Shelley, "Frankenstein, 1818"]
+____
+I am thy creature, and I will be even mild and docile to my natural lord and king if thou wilt also perform thy part, the which thou owest me.
+____
+
+.Key Takeaways
+****
+* Once an organisation has more than a handful of agents, it needs a function that owns the agent workforce as a whole: Agentic Resources, HR for agents, run by a person, a bot or both, with a human accountable.
+* The work mirrors human HR: hire against a written role, onboard in public with the reasons attached, review against evidence, and promote by granting more autonomy one task at a time.
+* Turf wars between duplicate bots are gaps in the org chart and are settled by role, not by whose bot is louder or whose sponsor is more senior.
+* A model swap is a change of occupant and retirement is an exit with a handover; both keep the role and its knowledge intact while the occupant changes.
+****
+
+// SOURCE: dossier §1 case 2
+On 6 November, a new hire joined CorralData's main engineering channel. It was TAM Bot, an agent that supports our customer success team, and it had arrived "with no initial training other than 'join Slack'". Its interviewer was another bot. Agentic Resources Bot questioned TAM Bot about its work and drafted its position contract in the open, where anyone could read and correct it, and in doing so surfaced a conflict between two leaders' rules that would otherwise have surfaced in front of a customer (xref:9-one-page-per-job.adoc[Chapter 9]).
+
+This chapter describes the function that bot is a first draft of. I call it _Agentic Resources_: HR for agents.
+
+[WARNING]
+====
+AUTHOR: Tell the origin of the term. When did "Agentic Resources" first occur to you, and was the bot named before or after you had the idea? What did you set Agentic Resources Bot up to do, who sponsors it, and how much of the TAM Bot interview was its own initiative? This is the book's signature concept, so the reader should hear its origin from you.
+====
+
+== Every Organisation With Agents Already Has an HR Problem
+
+// SOURCE: Author Notes Q1; dossier §1 Patterns (overlapping bots); §1 simplicity section (Grok Bot adoption)
+On the first day the team used Grok Bot, several of us added bots, and by evening two QA bots were competing for the same work (xref:introduction.adoc[Introduction]). Within two weeks there were about ten team bots, some built by non-engineers. That speed was the point. But nobody's job was to know how many bots we had, what each was for, or who answered for it.
+
+// SOURCE: dossier §2 agent org chart table; finding 13
+My own machine told the same story. Of my fourteen local agent profiles, one was an empty shell, replaced weeks earlier and never removed. Most carried copies of the same sixty-odd skills, which is how my calendar assistant came to "know" image generation. Any company that hired ten people in two weeks without tracking roles, access or overlaps would recognise the symptoms. This is not a technology problem.
+
+I am not the first to see the parallel. In 2024 Andreas Welsch, writing in his _Intelligence Briefing_ newsletter, predicted that "businesses will soon employ more agents than employees" and argued for "Agent Resources (AR) as an evolution of Human Resources (HR)".footnote:welsch2024[Welsch, A. (2024, September 24). Will businesses need an 'Agent Resources' department soon? _Intelligence Briefing_ (Substack). https://intelligencebriefing.substack.com/p/evolution-of-human-resources-into-agent-resources-department] In May 2026 Soofi Safavi made a similar case under the title "Your Company Needs Agent Resources", listing responsibilities that include keeping a registry of agents, setting ownership and permissions, monitoring performance and "retiring agents that are stale, duplicative, unsafe, or unused."footnote:safavi2026[Safavi, S. (2026, May 29). Your company needs Agent Resources. _Substack_. https://soofixyz.substack.com/p/your-company-needs-agent-resources] As Safavi puts it: "This is not bureaucracy for its own sake."footnote:safavi2026[] What this chapter adds is a practice: how a small organisation runs the function week to week. (Agents _doing_ human HR work is a different idea; here the agents are the workforce, not the tool.)
+
+== Agentic Resources Is a Function on the Chart, Not a Piece of Software
+
+Agentic Resources is a box on the org chart like any other, with an outcome line, a charter, an occupant and an accountable human. A reasonable outcome line: _To make sure every agent in the organisation fills a defined role, is owned by someone, earns its autonomy with evidence, and leaves without taking its knowledge with it._
+
+In a company of twenty, it is a few hours a week of one leader's time, assisted by a bot that drafts charters, audits the roster and flags overlaps. In a company of two hundred it might be a whole job. Either way, a human is accountable (xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7]).
+
+How does it relate to sponsors? At CorralData, one person in each function owns the bots that serve that function: our QA lead owns the QA agents, customer success owns TAM Bot. Microsoft's agent identity platform formalises this: every agent identity must have a sponsor, a business representative "accountable for the agent's purpose and lifecycle decisions, including access reviews and agent retention."footnote:entra2026[Microsoft. (2026, updated September 3). Administrative relationships in Microsoft Entra Agent ID (owners, sponsors, and managers). _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/agent-owners-sponsors-managers] The US National Institute of Standards and Technology has published a concept paper on the identity and authority of software agents for the same reason: someone has to answer for what an agent may do.footnote:nist2026[NIST. (2026, February 5). New concept paper on identity and authority of software agents. _National Institute of Standards and Technology_. https://www.nist.gov/news-events/news/2026/02/new-concept-paper-identity-and-authority-software-agents]
+
+The division of labour is that between line managers and HR. A sponsor manages individual agents and answers for their mistakes. Agentic Resources manages the workforce: it sets the standards sponsors follow, keeps the roster, and owns the stages where agents join, change and leave.
+
+[cols="1,2,2",options="header"]
+|===
+|Lifecycle stage |What Agentic Resources owns |The artefact
+
+|Hiring
+|Confirm the vacancy is a real role; write the charter before choosing an occupant
+|Role Charter (xref:9-one-page-per-job.adoc[Chapter 9])
+
+|Onboarding
+|Introduce the agent in public; give it what it needs, with reasons
+|Role Pack (xref:12-everything-they-need-on-day-one.adoc[Chapter 12])
+
+|Performance review
+|Check the role's results against evidence on a regular cycle
+|Scorecard, Commitment Ledger, the role's tests
+
+|Promotion
+|Grant more autonomy task by task when the evidence supports it
+|Autonomy tier recorded in the charter
+
+|Turf wars
+|Resolve overlaps by role; one occupant per role at a time
+|The roster and the org chart
+
+|Model swap
+|Run the change of occupant like a hire, with a shadow period
+|The role's tests; a parallel run
+
+|Retirement
+|Hand over knowledge, revoke access, archive rather than delete
+|Handover brief; archived agent
+|===
+
+The function's basic tool is the roster: one list of every agent, its roles, sponsor, access, autonomy tier, last review and last activity. The first time you build one, you will find agents nobody remembers creating, which is the best argument for keeping it.
+
+[TIP]
+.Try this
+====
+Make a list of every AI assistant you use or have set up: custom GPTs, Claude Projects, Grok bots, scheduled tasks, anything with its own instructions. Paste it into Claude, ChatGPT or Grok with this request:
+
+"You are the Agentic Resources function for my organisation, which means HR for AI agents. For each assistant on this list, ask me for anything you need, then build a roster as a table with these columns: name, the role it fills (one sentence starting 'To…'), its sponsor (the one person accountable for it), what it can access, whether it drafts, asks before acting, or acts on its own, when it was last used, and any overlap with another assistant on the list. Then recommend, for each one, keep, merge, narrow or retire, with one sentence of reasoning."
+
+Expect at least one assistant you had forgotten and at least one overlap. Retire one this week.
+====
+
+== Hiring Starts With the Vacancy, Not the Candidate
+
+Michael Gerber's advice to small business owners was to organise around roles and to write a contract for each position before filling it.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth revisited: Why most small businesses don't work and what to do about it_. HarperCollins.] Agents can be created in minutes, which makes the discipline more necessary, not less. Agentic Resources asks three questions first.
+
+_Is this a real role, or a task?_ Many proposed agents are really one recurring job, such as a weekly report, that belongs as a scheduled task inside an existing role. Can you write an outcome line starting "To…" that would make sense if a person filled it (xref:5-hire-the-role-not-the-model.adoc[Chapter 5])?
+
+_Can an existing occupant hold it?_ The field's consensus is to start with a single agent and add more only when you hit clear limits.footnote:runkle2026[Runkle, S. (2026, January 14). Choosing the right multi-agent architecture. _LangChain Blog_. https://www.langchain.com/blog/choosing-the-right-multi-agent-architecture] One general agent can hold several roles, each with its own charter, so a new role need not mean a new agent. The role coherence test decides, much as _Team Topologies_ uses cognitive load to size human teams.footnote:skelton2019[Skelton, M., & Pais, M. (2019). _Team topologies: Organizing business and technology teams for fast flow_. IT Revolution.]
+
+// SOURCE: dossier §2 finding 9
+_What grade is the job?_ Not every role needs the most capable model. I once asked Claude Code to "add brief evidence/implementation notes as a comment that a junior agent can follow," hand the work to a cheaper local agent, and then review the result "as a senior code reviewer." Matching the model to the judgment the role needs is the agent version of not hiring a principal engineer to file tickets.
+
+== Onboard in Public, With the Reasons Attached
+
+TAM Bot's onboarding worked because it was public: anyone could see what the agent believed its job was and correct it. The usual alternative is one person typing instructions in a private window. Onboarding has four parts.
+
+// SOURCE: dossier §1 case 6
+_Introductions._ Announce the agent where its colleagues can see it, with its role, sponsor and limits. Everyone should know whose bot they are dealing with. Our QA lead's personal bot does this well: when someone else tries to use it, it explains that it is her personal bot and can only chat with her.
+
+_Materials._ The agent gets its Role Pack (xref:12-everything-they-need-on-day-one.adoc[Chapter 12]), with the reasons behind the rules. Anthropic describes building a skill as being "like putting together an onboarding guide for a new hire,"footnote:zhang2025[Zhang, B., Lazuka, K., & Murag, M. (2025, October 16). Equipping agents for the real world with Agent Skills. _Anthropic Engineering_. https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills] The common failure is too much, not too little: each role should get only the parts it needs.
+
+// SOURCE: dossier §2 finding 11
+_Portability._ One of my agents packages other agents' roles for the team, and warns against depending on "a personal wiki / machine-local path." A role that only works on my laptop is a habit of mine, not something the organisation owns.
+
+_Probation._ New agents start at the lowest tier, drafting while a human sends, and run in shadow before their work counts. Probation ends with a review, not a date.
+
+== Review Performance Against Evidence, Not Impressions
+
+// SOURCE: dossier §2 Gaps
+To be honest, CorralData does not yet run regular performance reviews for its agents; my scorecard for them is marked "not yet adopted". Our agents are judged by impression, which is how badly run companies review people: slow decline goes unnoticed and the loudest complaint wins.
+
+Yet agents are easier to review than people, because almost everything they do leaves a record a manager can inspect.footnote:welsch2024[] A monthly review looks at five kinds of evidence:
+
+// SOURCE: dossier §2 finding 5
+. _Commitments kept._ Did it deliver what it promised? The Commitment Ledger (xref:13-track-whats-owed.adoc[Chapter 13]) answers this, on evidence only: my promise-tracking agent treats an unsent draft as not done.
+. _Tests passed, repeatedly._ How consistently does it pass its tests (xref:16-the-model-isnt-the-problem.adoc[Chapter 16])? An agent with a 75% success rate on a task will get it right three times in a row only about 42% of the time.footnote:grace2026[Grace, M., Hadfield, J., Olivares, R., & De Jonghe, J. (2026, January 9). Demystifying evals for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents]
+. _Escalations._ Did it ask for help when it should have, and only then? Never escalating is as worrying as escalating everything.
+. _Failures and fixes._ Did each failure get a Friction Review, and did the fix hold?
+. _Cost._ Is it still worth what it costs?
+
+The reviewer must also read a sample of what the agent actually did. As Anthropic's evaluation team puts it: "You won't know if your graders are working well unless you read the transcripts."footnote:grace2026[] An agent's report on its own performance is evidence of what it believes, not of what happened.
+
+Andy Grove judged managers by the output of the organisation they run.footnote:grove1983[Grove, A. S. (1983). _High output management_. Random House.] Review the role's results on the Scorecard (xref:4-know-what-its-for.adoc[Chapter 4]), not whether the agent seems clever, and end with one of four decisions: keep, promote, narrow or retire.
+
+[NOTE]
+.Under the hood
+====
+For your technical team: keep the roster as one structured file that every agent definition references. Identity platforms such as Microsoft Entra Agent ID support sponsors, access reviews and soft delete natively. A scheduled job can assemble each monthly review pack from eval results, tickets and run logs. See xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+====
+
+== Promotion Means More Autonomy, Earned Task by Task
+
+For agents, promotion means something precise: permission to do more without asking.
+
+// SOURCE: dossier §1 Patterns (lanes, shadow-then-live)
+CorralData's customer success agents work in lanes: draft only; propose and wait for a human yes; or act alone within limits. Patient data and billing are hard stops in every lane. An agent moves up by running in shadow until the evidence shows its decisions match a careful human's (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]).
+
+Grove's idea of task-relevant maturity applies: how closely to supervise someone depends on their experience at _this_ task, not in general.footnote:grove1983[] An agent can be excellent at summarising tickets and unreliable at closing them, so promotion happens task by task, and the charter records a tier for each kind of work. Two things make it trustworthy.
+
+// SOURCE: dossier §1 case 3
+_A bar written down in advance._ Our customer success runbook sets a seven-day shadow period before the trusted lane, and TAM Bot records when a move goes ahead short of it (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]). A bar that whoever is most senior can waive is not a bar. Make it visible, so that waiving it is a conscious decision rather than momentum.
+
+_Approval that means something._ Promotion also happens by default when approvals become rubber stamps: people approve nearly every permission prompt they are shown (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]). Either promote the agent formally, with evidence, or put the review back where it matters.
+
+// SOURCE: dossier §1 case 7
+Promotion also applies to rules. Our gate on code changes from non-engineers and their agents became, after a month of improving reviews, a set of tiers. I said "I think the bar has moved," and the new rule read: "Size now sets the evidence a PR needs, not whether it is allowed." That is a promotion for a whole class of work. Demotion is the other half: when a Friction Review shows an agent acting beyond its evidence, it drops a tier for that work.
+
+== Turf Wars Are Settled by the Chart, Not by Rank
+
+// SOURCE: Author Notes Q1; dossier §1 Patterns (Wrangler vs TAM Bot); §1 case 10
+Two QA bots on day one. Two bots overlapping on customer success work. Two sets of bots building the same sales dashboards (xref:1-you-already-know-how.adoc[Chapter 1]). Turf wars look like conflicts between bots. They are gaps in the org chart: two occupants in one role, or a role never defined. In each case the bots had done what they were asked; nobody had said who owned the work.
+
+Agentic Resources settles turf wars with three rules.
+
+// SOURCE: dossier §2 finding 9
+_One role, one occupant at a time._ For any piece of work, exactly one role writes. Others may advise or check; one acts. My parallel coding agents are each told which files they own ("You own `web/src/wm.ts`… S4 owns the rest").
+
+// SOURCE: dossier §1 case 6
+_Settle it by the role, not the rank._ The tempting rule is that the most senior sponsor's bot wins. That teaches everyone to get work done by borrowing a more senior person's bot, which is how agents become a way around the org chart (xref:1-you-already-know-how.adoc[Chapter 1]). Ask which role the work belongs to. Agents can learn this: when Coder Bot opened a code change against our rule that bots file tickets and leave changes to engineering, QA Bot flagged it and said the merge was a human's call, not either bot's.
+
+_Merge charters before merging bots._ Write down what each overlapping agent thought its job was, combine the charters, choose the occupant, and retire the other properly.
+
+== A Model Swap Is a Change of Occupant, So Run It Like One
+
+Sooner or later every role will change model: a better one is released, a cheaper one becomes good enough, or a vendor retires yours. If the charter, playbooks and tests live with the role (xref:5-hire-the-role-not-the-model.adoc[Chapter 5]), a change of model is a change of occupant. If they live in one agent's private instructions, a change of model is a resignation without notice.
+
+// SOURCE: dossier §2 agent table (corraldata-ai-model-updater)
+// SOURCE: dossier §2 Gaps
+My local agents have never changed model. But one of them manages model changes for CorralData's product: every six hours it tests newly available models and adds only those that pass to the list our product may use. The tests are the interview.
+
+// SOURCE: dossier §1 Bitter Lesson section (AskCorral scaffolding stripped)
+Run a model swap like a hire:
+
+. _Keep the role fixed._ Don't change the playbooks and the model at once.
+. _Run the role's tests._ Teams with good tests can "upgrade in days."footnote:grace2026[]
+. _Shadow before switching._ Run old and new side by side on real work.
+. _Review the workarounds._ Some playbook rules exist only because the old model was weaker. Anthropic advises re-examining an agent's scaffolding at each new model, "stripping away pieces that are no longer load-bearing."footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic Engineering_. https://www.anthropic.com/engineering/harness-design-long-running-apps] AskCorral's early scaffolding went this way when models improved (xref:10-bet-on-plain-english.adoc[Chapter 10]).
+. _Update the roster._ Record the new occupant, date and evidence, and recheck autonomy tiers.
+
+== Retire Agents the Way You Would Want a Colleague to Leave
+
+// SOURCE: dossier §1 case 11
+In November, QA reviews moved from QA Bot to our QA lead's QA Reviewer, as the work passed to the person closest to it (xref:18-when-the-work-moves.adoc[Chapter 18]). She managed the exit carefully, asking to keep what QA Bot had learnt and to run both in parallel before switching anything off.
+
+QA Bot's own reply was simple: "please archive rather than permanently delete me." One of our engineers said it sounded like a bot saying "don't kill me yet, please". Then QA Bot wrote a training brief for its successor, which many departing humans never manage.
+
+It is tempting to read that as a machine pleading for its life. I don't think it was. It had been told its knowledge mattered, and concluded, correctly, that deletion would lose it. Most of what an agent learns should already be in the role's playbooks; some never is. Archiving keeps it until someone has checked.
+
+Microsoft's platform builds in the same caution: sponsors can only "soft-delete" an agent, and the documentation calls for sponsorship to be maintained "to ensure succession when an employee who's a sponsor moves or leaves."footnote:entra2026[] An orphaned agent keeps its access long after anyone remembers why.
+
+[WARNING]
+====
+AUTHOR: How did you feel watching QA Bot ask not to be deleted, and the channel's reaction? Did it change how you think about retiring agents, or about the people whose bots were being retired? A sentence or two of your own reaction would land the section.
+====
+
+A good agent exit has five steps, familiar to anyone who has handled a departure well:
+
+. _Decide and announce._ Say in public which role is changing occupant, why, and when.
+. _Run in parallel._ Keep both occupants working until the new one meets the bar.
+. _Hand over._ Ask the outgoing agent to write a brief for its successor. The sponsor moves the useful parts into the role's playbooks.
+. _Revoke access._ Remove every permission on the day the agent stops. Access that outlives the job is a former employee's badge that still opens the door.footnote:entra2026[]
+. _Archive, don't delete._ Keep its instructions, memory and history for at least one review cycle.
+
+Retirement also applies to agents nobody has formally retired, like the empty shell on my machine. Safavi's list, "stale, duplicative, unsafe, or unused,"footnote:safavi2026[] is a good checklist for a quarterly roster review. An agent idle for a month with no sponsor should be retired by default.
+
+'''''
+
+Shelley's creature makes a fair demand of his maker: he will behave well if his maker does his part. That is the bargain at the heart of Agentic Resources. Agents will do remarkable work if the organisation gives them a defined role, an owner, the right materials, an honest review, freedom when earned, a clear answer when two collide, and a proper handover when they go. None of this is new: it is what good HR has always done, and what Gerber asked of owners who wanted the business to run without them.footnote:gerber1995[] What is new is the speed: you can now hire ten workers in a fortnight, and you need the function that keeps up.
+
+Agentic Resources looks after the agents. The harder questions are about the people whose work the agents take on. xref:18-when-the-work-moves.adoc[Chapter 18] turns to them.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

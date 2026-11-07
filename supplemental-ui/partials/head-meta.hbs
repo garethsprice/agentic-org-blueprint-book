@@ -1,0 +1,189 @@
+{{! Meta description }}
+{{#if page.attributes.description}}
+<meta name="description" content="{{page.attributes.description}}">
+{{else}}
+<meta name="description" content="The Blueprint — A Field Guide to Building Organisations of People and Agents">
+{{/if}}
+{{#if page.attributes.keywords}}
+<meta name="keywords" content="{{page.attributes.keywords}}">
+{{/if}}
+
+{{! Open Graph }}
+<meta property="og:title" content="{{page.title}}">
+{{#if page.attributes.description}}
+<meta property="og:description" content="{{page.attributes.description}}">
+{{else}}
+<meta property="og:description" content="The Blueprint — A Field Guide to Building Organisations of People and Agents">
+{{/if}}
+{{#if site.url}}
+<meta property="og:url" content="{{site.url}}{{page.url}}">
+{{/if}}
+<meta property="og:site_name" content="The Blueprint">
+{{#if (eq page.attributes.schema 'book')}}
+<meta property="og:type" content="book">
+{{else if (eq page.attributes.schema 'person')}}
+<meta property="og:type" content="profile">
+{{else}}
+<meta property="og:type" content="article">
+{{/if}}
+{{#if page.attributes.date-published}}
+<meta property="article:published_time" content="{{page.attributes.date-published}}">
+{{/if}}
+{{#if page.attributes.date-modified}}
+<meta property="article:modified_time" content="{{page.attributes.date-modified}}">
+{{/if}}
+
+{{! JSON-LD structured data }}
+{{#if (eq page.attributes.schema 'book')}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Book",
+      "name": "The Blueprint",
+      "alternateName": "A Field Guide to Building Organisations of People and Agents",
+      "author": {
+        "@type": "Person",
+        "name": "Gareth Price"
+      },
+      {{#if site.url}}
+      "url": "{{site.url}}/",
+      {{/if}}
+      "inLanguage": "en",
+      "genre": "Business Management"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "The Blueprint"{{#if site.url}},
+          "item": "{{site.url}}/"{{/if}}
+        }
+      ]
+    }
+  ]
+}
+</script>
+{{else if (eq page.attributes.schema 'person')}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "Gareth Price",
+      "jobTitle": "CTO",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "CorralData"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "The Blueprint"{{#if site.url}},
+          "item": "{{site.url}}/"{{/if}}
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{page.title}}"{{#if site.url}},
+          "item": "{{site.url}}{{page.url}}"{{/if}}
+        }
+      ]
+    }
+  ]
+}
+</script>
+{{else}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": "{{page.title}}",
+      "description": "{{page.attributes.description}}",
+      "keywords": "{{page.attributes.keywords}}",
+      "datePublished": "{{page.attributes.date-published}}",
+      "dateModified": "{{page.attributes.date-modified}}",
+      "author": {
+        "@type": "Person",
+        "name": "Gareth Price"
+      },
+      "isPartOf": {
+        "@type": "Book",
+        "name": "The Blueprint"
+      }{{#if site.url}},
+      "url": "{{site.url}}{{page.url}}"{{/if}}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "The Blueprint"{{#if site.url}},
+          "item": "{{site.url}}/"{{/if}}
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{page.title}}"{{#if site.url}},
+          "item": "{{site.url}}{{page.url}}"{{/if}}
+        }
+      ]
+    }
+  ]
+}
+</script>
+{{/if}}
+{{#if page.attributes.faq-1-q}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "{{page.attributes.faq-1-q}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{page.attributes.faq-1-a}}" }
+    },
+    {
+      "@type": "Question",
+      "name": "{{page.attributes.faq-2-q}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{page.attributes.faq-2-a}}" }
+    },
+    {
+      "@type": "Question",
+      "name": "{{page.attributes.faq-3-q}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{page.attributes.faq-3-a}}" }
+    },
+    {
+      "@type": "Question",
+      "name": "{{page.attributes.faq-4-q}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{page.attributes.faq-4-a}}" }
+    },
+    {
+      "@type": "Question",
+      "name": "{{page.attributes.faq-5-q}}",
+      "acceptedAnswer": { "@type": "Answer", "text": "{{page.attributes.faq-5-a}}" }
+    }
+  ]
+}
+</script>
+{{/if}}
+{{! LLM-readable alternate formats }}
+{{#if site.url}}
+<link rel="alternate" type="text/plain" href="{{site.url}}/llms.txt" title="LLM-readable index">
+<link rel="alternate" type="text/plain" href="{{site.url}}/llms-full.txt" title="LLM-readable full content">
+{{#if page.attributes.md-url}}
+<link rel="alternate" type="text/markdown" href="{{page.attributes.md-url}}" title="Markdown version of this page">
+{{/if}}
+{{/if}}

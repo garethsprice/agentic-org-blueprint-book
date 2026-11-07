@@ -1,0 +1,201 @@
+:page-description: A week-by-week build order for your first thirty days, from your first agent to a working Blueprint for one function, with checklists for non-technical leaders.
+:page-llms-description: A thirty-day, week-by-week build order for leaders: Aim and Scorecard, an agent census, the finished org chart of roles, a first Role Charter and Playbook, a Commitment Ledger, a first Friction Review, earned autonomy and an Agentic Resources owner.
+:page-haiku: One role, then the next. / Write it down before it runs. / Day thirty: it holds.
+:description: A week-by-week build order for your first thirty days, from your first agent to a working Blueprint for one function, with checklists for non-technical leaders.
+:keywords: AI agent rollout plan, first 30 days AI agents, AI agent implementation checklist, deploying AI agents in a small business, agent org chart, AI agent governance checklist
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: Where should a small company start with AI agents?
+:page-faq-1-a: Start with one function, not the whole company, and one role inside it. Choose work that is frequent, measurable and easy to undo: drafting customer replies, preparing weekly reports, triaging a queue. Before building anything, write down what the function is for and the three to five numbers that say it's working, then take a census of the agents people are already using. The first agent you add should fill a role on a chart you've drawn, not the other way round.
+:page-faq-2-q: How long does it take to set up an AI agent properly?
+:page-faq-2-a: A first role can be drafting real work within two weeks: one week to set the aim, take a census and draw the chart, one week to write the Role Charter and Playbook and start the agent in draft-only mode. Earning autonomy takes longer, because it depends on evidence. Set the bar in advance, for example seven days of drafts with few corrections, and don't shorten it because the early results look good. Thirty days is enough for one function done properly.
+:page-faq-3-q: When should an AI agent be allowed to act without human approval?
+:page-faq-3-a: When it has met an evidence bar you set before it started, and only for actions that can be undone. Run the agent in draft-only mode first, log every human correction, and promote it one lane at a time once corrections fall below the agreed level over the agreed period. Actions that can't be undone, such as sending money, deleting data or making commitments to customers, keep a human decision or a hard rule the software enforces, however good the agent becomes.
+:page-faq-4-q: What should I check before adding a second AI agent?
+:page-faq-4-a: Check that the first one has a written charter, a named sponsor, a Playbook, a Commitment Ledger and at least one completed Friction Review. Then ask whether you need a second agent at all: often the same agent can hold a second role with its own charter. Add a separate agent when the work is genuinely parallel or needs different access, and make sure its role doesn't overlap an existing one, or you'll end up with two bots competing for the same job.
+:page-faq-5-q: Who should own AI agents in a small company?
+:page-faq-5-a: Two kinds of owner. Each agent needs a sponsor: the person accountable for its purpose and results, usually the leader of the function it works in. The agent workforce as a whole needs an Agentic Resources owner: one person, part-time at first, who keeps the register of agents, runs onboarding, reviews performance, approves promotions to more autonomy and retires duplicates. Neither should be the person who happened to build the agent, unless that person also owns the work.
+= Appendix A: The First Thirty Days
+
+[.lead]
+_A build order from your first agent to a full Blueprint_
+
+This appendix turns the book into a build order. It is written for a leader who has used Claude, ChatGPT or Grok for months, has perhaps built an agent or two, and now wants to do it properly without hiring an engineer first. It covers one function, start to finish, in thirty days. By the end you will have a small Blueprint: one part of your organisation documented well enough that someone else could stand it up again tomorrow.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth revisited: Why most small businesses don't work and what to do about it_. HarperCollins.]
+
+The order matters more than the speed. Each week builds on the one before: purpose before roles, roles before agents, charters before autonomy. The most common mistake is to reverse it, build an agent because it's easy, and work out what it's for afterwards. That is how organisations end up with an agent quietly doing six jobs and two bots competing for one (xref:2-systems-run-the-business.adoc[Chapter 2]).
+
+Three rules hold for the whole month:
+
+* *Work in public.* Every request to and from an agent goes through a shared channel, not a direct message (xref:15-work-in-public.adoc[Chapter 15]).
+* *Drafts first.* Nothing an agent does reaches a customer, moves money or deletes anything without a human decision until it has earned that right with evidence (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]).
+* *No second agent until the first has a charter.* Every agent fills a role on a chart you have drawn (xref:5-hire-the-role-not-the-model.adoc[Chapter 5]).
+
+== Before you start
+
+Pick one function. Good first candidates have three things in common: the work is frequent, its results can be counted, and its mistakes can be undone. Customer success, operations reporting, recruiting coordination and accounts receivable all usually qualify. Avoid starting anywhere a single error is expensive or public, such as payroll, pricing or legal commitments.
+
+Name the sponsor: the one person accountable for the agents in this function, their purpose and their results (xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7]). If you lead the function, it is you. If someone else does, it is them, and your role is to support them.
+
+.Checklist
+* [ ] One function chosen, and the reason written down
+* [ ] A sponsor named for that function's agents
+* [ ] A shared channel created for the function's people and agents
+* [ ] Time blocked: about three hours a week for the sponsor, one hour for you if you aren't the sponsor
+
+== Week 1 (Days 1–7): Know what it's for
+
+The first week produces no agents. It produces the four short documents every later decision will be measured against (xref:4-know-what-its-for.adoc[Chapter 4]).
+
+*The Aim.* One paragraph on what this function is for, for you and for the organisation. Not a slogan; something you could use to settle an argument.
+
+*The Destination.* What "finished" looks like for the function in twelve to eighteen months, including the mix of people and agents. Write it as if describing the function to a new hire on their first day.
+
+*The Scorecard.* Three to five numbers that say the function is working. At least one should measure quality from the customer's side, and at least one should measure how much human time the function takes. Record today's value for each. A number without a baseline can't tell you whether anything you do this month helped.
+
+*The Story.* A short paragraph on why the work matters, written so that a person or an agent could make a sensible call from it when the Playbook runs out.
+
+Then take an agent census. Ask everyone in the function, and anyone who touches it, which agents, bots, custom assistants or scheduled automations they use for its work. People are often surprised by the answer.
+
+[cols="2,1,1,2,1",options="header"]
+|===
+| Agent and what it does | Who built it | Whose account it acts through | What it can access | Overlaps with
+
+| _e.g. "Renewals helper" in ChatGPT: drafts renewal emails_
+| _Account manager_
+| _Her own email_
+| _Customer list export_
+| _CEO's "follow-up bot"_
+|===
+
+The census will turn up three kinds of problem: agents acting through one person's login, agents with more access than their task needs, and two agents doing the same job. Don't fix them yet. Write them down; they become your first Agentic Resources decisions in week four.
+
+.Checklist
+* [ ] Aim written (one paragraph)
+* [ ] Destination written (one page at most)
+* [ ] Scorecard of three to five numbers, each with today's baseline
+* [ ] Story written (one paragraph)
+* [ ] Agent census complete, with identity, access and overlap problems listed
+
+== Week 2 (Days 8–14): Draw the chart and fill the first role
+
+Draw the finished org chart of roles for the function, not the people and agents you have today (xref:3-draw-the-finished-org-chart.adoc[Chapter 3]). Each box is a role with a one-sentence outcome line starting "To…". Only then write each role's current occupant underneath: a person, an agent, a person and an agent, or "vacant". One occupant can hold several roles, and a role can be vacant for months.
+
+Check each role against the role coherence test: the kind of work, the level of judgment it needs, and the available occupants should be consistent within it (xref:5-hire-the-role-not-the-model.adoc[Chapter 5]). A role that mixes routine drafting with decisions about refunds will fail whoever holds it. Split it.
+
+Choose the first role to fill with an agent. Pick the one with the most volume, the clearest standard and the lowest cost of a mistake. Then write its four documents.
+
+*The Role Charter* (xref:9-one-page-per-job.adoc[Chapter 9]). The outcome line; the work; the standards for quantity, quality and behaviour; how acceptance is checked; who the role reports to; who sponsors its occupant; and what it may and may not do on its own. Keep it to a page.
+
+*The Playbook* (xref:10-bet-on-plain-english.adoc[Chapter 10]). The procedure for the role's main piece of work, in plain English, with the reason for each rule. Write it as an onboarding guide for a capable new hire, which is how Anthropic's engineers describe a good skill for an agent.footnote:zhang2025[Zhang, B., Lazuka, K., & Murag, M. (2025, October 16). Equipping agents for the real world with Agent Skills. _Anthropic Engineering_. https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills] Describe the outcome and the checks, not every step (xref:8-what-and-why-never-how.adoc[Chapter 8]).
+
+*The Role Pack* (xref:12-everything-they-need-on-day-one.adoc[Chapter 12]). Everything the occupant needs on day one: the charter, the Playbook, the Story, the definitions of any numbers it reports, examples of good and bad work, and who to ask. Keep it lean. Link to detail rather than pasting it in.
+
+*The identity.* Give the agent its own name and, wherever your tools allow, its own account. Anything it writes should say it was drafted by an agent and name the sponsor. An agent speaking through a person's login is a person's signature on work they didn't check.
+
+Now start the agent in draft-only mode. It does the work; a person reviews every draft and sends, approves or corrects it. Log each correction in one line: what was wrong and what the right answer was. The log is the most valuable thing you will produce this month.
+
+.Checklist
+* [ ] Finished org chart of roles for the function, with outcome lines and current occupants
+* [ ] Every role passes the role coherence test, or has been split
+* [ ] First role chosen, with its Role Charter, Playbook and Role Pack written
+* [ ] The agent has its own name and identity, and its output is labelled as agent-drafted
+* [ ] Access limited to what the role's work needs, and nothing more
+* [ ] Agent running in draft-only mode, with a correction log
+
+[WARNING]
+====
+AUTHOR: Looking back at how agents arrived at CorralData, which of these week-two steps would have saved the most trouble if you had done it first? One specific example would show the reader why the order matters.
+====
+
+== Week 3 (Days 15–21): Run it in public and track what's owed
+
+Set up the Commitment Ledger for the role (xref:13-track-whats-owed.adoc[Chapter 13]). It is a list, in a shared document or ticket board, of everything the role has promised: each recurring report, each open request, each follow-up. Each entry has an owner, a due date and the evidence that will show it is done. "I sent it" is not evidence; the sent message is. The agent checks the ledger on a schedule and reports two things to the sponsor: what needs a decision, and what will slip. Treat "will slip" as a call to act, not a status note.
+
+Hold the line on public work. Requests to the agent go through the shared channel, tagged so the agent is woken and the request is tracked. If someone sends a request privately, move it into the channel and say why. Agents that wake only when tagged will leave untagged messages unanswered; the fix is a habit and, later, a rule, not a reprimand.
+
+At the end of the week, run your first Friction Review (xref:16-the-model-isnt-the-problem.adoc[Chapter 16]). Take the most frequent correction in the log and ask what the system was missing: a definition, a rule, a check, an example. Fix it for the whole class of error, not just the last instance. Then decide which tier the fix belongs in (xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11]):
+
+[cols="1,2,2",options="header"]
+|===
+| Tier | Use it for | Example
+
+| Plain-English Playbook
+| Judgment, preferences, procedure (the default)
+| "Lead with the answer; put the detail underneath."
+
+| Script
+| Calculations and lookups that must give the same answer every time
+| Working out a customer's usage figure from the raw data
+
+| Hard rule the software enforces
+| Things that can't be undone, security, and the acceptance check
+| No message reaches a customer without a human approval
+|===
+
+Add each corrected case to a short list of test examples. Anthropic's guidance on testing agents says "20-50 simple tasks drawn from real failures is a great start."footnote:grace2026[Grace, M., Hadfield, J., Olivares, R., & De Jonghe, J. (2026, January 9). Demystifying evals for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents] By day thirty you won't have fifty, but you will have the habit.
+
+.Checklist
+* [ ] Commitment Ledger set up, with owner, due date and evidence for each entry
+* [ ] Agent reports decisions needed and likely slips to the sponsor on a schedule
+* [ ] All requests to the agent go through the shared channel, tagged
+* [ ] Scorecard numbers updated weekly against the baseline
+* [ ] First Friction Review run, with the fix placed in the right tier
+* [ ] A short list of test examples started from real corrections
+
+== Week 4 (Days 22–30): Earn autonomy and make it repeatable
+
+*Promote with evidence.* Set the promotion bar before you look at the results: for example, seven consecutive days of drafts in which fewer than one in ten needed a material correction. If the agent meets it, promote one lane of its work from "draft only" to "act, then report", and keep the rest in draft. If it doesn't, keep going. Don't shorten the bar because the early numbers look good; that is the commonest way a leader undoes a month of careful work.
+
+*Put people only where they matter.* Anthropic found that people approved 93% of its coding agent's permission prompts.footnote:hughes2026[Hughes, J. (2026, March 25). How we built Claude Code auto mode. _Anthropic Engineering_. https://www.anthropic.com/engineering/claude-code-auto-mode] An approval step that is nearly always waved through is theatre. As the agent earns autonomy, remove the approvals that no longer change anything and keep, or harden, the ones at the irreversible points.
+
+*Fill the second role.* Go back to the chart. Often the same agent can hold a second role with its own charter, Playbook and ledger. Use a second agent only when the work is genuinely parallel or needs different access.
+
+*Name an Agentic Resources owner* (xref:17-agentic-resources.adoc[Chapter 17]). One person, part-time, who keeps the register of every agent in the organisation: its roles, sponsor, identity, access, autonomy level and date of last review. Their first job is the census list from week one: give each orphaned agent a sponsor, merge or retire duplicates, and move any agent acting through a person's login onto its own identity. Retire carefully. Run the old and new side by side before switching anything off, and keep what the old one learned.
+
+*Run the Blueprint test.* Give the function's documents to someone who wasn't involved and ask: could you run this function next week from these alone? Every question they ask is a gap to fill.
+
+.Checklist
+* [ ] Promotion bar written before results were reviewed
+* [ ] One lane promoted on evidence, or a clear reason recorded for waiting
+* [ ] Approvals that never change anything removed; irreversible points protected by a human or a hard rule
+* [ ] Second role filled, by the same agent with its own charter or by a justified second agent
+* [ ] Agentic Resources owner named and the agent register started
+* [ ] Every agent in the census has a sponsor, its own identity and least-privilege access, or is retired
+* [ ] Blueprint test run, with gaps listed
+
+== End of day thirty
+
+You should have:
+
+* [ ] An Aim, Destination, Scorecard and Story for one function
+* [ ] A finished org chart of roles for that function, with outcome lines
+* [ ] Two roles filled, each with a Role Charter, Playbook, Role Pack and Commitment Ledger
+* [ ] A correction log, at least two completed Friction Reviews and a small set of test examples
+* [ ] At least one lane of work promoted on evidence, with hard rules at the irreversible points
+* [ ] A named sponsor for every agent and an Agentic Resources owner for the whole workforce
+* [ ] A Scorecard that shows, against the baseline, whether any of this helped
+
+If the Scorecard hasn't moved, that is information, not failure. Run a Friction Review on the function itself: was the role the right one, the standard the right one, the bar too low or too high?
+
+== Days 31–90: what comes next
+
+Repeat the build order for the next function, faster, reusing the templates in xref:appendix-b-templates.adoc[Appendix B]. Settle into the leader's rhythm from xref:20-your-job-now.adoc[Chapter 20]: the ledger's exceptions and one Friction Review each week, a review of each role against its Scorecard each month, the Aim and the chart each quarter, and a review of every lock-in whenever a significantly better model arrives. When individual contributors start building their own agents, offer them the renegotiated deal in xref:19-from-doing-to-delegating.adoc[Chapter 19] before the agents multiply.
+
+'''''
+
+_This build order compresses the whole book into one month for one function. For a complete example of where it leads, see xref:appendix-c-worked-example.adoc[Appendix C], which follows a fictional company's customer success function through every document named here. The checklists give you the order. The chapters give you the reasons._
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

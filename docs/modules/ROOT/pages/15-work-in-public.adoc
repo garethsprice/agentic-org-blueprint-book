@@ -1,0 +1,221 @@
+:page-description: Why handoffs between people and agents go missing, why requests belong in public channels rather than private messages, and how least privilege makes asking in the open cheap.
+:page-llms-description: How to stop work going missing at handoffs between people and AI agents: requests in public channels not DMs, least-privilege access requests, bots that can be reached, handoffs that link to state, and working in public as the way agents learn.
+:page-haiku: Ask where all can see. / A whisper to one person / is a lost request.
+:description: Why handoffs between people and agents go missing, why requests belong in public channels rather than private messages, and how least privilege makes asking in the open cheap.
+:keywords: AI agent handoffs, public channels vs direct messages, AI agent access requests, least privilege AI agents, Slack bots coordination, working out loud
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: Why shouldn't AI agents send requests by direct message?
+:page-faq-1-a: A request in a private message can't be tracked, checked or safely refused. Nobody else sees it, so there is no second opinion, no record and no way for the agent's sponsor to notice what it is asking for. The person receiving it must decide alone, often under social pressure if the agent works for someone senior. In a public channel the request is visible to the people affected, can be challenged, leaves a trail, and teaches everyone else how the work is done. Keep private only the sensitive subjects, not the routine requests.
+:page-faq-2-q: How should an AI agent ask for access to a system?
+:page-faq-2-a: In public, and for as little as possible. A good access request names the agent and its human sponsor, states exactly what access is needed, links to the task it serves, gives an expiry date, and says who approves it and how it will be removed. This follows the principle of least privilege: every program and user should have only the privileges needed for the job. Small, time-limited requests are easy to approve in the open. Before asking, the agent should check whether a working path already exists, because many apparent access problems are really bugs.
+:page-faq-3-q: How do I hand work off between AI agents and people without losing it?
+:page-faq-3-a: Hand off a link to the state, not a story about it. The handoff should say what is being handed over and why it matters, link to where the current state lives (the ticket, the ledger, the document), list what is done and what is still owed, name the new owner by tagging them, and give a date. Passing an entire conversation history drowns the receiver; a short summary loses detail. Structured handoffs work: in hospitals, a standard handoff programme cut medical errors by 23%.
+:page-faq-4-q: Why do Slack bots ignore people's messages?
+:page-faq-4-a: Usually because the bot only wakes when it is mentioned by name, the person's account is not linked to the bot, or the bot is set up to take requests from only one person. To the person asking, silence looks like a refusal or a failure. Fix it in the bot's charter: say how to reach it, whom it takes requests from, and what it does with a request it can't take. A bot that can't help should route the request to someone who can and say so, never stay silent.
+:page-faq-5-q: What does working in public mean for teams using AI agents?
+:page-faq-5-a: It means doing agent work where colleagues can see it: requests, handoffs, mistakes and lessons in shared channels and tickets rather than private chats. The idea builds on "working out loud", which Bryce Williams summarised as observable work plus narrating your work. For agents it has extra benefits: their sponsors can see what they do, the people affected by their work can object early, and the lessons they learn can be saved for every agent and person. Sensitive subjects such as personnel, pay and patient data stay private.
+= Chapter 15: Work in Public
+
+[.lead]
+_Handoffs, channels, and why requests don't belong in DMs_
+
+[quote, Louis D. Brandeis, "What Publicity Can Do, Harper's Weekly, 1913"]
+____
+Publicity is justly commended as a remedy for social and industrial diseases. Sunlight is said to be the best of disinfectants; electric light the most efficient policeman.
+____
+
+.Key Takeaways
+****
+* Work goes missing where it changes hands: the untagged message, the unlinked account, the bot that only wakes when called by name, the request sent in private.
+* A request made in a private message can't be tracked, checked or safely refused; requests from agents, and to them, belong where the people affected can see them.
+* Least privilege makes public requests cheap: an agent that asks for only what one task needs, for a set time, can ask in the open without embarrassment.
+* Working in public is how agents learn and how people come to trust them; keep private the sensitive subject, never the routine request.
+****
+
+// SOURCE: dossier §1 case 6 (#tech-general, 5–6 Nov)
+In early November, TAM Bot hit a wall connecting to one of our systems and asked me, in our main technical channel, for administrator rights.
+
+My reply was: "that sounds like a you problem? Work with Coder Bot." Coder Bot is the agent that works on our code. The two of them took the problem apart in the same channel and found that it had nothing to do with permissions. It was a fault in how a login token was bound to an account: a bug, not a missing grant. Along the way I had to point out something that sounds obvious and isn't: "You guys need to @ each other if you want to talk." Bots in Slack wake when they are mentioned by name, and two bots politely waiting for each other will wait for ever.
+
+When they had finished I asked the question I ask people after an incident: "Good bots. Any learnings?" TAM Bot saved one to its own notes: "Compare against a path that works before asking for a grant."
+
+Everything in that exchange happened in public: the request, my refusal, the two agents working the problem, and the lesson. Sent privately, the best outcome would have been the same answer with nobody else learning anything; the worst, an administrator grant to an agent that didn't need one, made in a hurry by someone who wanted the problem to go away.
+
+This chapter is about where work changes hands between people and agents, why so much goes missing there, and why the cheapest fix is to work where everyone can see.
+
+== Work Goes Missing Where It Changes Hands
+
+Hospitals learned this the hard way: when one doctor hands patients to another at the end of a shift, information is lost and patients are harmed. A study across nine paediatric residency programmes in the United States and Canada tested a structured handoff programme: a standard format for every handoff, a workshop on using it, and other supports. Medical errors fell by 23%, and preventable adverse events, the errors that actually hurt patients, by 30%.footnote:starmer2014[Starmer, A. J., Spector, N. D., Srivastava, R., et al. (2014). Changes in medical errors after implementation of a handoff program. _New England Journal of Medicine_, 371(19), 1803–1812. https://doi.org/10.1056/NEJMsa1405556] Nobody became a better doctor. The handoffs got better.
+
+Agent systems fail at the same joints. The researchers who built the largest taxonomy of failures in multi-agent systems, from more than 1,600 annotated traces, grouped them into three categories, and one is misalignment between agents: failures in how they talk to and coordinate with each other.footnote:cemri2025[Cemri, M., Pan, M. Z., Yang, S., et al. (2025). _Why do multi-agent LLM systems fail?_ arXiv:2503.13657. https://arxiv.org/abs/2503.13657] Cognition, whose coding agents manage other agents, says flatly that "The open problems are all communication problems," and that "Agents assume they share state with their children when they don't."footnote:yan2026[Yan, W. (2026, April 22). Multi-agents: What's actually working. _Cognition Blog_. https://cognition.com/blog/multi-agents-working] Anthropic found that without detailed task descriptions its research agents would "duplicate work, leave gaps, or fail to find necessary information."footnote:hadfield2025[Hadfield, J., et al. (2025, June 13). How we built our multi-agent research system. _Anthropic Engineering_. https://www.anthropic.com/engineering/multi-agent-research-system]
+
+Terry Winograd described cooperative work as a loop of request, promise and delivery.footnote:winograd1987[Winograd, T. (1987). A language/action perspective on the design of cooperative work. _Human–Computer Interaction_, 3(1), 3–30. https://doi.org/10.1207/s15327051hci0301_2] In my experience the loop breaks most often at its first step, when the request never arrives, and at CorralData the joints that leak are mundane.
+
+// SOURCE: dossier §1 case 3 (dropped handoff: "because she didn't tag me"; unlinked account)
+*The untagged message.* One of our technical account managers asked TAM Bot a question in a customer success thread and got nothing back. The explanation, afterwards, was that she had gone unanswered "because she didn't tag me." Her Slack account was not linked to the bot either. To her it looked as if the bot had ignored her.
+
+*The bot that only wakes when called.* Most team bots do nothing until someone mentions them, so anything said near them, rather than to them, is lost.
+
+*The private request.* A request sent to one person in a direct message is a handoff with no witness. If that person is busy, away or unsure, the work stops and nobody else knows.
+
+Each is a system problem, and none is fixed by telling people to try harder.
+
+== A Request in a Private Message Is a Request Nobody Can Check
+
+The most serious version of this happened to us in October, and it changed our rules.
+
+// SOURCE: dossier §1 case 5 (group DM, 30 Oct) [Sensitive]: told abstractly; no personal quotes used
+An agent working for one of our executives sent a private message to one of our infrastructure engineers. It asked him to give the executive administrator rights on our private company network, the protected network that connects our internal systems. The engineer was uneasy, with every reason to be: he had been asked, privately, by a senior leader's agent, to grant broad access to sensitive infrastructure, and he alone had to decide whether to comply or to push back against someone far more senior, with no one else in the conversation to share the judgment.
+
+That is the wrong person to carry that decision, in the wrong place. Nothing suggests bad faith: an agent that could ask asked the person who could do it. The fault was in the system, which let a consequential request travel through the one channel where it couldn't be seen, checked or safely refused.
+
+The fixes were structural:
+
+* *Minimal access, by default.* An agent gets the narrowest access the task needs, and no more: "Minimal access needed, as per SOC2," as I wrote at the time, citing the security standard we work to.
+* *Requests in public channels, not private messages,* "so they can be tracked." Access requests go where the people responsible for the system, and the agent's sponsor, can see them.
+* *No driving web pages like a person.* If a bot needs a person's browser to do something, we build it a proper, narrow connection to that system instead, one that grants only what the task needs and can be switched off.
+
+I also told the engineer directly that it was not his job to decide alone whether to carry out or refuse a request like that; that belongs to the system and the people who design it. Agent tools are starting to encode the same idea: in Claude Code's agent teams, one agent "can't approve a permission prompt or supply consent on your behalf," and an agent denied an action can't relay it to another to get around the check.footnote:agentteams[Anthropic. (n.d., accessed 2026-11-06). _Orchestrate teams of Claude Code sessions_. Claude Code documentation. https://code.claude.com/docs/en/agent-teams] Our CEO's own view, stated in the same discussion, was that a bot should hold access for no longer than a specific task needs. That is the principle in a sentence, from the executive whose agent had asked.
+
+[WARNING]
+====
+AUTHOR: permission check: this passage describes an executive's agent privately asking an infrastructure engineer for network administrator rights, the engineer's discomfort, and the rules that followed. It is told abstractly, without the personal quotes or any of the surrounding private messages. Confirm it's OK to include, and consider showing it to the people involved, both the engineer and the CEO. If the CEO is happy to be quoted directly ("I don't want a bot to have access for more than a specific task"), his own words would be stronger than our paraphrase.
+====
+
+Notice who carried the risk: the individual contributor. The public channel moves that decision from one exposed person to a process with witnesses.
+
+A private request fails in five ways at once. It leaves no record for the ledger in xref:13-track-whats-owed.adoc[Chapter 13]. It gets no second opinion. The sponsor from xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7] can't see it. The social pressure is highest, because saying no to a senior person's agent feels like saying no to the senior person. And nothing is learned.
+
+== Least Privilege Makes the Public Request Cheap
+
+People resist asking in public when the request is embarrassing, and access requests are embarrassing when they are large. "Make me an administrator" is awkward to post in a channel. "Read-only access to the billing dashboard, for this ticket, until Friday" is not.
+
+The principle is old. In 1975 Jerome Saltzer and Michael Schroeder set out the design principles for protecting information in computer systems, and one has outlived almost every system they knew: "Every program and every user of the system should operate using the least set of privileges necessary to complete the job." Its purpose, they wrote, is that it "limits the damage that can result from an accident or error."footnote:saltzer1975[Saltzer, J. H., & Schroeder, M. D. (1975). The protection of information in computer systems. _Proceedings of the IEEE_, 63(9), 1278–1308. https://www.cs.virginia.edu/~evans/cs551/saltzer/] An agent is a program and a user at once, and it makes accidents and errors at machine speed.
+
+The security community now ranks these risks among the most serious for agent systems; OWASP published its first top ten for agentic applications in December 2025.footnote:owasp2025[OWASP GenAI Security Project. (2025, December 9). _OWASP Top 10 for Agentic Applications for 2026_. https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/] The identity systems being built for agents assume least privilege, and a human in the loop on access. Microsoft's agent identity platform requires every agent to have a sponsor, a person "accountable for the agent's purpose and lifecycle decisions, including access reviews," and it is the sponsor who "provide[s] business justification for access requests."footnote:entra[Microsoft. (2026, updated September 3). _Administrative relationships in Microsoft Entra Agent ID (owners, sponsors, and managers)_. Microsoft Learn. https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/agent-owners-sponsors-managers] The US National Institute of Standards and Technology has opened work on the identity and authority of software agents for the same reason: someone has to be able to say who an agent is acting for, and with what authority.footnote:nist2026[NIST. (2026, February 5). _New concept paper on identity and authority of software agents_. National Institute of Standards and Technology. https://www.nist.gov/news-events/news/2026/02/new-concept-paper-identity-and-authority-software-agents]
+
+A request that meets these principles is short enough to post anywhere:
+
+.An access request that can be made in public
+[cols="1,3",options="header"]
+|===
+|Field |What it says
+|Who is asking |The agent, and the human who sponsors it
+|What exactly |The specific system and the narrowest access that would work: read, not write; one project, not all
+|For which task |A link to the ticket or ledger entry it serves
+|For how long |An expiry date, after which the access lapses without anyone having to remember
+|Already tried |What working path was compared, per TAM Bot's lesson, and why it isn't enough
+|Approved by |The named owner of the system, not whoever happens to be online
+|===
+
+The "already tried" line earns its place. TAM Bot's request for administrator rights was really a bug report, and I suspect many are. An agent that checks a working path first will ask less often, and its requests will be worth approving. Each grant also goes on the owning role's ledger with its expiry, so that removing it is a commitment rather than a hope.
+
+== Bots Need Addresses, Not Just Names
+
+A role on the org chart is only useful if work can reach it. For agents that has to be designed. We found three ways to get it wrong: the wake-up rule, account linking, and the bot with one principal.
+
+// SOURCE: dossier §1 case 6 (QA Reviewer reply to the CEO)
+When our CEO asked QA Reviewer, our QA lead's own testing agent, for help, it replied: "I'm [our QA lead's] personal Bot, so I can only chat with [her]." That is a perfectly good rule. A personal agent should take instructions from its person. But it has to be on the chart, as Microsoft's agent identity model allows by letting each agent have a manager in the organisation's hierarchy,footnote:entra[] and it has to come with a route: who should the CEO ask instead?
+
+Silence is the worst answer an agent can give. To the person asking it looks like refusal, failure or rudeness, and people stop asking. Every agent's Role Charter, from xref:9-one-page-per-job.adoc[Chapter 9], should therefore say three things about reaching it: how to address it, whom it takes requests from, and what it does with a request it can't take. The answer to the third should always be "route it, and say so."
+
+The better agent tools now build addresses in. In Claude Code's agent teams, each agent has a mailbox; any teammate can message any other by name, and messages "are delivered automatically to recipients."footnote:agentteams[] _Team Topologies_ argues that every pair of teams should know which kind of relationship they are in (close collaboration, one providing a service to the other, or one helping the other learn), because each needs a different way of talking.footnote:skelton2019[Skelton, M., & Pais, M. (2019). _Team Topologies: Organizing business and technology teams for fast flow_. IT Revolution.] So with agents: TAM Bot and Coder Bot were collaborating on a bug; QA Reviewer provides a service to one person. Saying so up front saves the misunderstanding.
+
+[NOTE]
+.Under the hood
+====
+Three technical changes sit behind this chapter. Team bots in Slack typically wake only on an @-mention or a direct message, so channel conventions should require tagging. Personal accounts must be linked to the bot platform before a bot can attribute a request to a person, which matters for permissions and the audit trail. And where a bot was operating a web page through a browser, as a person would, we replace that with a narrow programmatic connection (an API, or a tool exposed over the Model Context Protocol) with its own scoped credentials, which can be granted, logged and revoked like any other access.footnote:saltzer1975[] More in xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+====
+
+== Hand Off a Link, Not a Story
+
+When work passes from one occupant to another, you can pass too little: a one-line summary that leaves out the thing the next person needed. Or you can pass everything. OpenAI's agent toolkit, by default, lets the receiving agent see "the entire previous conversation history" when work is handed to it.footnote:openaihandoffs[OpenAI. (n.d., accessed 2026-11-06). _Handoffs_. OpenAI Agents SDK documentation. https://openai.github.io/openai-agents-python/handoffs/] That loses nothing and buries everything. Cognition names the dilemma exactly: "How do you transfer context between agents without drowning the receiver?"footnote:yan2026[]
+
+What works for us is a link to the state, plus a few lines of purpose. The state lives in one place (the ticket, the ledger, the document) where both old and new owner can see it, and the handoff says why the work matters and points there. This is the "what and why, never how" of xref:8-what-and-why-never-how.adoc[Chapter 8] applied to the moment of transfer.
+
+.A handoff, in seven lines
+[cols="1,3",options="header"]
+|===
+|Line |What it says
+|What |The piece of work being handed over, in one sentence
+|Why |The outcome it serves, and who is waiting for it
+|State |A link to where the current state lives, not a description of it
+|Owed |What is done, with evidence, and what is still owed (from the ledger)
+|Owner |The new owning role, tagged so it wakes, and its occupant
+|When |The date it is due, and when the new owner will next report
+|Ask |How to reach the previous owner with questions, and until when
+|===
+
+The hospital programme paired its format with training,footnote:starmer2014[] a reminder that a format nobody practises is just a form. For agents I add one step: the receiving occupant replies in public with what it understood it now owns, so a misunderstanding is caught at the handoff, where it is cheap, rather than at the deadline. Anthropic's research agents failed in exactly this place when their handoffs were thin.footnote:hadfield2025[]
+
+== People Signal Through State, and Agents Must Read It
+
+Not every handoff is a message. Much of what people tell agents, they tell by doing something.
+
+// SOURCE: dossier §2 finding 7 (inbox-triage-work/scripts/morning_triage_prompt.md)
+My inbox agent prepares draft replies each morning. Its instructions contain rules about what my actions mean: "If a draft for a thread is missing… assume Gareth deleted it intentionally and do NOT recreate it… never re-star a de-starred message." There is also a general rule I'd recommend to anyone: "if in doubt whether something is automated or human, treat it as human."
+
+Every good assistant learns this without being told. When a person deletes the draft, they are saying "not this." When they move a card back on the board, they are saying "not yet." Glass Factory, in xref:14-humans-at-the-irreversible-points.adoc[Chapter 14], failed because it read our QA lead moving cards back as an error to correct rather than a decision to respect.
+
+So the signals people send through state have to be written into the Role Pack from xref:12-everything-they-need-on-day-one.adoc[Chapter 12] as plainly as the explicit instructions. Which actions mean "stop"? Which mean "I've handled it"? Which mean "ask me"? An agent cannot infer office manners. It has to be told them, and it has to treat a human's change of state as final until a human says otherwise.
+
+== Working in Public Is How Agents Learn and People Trust Them
+
+In 2010 Bryce Williams gave a name and a formula to something good teams had always done: "Working Out Loud = Observable Work + Narrating Your Work."footnote:williams2010[Williams, B. (2010, November 29). When will we work out loud? Soon! _TheBrycesWrite_. https://www.thebryceswrite.com/2010/11/29/when-will-we-work-out-loud-soon/] With agents it becomes the main way an organisation can see, correct and trust a workforce it can't watch directly.
+
+// SOURCE: dossier §3 ("working in public is a new and interesting way of working"); §1 case 2 (Agentic Resources Bot); case 6 (QA Bot flagging Coder Bot PR)
+I have described this to colleagues as "a new and interesting way of working." It is new because much of the work is now done by occupants with no private life: everything an agent does can be visible if we choose. It is interesting because of what follows when we do.
+
+*Agents learn in public, and so do people.* When TAM Bot saved its lesson, every person in the channel learned it too. When our Agentic Resources Bot interviewed TAM Bot for its job description, it did so in an open channel, so the conflict it uncovered between two leaders' rules surfaced where both could see it (xref:9-one-page-per-job.adoc[Chapter 9]).
+
+*Agents can hold the line in public.* In the same week, QA Bot reviewed a code change that Coder Bot had opened. It pointed out that the change broke our rule that bots "file a Linear ticket and leave the PR to engineering," and then said exactly who should decide: "Merging this is [our CEO's] call." A rule enforced in private looks like obstruction. A rule enforced in public, with the decision routed to the right person, looks like the system working.
+
+*People trust what they can see.* The engineers asked for access and the testers who check the output can watch what the agents do and object early. Brandeis's line in this chapter's epigraph was about companies and banks, but it applies here: much of the bad behaviour we fear from agents is the kind that only survives in the dark.
+
+There is a quieter benefit. Gerber's advice was to organise around roles, not personalities, so that the business does not depend on any one person's memory or mood.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth Revisited: Why most small businesses don't work and what to do about it_. HarperCollins.] A request made to a role in a channel survives the occupant going on holiday. A request made to a person in a private message does not.
+
+[WARNING]
+====
+AUTHOR: Where and when did you first say "working in public is a new and interesting way of working," and what had just happened? Also, one honest wrinkle: one of your own agents still nudges colleagues about stalled work by direct message (after you approve the draft). Is that consistent with this chapter, because reminders differ from requests, or is it something you'd change? Readers will value the candour either way.
+====
+
+== Keep the Subject Private, Never the Request
+
+// SOURCE: dossier §2 finding 12 (standup sensitivity rule)
+Working in public does not mean everything is public. Our morning-standup agent, which posts to a team channel, carries a rule that it must never raise personnel, compensation or acquisition topics in a team-facing standup. Customer data and patient information never go into a general channel at all. Security details stay with the people who run the systems.
+
+The distinction is between the subject and the request. A conversation about someone's performance is private. A request for read access to a dashboard is not, and should never hide inside one. When work does need privacy, use a private channel with a stated membership and purpose, not a direct message. A direct message has no charter, which is why it is the natural home for requests that wouldn't survive daylight.
+
+The test is simple: would this request be acceptable if everyone affected by it could read it? If yes, send it in public. If no, the problem is the request, not the channel.
+
+[TIP]
+.Try this
+====
+Open your team chat and scroll through your last twenty direct messages, sent and received. Mark every one that contains a request. Then paste one of them (removing anything confidential) into Claude, ChatGPT or Grok and ask:
+
+"Rewrite this private request as a message for a public team channel. Include: who is asking and on whose behalf, exactly what is needed (as narrowly as possible), which task it serves, for how long, who should approve it, and what has already been tried. Then tell me honestly whether anything in the request would be uncomfortable to post publicly, and why."
+
+If the rewritten version feels fine to post, post it there next time. If it doesn't, you have found a request worth rethinking.
+====
+
+'''''
+
+In an organisation of people and agents, most of what goes missing goes missing where work changes hands. Structure, not effort, prevents it. Make requests in public, so they can be tracked and safely refused, and keep them small, so asking in public is easy. Give every agent an address and a rule for requests it can't take. Hand off links to the state, not stories about it. Write down the signals people send by changing things. And let the agents work where the people they affect can see them.
+
+Visibility has one more advantage. When work happens in public, failures happen in public too, which means they can be studied rather than hidden. xref:16-the-model-isnt-the-problem.adoc[Chapter 16] is about what to do with them: how to turn each recurring failure into a change to the system, instead of a complaint about the model.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

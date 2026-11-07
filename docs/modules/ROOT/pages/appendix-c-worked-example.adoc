@@ -1,0 +1,501 @@
+:page-description: A worked example of one function, customer success, run end to end by people and agents at a fictional composite company, with every Blueprint document filled in.
+:page-llms-description: A fictional composite company's customer success function built with The Blueprint method: Aim and Scorecard, an org chart of roles, two Role Charters, a tiered Playbook, a Role Pack, Commitment Ledger entries, a Friction Review, and the sponsor and Agentic Resources setup.
+:page-haiku: Four roles, one agent, / three people who own the calls. / The clinic gets answers.
+:description: A worked example of one function, customer success, run end to end by people and agents at a fictional composite company, with every Blueprint document filled in.
+:keywords: AI agents customer success example, AI agent role charter example, customer success playbook AI, AI agent org chart example, human and AI team example, agent governance case study
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: How can AI agents be used in customer success?
+:page-faq-1-a: Give agents defined roles rather than open-ended access. Good customer success roles for agents include drafting answers to customer questions, monitoring account health from usage data, keeping a ledger of what has been promised, and checking drafts before a human sees them. Humans keep the relationship, the commercial decisions and approval of anything customer-facing until the agent earns more autonomy with evidence. One general agent can hold several of these roles, each with its own charter.
+:page-faq-2-q: Can one AI agent hold several roles?
+:page-faq-2-a: Yes, and it is often better than running several agents. Each role gets its own Role Charter, Playbook and standards, so the agent knows which job it is doing and can be reviewed on each separately. Use a separate agent when the work must be independent, like a reviewer that shouldn't share the drafter's context, or needs different access. The org chart is a chart of roles; how many agents fill it is a separate decision.
+:page-faq-3-q: What does a Role Charter for an AI agent look like?
+:page-faq-3-a: It is one page. It starts with an outcome line beginning "To…", then lists the results the role produces, its standards for quantity, quality and behaviour, what it may do alone, must ask about first and must never do, how its work is checked and what evidence counts, its handoffs, and its sponsor. The same format works for a human role, because a charter describes the role, not the occupant.
+:page-faq-4-q: How do you decide when a customer-facing AI agent can send messages on its own?
+:page-faq-4-a: Split the work into lanes by risk and promote one lane at a time. Routine how-to answers might move to "send, then report" once the agent meets a bar set in advance, such as ten working days with fewer than one draft in twenty needing a material correction. Answers about a customer's own data, money or contract stay with a human. Record each promotion, its evidence and who approved it.
+:page-faq-5-q: What is a Friction Review for an AI agent mistake?
+:page-faq-5-a: It is a short, blame-free review that turns a recurring failure into a system fix. It records what happened and the impact, asks whether the failure belongs to a whole class, identifies the gap in the system (a missing rule, the wrong tier, a weak check, no owner), and sets a fix with an owner, a test drawn from the failure and a condition for closing. "The model made a mistake" and "someone forgot" aren't root causes on their own.
+= Appendix C: A Worked Example
+
+[.lead]
+_One function run end to end by people and agents_
+
+This appendix follows one function, customer success, through every document the book describes. The company, *Kettlebrook*, is a fictional composite. It is informed by CorralData and the other organisations in this book, but its people, customers, numbers and events are invented for illustration, and any resemblance to a real company of the same name is coincidental.
+
+It uses the templates in xref:appendix-b-templates.adoc[Appendix B] and the build order in xref:appendix-a-first-thirty-days.adoc[Appendix A].
+
+== The company and the function
+
+Kettlebrook makes booking and reporting software for independent veterinary clinics. It has twenty-six people and about four hundred clinics. Customer success is a Head of Customer Success and two customer success managers, each looking after about two hundred clinics: answering questions, running onboarding, chasing renewals.
+
+Agents had already arrived. The CEO had a renewals assistant in a desktop app that drafted follow-ups from his own email account. One customer success manager had an assistant that summarised tickets. Nobody had decided what either was for, and the CEO's assistant sometimes emailed a clinic the same day its Account Owner did.
+
+== Aim, Destination, Scorecard and Story
+
+The Head of Customer Success wrote these with the CEO in week one (xref:4-know-what-its-for.adoc[Chapter 4]).
+
+*Aim.* Customer success exists so that every clinic gets real value from Kettlebrook in its first ninety days and keeps getting it, so that clinics renew, recommend us, and never need to call a founder to get a problem fixed.
+
+*Destination (eighteen months).* Six hundred clinics served by the same three people and a small set of agents. Every question gets a correct first answer within two working hours. The Head of Customer Success spends half her week on Shape work: onboarding, Playbooks, product feedback. No agent ever sends from a person's account.
+
+*Scorecard.*
+
+[cols="3,1,1",options="header"]
+|===
+| Number | Baseline | Target (12 months)
+
+| Revenue kept from existing clinics, year on year
+| 90%
+| 95%
+
+| Median working hours to a correct first answer
+| 9
+| 2
+
+| Share of customer-bound agent drafts needing a material correction
+| Not measured
+| Under 5%
+
+| Share of the Head of Customer Success's week spent on Shape work
+| About 10%
+| 50%
+|===
+
+*Story.* Clinics don't buy software; they buy time back from the front desk. When a clinic asks us something, a busy person is stuck, and a fast wrong answer costs them more than a slower right one. Be accurate first, then quick, and always say who you are.
+
+== The org chart of roles
+
+The Head of Customer Success drew the finished chart first, then wrote the occupants underneath (xref:3-draw-the-finished-org-chart.adoc[Chapter 3]). There are two agents. *Kit*, a general agent, holds four roles, each with its own charter. *Proof* holds one, Draft Reviewer, because a checker shouldn't share the context of what it checks.
+
+[cols="2,4,2,2",options="header"]
+|===
+| Role | Outcome line | Occupant | Reports to
+
+| Head of Customer Success
+| To make every clinic successful with Kettlebrook, so that it renews and recommends us.
+| Person
+| CEO
+
+| Account Owner (two portfolios)
+| To own each clinic's relationship and results, so that every clinic has one person who knows it and answers for it.
+| Two people
+| Head of Customer Success
+
+| Customer Correspondent
+| To give clinics accurate, clear answers within two working hours, so that a stuck practice is unstuck fast.
+| Kit
+| Account Owner for that clinic
+
+| Draft Reviewer
+| To check every customer-bound draft against its acceptance criteria before a person sees it, so that people review judgment, not typos.
+| Proof
+| Head of Customer Success
+
+| Account Health Monitor
+| To spot clinics at risk early enough to help, so that no renewal is lost by surprise.
+| Kit
+| Head of Customer Success
+
+| Commitment Clerk
+| To keep the customer success Commitment Ledger true, so that nothing promised to a clinic is forgotten.
+| Kit
+| Head of Customer Success
+
+| Onboarding Guide
+| To get each new clinic to its first useful report within thirty days.
+| Kit (drafts) and Account Owners (calls)
+| Head of Customer Success
+
+| Renewal Preparer
+| To prepare each renewal conversation sixty days ahead, so that Account Owners walk in with the facts.
+| Vacant: Account Owners cover until next quarter
+| Head of Customer Success
+|===
+
+One role failed the role coherence test. The first draft had a "Customer Agent" that answered questions _and_ offered credits for outages. Answering is routine and reversible; credits are money and can't be taken back. Credits moved to the Account Owner (xref:5-hire-the-role-not-the-model.adoc[Chapter 5]).
+
+== Role Charter: Customer Correspondent
+
+[source,text]
+----
+ROLE CHARTER
+
+Role:                    Customer Correspondent
+Outcome line:            To give clinics accurate, clear answers within
+                         two working hours, so that a stuck practice is
+                         unstuck fast.
+Reports to:              Account Owner for the clinic
+Sponsor:                 Head of Customer Success
+Current occupant(s):     Kit (agent)
+Owns or serves:          Serves the Account Owner, who owns the
+                         relationship
+
+THE WORK
+1. Every clinic question in the help desk or #cs-requests has a
+   drafted answer within two working hours.
+2. Answers about how to use the product are complete, with the steps
+   and a link to the help article.
+3. Answers about a clinic's own figures are checked against live data
+   before they are drafted.
+
+STANDARDS
+Quantity:   Every question triaged within 30 minutes during working
+            hours; drafted within 2 working hours.
+Quality:    Under 5% of drafts need a material correction (a wrong
+            fact, figure or instruction). Zero answers that quote one
+            clinic's data to another.
+Behaviour:  Plain English, no jargon. Signs every message "Kit,
+            Kettlebrook's customer success agent, with [Account
+            Owner]". Says "I don't know yet" rather than guessing.
+
+AUTHORITY
+May do alone:        Triage; draft; send how-to answers (Lane A, see
+                     promotion record); open product bug tickets.
+Must ask first:      Any answer about the clinic's own figures, billing
+                     or contract (Account Owner approves).
+Must never do:       Offer credits or discounts; change a clinic's
+                     settings; send from any person's account; discuss
+                     another clinic.
+
+ACCEPTANCE
+Checked by:          Proof checks every draft against this charter
+                     and the Playbook; Account Owner approves Lane B.
+                     Head of CS reviews a sample of 15 sent messages
+                     each week.
+Evidence:            Each figure in an answer links to the query
+                     result it came from, pulled at drafting time.
+
+HANDOFFS
+Receives:  Questions from the help desk and #cs-requests (see FR-007).
+Hands to:  Account Owner (Lane B, anything commercial); Engineering
+           triage (bugs, as a ticket with what and why).
+Escalates: Cancellation, complaint or animal welfare: to the Account
+           Owner within 15 minutes.
+
+Role Pack:      /cs/roles/customer-correspondent/
+Charter owner:  Head of Customer Success     Last reviewed: 2026-10-30
+Coherence:      Y / Y / Y
+----
+
+== Role Charter: Account Owner
+
+The human role got a charter in the same format. Writing it forced the renegotiated deal of xref:19-from-doing-to-delegating.adoc[Chapter 19]: the Account Owners hand drafting to Kit and own the specs and the verification.
+
+[source,text]
+----
+ROLE CHARTER
+
+Role:                    Account Owner
+Outcome line:            To own each clinic's relationship and results,
+                         so that every clinic has one person who knows
+                         it and answers for it.
+Reports to:              Head of Customer Success
+Sponsor:                 n/a (human role)
+Current occupant(s):     Two customer success managers, one portfolio
+                         each (about 200 clinics)
+Owns or serves:          Owns the relationship and its answers
+
+THE WORK
+1. Every clinic in the portfolio has a health status and a next step.
+2. Every Lane B draft is approved, corrected or rejected within one
+   working hour.
+3. Each month, at least one correction pattern becomes a Playbook
+   change or a Friction Review.
+
+STANDARDS
+Quantity:   Lane B queue under one hour old, checked twice daily.
+Quality:    Corrections logged in one line with the right answer, so
+            they can become tests.
+Behaviour:  Never sends Kit's draft without saying Kit drafted it.
+            Requests to Kit go in #cs-requests, never by DM.
+
+AUTHORITY
+May do alone:        Approve Lane B; offer credits up to one month's
+                     fee; change the Customer Correspondent Playbook
+                     with a note in the lock-in log.
+Must ask first:      Credits above one month's fee (Head of CS).
+Must never do:       Approve a draft that quotes a figure without its
+                     evidence link.
+
+ACCEPTANCE
+Checked by:          Head of CS, monthly, against the portfolio's
+                     Scorecard numbers.
+Evidence:            Portfolio health report; correction log;
+                     Playbook change history.
+
+HANDOFFS
+Receives:  Lane B drafts, escalations and health flags from Kit.
+Escalates: To Head of CS: credits above limit, and any clinic
+           threatening to leave, the same working day.
+
+Charter owner:  Head of Customer Success     Last reviewed: 2026-10-30
+Coherence:      Y / Y / Y
+----
+
+One customer success manager didn't want to give up onboarding calls, which she enjoyed. She didn't have to: in the shared Onboarding Guide role, Kit drafts the plans and she runs the calls.
+
+== A Playbook with its tiers
+
+This Playbook covers the question that caused the most trouble before the agents arrived. Each step carries its tier from xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11]: `[E]` English, `[S]` script, `[H]` hard rule.
+
+[source,text]
+----
+PLAYBOOK
+
+Name:          Answer a "this report looks wrong" question
+Owning role:   Customer Correspondent
+Trigger:       A clinic says a figure in a Kettlebrook report is
+               wrong, or asks why it changed
+Purpose:       Find out whether the figure is wrong or the clinic's
+               reading of it is, and explain either clearly.
+Done means:    The Account Owner has approved an answer in which
+               every figure links to the evidence it came from.
+
+STEPS
+1. [E] Restate the clinic's question in one sentence and identify the
+       report, the figure and the date range.
+   Why: half of these questions are about a different date range
+        from the one the clinic thinks it chose.
+2. [S] Recalculate the figure from the live data using the metric
+       definitions file. Do not reason from the column names.
+   Why: names mislead. "Missed appointments" excludes same-day
+        rebookings; a guess from the name will get it wrong.
+3. [E] Compare. If the figures match, explain the definition in plain
+       English with one example from the clinic's own data. If they
+       don't, say so, open a bug ticket (what and why) and tell the
+       clinic when they'll hear next.
+   Why: clinics forgive a bug they're told about; they don't forgive
+        being told they've misread a correct report when they haven't.
+4. [E] Draft the answer: the conclusion first, then the detail. One
+       screen at most.
+5. [S] Proof checks the draft against this Playbook and the charter.
+6. [H] Send only after Account Owner approval (Lane B). The help desk
+       will not send a Lane B draft without an approval record.
+   Why: an answer about a clinic's own numbers is a statement of
+        fact about their business, and it can't be unsent.
+
+IF THINGS GO WRONG
+- Metric not in the definitions file -> stop; tell the Account Owner.
+- Clinic angry or mentions cancelling -> Account Owner within 15
+  minutes; don't draft a reply.
+
+LOCK-IN LOG
+2026-09-12 Step 2 moved to [S]: a draft inferred a metric's meaning
+           from its column name (FR-003). Review at next model change.
+2026-09-12 Step 6 set as [H] from launch: irreversible, customer-
+           facing. Not for review.
+
+Owner: Head of Customer Success    Last reviewed: 2026-10-30
+----
+
+Only one step is a hard rule, guarding the point that can't be undone. Judgment stays in English, with reasons; the calculation that kept going wrong became a script.
+
+== The Role Pack
+
+Kit holds four roles, so it has four Role Packs, each kept lean and linked from its charter (xref:12-everything-they-need-on-day-one.adoc[Chapter 12]). The Customer Correspondent's contains:
+
+* *The charter and the Story*, for when the Playbook runs out.
+* *The Playbooks*: this one, "Answer a how-to question" and "Report a bug".
+* *The metric definitions file*, owned by the product team and linked, not copied.
+* *Ten example answers*, five good and five corrected, each with a note on why.
+* *The lane table*: which questions are Lane A (send, then report) and which Lane B (Account Owner approves).
+* *Who to ask*, by portfolio and for bugs.
+* *What it leaves out.* No renewal dates or commercial notes, so a how-to answer can never mention a price.
+
+Every rule carries its reason. After a model upgrade, the reasons were what let the Head of Customer Success delete two rules the new model no longer needed.
+
+== The Commitment Ledger
+
+The Commitment Clerk (Kit again) keeps the ledger on a shared board and posts a digest to the Head of Customer Success at 08:30 and 16:00, decisions first (xref:13-track-whats-owed.adoc[Chapter 13]). Five rows from one Tuesday:
+
+[cols="1,2,3,1,1,2",options="header"]
+|===
+| ID | Owed by | Commitment | Due | Status | Evidence or next step
+
+| CL-214
+| Customer Correspondent (Kit)
+| Explain the drop in a clinic's monthly revenue report
+| Tue 11:00
+| DONE
+| Approved answer, with links to the recalculated figures
+
+| CL-219
+| Engineering triage
+| Fix the export that drops weekend appointments
+| Fri
+| WILL SLIP
+| *Decision needed:* tell the four affected clinics now, or wait for the fix? Head of CS to decide by 12:00
+
+| CL-220
+| Onboarding Guide (Kit and Account Owner 1)
+| First useful report live for a new clinic
+| Day 30, next Mon
+| AT RISK
+| Clinic hasn't imported its client list; Account Owner to call Wed
+
+| CL-221
+| Account Health Monitor (Kit)
+| Weekly at-risk list to the Head of CS
+| Tue 09:00
+| DONE
+| List posted in #cs-health, with usage evidence for each clinic
+
+| CL-223
+| Customer Correspondent (Kit)
+| Reply to a clinic asking why its reminder texts stopped
+| Tue 14:00
+| BLOCKED
+| Needs the text-message provider's status from Engineering; asked in #eng-triage at 10:12
+|===
+
+Two rules keep it honest. Only the check named in a role's acceptance can set `DONE`, so Kit can't mark its own drafts done. And `WILL SLIP` goes to the top of the digest as a decision, not a status.
+
+== A Friction Review
+
+The most instructive failure of the first quarter was a question nobody answered (xref:16-the-model-isnt-the-problem.adoc[Chapter 16]).
+
+[source,text]
+----
+FRICTION REVIEW  FR-007
+
+Raised by:         Head of Customer Success     Date: 2026-10-08
+Severity:          customer-visible
+
+WHAT HAPPENED
+On Thu 2 Oct an Account Owner asked in #cs-requests why a clinic's
+export was missing weekend bookings, without tagging Kit. Kit wakes
+only when tagged, so it never saw it; the Account Owner assumed it
+had. On Tue 7 Oct the clinic's owner emailed the CEO directly.
+
+WHAT SHOULD HAVE HAPPENED
+The request becomes a ledger entry with an owner within 30 minutes,
+and the clinic hears from us the same day.
+
+IMPACT
+Three working days without a reply. A founder pulled into support,
+which the Aim says should never happen.
+
+ONE-OFF OR CLASS?
+Class. Four other untagged requests in September; three were picked
+up by luck.
+
+WHERE THE SYSTEM HAS A GAP
+[x] No owner, or the owner didn't know
+[x] Rule in the wrong tier: "always tag Kit" was a team habit in
+    English, relied on by a system that only works if it's followed
+    every time
+[ ] Genuine capability limit of the current occupant
+Explanation: people thought the channel was watched; the agent
+thought only tags were for it. The route had no owner.
+
+THE FIX
+Change:            1. Commitment Clerk sweeps #cs-requests every
+                      30 minutes in working hours for untagged
+                      requests and turns each into a ledger entry
+                      with a proposed owner. [S]
+                   2. The channel's pinned guide explains tagging
+                      and why. [E]
+                   3. Any request older than one working hour with
+                      no owner goes to the Head of CS's digest as a
+                      decision. [S]
+Tier:              S (with an E note)
+Test from this failure: a seeded untagged request each Monday must
+                   appear in the ledger within 30 minutes.
+Fix owner:         Head of Customer Success     Due: 2026-10-15
+
+CLOSED WHEN
+Four consecutive weeks with zero requests older than one working
+hour without an owner, and the seeded test passing every week.
+Closed 2026-11-12.
+----
+
+Nobody was blamed. The gap was a route with no owner, and the fix gave it one. The test came straight from the failure, as Anthropic recommends: build agent tests from real cases, starting small.footnote:grace2026[Grace, M., Hadfield, J., Olivares, R., & De Jonghe, J. (2026, January 9). Demystifying evals for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents]
+
+== The sponsor and Agentic Resources
+
+*The sponsor.* The Head of Customer Success sponsors both Kit and Proof. She is accountable for their purpose, their results and their lifecycle, in the sense Microsoft's agent identity model uses the word (xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7]).footnote:entra[Microsoft. (2026, updated September 3). Administrative relationships in Microsoft Entra Agent ID (owners, sponsors, and managers). _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/agent-owners-sponsors-managers] When Kit gets something wrong, her answer is a Friction Review, not an apology on its behalf.
+
+*Agentic Resources.* Kettlebrook's COO runs Agentic Resources for the whole company, about two hours a week, with an assistant agent that keeps the register up to date (xref:17-agentic-resources.adoc[Chapter 17]). Kit's register entry looks like this:
+
+[source,text]
+----
+AGENT REGISTER ENTRY
+
+Agent:         Kit
+Identity:      Own help-desk and chat accounts, "Kit (Kettlebrook CS
+               agent)". Never acts through a person's account.
+Sponsor:       Head of Customer Success
+Roles held:    Customer Correspondent, Account Health Monitor,
+               Commitment Clerk, Onboarding Guide (shared)
+Access:        Read: help desk, product usage data, metric
+               definitions. Write: help-desk drafts, ledger board,
+               bug tickets. None: billing, clinic settings, email.
+Autonomy:      Customer Correspondent: how-to answers Lane A;
+               figures, billing, contract Lane B.
+               Health Monitor: report only.
+               Commitment Clerk: act, then report.
+Reviewed:      Monthly and at every model change; last 2026-10-30
+----
+
+*Onboarding.* Kit was introduced in #cs-requests with its charter pinned and ran for two weeks in draft-only mode, with a correction log from day one.
+
+*Promotion.* The bar for moving how-to answers to Lane A was set before any results came in: ten consecutive working days with under 5% of drafts needing a material correction. Kit produced 212 how-to drafts in that period, of which three needed one (about 1.4%). The COO and the Head of Customer Success approved the promotion and recorded it. Answers about clinics' own figures stayed in Lane B: their correction rate was higher, and an error can't be withdrawn.
+
+*Retirement.* The CEO's renewals assistant overlapped the Account Health Monitor and the vacant Renewal Preparer role, and acted from his own account. The COO ran both side by side for two weeks, moved the assistant's useful rules into the Health Monitor's Playbook, then switched it off and archived its instructions and history rather than deleting them. The CEO asked the Health Monitor for a weekly renewals summary instead: an outcome, not a procedure.
+
+== Ninety days on
+
+The Scorecard after one quarter, against the baseline:
+
+[cols="3,1,1,1",options="header"]
+|===
+| Number | Baseline | Day 90 | Target
+
+| Median working hours to a correct first answer
+| 9
+| 3.5
+| 2
+
+| Share of agent drafts needing a material correction
+| Not measured
+| 4% (how-to 1%; figures 9%)
+| Under 5%
+
+| Share of the Head of Customer Success's week on Shape work
+| About 10%
+| About 25%
+| 50%
+
+| Revenue kept from existing clinics
+| 90%
+| Too early to tell
+| 95%
+|===
+
+Two things went less well. The figures lane is still at 9% corrections: the metric definitions file had gaps nobody knew about until Kit used it, and closing them is product work. And the Head of Customer Success's Shape share stuck at a quarter of her week, because she kept taking escalations herself. She ran a Friction Review on her own calendar; the fix was clearer escalation lines in the Account Owner charter and a habit of asking which role owns an escalation before picking it up (xref:20-your-job-now.adoc[Chapter 20]).
+
+The function isn't finished, and won't be. But it passes the Blueprint test: when one Account Owner took two weeks' leave, the other covered both portfolios from the charters, Playbooks and ledger, and nobody called a founder.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth revisited: Why most small businesses don't work and what to do about it_. HarperCollins.]
+
+[WARNING]
+====
+AUTHOR: Kettlebrook is meant to be informed by CorralData without being identifiable as it. Please check that nothing here (the untagged request, the metric inferred from a column name, the renewals assistant acting from the CEO's account) reads as a disguised account of a specific CorralData customer or colleague, and that you're comfortable with the parallels as written.
+====
+
+'''''
+
+_Every document here fills in a template from xref:appendix-b-templates.adoc[Appendix B]. To build your own, start with xref:appendix-a-first-thirty-days.adoc[Appendix A]; for an assistant to help draft them, see xref:appendix-g-ai-org-design-advisor.adoc[Appendix G]._
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

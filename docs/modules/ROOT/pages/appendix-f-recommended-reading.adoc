@@ -1,0 +1,132 @@
+:page-description: An annotated reading list for leaders building organisations of people and agents: management classics, delegation and leadership, and the best current writing on building with AI agents.
+:page-llms-description: Annotated reading list for The Blueprint: Gerber, Grove, Drucker, Deming, Gawande, Ohno, Team Topologies and Conway on organisation; Marquet, McChrystal and Wiseman on delegation; Sutton, Anthropic, Google Research, Cognition and protocol specifications on building with agents; and Applied Alchemy.
+:page-haiku: Old books on the shelf / already knew the answer. / Read them with new eyes.
+:description: An annotated reading list for leaders building organisations of people and agents: management classics, delegation and leadership, and the best current writing on building with AI agents.
+:keywords: books on organisation design, management classics for AI, delegation books, AI agent reading list, building AI agents articles, management books for the AI era
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: What books should a business leader read before deploying AI agents?
+:page-faq-1-a: Start with management classics rather than AI books, because the hard problems are organisational. Michael Gerber's The E-Myth Revisited explains why systems should run the business and why you design roles before filling them. Andy Grove's High Output Management covers delegation and a manager's leverage. Atul Gawande's The Checklist Manifesto shows when fixed procedure helps and when it gets in the way. Then read Rich Sutton's short essay The Bitter Lesson and Anthropic's Building Effective Agents for the technical picture.
+:page-faq-2-q: Is Michael Gerber's advice on systems and roles still relevant in the age of AI?
+:page-faq-2-a: Yes, arguably more than when he wrote The E-Myth Revisited in 1995. Gerber's central ideas are that systems should run the business while people run the systems, that you should work on the business rather than in it, and that you should design the finished organisation around roles before filling them. With agents, the occupants of those roles can change with every model release, so documenting roles, standards and procedures independently of who fills them becomes the main way to keep control.
+:page-faq-3-q: What is the best introduction to building AI agents for non-engineers?
+:page-faq-3-a: Anthropic's Building Effective Agents (December 2024) is short, clear and vendor-neutral in its advice: start simple, prefer workflows you can predict, and add autonomy only when it pays. Follow it with Anthropic's post on Agent Skills, which compares a skill to an onboarding guide for a new hire, and Ethan Mollick's Co-Intelligence for how AI changes everyday work. None requires writing code to understand.
+:page-faq-4-q: Which management books help with delegating to AI agents?
+:page-faq-4-a: Andy Grove's High Output Management, for the idea that a manager's output is the output of the organisation they lead. Peter Drucker's The Effective Executive, for managing by results rather than methods. L. David Marquet's Turn the Ship Around!, for pushing decisions to where the information is. Liz Wiseman's Multipliers, for the difference between leaders who amplify others and those who do the work themselves. Each maps closely onto briefing agents with what and why rather than how.
+:page-faq-5-q: What research shows whether multi-agent AI systems work?
+:page-faq-5-a: Three sources are worth reading together. Google Research's January 2026 study of 180 agent configurations found coordinated systems helped on parallel tasks but degraded sequential planning by 39 to 70 per cent. Cemri and colleagues' paper Why Do Multi-Agent LLM Systems Fail? classifies 14 failure modes from more than 1,600 traces. Cognition's April 2026 post reports that multi-agent systems work best when only one agent writes. Together they argue for hierarchy, single writers and strong verification.
+= Appendix F: Recommended Reading
+
+This is not a bibliography; the footnotes in each chapter do that job. It is a short list of what to read next, and why, for a leader whose organisation is starting to include agents. Every entry passes one test: would I hand it to a founder or executive who has just watched their bots multiply and say _read this now_?
+
+Entries marked ★ are essential. Entries marked ◆ are recommended. Entries marked ○ are situational: reach for them when you meet the problem they address.
+
+The balance is deliberate. Most of the list is old. The problems that agent sprawl creates (unclear roles, delegation of the wrong layer, work lost at handoffs, failures blamed on individuals) are problems management writers have been solving for seventy years. The agent material is newer, changes monthly, and is best read as articles rather than books.
+
+
+== Classics of Organisation and Management
+
+// SOURCE: Author Notes Q2
+★ Michael E. Gerber — _The E-Myth Revisited_ (HarperCollins, 1995). The book that taught me, in my twenties, to draw the finished org chart and then fill the boxes. Its core ideas are the backbone of this one: systems run the business and people run the systems; work on the business, not in it; design around roles, not around whoever happens to be there. Read it imagining that half the boxes will be filled by agents, and almost every page becomes more useful.
+
+★ Andrew S. Grove — _High Output Management_ (Random House, 1983). Grove's claim that a manager's output is the output of the organisation they oversee is the clearest answer to the executive who uses agents to do the work personally. His sections on delegation, task-relevant maturity and monitoring delegated work read as if written for supervising agents. It is also the best book on meetings and reports you will find.
+
+★ Peter F. Drucker — _The Effective Executive_ (Harper & Row, 1967). Drucker insists that executives are judged by results and contributions, not by effort or methods. That is the source of this book's "what and why, never how". His chapter on knowing where your time goes is a useful audit for any leader who suspects agents have made them busier rather than more effective.
+
+◆ Peter F. Drucker — _The Practice of Management_ (Harper, 1954). The book that popularised management by objectives, paired with self-control: agree the result, then let the person, or the agent, manage how they get there. Older and longer than _The Effective Executive_, but it is where the idea of a role defined by its contribution to the whole is set out in full.
+
+★ W. Edwards Deming — _Out of the Crisis_ (MIT Press, 1986). Deming's argument that most problems come from the system, not the worker, is the foundation of the Friction Review. Replace "worker" with "model" and the book is a direct rebuttal to the reflex of blaming the AI. Dense in places; the chapters on the fourteen points and on common versus special causes repay the effort.
+
+★ Atul Gawande — _The Checklist Manifesto_ (Metropolitan Books, 2009). The best short case for writing down procedure, and the best warning about doing it badly. Gawande's checklists are short, aimed at the steps experts skip under pressure, and leave judgment to the professional. That is exactly the balance this book argues for between plain-English playbooks and hard rules.
+
+★ Matthew Skelton & Manuel Pais — _Team Topologies_ (IT Revolution, 2019; 2nd edition, 2025). A shared vocabulary for team types, interaction modes and, above all, cognitive load: a team should own only as much as it can hold in its head. That idea becomes the role coherence test in xref:5-hire-the-role-not-the-model.adoc[Chapter 5]. Read it when you start deciding which roles share an agent and which need their own.
+
+◆ Taiichi Ohno — _Toyota Production System: Beyond Large-Scale Production_ (Productivity Press, 1988). The source for lean thinking and standard work: the idea that the documented procedure is the baseline from which every improvement starts. It is short and practical. Read it before you write your first Playbook.
+
+◆ Eliyahu M. Goldratt & Jeff Cox — _The Goal_ (North River Press, 1984). A novel about a failing factory and the theory of constraints: the throughput of a system is set by its bottleneck, and speeding anything else up only builds inventory. When agents make one part of your organisation ten times faster, this book tells you where the queue will form, which is usually at the human who has to review the output.
+
+◆ Frederick P. Brooks Jr. — _The Mythical Man-Month_ (Addison-Wesley, Anniversary Edition, 1995). Brooks showed that communication overhead grows faster than headcount, and that adding people to a late project makes it later. The same arithmetic applies to adding agents to a muddled process. His case for conceptual integrity, one mind owning the design, is the human version of the single-writer rule.
+
+○ Melvin E. Conway — "How Do Committees Invent?" (_Datamation_, April 1968). The four-page paper behind Conway's Law: organisations design systems that mirror their own communication structures. If your agents talk to each other through private messages and personal logins, your systems will end up shaped like that too. Short enough to read in a coffee break.
+
+
+== Delegation and Leadership
+
+★ L. David Marquet — _Turn the Ship Around!_ (Portfolio, 2013). A submarine captain's account of replacing "permission to…" with "I intend to…", moving decisions to the people with the information. It is the best model I know for promoting an occupant to more autonomy: state intent, show the evidence, earn the next step. It also explains why leaders who issue detailed instructions get followers rather than owners.
+
+★ Liz Wiseman with Greg McKeown — _Multipliers_ (HarperBusiness, 2010). Wiseman distinguishes leaders who amplify the intelligence of their teams from "diminishers" who, often with good intentions, do the thinking for them. Executives with agents are at constant risk of becoming diminishers: the agent lets them do everyone's work. Read it as a mirror.
+
+◆ General Stanley McChrystal, with Tantum Collins, David Silverman & Chris Fussell — _Team of Teams_ (Portfolio, 2015). How a rigid command structure learned to share information widely and push decisions down without losing coherence. The lesson for agents is the pairing: decentralised execution works only with radical transparency, which is why this book insists that agents work in public.
+
+◆ Camille Fournier — _The Manager's Path_ (O'Reilly, 2017). Written for engineering managers, but its account of moving from doing to delegating is the best I have read on the individual contributor's side of the shift. Hand it to the expert on your team who builds the best personal agents and finds it hardest to let go of the work.
+
+◆ Will Larson — _An Elegant Puzzle_ (Stripe Press, 2019). Systems thinking applied to management: team sizing, migrations, succession, and the habit of writing policy down so it can be debated and improved. His habit of treating the organisation as a system to model and adjust suits a team whose occupants change with every model release.
+
+◆ Ethan Mollick — _Co-Intelligence: Living and Working with AI_ (Portfolio, 2024). The most accessible framework for how generative AI changes work. Mollick's advice to treat AI as a capable but strange colleague, and to invite it into everything to find where it helps, is the right starting posture. Read it early; this book picks up where it leaves off, when there are many such colleagues to organise.
+
+
+== Building with Agents
+
+These are articles, papers and specifications, most from 2025 and 2026. Full citations are in the footnotes of xref:appendix-d-for-your-technical-team.adoc[Appendix D]. Hand the technical ones to your engineers; read the starred ones yourself.
+
+★ Rich Sutton — "The Bitter Lesson" (2019, incompleteideas.net). A one-page essay arguing that, over the long run, general methods that use more computation beat systems built on hand-coded human knowledge. It is the strongest argument for plain-English playbooks over elaborate scaffolding, and the reason every lock-in in xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11] carries a review date.
+
+★ Erik Schluntz & Barry Zhang — "Building Effective Agents" (Anthropic, December 2024). The clearest introduction to agents for a non-engineer: what distinguishes a workflow from an agent, and why the simplest design that works is usually best. If you read one technical piece, read this one.
+
+★ Barry Zhang, Keith Lazuka & Mahesh Murag — "Equipping Agents for the Real World with Agent Skills" (Anthropic, October 2025). Introduces skills and compares building one to "putting together an onboarding guide for a new hire." That sentence is the bridge between this book's Playbooks and what your engineers will build. Short and readable.
+
+◆ Prithvi Rajasekaran and colleagues — "Effective Context Engineering for AI Agents" (Anthropic, September 2025). Why an agent's performance depends on giving it the smallest set of high-signal information, and the techniques for doing so. The technical companion to the Role Pack chapter.
+
+◆ Lance Martin — "The Components of Agent Memory" (Anthropic, November 2026). How agents remember across sessions, in layers from raw transcripts to always-loaded context, and why stronger models do better with the purpose of memory than with rules for it. Useful for anyone deciding what goes in a Role Pack and what stays in a log.
+
+◆ Justin Young — "Effective Harnesses for Long-Running Agents" (Anthropic, November 2025), and Prithvi Rajasekaran — "Harness Design for Long-Running Application Development" (Anthropic, March 2026). Two engineering posts on keeping agents productive over hours and days: progress files, one feature at a time, generator and evaluator agreeing on "done" in advance. The second contains the line every leader should remember: every component in a harness encodes an assumption about what the model can't do on its own.
+
+◆ Yubin Kim & Xin Liu — "Towards a Science of Scaling Agent Systems" (Google Research, January 2026). A controlled study of 180 agent configurations: coordinated teams contained error amplification and helped on parallel work, while every multi-agent variant tested made sequential planning worse. The evidence behind xref:6-one-boss-few-reports.adoc[Chapter 6].
+
+◆ Walden Yan — "Multi-Agents: What's Actually Working" (Cognition, April 2026). A practitioner's update from a team that had argued against multi-agent systems: they now work, mostly when several agents contribute thinking and one writes. Pair it with the Google study.
+
+◆ Mert Cemri and colleagues — "Why Do Multi-Agent LLM Systems Fail?" (arXiv, 2025). A taxonomy of 14 failure modes in three groups (system design, misalignment between agents, and verification) drawn from more than 1,600 annotated traces. A good checklist for a Friction Review when several agents were involved.
+
+◆ M. Grace, J. Hadfield, R. Olivares & J. De Jonghe — "Demystifying Evals for AI Agents" (Anthropic, January 2026). How to test whether an agent does its job, including why a 75 per cent success rate becomes about 42 per cent across three unattended runs, and why 20 to 50 tasks drawn from real failures is a good start. The practical side of acceptance.
+
+◆ Anthropic — "Best Practices for Claude Code" (documentation). Written for developers, but its distinction between guidelines the model may weigh and rules the software enforces is the cleanest statement of the three tiers anywhere. Read the section on enforcing rules that can't have exceptions.
+
+◆ Dex Horthy — _12-Factor Agents_ (HumanLayer, GitHub). Twelve principles for production agents, written by someone who found that the agents that work are "mostly deterministic code, with LLM steps sprinkled in". A useful counterweight to this book's preference for English; read it to know where the other side is right.
+
+◆ Gregor Zunic — "The Bitter Lesson of Agent Harnesses" (Browser Use, April 2026), and Philipp Schmid — "The Importance of Agent Harness in 2026" (January 2026). Two short posts from builders who cut their scaffolding back as models improved: "Don't wrap the LLM", and "Build to Delete". They are why lock-ins should be easy to remove.
+
+○ Microsoft — "Administrative Relationships in Microsoft Entra Agent ID" (Microsoft Learn, 2026). The enterprise version of the sponsor model: owners for technical administration, sponsors for business accountability, managers for the reporting line. Read it when your agent count outgrows a spreadsheet.
+
+○ NIST National Cybersecurity Center of Excellence — _Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization_ (concept paper, February 2026). The US standards body's framing of agent identity, authorisation, auditing and non-repudiation. Situational, but the questions it asks make a good identity checklist for your security lead.
+
+○ Model Context Protocol specification, revision 2026-07-28, and the A2A protocol 1.0 announcement (Linux Foundation, April 2026). The two open standards that let agents reach your tools and each other. Your engineers need the details; you need to know that standard interfaces are what make a role's occupant replaceable.
+
+○ Chip Huyen — _AI Engineering: Building Applications with Foundation Models_ (O'Reilly, 2025). The most complete book-length guide to building production AI systems, including agents and evaluation. For the technical lead who wants one book rather than fifty blog posts.
+
+
+== The Companion Book
+
+★ Gareth Price — _Applied Alchemy: The Startup CTO's Field Guide to Building Technology Companies from Nothing_ (2026; https://www.startupctobook.com/[startupctobook.com^]). My first book, written for technical leaders in startups. Its chapters on the move from maker to multiplier, on operating rhythm, and on AI transformation are the human-team foundations this book builds on. If you are the technical co-founder or CTO who will implement the Blueprint, start there; it also ends with an AI advisor appendix, the model for xref:appendix-g-ai-org-design-advisor.adoc[Appendix G].
+
+'''''
+
+_Seventeen books and papers on organisations and leadership, about twenty pieces on agents. The first group will not change. The second will be out of date within a year, which is itself the lesson: build on the ideas that last, and treat the tooling as an occupant you expect to replace._
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+
+{page-faq-2-q}::
+{page-faq-2-a}
+
+{page-faq-3-q}::
+{page-faq-3-a}
+
+{page-faq-4-q}::
+{page-faq-4-a}
+
+{page-faq-5-q}::
+{page-faq-5-a}

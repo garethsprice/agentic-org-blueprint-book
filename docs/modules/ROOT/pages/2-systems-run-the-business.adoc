@@ -1,0 +1,214 @@
+:page-description: Systems run the business; people and agents run the systems; humans own the outcomes. Why model dependency is the new people dependency, and how to fix it.
+:page-llms-description: Gerber's and Deming's systems thinking rebuilt for AI agents: most failures belong to the system, model dependency as the new key-person risk, the agent that quietly does six jobs, and the cost of being the human glue.
+:page-haiku: The system runs it / people and agents run that / someone owns the end
+:description: Systems run the business; people and agents run the systems; humans own the outcomes. Why model dependency is the new people dependency, and how to fix it.
+:keywords: systems run the business, AI agent single point of failure, model dependency, key person risk AI, Deming systems thinking AI, AI agent accountability
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: What does "systems run the business, people run the systems" mean with AI agents?
+:page-faq-1-a: It means results should come from documented, repeatable ways of working rather than from the memory and goodwill of particular individuals. Michael Gerber made the point about people; with agents it extends naturally. People and agents both run the systems: they are occupants who follow a playbook, meet a standard and hand work on. Humans own the outcomes: every system has a named person accountable for whether it produces the result. Any occupant, human or agent, can then change without the business stopping.
+:page-faq-2-q: What is model dependency in an AI-enabled business?
+:page-faq-2-a: Model dependency is the agent-era version of key-person risk. It is when a business result depends on one particular agent, running on one particular model, often on one person's machine, understood by one person. Models are retired on a schedule: OpenAI, for example, promises at least six months' notice for its generally available models. Instructions tuned to one model's quirks may not survive the change. The remedy is the same as for people: write the role down so that a different occupant could take it over, and test that it can.
+:page-faq-3-q: Should I blame the AI model when an agent makes a mistake?
+:page-faq-3-a: Usually not. W. Edwards Deming estimated that the great majority of problems in any organisation belong to the system rather than to the individual doing the work, and research on multi-agent failures finds the same pattern: most failures come from system design, coordination between agents, and missing verification. Treat an agent's mistake as evidence of a missing system. Ask what instruction, check, handoff or owner would have prevented it, then fix that for the whole class of error, not just the single instance.
+:page-faq-4-q: How do I know if one AI agent is doing too many jobs?
+:page-faq-4-a: Try listing everything the agent does, then ask who would notice if it stopped tomorrow and how long it would take someone else to restart each job. Warning signs are an agent whose list keeps growing because it already worked, jobs nobody remembers assigning, instructions that read like a log of past incidents, and a single person who is the only one able to explain it. Each distinct job should become a written role with its own charter, even if the same agent keeps doing all of them.
+:page-faq-5-q: What is the cost of being the "human glue" between AI agents?
+:page-faq-5-a: The human glue is the person who routes requests between agents, unlocks their access, remembers how they fit together and notices when one stops. The work feels small, a few minutes here and there, so its cost is hidden. But it grows with every agent, it consumes the attention that should go into improving the organisation, and it makes that person a single point of failure. When they are away, the agents fail quietly. The fix is to move each piece of glue into a system with an owner.
+= Chapter 2: Systems Run the Business
+
+[.lead]
+_People and agents run the systems; humans own the outcomes_
+
+// Epigraph verified against the 1911 Home University Library text (archive.org: anintroductionto00whituoft), chapter 5.
+[quote, Alfred North Whitehead, "An Introduction to Mathematics, 1911"]
+____
+Civilization advances by extending the number of important operations which we can perform without thinking about them.
+____
+
+.Key Takeaways
+****
+* A system is a way of producing a result that someone else could run tomorrow; anything else is a person, or an agent, holding the work together by memory and goodwill.
+* Most failures belong to the system rather than to whoever was running it, so the response to an agent's mistake is to fix the system, not to blame the model or the person.
+* Model dependency is the new people dependency: an agent that quietly accumulates six jobs, runs on one model on one machine and is understood by one person is a single point of failure, however well it works.
+* Humans own the outcomes: every system, whether people or agents run it, needs a named person accountable for its results.
+****
+
+// SOURCE: dossier §2 finding 8 (the keyring); §1 case 13 (escalations with no owner)
+Since the end of October, my agents have been sending me the same message. Several of them send or draft email on my behalf, and they depend on a password store on my own computer that locks whenever the screen locks or the machine restarts. When it locks, every job that needs email fails. The agents handle this well: they stage the email, report honestly that it was not sent, and state the fix, which is that I unlock the session. The instructions they follow say it in capitals: there is no autonomous fix.
+
+It happened on 29 October, again on 31 October, and then every day from 3 to 6 November. My daily digest of stalled work flagged the same failure with the same one-line fix every morning. Nobody acted on it, and "nobody" includes me. Meanwhile the playbook the email agents follow kept growing new notes, each recording that the problem had been "re-confirmed". The playbook had turned into a log.
+
+Every agent in that story did its job. The model was not the problem. The system was, and at its centre was a single point of failure with my name on it.
+
+[WARNING]
+====
+AUTHOR: Why hadn't the keyring been fixed by the time you wrote this? A sentence on what it felt like to read the same warning from your own agents every morning, and whether it has since been fixed, would make this opening land.
+====
+
+== A System Is Something Someone Else Could Run Tomorrow
+
+Michael Gerber's central claim is that a business should be run by its systems, with people running the systems, so that the results do not depend on the particular people who happen to be there.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth Revisited_. HarperCollins.] It sounds cold, but it is the opposite. A system is what lets ordinary people produce excellent results on an ordinary day, and what lets an organisation survive the loss of an extraordinary one.
+
+This book uses a plain test for whether something is a system. Could someone else run it tomorrow, from what is written down, and get the same result? If the answer is "only if they ask me first", it is not a system but a person holding the work together by memory and goodwill.
+
+Alfred North Whitehead's line at the head of this chapter makes the same point about thought: every operation we can perform without thinking frees attention for the ones that need it. In an organisation, every result that comes reliably from a system frees its leaders for the work only they can do.
+
+Systems do not make skilled people unnecessary; they make them better. Atul Gawande's work on surgical checklists is the clearest demonstration.footnote:gawande2009[Gawande, A. (2009). _The Checklist Manifesto_. Metropolitan Books.] In a study across eight hospitals in eight cities, introducing a nineteen-item surgical safety checklist reduced major complications from 11% to 7% and inpatient deaths from 1.5% to 0.8%.footnote:haynes2009[Haynes, A. B., Weiser, T. G., Berry, W. R., et al. (2009). A surgical safety checklist to reduce morbidity and mortality in a global population. _New England Journal of Medicine_, 360(5), 491–499. Results summarised in Harvard School of Public Health. (2009, January 14). Hospitals demonstrate surgical safety checklist drops deaths and complications by more than one third. _EurekAlert!_ https://www.eurekalert.org/news-releases/823095] The surgeons were no more skilled than before; the system they worked in had improved.
+
+The same is true of agents. A capable model without a system produces brilliant work on Tuesday and confidently wrong work on Wednesday. Inside a system, with a written outcome, a standard and a check, produces work you can rely on.
+
+== Most Failures Belong to the System
+
+{empty}W. Edwards Deming spent his career teaching managers that when something goes wrong, the cause is almost never the worker. He estimated that around 94% of troubles and possibilities for improvement belong to the system, which is management's responsibility, and only a small fraction to special causes.footnote:deming1986[Deming, W. E. (1986). _Out of the Crisis_. MIT Press.] His shorter version, recorded at a seminar in 1993, was that "a bad system will beat a good person every time."footnote:hunter2015[Hunter, J. (2015, February 26). A bad system will beat a good person every time. _The W. Edwards Deming Institute_. https://deming.org/a-bad-system-will-beat-a-good-person-every-time/]
+
+When an agent fails, the instinct is to blame the model. Sometimes the model really is the limit; far more often, the failure is in the system around it. A team of researchers analysed more than 1,600 traces of multi-agent systems failing across seven popular frameworks, and organised the failures into fourteen modes in three categories: system design issues, misalignment between agents, and task verification.footnote:cemri2025[Cemri, M., et al. (2025). Why do multi-agent LLM systems fail? arXiv:2503.13657. https://arxiv.org/abs/2503.13657] None of the three categories is "the model wasn't clever enough". All three are things an organisation designs: what each role is told to do, how roles hand work to each other, and how anyone checks the result.footnote:cemri2025[]
+
+// SOURCE: dossier §2 finding 3 (wrong auto-close fixed with code)
+At CorralData, one of my agents closed a pull request as "superseded" because the ticket it belonged to had been marked "Done". The ticket was in the backlog; its status had been copied by hand into a report, and the copy was wrong. The fix was not to tell the agent to be more careful but to make it read the status from the live ticket every time, never from a copy. The judgment about whether a piece of work is superseded stayed with the agent. The fact it judged from became something no one could transcribe wrongly again.
+
+That is what fixing the system looks like, and xref:16-the-model-isnt-the-problem.adoc[Chapter 16] turns it into a routine. For now, hold on to the principle: when an agent fails, ask what in the system let it.footnote:deming1986[]
+
+== People and Agents Run the Systems
+
+Gerber wrote about people running systems. With agents, the sentence needs one more word: people _and agents_ run the systems. Both are occupants. Both follow a playbook, meet a standard, and hand work on to someone else. Both can be replaced.
+
+// SOURCE: dossier §2 "The agent org chart as it stands"; §2 finding 2 (thin SOUL, rich job; Gareth, 9 Oct)
+I found this out by accident. I run fourteen agent profiles: a calendar assistant, an inbox triage agent, a project manager, a morning standup, a commitment tracker, and others. Each agent's identity turned out to be almost nothing: a two-line job title and mission. The real job lived elsewhere, in the scheduled task that wakes the agent and the playbooks it loads.
+
+That is Gerber's idea in a new form.footnote:gerber1995[] The system holds the job and the occupant runs it; swap the occupant and the job is still there, written down. xref:5-hire-the-role-not-the-model.adoc[Chapter 5] builds the book's idea of a _role_ on that split.
+
+The split matters because an organisation of people and agents changes occupants far more often than one of people alone. A person might hold a job for years; an agent's underlying model may change several times a year, by your choice or a vendor's.footnote:openai2026[OpenAI. (2026). Deprecations. _OpenAI API documentation_. Accessed 2026-11-06. https://developers.openai.com/api/docs/deprecations] If the job lives in the occupant, every change of occupant is a small crisis. If the job lives in the system, it is a routine.
+
+== Humans Own the Outcomes
+
+Agents can run systems; they cannot own outcomes. An owner is someone who can be asked why a result was missed, who can decide to change the system, and who answers for the decision to the people it affects. A model can explain its reasoning, but it cannot be held to account by a customer, a regulator or a board.
+
+The industry has reached the same conclusion. Microsoft's identity platform for agents requires at least one sponsor for every agent identity: a business representative "accountable for the agent's purpose and lifecycle decisions, including access reviews and agent retention."footnote:entra2026[Microsoft. (2026). Administrative relationships in Microsoft Entra Agent ID. _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/agent-owners-sponsors-managers]
+
+// SOURCE: Author Notes Q4; dossier §1 case 11
+At CorralData we arrived at a similar answer before we had read about it. One person in each function owns the bots that share that function. When QA moved to the bot our QA lead built for herself, ownership moved to the person who knows the work best (xref:5-hire-the-role-not-the-model.adoc[Chapter 5]). xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7] develops this into the role of _Sponsor_.
+
+Ownership also explains the keyring. My agents raised the alarm every day, in a digest that went to me, and I was busy. An exception report is useless without someone accountable for reading it and acting on it. The same pattern appeared elsewhere: the status page of one of our automated pipelines showed a warning that a key connection was disabled for four days in early November before anyone did anything about it.
+// SOURCE: dossier §1 case 13 ("LINEAR WEBHOOK DISABLED" 2 to 6 Nov)
+
+So the full sentence is the book's thesis. _Systems run the business. People and agents run the systems. Humans own the outcomes._
+
+== Model Dependency Is the New People Dependency
+
+Every growing company learns about key-person risk the hard way. Software engineers call it the truck factor: the number of people who would have to be hit by a truck before a project is in serious trouble. A study of 133 popular open-source projects on GitHub found that 65% had a truck factor of two or less.footnote:avelino2016[Avelino, G., Passos, L., Hora, A., & Valente, M. T. (2016). A novel approach for estimating truck factors. _Proceedings of the 24th International Conference on Program Comprehension (ICPC)_. arXiv:1604.06766. https://arxiv.org/abs/1604.06766] Most small businesses would score lower.
+
+Agents add a new kind of key-person risk, and it comes in three layers.
+
+The first is dependency on a _model_. Models are retired on a schedule. OpenAI promises at least six months' notice before retiring a generally available model, and less for specialised and preview models; in October 2026 it notified developers that several GPT-4-series models, including GPT-4o, would be removed from its API in January 2027.footnote:openai2026[] Anthropic has written that "retiring past models is currently necessary for making new models available and advancing the frontier."footnote:anthropic2025[Anthropic. (2025, November 4). Commitments on model deprecation and preservation. https://www.anthropic.com/research/deprecation-commitments] It has also committed to preserving the weights of its publicly released models for at least the lifetime of the company, but a preserved model is not the same as one you can still run your business on.footnote:anthropic2025[] Whole products go too. OpenAI's drag-and-drop Agent Builder was deprecated in June 2026 and is scheduled to shut down at the end of November.footnote:openai2026[] An instruction tuned to one model's quirks may not survive the next one, and Anthropic's own engineers warn that the assumptions built into an agent's scaffolding "can quickly go stale as models improve."footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic Engineering_. https://www.anthropic.com/engineering/harness-design-long-running-apps]
+
+// SOURCE: dossier §2 "The agent org chart as it stands" (all on local Qwen3.8); §2 Gaps (no role ever swapped between models)
+All fourteen of my own agent profiles run on the same local model. None of their roles has ever been moved to a different one. I don't know which of them depend on that model's particular habits, because I have never tested a second occupant.
+
+The second is dependency on a _machine_. Some agents depend on infrastructure nobody designed as infrastructure.
+// SOURCE: dossier §1 case 6 (p620 as agent infrastructure); §1 Simple and expressive (Grok Bot friction: VPN access via Gareth's machine)
+At CorralData, my personal workstation has quietly become part of how some of our team bots reach our private network. Nobody decided that. It happened one reasonable step at a time.
+
+The third is dependency on a _person_: the one human who knows how the agents fit together. That is the oldest kind, and agents make it worse by letting one person build far more than they could ever document.
+
+[cols="1,2,2",options="header"]
+|===
+| |People dependency |Model dependency
+
+|What it looks like
+|The one person who knows how billing works
+|The agent that quietly does six jobs
+
+|How it forms
+|A talented hire; the job grows around them
+|A working agent; every new task goes to it
+
+|What triggers the failure
+|Resignation, illness, a long holiday
+|A model retirement, a vendor change, a locked machine, an update that changes behaviour
+
+|The early warning
+|"Ask her, she knows"
+|"Only that bot can do it"
+
+|The fix
+|Write the role down; train a second person
+|Write the role down; test a second occupant
+|===
+
+== The Agent That Quietly Does Six Jobs
+
+// SOURCE: dossier §2 table (traffic-plunger), finding 3, "Simple and expressive versus structured: local evidence" (174 .py files), §1 case 13
+One of my agents is called traffic-plunger. It is very good. Today it runs a daily audit of stalled work and a weekly clean-up on Mondays. It writes the stalled-work report. It closes pull requests it judges to have been superseded. It drafts nudges to the authors of stalled work, which go out by direct message once I approve them. And it produces the daily digest that flagged the keyring. Along the way it has written 174 small programs for its own use, including ten one-off scripts to build the digest for particular dates.
+
+Each of those jobs was a reasonable thing to add. The agent already worked, it already had the access, and adding one more task took a sentence. Together they make a role nobody designed. It has six jobs, no written charter for any of them, and one owner, who is the only person who knows the full list. If it stops, six things stop. If someone else had to take it over, they would inherit a folder.
+
+[WARNING]
+====
+AUTHOR: Check that the list of traffic-plunger's jobs is accurate and current, and that you're comfortable naming it. Was there a moment when you realised how much it had accumulated?
+====
+
+This is the most common pattern in agent sprawl, and it is the mirror image of the most common pattern in small-business hiring. A capable person joins, and the job grows around them until nobody else could do it. A capable agent gets set up, and every new task goes to it until nobody else could run it. In both cases the problem is not the occupant but that the work was organised around the occupant instead of the results.
+
+Knowledge accumulates the same way.
+// SOURCE: dossier §1 case 11 (QA Bot offboarding)
+When our QA lead took over QA, her first concern was not to lose the knowledge the old QA bot had aggregated, and the old bot wrote a training brief for its successor (xref:17-agentic-resources.adoc[Chapter 17]). That was the right instinct, and a lucky one. The knowledge should have been in the system all along, not in the occupant.
+
+== Being the Human Glue Costs More Than It Looks
+
+There is one more single point of failure, and if you are reading this book it may be you. The _human glue_ is the person who routes requests between agents, unlocks their access, remembers how they fit together and notices when one has stopped.
+
+// SOURCE: dossier §1 case 6 ("You guys need to @ each other"); §1 case 3 (TAM untagged); §1 Patterns (bots that only wake when @mentioned)
+At CorralData I have often been that person. When two of our bots needed to sort out a problem between them, they each came to me, until I told them, "You guys need to @ each other if you want to talk." Our bots wake only when someone mentions them by name, so a human who forgets to tag one goes unanswered; a technical account manager's question to TAM Bot sat unseen for exactly that reason. Each gap was small, and each was closed, for a while, by someone noticing.
+
+The cost of being the glue is hidden because each piece is small: a few minutes unlocking a session, a forwarded request, a reminder to tag a bot. But the pieces grow with every agent, and they arrive at random. Matthew Skelton and Manuel Pais argue that the scarce resource in any team is cognitive load, the amount the team can hold in its head at once, and that good organisation design keeps it within limits.footnote:skelton2019[Skelton, M., & Pais, M. (2019). _Team Topologies_. IT Revolution.] The human glue carries the load of every system that was never written down.footnote:skelton2019[]
+
+Worse, the glue spends their time _in_ the organisation rather than _on_ it, which is exactly the trap Gerber warned founders about.footnote:gerber1995[] Each minute spent holding the agents together is a minute not spent on the design that would let them hold themselves together, and because everything works while the glue is present, nobody sees the cost until they are away.
+
+[WARNING]
+====
+AUTHOR: How does being the human glue feel day to day? One specific week, or one thing you dropped because you were holding the agents together, would make this concrete. Has anyone else at CorralData become glue for their own function's bots?
+====
+
+[NOTE]
+.Under the hood
+====
+The keyring problem is a common one. Scheduled agents running on a personal computer often borrow the logged-in user's saved passwords, which the operating system locks whenever the screen does. The durable fixes are to give the agents their own credentials, held in a proper secrets store rather than in a person's login, and to run scheduled work on a machine that does not depend on anyone being signed in. Just as important is a health check that sends failures to a named owner, with a deadline, rather than to a digest. xref:appendix-d-for-your-technical-team.adoc[Appendix D] has the details for your technical team.
+====
+
+== Test Every System by Taking Yourself Out of It
+
+The simplest test of whether your organisation runs on systems is to imagine yourself gone for two weeks: not ill, just away and unreachable. What stops? What carries on but slowly goes wrong? Which agents would fail, and who would notice? Which people would be stuck waiting for an answer only you can give?
+
+Every answer is a place where the business is run by you rather than by a system. Some are right: Shape work, the decisions only a leader can make, should come back to you. Almost everything else should be in a system with an owner, written down well enough to run from the page.
+
+[TIP]
+.Try this
+====
+Open Claude, ChatGPT or Grok and paste this prompt:
+
+_"I'm going to describe how a piece of work gets done in my organisation, including any AI agents, bots or scheduled tasks involved. Then I want you to run a 'two-week absence test'. Ask me what happens, step by step, if I am completely unreachable for two weeks. Push on every step where the answer is 'I would do it' or 'I'd have to tell them'. At the end, give me a table of every single point of failure you found, whether it is a person, an agent, a model or a machine, and for each one suggest the smallest change that would let someone else run that step from a written description."_
+
+Then describe your most important recurring process, the one that would hurt most if it stopped. Do it again next week for the second most important.
+====
+
+'''''
+
+Gerber's insight was that a business which depends on its founder's presence is a job, not a business. Deming's was that most failures belong to the system and therefore to management. Agents make both truer. They let one person build more than ever, and make it easier than ever for that person to become the only one who understands what was built. The answer is not fewer agents but systems: results produced by written ways of working, run by people and agents who can be replaced, and owned by humans who answer for them.
+
+Systems need a design to fit into: you can't decide what each is for, or who owns it, until you know what the finished organisation looks like. xref:3-draw-the-finished-org-chart.adoc[Chapter 3] draws that picture.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

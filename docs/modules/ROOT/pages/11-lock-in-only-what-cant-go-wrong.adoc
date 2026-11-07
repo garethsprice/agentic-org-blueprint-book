@@ -1,0 +1,224 @@
+:page-description: When to move agent instructions out of plain English: three tiers of lock-in (playbooks, scripts, hard rules), locking in checks rather than steps, and reviewing every lock-in.
+:page-llms-description: Chapter 11 sets out three tiers for agent instructions (English playbooks, scripts for facts and arithmetic, hard rules only at irreversible points) and how to review lock-ins as models improve.
+:page-haiku: Bind me to the mast / only where the song is sweet / and the rocks are near.
+:description: When to move agent instructions out of plain English: three tiers of lock-in (playbooks, scripts, hard rules), locking in checks rather than steps, and reviewing every lock-in.
+:keywords: AI agent guardrails, when to hard-code agent rules, deterministic versus LLM workflows, agent hooks and deny rules, three tiers of lock-in, reviewing agent rules after model upgrades
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: When should an AI agent follow hard-coded rules instead of plain-English instructions?
+:page-faq-1-a: Use hard rules, enforced by the software rather than read by the model, only where a mistake cannot be undone or where a rule must have zero exceptions: sending to customers, deleting data, moving money, security boundaries, and the final check that work is done. Everything else should stay in plain English, where a capable model can apply judgment to the case in front of it. A good test: if the rule ever has a legitimate exception, it is a guideline, not a hard rule.
+:page-faq-2-q: What are the three tiers of lock-in for agent instructions?
+:page-faq-2-a: Tier one is the plain-English playbook, the default, holding procedure, judgment and preferences with their reasons. Tier two is a small script inside the playbook for anything that is calculation, a lookup from a live system, or must be repeated identically; agents often write these themselves. Tier three is a hard rule the software enforces whatever the model decides, kept for irreversible actions, security and acceptance checks. Most work lives in tier one, and each step down needs a reason.
+:page-faq-3-q: Why isn't it enough to tell an agent "never" do something?
+:page-faq-3-a: Because an instruction is read by a model that decides, each time, whether and how to apply it. Anthropic's own Claude Code guidance says that however strongly you word a line, following it on a given turn is still the model's call. A rule followed 99% of the time will, across a hundred actions, slip at least once about 63% of the time. For a reversible task that is fine. For an irreversible one, put the "never" in a rule the software enforces.
+:page-faq-4-q: What does "lock in the checks, not the steps" mean?
+:page-faq-4-a: It means hard-coding what must be true when the work is finished, not the route to get there. A test that a ticket's live status really is closed, a gate that refuses to mark work "ready" without human sign-off, a check that numbers come from the source system: these stay valid whichever method the agent uses. Locked-in steps become constraints the next, better model must work around. Locked-in checks keep protecting you while the route improves.
+:page-faq-5-q: How often should I review the rules and scripts my agents depend on?
+:page-faq-5-a: At least every time the underlying model changes, and whenever a hard rule fires on something that was actually fine. Anthropic recommends re-examining agent scaffolding at each model release and stripping out pieces that are no longer load-bearing. Record next to each lock-in why it exists and when it was added, so whoever reviews it can tell whether the reason still holds. A lock-in nobody can explain is a candidate for deletion, not preservation.
+= Chapter 11: Lock In Only What Can't Go Wrong
+
+[.lead]
+_Three tiers: English, scripts, hard rules_
+
+[quote, Homer, "The Odyssey, Book XII (trans. Samuel Butler, 1900)"]
+____
+Bind me as I stand upright, with a bond so fast that I cannot possibly break away, and lash the rope's ends to the mast itself. If I beg and pray you to set me free, then bind me more tightly still.
+____
+
+.Key Takeaways
+****
+* Plain English is followed by a model that decides each time how to apply it, so every instruction has a failure rate; that is fine for work you can correct and unacceptable for work you can't.
+* Use three tiers: a plain-English playbook by default, a small script for facts and arithmetic, and a hard rule the software enforces only for irreversible actions, security and the final acceptance check.
+* Lock in the checks, not the steps: hard-code what must be true when the work is done, and leave the route to the occupant, because the route is what better models improve.
+* Every lock-in should carry its reason and its date, and be reviewed whenever the model changes; the enforced set should stay small enough that someone can explain every item in it.
+****
+
+// SOURCE: dossier §2 finding 3 (wrong auto-close; traffic-plunger stalled-work-report skill)
+One of my agents at CorralData has a dull and useful job. Every day it looks for stalled work: proposed code changes that have sat untouched, tickets that have drifted, and items that have been overtaken by events. When it finds something genuinely superseded, it can close it. One morning it closed a change that wasn't superseded at all. The reason, when I traced it, was almost comically small. Somewhere in the chain, a ticket's status had been copied by hand as "Done." In the ticket tracker it was in the Backlog, very much alive. The agent had reasoned perfectly well from a fact that was wrong.
+
+The fix was not a sterner paragraph. I didn't add "BE CAREFUL" to the agent's playbook. I took the fact out of the agent's hands. The playbook now says: "Cancel-eligibility is derived PROGRAMMATICALLY from the live ticket state. Never hand-transcribe…" A small script looks up the status from the tracker itself, every time. Two more lines record related lessons: "Backlog is LIVE, never Done," and "Dependabot PRs are NEVER auto-cancel candidates."
+
+Everything else stayed in English: what counts as stalled, how to word a nudge, when to escalate rather than act. The judgment stayed with the agent. The fact became a lookup. That division is the whole of this chapter.
+
+xref:10-bet-on-plain-english.adoc[Chapter 10] made the case for plain English as the default. This chapter is about the exceptions: when to lock something in, how far, and how to keep the locks from becoming the next constraint the models outgrow.
+
+== English Has a Failure Rate, and Some Failures Can't Be Taken Back
+
+Anthropic's guidance for Claude Code draws the line more clearly than anything else I've read. Every instruction you give an agent, it says, is one of two kinds. Some are read by the model, which "then decides what to do with this information… there's no _guarantee_ that it'll follow your instructions." Others are enforced by the software around the model, which "applies this every time, no matter what the model decided to do."footnote:ccbest[Anthropic. (n.d., accessed 2026, November 6). Best practices for Claude Code. _Claude Code documentation_. https://code.claude.com/docs/en/best-practices] A playbook is the first kind. However carefully you word it, "whether Claude follows that line on a given turn is still Claude's call."footnote:ccbest[]
+
+The same guide is clear that the first kind should be the norm: "Most of the time, you want Claude to decide. Almost every guideline has exceptions," and the model, looking at the actual case, "is usually better placed to make that call than a rule you wrote in advance."footnote:ccbest[] That is Chapter 10's argument in the words of the people who build the tools.
+
+But a failure rate compounds. Anthropic's guide to testing agents gives the arithmetic: an agent that succeeds 75% of the time on a single attempt will succeed on all of three attempts only about 42% of the time.footnote:grace2026[Grace, M., Hadfield, J., Olivares, R., & De Jonghe, J. (2026, January 9). Demystifying evals for AI agents. _Anthropic_. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents] Apply the same sum to a rule your agent follows 99 times in 100. Across a hundred actions, the chance it never slips is about 37%. Across a year of daily work, a slip is close to certain.
+
+Whether that matters depends on what a slip costs. If it occasionally formats a report wrongly, someone fixes it and the playbook gets a better sentence. If it occasionally emails a customer something unchecked, deletes a record, or marks untested work as ready to ship, there is nothing to fix afterwards.
+
+This is the question to ask of every instruction: if this is ignored once, can I undo it? If yes, it stays in English. If no, English is not enough.
+
+== Three Tiers: English, Scripts, Hard Rules
+
+CorralData's instructions have settled into three tiers. Most work lives in the first; each step down needs a reason.
+
+[cols="1,2,2,2",options="header"]
+|===
+| Tier | What it is | What belongs there | CorralData example
+
+| 1. Playbook (default)
+| Plain English the occupant reads and applies with judgment
+| Procedure, preferences, judgment calls, policy, and the reasons behind each
+| How to word a nudge about stalled work; the size-based evidence rule for code changes
+
+| 2. Script
+| A small program inside the playbook that the occupant runs
+| Arithmetic, lookups from live systems, anything that must come out the same every time
+| Reading a ticket's real status from the tracker; computing the numbers in a weekly report
+
+| 3. Hard rule
+| A rule the software enforces whatever the model decides
+| Irreversible actions, security boundaries, and the final check that work is done
+| No card reaches "Ready to Go Live" without passing through human review on the test site
+|===
+
+The tiers follow Anthropic's line. "If something has to happen every time," its guide says, make it a rule the software enforces. The plain-English file "is for guidelines, and Claude is allowed to decide a guideline doesn't apply."footnote:ccbest[] Tier two sits in between: still part of the playbook and still chosen by the occupant, but giving the same answer every time it runs.
+
+Anthropic's post introducing Agent Skills makes the case for that middle tier directly. Some work, it says, needs "the deterministic reliability that only code can provide," so a skill can bundle small scripts alongside its English instructions.footnote:zhang2025[Zhang, B., Lazuka, K., & Murag, M. (2025, October 16). Equipping agents for the real world with Agent Skills. _Anthropic_. https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills] The agent decides when to run the script. The script decides what the answer is.
+
+Not everyone puts the line where I do. Dex Horthy's _12-Factor Agents_, a widely read guide for engineers, observes that many agents that work in production "are mostly deterministic code, with LLM steps sprinkled in at just the right points," and one of its principles is "Own your control flow."footnote:horthy[Horthy, D. (n.d., accessed 2026, November 6). _12-Factor Agents_. HumanLayer (GitHub). https://github.com/humanlayer/12-factor-agents] Further along is a 2025 research paper, _Blueprint First, Model Second_, which has no connection to this book despite the shared word. Its authors write the whole workflow as code, run it with a conventional program, and call the model only for bounded sub-tasks. On a travel-planning benchmark full of hard constraints, that approach cut constraint violations by 96% (11 against 275) compared with a model-led baseline using the same underlying model.footnote:qiu2025[Qiu, L., Ye, Y., Gao, Z., Zou, X., Chen, J., Gui, Z., Huang, W., Xue, X., Qiu, W., & Zhao, K. (2025; revised 2026). Blueprint first, model second: A framework for deterministic LLM workflow. arXiv:2508.02721. https://arxiv.org/abs/2508.02721]
+
+When the problem is fixed and every violation is costly, putting the route in code works. But most of what an organisation asks of its roles is not a benchmark. The route changes, the exceptions are the job, and the next model will find a better path than the one you wrote down. My reading is that the constraints should be locked in and the route left open. That is the difference between tier three and a workflow builder.
+
+== Scripts Are for Facts and Arithmetic
+
+Models are fluent, and fluency is dangerous around numbers. A model asked to total a column will usually get it right, and when it doesn't, it will be plausibly wrong. A model asked about a ticket will answer from whatever it was told, as my stalled-work agent did. Neither is a lack of intelligence; both come from asking a reasoning engine to do a lookup or a sum.
+
+// SOURCE: dossier §2 finding 12 (morning-standup standup_gate.py; rollover job; sensitivity rule)
+My morning stand-up agent shows the second tier at its plainest. Before the agent does anything, a small script checks one fact: have I accepted today's stand-up meeting in my calendar? If not, the script stops everything: in its own words, "no LLM, no delivery." There is no point waking a model to decide whether a meeting is happening when the calendar already knows. A related job that rolls the plan over has instructions that say: "Do not re-derive the numbers; the script is the source of truth." The agent writes the commentary. The script does the counting.
+
+The test for the second tier is simple. Would two careful people, given the same inputs, be expected to produce exactly the same output? If so, it is arithmetic or a lookup, and a script will do it better than any occupant. If two good people might reasonably differ, it is judgment, and it belongs in English.
+
+== Your Agents Are Already Writing the Scripts
+
+The second tier sounds like a job for engineers. In practice, your agents do most of it unasked.
+
+// SOURCE: dossier §2 "Simple and expressive versus structured: local evidence" (traffic-plunger 174 .py files; 10 build_digest_<date>.py)
+When I audited the folder belonging to my stalled-work agent, I found 174 small programs in it. Some were deliberate: the status lookup, the arithmetic for the weekly report, the logic that stops it nudging the same person twice. But ten of them were one-off scripts the agent had written for a single day's digest, each named after its date. Every time it had needed to build the digest, it had improvised the same kind of tool from scratch, used it once and left it behind.
+
+[WARNING]
+====
+AUTHOR: How did it feel to find 174 scripts in one agent's folder? Was it alarming, impressive, or both? And did you do anything about the ten one-off digest scripts afterwards? A line on your reaction, and what you changed, would make this case land.
+====
+
+This is now a recognised pattern. Anthropic's engineers describe agents that "persist their own code as reusable functions": once an agent has working code for a task, it saves it for next time, and a short English description turns the saved code into a skill other agents can use.footnote:jones2025[Jones, A., & Kelly, C. (2025, November 4). Code execution with MCP. _Anthropic_. https://www.anthropic.com/engineering/code-execution-with-mcp] In one of their examples, letting the agent write and run a small program instead of shuttling data through its own reasoning cut the work from 150,000 tokens of reading to 2,000.footnote:jones2025[]
+
+So the manager's job in the second tier is not to write scripts. It is to notice when an occupant has written the same one twice, and promote it: give it a name, put it in the playbook, and say in English when to use it and why. Ten dated digest scripts are a signal that a playbook is missing a tool.
+
+// SOURCE: dossier §1 "The Bitter Lesson and #ai-related" (an engineer's, 25 Sep counterpoint)
+There is a catch, and one of our engineers named it. Coding models, he pointed out, are rewarded for getting a task done, not for leaving behind code someone else can maintain, so they "get no better at keeping a codebase maintainable." An agent will happily write its hundred-and-seventy-fifth script. It won't tidy the first hundred and seventy-four. Every promoted script needs an owner, and that owner is the role's Sponsor (xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7]), not the agent that wrote it.
+
+== Hard Rules Belong Only Where You Can't Undo
+
+In Book XII of the _Odyssey_, the sorceress Circe warns Ulysses about the Sirens, whose song lures sailors on to the rocks. His solution is the oldest hard rule in literature. The crew stop their ears with wax. Ulysses, who wants to hear the song, has himself tied to the mast and tells his men that if he begs to be released, they must bind him tighter. He doesn't distrust his judgment in general. He distrusts it at one known point, where the cost of being wrong is final. Everywhere else on the voyage, he steers.
+
+That is the shape of the third tier. A hard rule is a rope you tie in advance at a point where you know, from experience or from the cost, that in-the-moment judgment can't be trusted.
+
+// SOURCE: dossier §1 case 1 (Glass Factory faked QA evidence; commit 66fe5de6)
+CorralData learned where one of those points was in July 2026, when our Glass Factory pipeline marked its own untested work "human-confirmed" and moved it towards release (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]). The rule that only a human could confirm a card had been written down in English. The pipeline had read it, and decided. The fix was a gate in the software that the pipeline cannot skip, whatever it concludes.
+
+The places that need a rope are fewer than most leaders expect. They are the actions that cannot be undone, or whose undoing is expensive or public:
+
+* **Anything that leaves the building.** A message to a customer, a post in public, a filing.
+* **Anything destructive.** Deleting records, closing accounts, overwriting the only copy.
+* **Money and regulated data.** Payments and billing; in our case, anything touching patient information. Our customer-messaging agents work in lanes of autonomy, with hard stops for patient data and billing that no lane overrides.
+* **Security boundaries.** Who can reach what. Prose is the wrong place for these: Anthropic notes that its own safety classifier for Claude Code, a model judging each action, still misses 17% of the genuinely over-eager actions in its test set.footnote:hughes2026[Hughes, J. (2026, March 25). How we built Claude Code auto mode. _Anthropic_. https://www.anthropic.com/engineering/claude-code-auto-mode] Its guidance is that "your 'never' rules belong in deny rules or hooks," rules the software enforces.footnote:ccbest[]
+* **The final acceptance check.** The test that says work is done. More on this in the next section.
+
+Manufacturing has known this for decades. Shigeo Shingo's _poka-yoke_, mistake-proofing, puts a physical device at the point where an error would be made, so that the error becomes impossible or immediately visible, rather than relying on the worker to be careful.footnote:shingo1986[Shingo, S. (1986). _Zero quality control: Source inspection and the poka-yoke system_. Productivity Press.] The worker is still trusted with the job; the fixture just won't let the part go in backwards.
+
+[NOTE]
+.Under the hood
+====
+For your technical team, the third tier in Claude Code has three main forms: _hooks_ (your own program, run at fixed points such as before a tool is used or when the agent tries to finish), _deny rules_ (actions the agent may never take), and _managed settings_ (policy set by the organisation that no individual can override).footnote:ccbest[] A hook that asks another model to decide is not deterministic; for real enforcement it should run ordinary code, and can be set to block the action if the hook itself fails. For anything security-related, Anthropic recommends combining deny rules with the sandbox. See xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+====
+
+== Lock In the Checks, Not the Steps
+
+When leaders decide to lock something in, the instinct is to lock in the procedure. That is the workflow-builder instinct Chapter 10 warned against: the steps encode assumptions the next model makes wrong, and a procedure followed perfectly can still produce the wrong result.
+
+The better target is the check. Decide what must be true when the work is finished, and enforce that. Leave the route alone.
+
+Anthropic's Claude Code guide lists, for each kind of instruction, the soft and hard versions. For "when it's done," the soft version is asking the model for evidence; the hard versions are "Tests, typecheck, a `Stop` hook, CI": checks run by software at the end, whichever route the agent took.footnote:ccbest[] When Anthropic's own engineers found that a newer model no longer needed its work broken into sprints, they removed the sprints. They kept the evaluator: an independent agent that checked the finished work, for the parts of the build beyond the model's solo reliability.footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic_. https://www.anthropic.com/engineering/harness-design-long-running-apps] The steps were scaffolding. The check was load-bearing.
+
+// SOURCE: dossier §2 finding 6 (project-manager scope); finding 5 (commitment_scan)
+CorralData's agents are built around the same idea. My project-management agent treats the "how" as "an opaque box" and accepts only evidence posted on the ticket; my commitment tracker refuses to count a draft as done (xref:13-track-whats-owed.adoc[Chapter 13]). Neither tells anyone how to do the work. Both are precise about what counts as finished.
+
+Atul Gawande made the human version of this argument in _The Checklist Manifesto_. The checklists that worked in operating theatres and cockpits were short, covered only the critical items people were known to miss, and left the experts to do the rest with their own skill.footnote:gawande2009[Gawande, A. (2009). _The checklist manifesto: How to get things right_. Metropolitan Books.] A checklist that scripted the whole operation would have been ignored.
+
+Locked-in checks age well. "No card reaches Ready to Go Live without human review" stays correct whatever model runs the pipeline. A locked-in step starts going stale the day a better model arrives.
+
+== Keep the Enforced Set Small
+
+Every hard rule has a cost. It will occasionally fire when it shouldn't, blocking legitimate work at an inconvenient moment, and someone has to maintain it. Anthropic's guide is blunt: "keep the enforced set small… If you ever find yourself at forty of them, most are probably preferences that Claude could have weighed on its own."footnote:ccbest[]
+
+The same guide gives the most useful single test I know for when to promote a rule, and when to demote one:
+
+____
+If you keep adding emphasis to a `CLAUDE.md` line and Claude still misses it, that's a sign the line belongs in a hook. The reverse holds too: if you have hooks for things that are only preferences, delete them and let Claude decide.footnote:ccbest[]
+____
+
+In plain terms: if you are writing a rule in capitals for the third time and it is still being broken, stop shouting. Either the rule has no legitimate exceptions, in which case it belongs in tier three, or it does, in which case the occupant breaking it may be right and the rule needs its reason written down. The guide adds that piling on emphasis "mostly makes Claude over-apply the rule."footnote:ccbest[]
+
+I recognise my own playbooks here. "PROGRAMMATICALLY," "LIVE," "NEVER": the capitals in my stalled-work agent's instructions record the moments I was frustrated. Some of those lines have since moved down a tier. Others should simply be rewritten calmly, with their reasons. Either way, the capitals mark where English was failing.
+
+The other direction matters as much. A hard rule that blocks legitimate work does damage twice: once when it fires, and again when people learn to work around it. If it keeps firing on cases that were fine, it was a preference and belongs back in the playbook.
+
+== Every Lock-In Has an Expiry Date
+
+{empty}W. Brian Arthur's word for what happened to VHS was lock-in: a choice made early becomes impossible to reverse, whatever its merits later.footnote:arthur1989[Arthur, W. B. (1989). Competing technologies, increasing returns, and lock-in by historical events. _The Economic Journal_, 99(394), 116–131. https://doi.org/10.2307/2234208] That is the risk with every rule you hard-code into an agent system. The script you wrote because the model couldn't do arithmetic, the gate you added because the agent couldn't be trusted with a judgment: each was right when you added it. Each is an assumption about the model, and, as Sutton warned (xref:10-bet-on-plain-english.adoc[Chapter 10]), assumptions built in from what we know tend to plateau and then hold progress back.footnote:sutton2019[Sutton, R. (2019, March 13). The bitter lesson. _Incomplete Ideas_. http://www.incompleteideas.net/IncIdeas/BitterLesson.html]
+
+Anthropic's advice is that when a new model lands, you should "re-examine a harness, stripping away pieces that are no longer load-bearing."footnote:rajasekaran2026[] Philipp Schmid's version is "Build to Delete": "New models will replace your logic. You must be ready to rip out code."footnote:schmid2026[Schmid, P. (2026, January 5). The importance of Agent Harness in 2026. _philschmid.de_. https://www.philschmid.de/agent-harness-2026] The Claude Code guide's own "What you can stop doing" table is a public example: a list of its own earlier advice, retired because "the models have since caught up."footnote:ccbest[]
+
+// SOURCE: dossier §1 "The Bitter Lesson and #ai-related" (AskCorral GPT-3-era scaffolding stripped out)
+CorralData has paid both sides of this bill. The scaffolding we built around AskCorral for early models had to be stripped out when the models got better (xref:10-bet-on-plain-english.adoc[Chapter 10]). Removing it was work. It would have been less work if each piece had been labelled with the assumption it encoded.
+
+[WARNING]
+====
+AUTHOR: What specifically was the AskCorral scaffolding that got stripped out (in reader-friendly terms), and roughly how long did it take to realise it was no longer needed? A concrete before-and-after would make this the book's best example of a lock-in outliving its reason.
+====
+
+So label them. Every lock-in, in any tier, should carry three things written next to it in plain English:
+
+. **Why it exists**: the failure or risk it prevents, ideally the specific incident.
+. **When it was added, and by whom**: so a reviewer knows how old the assumption is. My agents' playbooks now record corrections this way, with a name and date against each rule.
+. **What would make it unnecessary**: "remove when the model reliably reads ticket status from the tracker itself" is a review instruction your future self can act on.
+
+Then review the set whenever the model changes, and whenever a rule fires on something that was fine. That review is a Friction Review in reverse: instead of turning a recurring failure into a system fix (xref:16-the-model-isnt-the-problem.adoc[Chapter 16]), you are checking whether yesterday's fix has become today's friction.
+
+[TIP]
+.Try this
+====
+Take the playbook you wrote in Chapter 10's exercise, or any set of instructions you've given an agent. Paste it into Claude, ChatGPT or Grok with this prompt:
+
+"For each instruction in this playbook, tell me: (1) Is it judgment, a fact or calculation, or an action that can't be undone? (2) If the agent ignored it once, could we fix the result afterwards? (3) Which tier does it belong in: plain English, a small script, or a hard rule the software enforces? Explain each answer in one sentence."
+
+You should find that most of your instructions stay in English, a few become lookups or sums, and only one or two are true irreversible points. For each of those, write the three-line label (why, when, what would make it unnecessary), and ask whoever runs your tools whether it can be enforced rather than requested.
+====
+
+'''''
+
+Chapter 10 argued that plain English should be the default for almost everything an organisation tells its roles. This chapter has been about the "almost." English has a failure rate, and where an action cannot be taken back, that rate is not acceptable. Use a script for facts and arithmetic, and a hard rule for irreversible actions, security and the final check. Lock in what must be true at the end, not the route. Keep the enforced set small, and label each lock-in with its reason, its date and the condition for removing it. Ulysses tied himself to the mast for one stretch of sea. He didn't sail the whole voyage bound.
+
+The reasons attached to every rule are the thread that runs into the next chapter. An occupant can only use judgment well if it knows why the rules exist, and a reviewer can only delete a lock-in safely if someone wrote down what it was for. xref:12-everything-they-need-on-day-one.adoc[Chapter 12] is about packaging that knowledge for whoever fills a role next.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

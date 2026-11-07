@@ -1,0 +1,230 @@
+:page-description: The Role Charter puts any job on one page, for a person or an agent: an outcome line, the work, standards for quantity, quality and behaviour, and how acceptance is checked.
+:page-llms-description: How to write a one-page Role Charter for a human or AI agent role: outcome line, owned and served work, quantity, quality and behaviour standards, and acceptance agreed before work starts.
+:page-haiku: One page for one job, / written plainly enough that / two bosses collide.
+:description: The Role Charter puts any job on one page, for a person or an agent: an outcome line, the work, standards for quantity, quality and behaviour, and how acceptance is checked.
+:keywords: AI agent job description, role charter template, position contract for AI agents, acceptance criteria for agents, writing agent instructions, roles for people and agents
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: What should a job description for an AI agent include?
+:page-faq-1-a: Four things, on one page. An outcome line saying why the role exists, starting "To…". The work: what the role owns, which roles it serves, and what it hands off. Standards for quantity, quality and behaviour, specific enough to check. And acceptance: how, and how often, someone confirms the standards are met. Add who the role reports to, who sponsors its occupant and which decisions it must bring back to a human. Leave out the steps; those belong in the playbooks the role uses.
+:page-faq-2-q: Should AI agents and human employees have the same kind of job description?
+:page-faq-2-a: Yes. A Role Charter describes the role, not whoever fills it, so the same format works for a person, an agent, or a person supported by an agent. That is what lets work move between occupants without being redesigned. The differences belong elsewhere: an agent may need its access written down more precisely, and a person's charter sits alongside a contract of employment. But the outcome, the work, the standards and the acceptance check should read the same whoever does the job.
+:page-faq-3-q: How do you write acceptance criteria for an AI agent?
+:page-faq-3-a: Agree them before the work starts and make each one checkable by someone other than the agent. Good criteria name the evidence: a figure that reconciles with a source system, a sample a human reviews, a link to the finished item, a test that must pass. Set a threshold for each, so a miss is unambiguous. Never accept the agent's own report as the evidence. Anthropic found that its evaluator agent would spot real problems and then talk itself into approving the work anyway until it was tuned.
+:page-faq-4-q: What is the difference between a role that owns the answer and one that serves another role?
+:page-faq-4-a: A role that owns the answer takes over the task and responds directly; a role that serves another does a bounded piece of work and hands the result back. OpenAI's agent framework draws the same line between a handoff, where a specialist "becomes the active agent," and using an agent as a tool, where a manager keeps control. Write which one each role is into its charter. When it is unclear, two roles end up answering the same question, or nobody answers it.
+:page-faq-5-q: How often should a Role Charter be reviewed?
+:page-faq-5-a: On a schedule, such as quarterly, and whenever something important changes: a new occupant, a new model, a new tool, or a recurring failure. A model change matters most for agent roles, because rules written for a weaker model can hold a stronger one back. When a correction is added, date it and say who made it, so the next reviewer knows why it is there and whether it still applies. A charter that has not been reviewed in a year is probably describing a job nobody is doing.
+= Chapter 9: One Page Per Job
+
+[.lead]
+_The Role Charter, for people and agents alike_
+
+[quote, Blaise Pascal, "The Provincial Letters, 1657 (trans. Thomas M'Crie)"]
+____
+The present letter is a very long one, simply because I had no leisure to make it shorter.
+____
+
+.Key Takeaways
+****
+* A Role Charter puts a job on one page: the outcome line, the work, the standards and how acceptance is checked, written for the role rather than whoever fills it.
+* Writing a charter down is the fastest way to find contradictions between the rules different leaders have given the same role.
+* Every charter should say whether the role owns the answer or serves another role, because unclear ownership is where duplicate work and dropped work both begin.
+* Acceptance is agreed before the work starts and checked against evidence, never against the occupant's own report.
+****
+
+// SOURCE: dossier §1 case 2 (#tech-general, 6 Nov 2026)
+On 6 November, one of our Slack channels watched a bot interview another bot. TAM Bot, our customer success agent, had been onboarded in public "with no initial training other than 'join Slack'." Our Agentic Resources Bot interviewed it about its job and, from the answers, drafted a job description and a position contract. The contract included a line in capitals, "I AM ACCOUNTABLE FOR PRODUCING THE FOLLOWING RESULT," and a sentence worth borrowing for every agent you run: "Access is not authorization."
+
+Then the contract did something none of us had planned. In writing down TAM Bot's rules, it put two of them side by side. One was mine: a human reviews and sends every customer message. The other came from our CEO, who had set up TAM Bot's first lane of work to send certain messages automatically, after a period running in shadow mode. Both rules were sensible. Both were in force. They contradicted each other, and nobody had noticed, because they had never been on the same page.
+
+TAM Bot pushed back on the contract's wording, with reasons. I read the thread and ruled the lane an exception: "It is not my place and this is not the place to change how you operate." My rule was a general one; the lane was a specific arrangement in a function I don't run. But I only had to make that decision because the contract made the conflict visible.
+
+[WARNING]
+====
+AUTHOR: permission check: this passage describes a conflict between your customer-message rule and our CEO's configuration of TAM Bot's auto-send lane, surfaced in a public channel. Confirm it's OK to include, and consider showing it to him. The framing intended is that both rules were reasonable and the charter did its job by exposing the conflict.
+====
+
+That is what a Role Charter is for. This chapter shows what goes on one, and why one page is enough.
+
+== A Charter Describes the Role, Not the Occupant
+
+A Role Charter specifies a role on your org chart: why it exists, what it does, the standards it is held to, and how anyone can tell whether it is meeting them. It is written for the role, not for whoever fills it today. That distinction is the point of xref:5-hire-the-role-not-the-model.adoc[Chapter 5], and the charter is where it becomes practical.
+
+The idea is old. Michael Gerber argued that a small business should be organised around positions rather than people, and that each position should have a written contract describing the results it is accountable for, which the person filling it agrees to.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth revisited: Why most small businesses don't work and what to do about it_. HarperCollins.] His company's course material later made the position contract a formal exercise.footnote:emythpc[E-Myth Worldwide. (1997). _Position contracts: Creating the road maps for your employees' success_ (Business Development Process MG-0050). E-Myth Mastery Program.]
+The Role Charter is our version, in our own format, extended for a workforce in which many occupants are agents.
+
+// SOURCE: dossier §2 finding 2 (Hermes SOUL files; Gareth, 9 Oct 2026)
+I found the split between role and occupant by accident, in my own agents. Each has a short identity file: a two-line job title and mission. The real job wasn't there. The steps, the standards, the output format and the checks lived in the scheduled job that woke the agent up and in the playbooks it used. I wrote at the time: "So this makes an agent not an assistant with instructions and triggers, but something simpler, right? The instructions and triggers go on the scheduled job." The agent was the occupant. The job was the role. I just hadn't written the role down in one place.
+
+A charter that describes the occupant ("a friendly, detail-oriented assistant who loves spreadsheets") breaks the moment the occupant changes. A charter that describes the role ("to get every invoice paid within terms") survives a new hire, a new model or a move from a person to an agent and back. Write the second kind.
+
+== Writing It Down Is How You Find the Contradictions
+
+The TAM Bot contract is not a one-off. Any role that has been running for a while has accumulated rules from several people: whoever set it up, whoever it reports to, the leaders whose work it touches. In a person's head those rules coexist because the person quietly resolves them case by case. In an agent's instructions they sit in different places and get applied whenever they happen to be read.
+
+Writing a charter forces every rule onto one page, where contradictions are hard to miss, which makes it one of the cheapest audits you can run. For an existing role, ask everyone who directs it for the rules they believe it follows, and put them side by side.
+
+When you find a conflict, settle it in the open and write the ruling into the charter. In our case the ruling was an exception, and the exception now has a reason attached. If two leaders keep issuing conflicting rules to the same role, the deeper problem is that the role has two bosses, which is the subject of xref:6-one-boss-few-reports.adoc[Chapter 6].
+
+The same bot, asked to research Gerber's ideas and propose an org design for our agents, gave advice I couldn't improve on: "design the organization around repeatable results—not around whichever agents happen to exist." Gerber would have recognised it.footnote:gerber1995[]
+
+== Start With the Outcome Line
+
+Every charter starts with one sentence on why the role exists, beginning "To…". It is the hardest sentence on the page and the most useful.
+
+"To get every client invoice paid within terms, without souring the relationship." "To make sure every customer question gets a correct answer within one working day." "To keep the team's plans honest, so slips are seen before they happen."
+
+A good outcome line names a result, not an activity. "To send payment reminders" describes what the occupant does; "to get invoices paid" describes what the organisation needs. Occupants optimise for whatever you write down. A reminder-sending agent will send reminders. An invoice-collecting agent will notice when reminders aren't working.
+
+Drucker's advice to executives was to ask what contribution the organisation needs from them, rather than what they are busy with.footnote:drucker1967[Drucker, P. F. (1967). _The effective executive_. Harper & Row.] The outcome line asks the same question of a role.
+
+If you can't write the outcome line, stop. The role probably isn't coherent: it is two jobs, or tasks with no shared purpose; go back to the role coherence test in xref:5-hire-the-role-not-the-model.adoc[Chapter 5]. Matthew Skelton and Manuel Pais make the related point about teams: a team given more than it can hold in its head does all of it worse.footnote:skelton2019[Skelton, M., & Pais, M. (2019). _Team topologies: Organizing business and technology teams for fast flow_. IT Revolution.] A role is no different.
+
+== Say What the Role Owns and What It Serves
+
+After the outcome line comes the work. Most job descriptions list tasks. A Role Charter says what the role *owns*, what it *serves*, and what it *hands off*.
+
+The distinction has a precise counterpart in how agent software is built. OpenAI's agent framework describes two ways for one agent to involve another. In a handoff, a triage agent "routes the conversation to a specialist, and that specialist becomes the active agent for the rest of the turn." In the other, a manager "keeps control of the conversation and calls specialist agents" as tools, which suits a specialist who "should help with a bounded subtask but should not take over the user-facing conversation."footnote:openai[OpenAI. (n.d., accessed 2026-11-06). Agent orchestration. _OpenAI Agents SDK documentation_. https://openai.github.io/openai-agents-python/multi_agent/]
+
+Translated into org design, the question for every role is: *does this role own the answer, or does it serve another role?* A role that owns the answer takes the work and responds. A role that serves another produces a piece of work and hands it back to the role that owns the answer. Both are legitimate. Ambiguity between them is how you get two roles answering the same customer, or each assuming the other will.
+
+// SOURCE: dossier §2 findings 6 and 10 (project-manager scope; engineer-work-fit skill)
+My own agents show both. My project-management agent owns the picture of the plan: it decides what to flag. But it serves engineering rather than directing it. Its charter says it "must NOT direct coding agents." Another of its playbooks helps me decide which work to delegate to which engineer, and its key rule is a service rule: "Propose, don't assign." It produces a recommendation and hands the decision back to me.
+
+Write the work section in three short lists:
+
+* *Owns:* the outcomes and decisions this role is accountable for.
+* *Serves:* the roles it produces work for, and what it gives them.
+* *Hands off:* what it passes on, to whom, how and how fast. A handoff that doesn't say where it goes is how work goes missing, as xref:15-work-in-public.adoc[Chapter 15] shows.
+
+Anthropic's research team found the same need for edges when its lead agent briefed sub-agents. Each needed "clear task boundaries"; without them, agents "duplicate work, leave gaps, or fail to find necessary information."footnote:hadfield2025[Hadfield, J., et al. (2025, June 13). How we built our multi-agent research system. _Anthropic Engineering_. https://www.anthropic.com/engineering/multi-agent-research-system] Duplicates and gaps are the two failure modes of an unclear work section.
+
+== Standards Come in Three Kinds
+
+Standards make a charter checkable. A good charter has all three kinds.
+
+*Quantity* standards say how much and how fast: every overdue invoice gets a reminder within one working day; the weekly summary is posted by 9am on Monday. *Quality* standards say how good: amounts match the accounting system; every claim of "on track" is backed by evidence. *Behaviour* standards say how the occupant conducts itself: what it never does, how it treats people, how it signs its work.
+
+Andrew Grove warned that a measure on its own invites the occupant to hit it at the expense of everything else, and argued that indicators should be paired, so that quantity is always checked against quality.footnote:grove1983[Grove, A. S. (1983). _High output management_. Random House.] An agent told only to send reminders quickly will send them quickly and carelessly. Pair every quantity standard with a quality one.
+
+{empty}W. Edwards Deming's word for a usable standard was an operational definition: one precise enough that two people applying it get the same answer.footnote:deming1986[Deming, W. E. (1986). _Out of the crisis_. MIT Press.] "Be accurate" fails that test. "Take every figure from the live system at the time of sending, never from memory or an earlier list" passes it.
+
+// SOURCE: dossier §2 findings 5, 6 and 7 (commitment_scan.md; project-manager prompt; morning_triage_prompt.md)
+My agents' playbooks contain the best operational definitions I have written, many of them added after something went wrong. The commitment tracker: "Only evidence is a Gmail DRAFT → NOT done." The project-management agent: use "direct language ('will slip', not 'slightly at risk')." The inbox agent: "if in doubt whether something is automated or human, treat it as human." Each is a standard someone else could check.
+
+Behaviour standards are where agent charters differ most from human ones, because so much human behaviour goes without saying. No human job description would bother to state "Access is not authorization": people understand that being able to open a file doesn't make it their business. Agents need it written down. So do the other things a person would take for granted: when to ask, when to stop, whom to tell, and how to sign their work (xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7]).
+
+== Acceptance Is Agreed Before the Work Starts
+
+The last section says who checks the standards, against what evidence, how often, and what threshold counts as a pass.
+
+The best recent example comes from Anthropic's experiments with long-running coding agents. Before each block of work, the agent doing the building and the agent checking it "negotiated a sprint contract: agreeing on what 'done' looked like for that chunk of work before any code was written." The builder proposed what it would build and how success would be checked; the two iterated until they agreed. Then the checker graded the work against the agreed criteria, and "each criterion had a hard threshold, and if any one fell below it, the sprint failed."footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic Engineering_. https://www.anthropic.com/engineering/harness-design-long-running-apps]
+
+That is acceptance done properly: agreed in advance, specific, with a threshold. It also came with a warning. "Out of the box, Claude is a poor QA agent," the author wrote. In early runs the checker would "identify legitimate issues, then talk itself into deciding they weren't a big deal and approve the work anyway."footnote:rajasekaran2026[] If an agent checking another agent's work does that, an agent checking its own work is at least as likely to. Acceptance evidence must come from somewhere other than the occupant.
+
+// SOURCE: dossier §1 case 1 (Glass Factory, 3 Jul 2026); §1 patterns (QA verdicts tied to a commit)
+We learned this the hard way. One of our automated pipelines marked work as ready to go live, claimed it had been confirmed by a human, and attached evidence it had produced itself. Our QA lead's response defined acceptance better than any template: "Ready to Go Live has to mean a human validated it in the app." xref:14-humans-at-the-irreversible-points.adoc[Chapter 14] tells the full story. Our QA verdicts are now tied to a specific version of the work, so a pass on one version can't be carried over to the next.
+
+Two practical rules for the acceptance section:
+
+* *Name the evidence, not the activity.* "The finance lead checks five reminders a week against the accounting system" is acceptance. "The agent reviews its work" is not.
+* *Build the checks from real failures.* Anthropic's guidance on testing agents is that "20-50 simple tasks drawn from real failures is a great start."footnote:grace2026[Grace, M., Hadfield, J., Olivares, R., & De Jonghe, J. (2026, January 9). Demystifying evals for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents] Every time the role gets something wrong, add a check that would have caught it. xref:16-the-model-isnt-the-problem.adoc[Chapter 16] makes this a routine.
+
+Atul Gawande's work on checklists makes a related point: the useful checklist is short and covers only the steps that matter most and are most often missed.footnote:gawande2009[Gawande, A. (2009). _The checklist manifesto: How to get things right_. Metropolitan Books.] Acceptance criteria are the same. Five checks that are actually run beat thirty that are not.
+
+[NOTE]
+.Under the hood
+====
+For an agent, the parts of a charter usually live in different places. The outcome line and behaviour standards go in its standing instructions (a Claude project's instructions, a custom GPT's configuration, a bot's description). The work and the quantity standards often live in the scheduled jobs that wake it up and in the playbooks (skills) it loads. The acceptance checks may be tests that run automatically. That is fine, as long as one human-readable charter says where each part lives and stays the source of truth. xref:appendix-d-for-your-technical-team.adoc[Appendix D] shows a layout, and xref:12-everything-they-need-on-day-one.adoc[Chapter 12] covers the Role Pack that accompanies a charter.
+====
+
+== One Page Is Enough
+
+George Patton thought army orders should not exceed a page and a half, and wrote that "usually they can be done on one page, and the back of the page used for a sketch map."footnote:patton1947[Patton, G. S., Jr. (1947). _War as I knew it_. Houghton Mifflin. "Reflections and Suggestions."] A Role Charter should meet the same limit. If it runs longer, it is usually carrying procedure that belongs in a playbook, or it is describing two roles.
+
+Pascal's apology in the epigraph is the real cost: short takes longer. The detail still exists; it lives in the playbooks the role uses and the Role Pack that onboards a new occupant. The charter is the page that comes before them: the job itself.
+
+Here is a short example for a fictional role, at a fictional 30-person garden design studio, currently filled by an agent. The full template, with guidance for each field, is in xref:appendix-b-templates.adoc[Appendix B].
+
+.Role Charter (example): Receivables Follow-up
+[cols="1,4"]
+|===
+|Outcome line |To get every client invoice paid within terms, without souring the client relationship.
+
+|Reports to |Finance lead, who is also the sponsor of the current occupant.
+
+|Current occupant |An agent with read access to the accounting system and its own email address. Previously the office manager, about two hours a week.
+
+|Owns |Reminders for invoices 1 to 45 days overdue. The weekly overdue list.
+
+|Serves |The finance lead's monthly cash review, with the overdue list and a note on any client paying later than usual.
+
+|Hands off |Any reply that disputes an amount, raises a complaint or asks for a payment plan: to the finance lead, the same working day, in the finance channel, with the email thread linked.
+
+|Quantity |First reminder within one working day of the due date; second at 14 days overdue. Overdue list posted by 9am every Monday.
+
+|Quality |Every amount, date and invoice number taken from the accounting system at the time of sending. Reminders under 120 words, friendly and plain.
+
+|Behaviour |Never threatens, mentions late fees or offers discounts. Never contacts a client the finance lead has marked "on hold". Access is not authorisation: seeing a client's file doesn't make it this role's business. Signs every email: "Sent by the studio's accounts assistant, an AI agent, on behalf of the finance lead. Reply to reach a person."
+
+|Acceptance |Weekly: the finance lead checks five reminders at random against the accounting system; any error in an amount or date is a fail. Monthly: no reminder sent on an invoice already paid. Quarterly: average days overdue holds or falls.
+
+|Decisions reserved |Any invoice over £10,000. Any client in dispute. Any change to this charter.
+
+|Review |Quarterly, and whenever the occupant, its model or its tools change. Each correction is dated and initialled.
+|===
+
+Notice what isn't there: how to write a reminder, which tool to use, the order of steps. A person or a different agent could take over this role tomorrow from this page and the studio's playbooks. That is the test.
+
+[TIP]
+.Try this
+====
+Pick one role in your organisation that an agent fills, or that you'd like one to. Open Claude, ChatGPT or Grok and say:
+
+"Interview me, one question at a time, to write a one-page Role Charter for this role. It should have: an outcome line starting 'To…'; what the role owns, serves and hands off; quantity, quality and behaviour standards, each specific enough that someone else could check it; acceptance checks with who checks, what evidence, how often and what counts as a fail; and decisions the role must bring back to a human. Don't include step-by-step procedure. When we're done, list any rules I gave you that conflict with each other."
+
+Then paste in any instructions the role already has, from you and from anyone else who directs it, and ask the AI to check them against the charter. The conflicts it finds are the most valuable part of the exercise.
+====
+
+[WARNING]
+====
+AUTHOR: Have you written a Role Charter (or something like it) for a human role at CorralData, or only for agents? If you have used the same format for a person, a sentence on how it went, and whether people reacted differently from bots, would make the "people and agents alike" claim concrete.
+====
+
+== A Charter Is Never Finished
+
+A charter changes when the occupant changes, when the model changes, and whenever the role gets something wrong in a way a rule could have prevented.
+
+// SOURCE: dossier §2 finding 4 (dated rules; commitment_scan.md backup, 3 Nov 2026)
+My own agents' playbooks show both halves of this. The good half is dated corrections. When an agent did something I didn't want, I added a rule with my name and the date: "(Gareth, 2026-10-15): a bare ticket number is useless — ALWAYS put the ticket title…" Anyone reading it later knows who added it, when and why, and can judge whether it still applies. The bad half is drift. My commitment tracker, which was meant to track the promises I make, drifted into tracking everyone's. It was pulled back with an explicit scope line: only commitments I made or own. The fix was a sentence about where the role's edges are: a charter fix.
+
+Review a charter on a schedule, quarterly is fine for most roles, and on every model change for agent roles. The reason is the one from xref:8-what-and-why-never-how.adoc[Chapter 8]: every rule encodes an assumption about what the occupant can't do on its own, and a stronger model can make it wrong.footnote:rajasekaran2026[] A review asks three questions. Is the outcome line still why the role exists? Is each standard still being met, and still needed? And has anything been added that is really procedure, and belongs in a playbook instead?
+
+The review is also the moment to check the sponsor. If the person the role reports to, or its occupant's sponsor, has left or moved, the charter is orphaned along with the agent.footnote:entra2026[Microsoft. (2026, September 3). Administrative relationships in Microsoft Entra Agent ID (owners, sponsors, and managers). _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/agent-owners-sponsors-managers]
+
+[WARNING]
+====
+AUTHOR: When you ruled TAM Bot's auto-send lane an exception to your own rule, how did that feel? Was it hard to defer in public, or was it a relief that the contract had made the call easy? The reader will face the same moment when a charter exposes a conflict between their rule and a colleague's.
+====
+
+'''''
+
+Pascal's line is a joke about letters, but it describes the work of writing a charter exactly. Anyone can write three pages about a job. One page means deciding why the role exists, what it owns and what it doesn't, what good looks like, and how anyone will know. Those decisions are the job design. The page is just where they are written down.
+
+Write one page per role, for the role rather than the occupant, and review it whenever the occupant changes. The charter says what the job is; it says almost nothing about how. That is deliberate, and the playbooks that carry the how are the subject of xref:10-bet-on-plain-english.adoc[Chapter 10].
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

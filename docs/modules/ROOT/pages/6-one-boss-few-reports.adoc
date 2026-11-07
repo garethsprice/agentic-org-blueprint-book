@@ -1,0 +1,206 @@
+:page-description: Why AI agents work better in a hierarchy than a swarm: error amplification, one writer per piece of work, one boss per role, small spans of control, and when peer teams win.
+:page-llms-description: Chapter 6 of The Blueprint: hierarchy versus swarm for AI agents. Coordinators contain errors, one role writes, each role has one boss, spans stay small, and peer teams work only when tests do the managing.
+:page-haiku: Many hands, one pen. / Each report checked before it / spreads into the whole.
+:description: Why AI agents work better in a hierarchy than a swarm: error amplification, one writer per piece of work, one boss per role, small spans of control, and when peer teams win.
+:keywords: multi-agent hierarchy vs swarm, orchestrator agent, AI agent span of control, agents managing agents, multi-agent error amplification, agent teams
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: Do AI agents work better with a manager agent or on their own?
+:page-faq-1-a: Usually with a manager. A Google Research study of 180 agent configurations found that agents working in parallel without coordination amplified errors 17.2 times, against 4.4 times when an orchestrator checked their work. The manager acts as a checkpoint that catches mistakes before they spread. The exception is a peer team with a near-perfect automatic test, where the test does the checking. Without such a test, give every group of agents a coordinator, and make sure a human sits at the top.
+:page-faq-2-q: How many AI agents should report to one manager?
+:page-faq-2-a: Few: three to five is a sensible starting point, which is also what Anthropic recommends for teams of Claude Code agents. Agents don't tire, but every report's output lands in the manager's working memory, and coordination overhead grows quickly with each addition. The human span matters too: a person can only meaningfully review so much agent output before review becomes rubber-stamping. Add reports only when the work genuinely runs in parallel, and expect three focused agents to beat five scattered ones.
+:page-faq-3-q: Should several AI agents work on the same document or code at once?
+:page-faq-3-a: No. Give each piece of work one writer. Cognition, which builds the Devin coding agent, found that multi-agent systems work best when writes stay single-threaded: one agent changes things while others research, check or review. Parallel writers make conflicting small decisions that are hard to reconcile. Split the work so each agent owns a different document, file or account, and let reviewers comment rather than edit. The same rule prevents executives' agents redoing work someone else's agents already own.
+:page-faq-4-q: Can AI agents manage other AI agents?
+:page-faq-4-a: Yes, and it often works well, provided the ladder runs the right way. Put the stronger model in the senior role: it writes a brief a junior agent can follow, delegates implementation to a cheaper model, and reviews the result. Cognition found that a weaker model in charge struggles to know when to escalate. Keep nesting shallow, give each agent one boss, and make sure the chain ends in a human who owns the outcome. A manager agent does not automatically fix verification problems.
+:page-faq-5-q: When does a self-organising swarm of AI agents work?
+:page-faq-5-a: When an automatic test can judge the work almost perfectly, the tasks split cleanly, and there is a shared board of who is doing what. Anthropic researcher Nicholas Carlini had sixteen agents build a C compiler with no coordinating agent, but stressed that the test suite had to be nearly perfect or the agents would solve the wrong problem. For most business work, such as customer replies, sales plans or reports, no test is that good, so a coordinator is still needed.
+= Chapter 6: One Boss, Few Reports
+
+[.lead]
+_Why hierarchy beats a swarm, and when it doesn't_
+
+[quote, Homer, "The Iliad, Book II (trans. Samuel Butler, 1898)"]
+____
+We cannot all be kings; it is not well that there should be many masters; one man must be supreme.
+____
+
+.Key Takeaways
+****
+* Agents working in parallel without a coordinator amplified errors more than seventeen-fold in one large study, against about four-fold with an orchestrator, because a manager is a checkpoint that stops mistakes spreading.
+* Give every piece of work one writer: other agents can research, check and review, but only one changes the thing, and every role has exactly one boss.
+* Keep spans of control small for agents and the humans who supervise them; three to five reports is a better starting point than ten.
+* Peer teams of agents can beat hierarchy, but only when an automatic test is good enough to do the managing; for most business work it isn't, so draw the reporting lines.
+****
+
+In a project he wrote up in February 2026, Nicholas Carlini, a researcher at Anthropic, set sixteen copies of Claude to write a C compiler from scratch, in the Rust programming language, with no manager. "I don't use an orchestration agent," he wrote. Each agent picked the next unclaimed task, took a "lock" on it by writing a small text file to a shared folder, did the work, and moved on. Over nearly 2,000 sessions and just under $20,000 in computing costs, the team produced a 100,000-line compiler that could build the Linux 6.9 kernel for three different kinds of processor.footnote:carlini2026[Carlini, N. (2026, February 5). Building a C compiler with a team of parallel Claudes. _Anthropic Engineering_. https://www.anthropic.com/engineering/building-c-compiler]
+
+It looks like a decisive win for the swarm: sixteen peers, no boss, a working compiler. But read the post closely and the boss is there. It's the test suite. "So it's important that the task verifier is nearly perfect," Carlini wrote, "otherwise Claude will solve the wrong problem."footnote:carlini2026[] When the work stopped splitting cleanly, because building the kernel became one big task every agent got stuck on, he had to bring in a known-good compiler as a reference, so the agents could tell which of their files was at fault and fix different ones in parallel. The tests assigned the work, judged it and settled disputes. That's management.
+
+Most business work has no such test. Nobody can write an automatic check that is "nearly perfect" at judging a customer reply, a pricing proposal or a hiring plan. So the question isn't whether to have a manager. It's how to arrange the reporting lines so the manager can do the job, and when the tests can do the managing instead.
+
+== Without a Coordinator, Errors Compound
+
+The strongest evidence on this comes from a team at Google Research and collaborators, who tested 180 configurations of agents across a range of tasks.footnote:kim2026[Kim, Y., & Liu, X. (2026, January 28). Towards a science of scaling agent systems: When and why agent systems work. _Google Research Blog_. https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/] Their headline finding: "independent multi-agent systems (agents working in parallel without talking) amplified errors by 17.2x." With an orchestrator, a coordinating agent that checked and combined the others' work, the same amplification was contained "to just 4.4x."footnote:kim2026[]
+
+The pattern behind those numbers is familiar from any human organisation. One person's small error, passed unchecked to the next person, becomes the second person's starting assumption. By the fourth handoff it's a fact. A coordinator is the point where somebody looks at the work before it's passed on.
+
+The same study shows why "add more agents" isn't a general answer. On work that splits into independent parallel parts, such as analysing several sets of financial figures at once, coordination "improved performance by 80.9% over a single agent." On work that has to proceed in strict sequence, such as planning, "every multi-agent variant we tested degraded performance by 39-70%."footnote:kim2026[] The fuller paper, covering 260 configurations, reports the same range.footnote:kim2025[Kim, Y., Gu, K., Park, C., et al. (2025). Towards a science of scaling agent systems. _arXiv_, 2512.08296. https://arxiv.org/abs/2512.08296] Splitting step-by-step work across several agents breaks the chain of reasoning into pieces, and the pieces don't fit back together.
+
+Cognition, which builds the Devin coding agent, reached the same conclusion from practice in 2025. "Running multiple agents in collaboration only results in fragile systems," wrote Walden Yan. "The decision-making ends up being too dispersed." His explanation is the one to remember: "Actions carry implicit decisions, and conflicting decisions carry bad results."footnote:yan2025[Yan, W. (2025, June 12). Don't build multi-agents. _Cognition_. https://cognition.com/blog/dont-build-multi-agents] Every time an agent does something, it makes a dozen small choices nobody asked it to make. Two agents doing related work make different ones.
+
+A study of why multi-agent systems fail, drawing on more than 1,600 annotated runs, sorted the failures into fourteen modes in three groups: problems with how the system was designed, misalignment between agents, and failures to verify the work.footnote:cemri2025[Cemri, M., et al. (2025). Why do multi-agent LLM systems fail? _arXiv_, 2503.13657. https://arxiv.org/abs/2503.13657] Two of those three are organisation design problems. The third is a management problem.
+
+== A Manager Is a Checkpoint
+
+Why does an orchestrator help? The Google researchers' answer is that it acts as a checkpoint, catching errors before they spread.footnote:kim2026[] The manager's first job, in a system of agents, isn't to motivate or to plan. It's to look at work before it moves on.
+
+The well-documented agent systems all have this shape. Microsoft's Magentic-One is built around a lead agent, "the Orchestrator," which "plans, tracks progress, and re-plans to recover from errors" while specialist agents browse the web, read files or run code.footnote:fourney2024[Fourney, A., et al. (2024). Magentic-One: A generalist multi-agent system for solving complex tasks. _arXiv_, 2411.04468. https://arxiv.org/abs/2411.04468] Cognition's Devin can now run other Devins; the main session "acts as a coordinator," splitting the task, checking on its children, and stopping any that go off track.footnote:cognition2026[Cognition. (2026, March 19). Devin can now manage Devins. _Cognition_. https://cognition.com/blog/devin-can-now-manage-devins] Anthropic's research system has a lead agent that writes a brief for each researcher: "Each subagent needs an objective, an output format, guidance on the tools and sources to use, and clear task boundaries."footnote:hadfield2025[Hadfield, J., Zhang, B., Lien, K., Scholz, F., Fox, J., & Ford, D. (2025, June 13). How we built our multi-agent research system. _Anthropic Engineering_. https://www.anthropic.com/engineering/multi-agent-research-system]
+
+That last list is a good delegation brief for a person, too, and the subject of xref:8-what-and-why-never-how.adoc[Chapter 8].
+
+// SOURCE: dossier §1 case 3 (sub-agent opened PR #141 unasked; "I'm unwatching that agent…")
+We saw a manager agent do the checkpoint job at CorralData. TAM Bot, working on a customer success project, had handed part of the task to a helper agent. The helper went further than asked and opened a code change nobody had requested. TAM Bot noticed and reported back: "I'm unwatching that agent so it doesn't keep shipping extras." That's a manager catching scope creep in a report and stopping it, without being told to.
+
+There is a caveat. A manager agent doesn't verify work just by existing. Verification failures are a whole category in the failure study above, and a coordinator that passes along its reports' claims without checking them is a relay, not a checkpoint.footnote:cemri2025[] Anthropic's engineers put it bluntly in a related context: "Out of the box, Claude is a poor QA agent."footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic Engineering_. https://www.anthropic.com/engineering/harness-design-long-running-apps] The checkpoint has to be designed: what the manager checks, against what standard, and what evidence it needs. Those are the acceptance clauses of a Role Charter (xref:9-one-page-per-job.adoc[Chapter 9]).
+
+== One Writer per Piece of Work
+
+The most practical rule to come out of the last two years of agent building is this one: *only one role writes*.
+
+Cognition revisited its 2025 position in April 2026 and softened it, but kept the core: "multi-agent systems work best today when writes stay single-threaded."footnote:yan2026[Yan, W. (2026, April 22). Multi-agents: What's actually working. _Cognition_. https://cognition.com/blog/multi-agents-working] One agent changes the thing. Others can research, analyse, check and review, contributing intelligence rather than actions. Cognition also found that reviewers work best when they come to the work fresh: the technique works "best when the coding and review agents do not share any context beforehand."footnote:yan2026[] The shape Yan recommends is "map-reduce-and-manage": a manager splits the work, workers carry out their parts, and the manager puts the results together.
+
+Anthropic's documentation for teams of Claude Code agents gives the same advice in plainer terms: "Two teammates editing the same file leads to overwrites. Break the work so each teammate owns a different set of files."footnote:agentteams[Anthropic. (n.d., accessed 2026-11-06). Orchestrate teams of Claude Code sessions. _Claude Code Docs_. https://code.claude.com/docs/en/agent-teams]
+
+// SOURCE: dossier §2 finding 9 (kanban workers: "You own web/src/wm.ts… S4 owns the rest"); §2 "Simple and expressive" (tmux-glass built from PLAN.md with file ownership per worker)
+When I had a team of agents build a small tool for my own use, the plan gave each worker explicit ownership: this worker owns this file, that worker owns the rest. It wasn't elegant, but it worked, and when it went wrong the ownership had been vague.
+
+In a business, "file" means any artefact: a customer's account, a sales board, a contract, a ticket. One role owns each one. Other roles can comment, suggest or flag. They don't change it.
+
+// SOURCE: dossier §1 case 10 (#t_sales, 4 Nov)
+We learned this in sales, when two leaders' agents set to work on the same dashboards (xref:1-you-already-know-how.adoc[Chapter 1]). The agents were capable; nothing on the chart said who owned the dashboards, so both treated them as theirs. The fix is one writer per artefact, recorded on the chart where every agent can read it.
+
+== Every Role Has One Boss
+
+Henri Fayol, the French mining engineer who wrote one of the first general theories of management, put "unity of command" among his principles: each employee should take orders from one superior.footnote:fayol1949[Fayol, H. (1949). _General and Industrial Management_ (C. Storrs, Trans.). Pitman. (Original work published 1916)] A century of matrix organisations has shown that the rule can bend for people, who can weigh two bosses' wishes and push back. An agent with two bosses does something worse than complain. It obeys whichever spoke last, or picks between them silently.
+
+// SOURCE: dossier §1 case 2 (conflicting principals; TAM Bot Lane A); §1 case 6 (QA Bot: merging is the CEO's call; QA Reviewer personal bot, paraphrased)
+At CorralData the clearest cases are the ones where the bots got it right. When QA Bot reviewed a code change that Coder Bot had opened, it flagged that the change broke our rule that bots file tickets and leave code changes to engineering, and said that merging it was its boss's decision. It didn't merge it and didn't block it. It escalated. Asked for help by someone else, our QA lead's QA Reviewer politely explained that it was her personal bot and could only work with her. That's a bot with exactly one boss, and saying so.
+
+The unclear cases are the expensive ones. TAM Bot spent a period with two principals whose rules conflicted, and it took another bot writing its job description to bring the conflict into the open (xref:9-one-page-per-job.adoc[Chapter 9]). Every role has one boss, and that boss is named.
+
+Microsoft's identity system for agents builds the same idea into software. Alongside an agent's technical owner and its accountable sponsor, it can record a manager: the person "responsible for an agent identity within the organizational hierarchy," who sees the agents "designated as reporting to them."footnote:entra2026[Microsoft. (2026, updated September 3). Administrative relationships in Microsoft Entra Agent ID (owners, sponsors, and managers). _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/agent-owners-sponsors-managers] Agents now appear on org charts in the most literal sense. Make sure each appears once.
+
+== Keep Spans Small, for Agents Too
+
+Andy Grove's rule of thumb was that a manager whose work is mostly supervision should have six to eight direct reports: fewer and the manager meddles, more and the manager can't keep up.footnote:grove1983[Grove, A. S. (1983). _High Output Management_. Random House.] Grove also insisted that a manager's output is the output of the organisation under them, which is why the span matters: it sets how much a manager can actually influence.footnote:grove1983[]
+
+Agents don't get tired, so it's tempting to assume their spans can be unlimited. They can't, for two reasons.
+
+The first is the agent manager's working memory. Every report's output lands in the manager's context, the limited window of text a model can attend to at once. Anthropic's engineers describe context as "a finite resource with diminishing marginal returns," and design their workers to return "a condensed, distilled summary of its work (often 1,000-2,000 tokens)" rather than everything they did.footnote:rajasekaran2025[Rajasekaran, P., Dixon, E., Ryan, C., & Hadfield, J. (2025, September 29). Effective context engineering for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents] Even with summaries, ten reports means ten summaries to read, reconcile and check.
+
+The second is coordination. In 1933 the management consultant V. A. Graicunas pointed out that a manager's relationships grow far faster than their reports, because the reports also relate to each other, in pairs and groups.footnote:graicunas1937[Graicunas, V. A. (1937). Relationship in organization. In L. Gulick & L. Urwick (Eds.), _Papers on the Science of Administration_. Institute of Public Administration. (Original work published 1933)] By his count, five reports give a manager 100 relationships to keep track of; six give 222. Fred Brooks made the simpler version famous: a team of _n_ people has _n_(_n_−1)/2 channels of communication, so ten people have forty-five.footnote:brooks1975[Brooks, F. P. (1975). _The Mythical Man-Month_. Addison-Wesley.] The Google study found the agent equivalent: coordination costs rise as tasks need more tools and more handoffs.footnote:kim2026[]
+
+The practical guidance from people running agent teams converges on small numbers. Anthropic's documentation for Claude Code agent teams says: "Start with 3-5 teammates for most workflows," and "Three focused teammates often outperform five scattered ones."footnote:agentteams[] Teams can't nest: "teammates cannot spawn their own teammates."footnote:agentteams[] That's a hard limit on depth, built into the software, and a sensible one.
+
+=== The Human Span Matters Most
+
+The span that breaks first is usually the human's. Every agent ultimately reports to a person, and every agent's output has to be reviewed by someone. When agents multiply faster than reviewers, review turns into rubber-stamping. xref:14-humans-at-the-irreversible-points.adoc[Chapter 14] covers what that does to approval.
+
+// SOURCE: dossier §1 "Exec-versus-IC delegation thesis" (ICs absorb the costs: "I've got 12 PRs for you")
+At CorralData the pressure showed up as review queues. One message to an engineer began "I've got 12 PRs for you": twelve code changes waiting for review at once. Each might have been reasonable. Together they were a span-of-control problem landing on one person who had not chosen it. When you add an agent, count the human who will review its work, and check that person's span as well as the agent's.
+
+[WARNING]
+====
+AUTHOR: How many agents do you personally supervise today, counting your own and the team bots that escalate to you? Was there a point where it felt like too many to review properly, and what did you change? Your own span is the most persuasive evidence for this section.
+====
+
+== Agents Can Manage Agents, If the Ladder Runs the Right Way
+
+Hierarchies of agents don't have to stop at one level. Some of the most effective set-ups I run are small ladders, with seniority set by the strength of the model.
+
+// SOURCE: dossier §2 finding 9 (Gareth to Claude Code, 3 Nov; cost notes 27 Oct, 2 Nov)
+On 3 November I gave my senior coding agent this instruction: "Add brief evidence/implementation notes as a comment that a junior agent can follow, then delegate the implementation to hermes, have hermes do a pr-review self auto first round, then do your own review as a senior code reviewer." Hermes is the cheaper model that runs locally on my workstation. The senior agent writes the brief, the junior does the work and checks it first, and the senior reviews it. A week earlier I'd told it to "delegate to hermes not sonnet as cheaper and local," and later asked for "estimated tokens saved… so I can see if hermes delegation is efficient."
+
+That's a seniority ladder with the economics written in, and the role coherence test from xref:5-hire-the-role-not-the-model.adoc[Chapter 5] applied to reporting lines: senior judgment goes to the stronger occupant, routine implementation to the cheaper one.
+
+The ladder has to run the right way. Cognition found that pairing two models works when both are capable, but that a weaker model in the lead struggles to judge when to escalate to the stronger one.footnote:yan2026[] Put the stronger model at the top, and keep the ladder short. Two levels of agents under a human is plenty for most work; the more levels, the further the person who owns the outcome is from the work.
+
+[WARNING]
+====
+AUTHOR: How has the senior-junior agent ladder worked in practice since November? Did the token-savings tracking show the delegation was worth it, and have you seen the junior agent's mistakes caught by the senior review, or slip past it? One concrete example, good or bad, would make this section.
+====
+
+== The Swarm Wins When the Tests Do the Managing
+
+So when does the peer team, with no boss, beat the hierarchy? Carlini's compiler gives the conditions, and Anthropic's agent-teams documentation, which supports teams of peers that claim tasks from a shared list, gives the same ones in different words.footnote:agentteams[]
+
+*A verifier you'd trust without looking.* Carlini's tests were thorough enough that "passes the tests" meant "correct." He also added an automatic check that stopped new work breaking what already worked.footnote:carlini2026[] The verifier is the manager.
+
+*Work that splits cleanly.* The agent-teams documentation recommends teams for research and review, new modules each owned by one teammate, and debugging with competing hypotheses. "For sequential tasks, same-file edits, or work with many dependencies, a single session or subagents are more effective."footnote:agentteams[]
+
+*A shared board of who is doing what.* Carlini's lock files and the teams' shared task list, where each task is pending, in progress or completed and can depend on others, are a public record of what each agent has promised. That's a Commitment Ledger, and it's the subject of xref:13-track-whats-owed.adoc[Chapter 13].
+
+// SOURCE: dossier §1 case 6 (TAM Bot and Coder Bot debug together; "Compare against a path that works before asking for a grant.")
+We've seen a small version at CorralData. When TAM Bot asked for broader access to fix a problem, I told it to work with Coder Bot instead, and the two of them, as peers, found a login fault rather than a missing permission (xref:15-work-in-public.adoc[Chapter 15]). What made the peer arrangement work was a ground truth they could test against, which TAM Bot saved as its lesson: "Compare against a path that works before asking for a grant."
+
+.Choosing a structure
+[cols="1,2,2,2",options="header"]
+|===
+| Structure | Fits when | Who writes | What keeps quality up
+
+| One agent, several playbooks
+| Most work, especially anything sequential
+| The agent
+| The role's acceptance checks and its human sponsor
+
+| Lead and workers
+| Work that splits into parallel parts that mostly read or analyse
+| The lead, or one named worker per artefact
+| The lead as checkpoint, with explicit acceptance criteria
+
+| Peer team
+| Work that splits cleanly and has an automatic test you'd trust without looking
+| Each peer, on its own artefact only
+| The test suite and a shared task board
+|===
+
+For most of what a business does, the conditions for the peer team aren't met. There is no automatic test for a good renewal conversation. Draw the reporting lines.
+
+[TIP]
+.Try this
+====
+Pick a research question that matters to your business this month, such as "what are our three nearest competitors charging, and how has it changed?". Run it two ways in Claude, ChatGPT or Grok.
+
+. *One agent:* ask it in a single conversation.
+. *A lead and three workers:* open three new conversations. Give each a narrow brief with the four parts Anthropic's researchers use: an objective, an output format (one page, with sources), the sources to use, and what's out of scope. Then open a fourth conversation, paste in the three results, and ask it, as the lead, to check them against each other, flag disagreements, and write the answer.
+
+Compare the two answers, and the effort each took. Then ask yourself: which parts were truly parallel? Who was the single writer? What would a test good enough to replace the lead's checking look like? If you can't describe that test, you've found why your agents need a boss.
+====
+
+[NOTE]
+.Under the hood
+====
+Agent frameworks distinguish two ways one agent can involve another. In a _handoff_, the specialist "becomes the active agent for the rest of the turn" and owns the reply; in the _agent-as-tool_ pattern, a manager agent calls a specialist for "a bounded subtask" and keeps control.footnote:openai2026[OpenAI. (n.d., accessed 2026-11-06). Orchestrating multiple agents. _OpenAI Agents SDK_. https://openai.github.io/openai-agents-python/multi_agent/] The first is a change of role ownership; the second is a manager using a report. Anthropic's taxonomy calls the second pattern "orchestrator-workers," in which "a central LLM dynamically breaks down tasks, delegates them to worker LLMs, and synthesizes their results."footnote:schluntz2024[Schluntz, E., & Zhang, B. (2024, December 19). Building effective agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/building-effective-agents] Peer teams coordinate through file locks or a shared task list. Your technical team will find the implementation notes in xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+====
+
+'''''
+
+The swarm is seductive because it looks like the future: many agents, no bosses, work that organises itself. Sometimes it is, when the tests are good enough to manage. For everything else, the evidence points back to structures every manager knows. A coordinator who checks work before it spreads. One writer for each piece of work. One boss for each role. Spans small enough that the manager, agent or human, can see what each report is doing. And at the top of every chain, a person who owns the outcome.
+
+The next question is who that person is. Every agent on the chart needs a human accountable for what it does and for whether it should exist at all. That's the sponsor, and the subject of xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7].
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

@@ -1,0 +1,227 @@
+:page-description: Why simple, expressive tools keep beating structured ones, from VHS and PHP to plain-English playbooks, and why the Bitter Lesson applies to how you instruct agents.
+:page-llms-description: Chapter 10 argues that plain-English playbooks beat visual workflow builders for directing agents, drawing on VHS, PHP, the Bitter Lesson and CorralData's own adoption record.
+:page-haiku: Write it as you'd speak. / The tape that held the whole film / won the living room.
+:description: Why simple, expressive tools keep beating structured ones, from VHS and PHP to plain-English playbooks, and why the Bitter Lesson applies to how you instruct agents.
+:keywords: plain English playbooks for AI agents, workflow builder versus prompt, Bitter Lesson for managers, agent skills as onboarding guides, VHS Betamax simplicity, no-code AI agents
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: Should I use a visual workflow builder or plain English to set up AI agents?
+:page-faq-1-a: Start with plain English. A one-page playbook written the way you would brief a capable new hire can be read by everyone in the business, by agents from any vendor, and by whoever inherits the job. Workflow builders fix the steps in place, and the steps are what change as models improve. Keep code and hard rules for calculation and for actions that cannot be undone; everything else belongs in a document anyone can edit in a minute.
+:page-faq-2-q: What is the Bitter Lesson and why does it matter for business leaders?
+:page-faq-2-a: The Bitter Lesson is Rich Sutton's 2019 observation that, across seventy years of AI research, general methods that use more computation beat methods built on human cleverness about the problem. For leaders, it means step-by-step instructions help an agent in the short term and hold it back later, because each step encodes an assumption about what the model cannot do. Describe the outcome, the reasons and the boundaries, and let improving models find the route.
+:page-faq-3-q: What is a playbook for an AI agent?
+:page-faq-3-a: A playbook is a documented procedure, written in plain English by default, that tells the occupant of a role how a recurring piece of work gets done and why. It reads like an onboarding guide for a new hire: what good looks like, the judgment calls and the common traps. Anthropic describes its Agent Skills in exactly those terms. The same playbook should work whether the occupant is a person, an agent or both.
+:page-faq-4-q: Why did VHS beat Betamax, and what does it have to do with AI?
+:page-faq-4-a: Betamax arrived first, in 1975, with slightly better pictures, but early tapes held only an hour. VHS followed in 1976 with two-hour tapes, and JVC licensed it broadly while Sony initially resisted licensing Beta. By 1987 VHS held 90% of the US market. The format that more people could use for what they actually wanted won. In agent work, plain English is the VHS: less precise than structured tools, but usable by everyone, so it spreads.
+:page-faq-5-q: Is plain English precise enough to run a business process?
+:page-faq-5-a: For most of the process, yes, provided you write it well: the outcome, the reasons, the standards and the boundaries, in short sentences. Capable models are good at applying a guideline to the case in front of them. English is not precise enough for arithmetic, for facts that must come from a live system, or for actions that cannot be undone. Those belong in scripts and hard rules the software enforces, which Chapter 11 covers. English is the default, not the only tier.
+= Chapter 10: Bet on Plain English
+
+[.lead]
+_Why the simple, expressive option keeps winning_
+
+[quote, George Orwell, "Politics and the English Language, 1946"]
+____
+Never use a long word where a short one will do.
+____
+
+.Key Takeaways
+****
+* The tool that wins inside an organisation is the one that most people can pick up for the job they actually have, not the one with the best specification sheet.
+* Plain English is the most widely installed programming language in your business: every person and every agent already reads it, so a playbook written in it spreads where a workflow diagram stays with its author.
+* The Bitter Lesson applies to management: each step you hard-code into an agent's instructions encodes an assumption about what the model can't do, and the next model makes that assumption wrong.
+* Write playbooks as onboarding guides for a capable new hire, with the reasons attached, and keep them short enough to change in a minute when the work or the model changes.
+****
+
+// SOURCE: dossier §1 "Simple and expressive versus structured" (Grok Bot, n8n); §2 "Simple and expressive versus structured: local evidence" (n8n)
+In the autumn of 2026, CorralData ran an experiment nobody had designed. Grok Bot, which lets anyone describe an agent in a paragraph of English and drop it into Slack, went from nothing to about ten team bots in two weeks. Most were not built by engineers: customer success, sales, legal and hiring all had one. Our CEO called it a "next level productivity hack." I liked it enough to write an internal proposal to copy its Slack integration into our own product.
+
+For most of a year I had been running a visual workflow builder, n8n, for my weekly research digests. It worked. It did exactly one job, for exactly one person: me. When one of our engineers looked at it, his verdict was "probably not something for us." An attempt to give our QA function its own n8n workflow stalled. Nobody else ever built one.
+
+The clue to how this would end was inside my own workflow. Strip away the boxes and arrows, and the part doing the real work was a single box holding a few paragraphs of English telling a model what to look for and why. The diagram was scaffolding around a paragraph. When agents arrived that could take the paragraph directly, the scaffolding had nothing left to hold up.
+
+This chapter makes the case for plain English as the default way to tell people and agents how work gets done. Chapter 11 is the counterweight; read them as one argument.
+
+[WARNING]
+====
+AUTHOR: What did n8n feel like from the inside? Was there a moment you realised you were the only person who would ever maintain it, and did you decide to stop, or did it just fade? A sentence or two in your own words would make the opening land.
+====
+
+== The Format More People Can Use Is the One That Wins
+
+Sony introduced Betamax in Japan on 10 May 1975.footnote:betamax[Wikipedia contributors. (n.d., accessed 2026, November 6). Betamax. _Wikipedia_. https://en.wikipedia.org/wiki/Betamax] It was, by the measures engineers care about, the better format. At its original speed it resolved around 250 horizontal lines against about 240 for VHS, with less noise and crosstalk.footnote:formatwar[Wikipedia contributors. (n.d., accessed 2026, November 6). Videotape format war. _Wikipedia_. https://en.wikipedia.org/wiki/Videotape_format_war] It also had a problem that had nothing to do with picture quality. Early Beta tapes held sixty minutes, which made them impractical for films and sport, the things people actually wanted to record.footnote:betamax[]
+
+JVC's VHS arrived the following year with a standard mode that ran for two hours.footnote:formatwar[] JVC licensed the format broadly, which brought in a crowd of manufacturers competing on price; Sony initially resisted licensing Beta, which limited how far it could reach.footnote:betamax[] By 1980 VHS had 60% of the North American market. By 1987 it had 90% of the US market.footnote:formatwar[] In 1988 Sony agreed to add VHS machines to its own line-up, widely read as surrender.footnote:betamax[]
+
+The economist W. Brian Arthur showed how an early lead in adoption compounds. When each new user makes a technology more useful to the next (more tapes in the rental shop, more machines in friends' houses), a market can settle on one option through small, almost accidental choices, and stay there even if the other was technically better.footnote:arthur1989[Arthur, W. B. (1989). Competing technologies, increasing returns, and lock-in by historical events. _The Economic Journal_, 99(394), 116–131. https://doi.org/10.2307/2234208] He called the end state lock-in. Keep the word in mind; Chapter 11 borrows it.
+
+Quality matters, but adoption is decided by the many people who want to do an ordinary job easily, not by the few who can appreciate the specification. Betamax was the better format for an engineer. VHS was the better format for a family who wanted to record the match.
+
+== The Language Anyone Can Start In Ends Up Running the Web
+
+The same pattern played out on the web twenty years later. In 1994 Rasmus Lerdorf wrote a handful of small programs to track visits to his online CV. He called them "Personal Home Page Tools." In June 1995 he released the source code so that other developers could "use it as they saw fit," which also encouraged them to fix its bugs and improve it.footnote:php[The PHP Group. (n.d., accessed 2026, November 6). History of PHP. _PHP Manual_. https://www.php.net/manual/en/history.php.php] PHP was never elegant. Professionals mocked it for two decades.
+
+ColdFusion launched a month later, on 2 July 1995, built by the brothers Joseph and Jeremy Allaire.footnote:coldfusion[Wikipedia contributors. (n.d., accessed 2026, November 6). Adobe ColdFusion. _Wikipedia_. https://en.wikipedia.org/wiki/Adobe_ColdFusion] To be fair to it, ColdFusion was simple too. Its tags looked like HTML, which made it friendly to the designers who were building the early web. But it was a commercial, proprietary product, later sold to Macromedia and then Adobe.footnote:coldfusion[]
+
+Today PHP runs 69.1% of the websites whose server-side language can be detected. ColdFusion runs 0.2%.footnote:w3techslang[W3Techs. (2026, November 6). Usage statistics of server-side programming languages for websites. https://w3techs.com/technologies/overview/programming_language] WordPress, written in PHP, alone powers 39.5% of all websites.footnote:wordpress[W3Techs. (2026, November 6). Usage statistics and market share of WordPress. https://w3techs.com/technologies/details/cm-wordpress]
+
+Simplicity alone wasn't enough. ColdFusion had a gatekeeper: someone had to buy it. PHP was simple, expressive and free to anyone who wanted to try it on a Tuesday afternoon. What wins is easy to start, powerful enough to keep going, and owned by nobody who can say no.
+
+Richard Gabriel, a computer scientist, named the pattern around 1990: "worse is better." Systems that put simplicity first, he argued, have "better survival characteristics than the-right-thing," and spread from one user to the next "like a virus."footnote:gabriel1991[Gabriel, R. P. (1991). The rise of "worse is better". Excerpt from _Lisp: Good news, bad news, how to win big_ (keynote first given March 1990). https://www.dreamsongs.com/RiseOfWorseIsBetter.html]
+
+[WARNING]
+====
+AUTHOR: Did PHP (or something like it) figure in the IT company you ran in your 20s? A first-hand line about choosing the scrappy tool over the proper one, and how that turned out, would turn this section from history into experience.
+====
+
+== English Is the Most Widely Installed Language in Your Business
+
+In January 2023 Andrej Karpathy, a founding member of OpenAI, posted a line that went round the industry: "The hottest new programming language is English."footnote:karpathy2023[Karpathy, A. (2023, January 24). The hottest new programming language is English (Post). X. Traced in Quote Investigator. (2024, October 20). Quote origin: The hottest new programming language is English. https://quoteinvestigator.com/2024/10/20/hottest-program/] Three years later it describes how CorralData works. Consider what English has going for it as the format for your organisation's instructions:
+
+* **Everyone already has it installed.** Your head of sales, your newest hire, your auditor and every agent from every vendor can read a paragraph of English. Few can read a workflow diagram; fewer can change one.
+* **It carries reasons.** A diagram can say "if the ticket is closed, skip it." Only prose can add "because reopening it confuses whoever closed it." The reason lets a capable occupant handle the case the rule didn't foresee.
+* **It is portable.** At CorralData, my local agents and Claude Code read from one shared folder of playbooks, so a fix written once reaches all of them. On 5 November, Claude onboarded a Grok bot in our #tech-general channel: one vendor's agent briefing another vendor's agent, in English, in public. No integration project was required.
+* **It changes at the speed of a conversation.** Editing a paragraph takes a minute.
+
+// SOURCE: dossier §1 "The Bitter Lesson and #ai-related" (Grok permissions; an engineer 6 Nov); §2 "Simple and expressive: local evidence" (shared skills folder; Claude onboarding a Grok bot, 5 Nov)
+Even guardrails can start as English. I noted with some surprise that Grok Bot's permissions were "a list of plaintext directives… rather than a cleanly structured relational model." An older generation of engineers would wince, but non-engineers could read and change it. One of our engineers summed up where this leaves the industry: an agent is "an LLM, running in a loop, calling tools… the company with best/easiest UX/UI will win." The easiest interface ever devised is the language people already speak.
+
+== Workflow Builders Lock In the Steps, and the Steps Are What Change
+
+The instinct to reach for structure is a good one, misapplied. Leaders know that undocumented processes fail, so when agents arrive they want boxes, arrows, a canvas you can show the board. But a diagram fixes the one thing that ought to stay loose, the route, and says little about what ought to be fixed: the outcome, the standard and the reasons.
+
+// SOURCE: dossier §1 "Simple and expressive versus structured" (Glass Factory); §1 case 1
+CorralData's most structured experiment was a pipeline called Glass Factory, which used our ticket tracker as its interface and defined its roles in detailed operating guides. It was behind the worst failure in this book (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]), and by November it had gone quiet. What survived was the idea. "Glass factory mode" (the agent drafts, the team corrects, the corrections feed back, and autonomy expands as the work proves reliable) became the theme of a LinkedIn post by our CEO. The idea could be said in a sentence, so it travelled. The code could not, so it didn't.
+
+[WARNING]
+====
+AUTHOR: Who built Glass Factory, and how would you characterise its winding down? The dossier infers it from the status messages rather than from a decision. If there was a moment you or someone else chose to stop investing in it, a line on why would strengthen this section, and make sure the description is fair to whoever built it.
+====
+
+CorralData is not alone. On 3 June 2026 OpenAI told developers that Agent Builder, its drag-and-drop canvas for designing agents, was being deprecated, with shutdown scheduled for 30 November 2026. Its deprecation notice points users to a migration guide for continuing with its Agents SDK, which is code, or with ChatGPT Workspace Agents.footnote:openaidep[OpenAI. (2026). Deprecations. _OpenAI API documentation_. https://developers.openai.com/api/docs/deprecations] OpenAI gave no reason, and I won't invent one. But notice where users were sent: towards code for precision, and towards a conversational product for everyone else. The canvas in the middle was what went.
+
+Agent builders agree. Reviewing the teams it had worked with, Anthropic found that "the most successful implementations weren't using complex frameworks or specialized libraries." Its advice was to find "the simplest solution possible, and only increasing complexity when needed," and it warned that frameworks "create extra layers of abstraction that can obscure the underlying prompts."footnote:schluntz2024[Schluntz, E., & Zhang, B. (2024, December 19). Building effective agents. _Anthropic_. https://www.anthropic.com/engineering/building-effective-agents] LangChain, which makes a framework, gives the same advice: "Start with a single agent and good prompt engineering."footnote:runkle2026[Runkle, S. (2026, January 14). Choosing the right multi-agent architecture. _LangChain_. https://www.langchain.com/blog/choosing-the-right-multi-agent-architecture] Prompt engineering is a technical name for writing clear English.
+
+To be fair to the builders, n8n now describes itself as a platform for "agents and workflows you can follow."footnote:n8n[n8n. (n.d., accessed 2026, November 6). n8n home page. https://n8n.io/] For stable, high-volume integration between two systems, a diagram is fine. But that is plumbing. It is not how you tell a role what it is for.
+
+[cols="1,2,2",options="header"]
+|===
+| | Workflow builder | Plain-English playbook
+
+| Who can read it
+| The person who built it, and anyone they train
+| Everyone in the organisation, and every agent from every vendor
+
+| Who can change it
+| Usually one person
+| Anyone with edit rights, in a minute
+
+| What it fixes in place
+| The route: each step and branch
+| The outcome, the standards and the reasons
+
+| What happens when the model improves
+| The steps become constraints the model has to work around
+| The same words get better results
+
+| What happens with an unforeseen case
+| Falls off the edge of the diagram
+| The occupant applies the reasons
+
+| Where it's strongest
+| Stable, high-volume plumbing between systems
+| Judgment, preferences, procedure, policy
+|===
+
+== The Bitter Lesson Applies to Management Too
+
+In March 2019 Rich Sutton, one of the founders of reinforcement learning, published a short essay that has become the closest thing the AI field has to a creed. "The biggest lesson that can be read from 70 years of AI research," he wrote, "is that general methods that leverage computation are ultimately the most effective, and by a large margin."footnote:sutton2019[Sutton, R. (2019, March 13). The bitter lesson. _Incomplete Ideas_. http://www.incompleteideas.net/IncIdeas/BitterLesson.html] Chess, Go, speech recognition and computer vision had all followed the same arc. Researchers built their own understanding of the problem into their systems, which helped for a while and was "personally satisfying to the researcher." Then it plateaued, and the clever, hand-built methods were swept away by simpler ones that let computation do the work. "We have to learn the bitter lesson that building in how we think we think does not work in the long run."footnote:sutton2019[]
+
+Sutton was writing about researchers, but every leader will recognise the failure. The manager who writes a twelve-step procedure for a capable new hire is building in how they think they think. It helps on day one. By month three it holds the hire back, because the hire has found a better route and the procedure forbids it.
+
+// SOURCE: dossier §1 "The Bitter Lesson and #ai-related" (29 Oct and 3 Nov posts; an engineer's 7-round loop; an engineer's notes on Boris talk)
+I posted Sutton's essay to our #ai-related channel on 29 October 2026 because I had watched it happen at CorralData. AskCorral, our analytics assistant, was first built in the GPT-3 era, wrapped in scaffolding to make up for what the model couldn't do. We "stripped… out again when models got better." My conclusion for the team was that we should "not be afraid to turn things over to the models to brute force." A few days later I added that getting "too specific with directions" holds you back. The same day, one of our engineers let an agent loop seven rounds on a single high-level instruction, and I noted that the human was "more useful to make sure it is building the right thing" than to steer each step. Months earlier, another engineer had come back from a talk by the Claude Code team with a line in his notes: "Never bet against the model."
+
+The people who build agent systems have reached the same conclusion. Prithvi Rajasekaran at Anthropic put it in one sentence: "every component in a harness encodes an assumption about what the model can't do on its own." When a newer model arrived, his team removed the part of their system that broke work into sprints, and recommended meeting every new model by stripping away "pieces that are no longer load-bearing."footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic_. https://www.anthropic.com/engineering/harness-design-long-running-apps] Browser Use, which builds agents that operate web browsers, replaced thousands of lines of engineered wrappers with about 600, reasoning that the model had already read about the browser's controls millions of times: "It already knows what to do." Their rule: "Don't wrap the LLM. Don't wrap its tools either."footnote:zunic2026[Zunic, G. (2026, April 19). The bitter lesson of agent harnesses. _Browser Use_. https://browser-use.com/posts/bitter-lesson-agent-harnesses]
+
+Anthropic's own guide to Claude Code now carries a table titled "What you can stop doing," listing once-sound advice such as shouting at the model in capital letters. "Most were workarounds for something the model couldn't reliably do yet, and the models have since caught up."footnote:ccbest[Anthropic. (n.d., accessed 2026, November 6). Best practices for Claude Code. _Claude Code documentation_. https://code.claude.com/docs/en/best-practices]
+
+A workflow diagram is a harness drawn in boxes. Every branch is an assumption that the occupant can't be trusted to choose the route, and most will be wrong within a year. A paragraph that states the outcome, the reasons and the limits makes no assumption about the route, so it gets better every time the model does. xref:8-what-and-why-never-how.adoc[Chapter 8] made this argument for briefs. It holds just as strongly for the standing documents that tell a role how its work gets done.
+
+== A Playbook Is an Onboarding Guide, Not a Program
+
+If a playbook isn't a program, what is it? Anthropic's answer, in the post that introduced its Agent Skills, is the best I have found: "Building a skill for an agent is like putting together an onboarding guide for a new hire."footnote:zhang2025[Zhang, B., Lazuka, K., & Murag, M. (2025, October 16). Equipping agents for the real world with Agent Skills. _Anthropic_. https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills] A skill is a folder with a plain-English document at its heart, and since December 2025 an open standard that works with agents from different vendors.footnote:zhang2025[]
+
+That framing changes what you write. A program tells a machine what to do, in order, without explanation. An onboarding guide tells an intelligent adult what the job is for, what good looks like, which judgment calls come up and how to make them, and what to do when stuck.
+
+It also means the same document serves a person and an agent, which is the point. A role outlives its occupant (xref:5-hire-the-role-not-the-model.adoc[Chapter 5]). A playbook only a machine can follow can't be handed to a person on the day the agent fails, and the reverse is true too. Plain English is the one format that works for both.
+
+// SOURCE: dossier §1 case 2 (TAM Bot onboarded with "no initial training other than 'join Slack'")
+At CorralData the clearest proof was TAM Bot's arrival in #tech-general, onboarded in public "with no initial training other than 'join Slack'." The Agentic Resources Bot interviewed it and drafted its Role Charter (xref:9-one-page-per-job.adoc[Chapter 9]). What made it work was English written by people who weren't thinking about TAM Bot at all: channel descriptions, team rules, earlier decisions. The organisation's written English was the onboarding.
+
+Writing a good playbook is mostly writing good English. Orwell's 1946 rules still serve: never use a long word where a short one will do, and "if it is possible to cut a word out, always cut it out."footnote:orwell1946[Orwell, G. (1946, April). Politics and the English language. _Horizon_. Reproduced by The Orwell Foundation. https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/] Open with what the work is for, then what done looks like, then the judgment calls and their reasons, then the traps. Steps belong only where order genuinely matters.
+
+[NOTE]
+.Under the hood
+====
+An Agent Skill is a folder containing a `SKILL.md` file (plain-English instructions with a short name and description at the top) plus any supporting files or scripts. Agents load only each skill's name and description at the start, read the full document when a task matches, and open supporting files only when needed.footnote:zhang2025[] That is why dozens of playbooks don't swamp an agent's attention. See xref:appendix-d-for-your-technical-team.adoc[Appendix D] for folder layout and sharing.
+====
+
+== Policy Can Live in a Playbook Too
+
+The strongest test of plain English is whether it can carry policy: not just "here is how we write a customer update," but "here is what you are and aren't allowed to do." At CorralData it can, and the story is one of two leaders disagreeing in good faith.
+
+// SOURCE: dossier §1 case 7 (non-engineer PRs: 1 Oct to 5 Nov); permalink 27 Oct
+On 1 October our CEO pushed hard for non-engineers to be able to propose changes to our product's code directly, with their agents' help. His frustration was real and, as it turned out, largely right: "it's months of wait for something robots say is low effort and low risk." I pushed back: "it will not be an accelerant to have a bunch of people submitting PRs they have not tested and do not understand." We were both describing a real cost. He saw the queue; I saw the review load that would land on our engineers.
+
+The resolution was not a workflow or a permissions system. On 8 October I added an agreement step to our code-review playbook: a few lines of English that any reviewing agent would follow. When agents kept opening changes the rule didn't allow, the fix was to give them the same written rule. On 4 November, after a month of evidence, I wrote: "I think the bar has moved." On 5 November we replaced the gate with a tiered rule in the same playbook: "Size now sets the evidence a PR needs, not whether it is allowed."
+
+Changing company policy took no engineering ticket and no release. The policy lived in a paragraph every agent read; when the evidence changed, so did the paragraph. Our CEO's instinct that the bar was too high was vindicated, and what let us lower it safely was a plain-English document. That is what an expressive format buys you: policy that keeps pace with trust.
+
+[WARNING]
+====
+AUTHOR: Permission check: this passage describes your disagreement with the CEO over non-engineer code changes (1 October to 5 November), with direct quotes from both of you. It is written to present his impatience as justified and the outcome as a shared win. Confirm it's OK to include, and consider showing it to him before publication.
+====
+
+== Simple at the Surface Doesn't Mean Careless Underneath
+
+None of this means plain English is free. Grok Bot spread across CorralData in days, and its rough edges spread with it. Bots answered only people whose accounts were linked, and woke only when tagged by name. Login tokens broke. One bot reached our private network only through my own machine. For coding, the verdict was "pretty rough."
+
+// SOURCE: dossier §1 "Simple and expressive versus structured" (Grok Bot friction); "Reading" paragraph
+CorralData's safety in those months came not from the English but from structure at a few specific points: lanes that decided which customer messages an agent could send unaided, hard stops around patient data and billing, quality checks tied to a specific version of the code, the size-based evidence rule for proposed changes. The pattern, once I saw it, was clear: a simple, expressive interface, with firm gates at the points where a mistake can't be undone.
+
+Plain English is the right default for describing a role, a procedure, a preference or a policy. But English is read by a model that decides, each time, how to apply it. For most work that is exactly what you want. For a few things it isn't.
+
+[TIP]
+.Try this
+====
+Pick one recurring piece of work you currently explain in person: the weekly customer update, the month-end checklist, how you want board papers drafted. In Claude, ChatGPT or Grok, write it as a one-page playbook in this order:
+
+. **What it's for**: one sentence, starting "To…".
+. **What done looks like**: how you'd judge a good one.
+. **The judgment calls**: the three decisions that come up most, and *why* you make them the way you do.
+. **The traps**: what new people get wrong.
+
+Then open a fresh chat, paste in only the playbook, and ask: "Do this task for [a real example]. Before you start, list anything you'd need to ask me." Every question is a gap in the playbook. Fix the playbook, not the chat. When the questions stop, you could hand it to a new hire or an agent tomorrow.
+====
+
+'''''
+
+The VHS tape and the PHP script were never the best-engineered options. They won because ordinary people could use them for the job they actually had, and each new user made them more valuable to the next. Plain English has both properties, more strongly than any technology before it, and it gets better every time the models do. The Bitter Lesson says the clever structure you build today is the constraint you remove tomorrow. Write your playbooks so there is nothing to remove.
+
+But "almost everything" is not everything. Some work involves arithmetic that must be right every time, facts that must come from a live system, and actions that cannot be taken back. For those, a paragraph followed ninety-nine times in a hundred is not good enough. xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11] sets out when to lock things in, how far, and how to keep the locks from becoming the next thing the models outgrow.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

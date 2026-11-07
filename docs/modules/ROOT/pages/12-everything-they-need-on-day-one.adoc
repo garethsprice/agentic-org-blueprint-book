@@ -1,0 +1,223 @@
+:page-description: The Role Pack: everything a person or agent needs to do a role from day one, kept lean, with the reasons behind every rule and one source of truth.
+:page-llms-description: Chapter 12 defines the Role Pack, the lean package of charter, playbooks, reasons, boundaries and sources of truth that any occupant needs, and how to stop it drifting.
+:page-haiku: Someone built this fence. / Write down why, or the next hand / will tear it away.
+:description: The Role Pack: everything a person or agent needs to do a role from day one, kept lean, with the reasons behind every rule and one source of truth.
+:keywords: onboarding AI agents, agent context and memory, role documentation for agents, AI agent system prompt best practices, keeping agent instructions up to date, explaining rules to AI agents
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: What should I give an AI agent so it can do a job well from the start?
+:page-faq-1-a: Give it a Role Pack: the role's charter (why it exists, what it owns, how its work is accepted), the purpose of the organisation in a paragraph, the playbooks for its recurring work, the boundaries it must not cross, where the live facts are kept, and who to ask when stuck. Attach the reason to every rule. Keep the always-loaded part short and link to the detail. The same pack should let a capable new human hire do the job too.
+:page-faq-2-q: Why do AI agents ignore instructions in long prompts?
+:page-faq-2-a: Because attention thins out as context grows. Research from Chroma across 18 models found performance consistently degrades as input length increases, and an earlier Stanford-led study found models use information at the start and end of a long input better than in the middle. Anthropic's Claude Code guidance says that when a line keeps being missed, the file has often grown long enough that the line gets lost. The fix is a shorter core document with detail loaded only when needed.
+:page-faq-3-q: Should I explain the reasons behind rules to AI agents?
+:page-faq-3-a: Yes. Capable models apply guidelines with judgment, and they can only judge well if they know what a rule is for. Without the reason, an agent will either follow the rule where it no longer makes sense or drop it where it matters most. Anthropic found it helps to tell a model what its memory is for rather than how to use it. Reasons also let a future reviewer tell whether a rule is still needed.
+:page-faq-4-q: Is it safe to copy one AI agent's setup to create another?
+:page-faq-4-a: Only with care. Copying a whole setup copies everything in it, including notes and skills that make no sense for the new role and rules written for someone else's situation. At CorralData, cloned agent profiles meant a calendar assistant carried notes about image generation, and one agent's rule spread to all of them. Package what is genuinely shared as a common playbook with one owner, and give each role only the parts it needs.
+:page-faq-5-q: How do I stop agent instructions and documentation going out of date?
+:page-faq-5-a: Give every shared playbook a named owner, keep facts in the live systems that hold them rather than copying them into documents, and tell agents to trust the live source over the written note and to fix the note when they disagree. Clean up playbooks after prototyping, since quick early versions accumulate errors. Review a role's pack whenever the occupant or the model changes, and delete anything nobody can explain.
+= Chapter 12: Everything They Need on Day One
+
+[.lead]
+_The Role Pack, and the reasons behind every rule_
+
+[quote, G. K. Chesterton, "The Thing, 1929"]
+____
+Some person had some reason for thinking it would be a good thing for somebody. And until we know what the reason was, we really cannot judge whether the reason was reasonable.
+____
+
+.Key Takeaways
+****
+* An agent starts every session on its first day, so a role is only as good as what has been written down for it; the Role Pack is that written-down knowledge, packaged for whoever fills the role next.
+* Lean beats complete: models attend less well as their reading grows, so keep the always-loaded core short and let the occupant pull in detail when a task needs it.
+* Attach the reason to every rule, because a capable occupant uses judgment, and judgment without reasons either breaks the rule at the wrong moment or keeps it long after it has stopped making sense.
+* Role Packs drift unless someone owns them: keep one source of truth, point to live systems instead of copying facts, and treat a cloned or neglected pack as a defect rather than a convenience.
+****
+
+// SOURCE: dossier §2 finding 13 (Role Pack drift from cloned profiles); §2 table (fourteen Hermes profiles)
+When I first looked properly at the fourteen agents running on my own machine at CorralData, I found that my calendar assistant knew how to get the best out of a graphics card for image generation. So did my project manager. Neither had ever been asked to make an image.
+
+I had set most of the agents up by copying an existing one and changing its job. Each copy carried the same library of about sixty playbooks and the same shared notes, including a set I had written while experimenting with image-generation tools. The file of notes about me and my preferences was copied too, which is how a rule I had written for the project manager quietly spread to every agent on the machine. Each agent had a two-line description of its job and a pile of inherited knowledge, most of it irrelevant and some of it wrong for that role.
+
+Nothing dramatic went wrong. That is what makes it instructive. A new human hire handed a binder of someone else's notes would ask which parts applied to them. An agent mostly won't. It reads what it's given and tries to use it, and every irrelevant page competes for its attention with the pages that matter.
+
+This chapter is about what a role's occupant needs to know on day one, how to keep that lean, and why the reasons behind each rule matter as much as the rules. I call the package a Role Pack.
+
+[WARNING]
+====
+AUTHOR: How did you discover that the calendar and PM agents were carrying image-generation notes? Was there a symptom (an odd output, a slow run) or did you find it while auditing? A line on your reaction would make the opening yours rather than the dossier's.
+====
+
+== A New Occupant Knows Only What You Wrote Down
+
+A human new hire arrives with a lifetime of context and picks up more every day, from overheard calls and the person at the next desk. An agent has none of that. Every time it starts work, it knows what the model was trained on, what is in front of it, and nothing else. For an agent, every session is day one.
+
+That makes the old discipline of writing things down more valuable than ever. Michael Gerber built his argument for small businesses on it: document the business so thoroughly that it could be handed to someone new and run the same way, as if you were preparing it to be franchised.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth revisited_. HarperCollins.] For thirty years few founders followed that advice, because the people who knew how things worked were always in the building. Agents remove that excuse. The occupant who most needs the documentation is now in the building every day, and remembers nothing from yesterday unless you arranged for it to.
+
+The cost of thin briefing is well documented. When Anthropic built its multi-agent research system, early versions had a lead agent hand out short, vague instructions to helper agents. The helpers misread their tasks or duplicated each other's searches. The team's conclusion was that each helper "needs an objective, an output format, guidance on the tools and sources to use, and clear task boundaries."footnote:hadfield2025[Hadfield, J., Zhang, B., Lien, K., Scholz, F., Fox, J., & Ford, D. (2025, June 13). How we built our multi-agent research system. _Anthropic_. https://www.anthropic.com/engineering/multi-agent-research-system] That list is the start of a Role Pack.
+
+== What Goes in a Role Pack
+
+A Role Pack is everything a role's occupant needs to know to do the job well, with the reasons behind the rules. It belongs to the role, not the occupant, and it should work whether the occupant is a person, an agent, or a person supervising an agent. Most of its parts are covered elsewhere in this book; the Role Pack is where they come together.
+
+[cols="1,2,2",options="header"]
+|===
+| Part | What it answers | Where this book covers it
+
+| Role Charter
+| Why does this role exist? What does it own? How is its work accepted?
+| xref:9-one-page-per-job.adoc[Chapter 9]
+
+| Story
+| What is the organisation for, in a paragraph anyone can act on?
+| xref:4-know-what-its-for.adoc[Chapter 4]
+
+| Playbooks
+| How does the recurring work get done, and which judgment calls come up?
+| xref:10-bet-on-plain-english.adoc[Chapter 10]
+
+| Reasons
+| Why does each rule exist, and what would make it unnecessary?
+| This chapter; xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11]
+
+| Boundaries
+| What must this role never do, never say, never touch?
+| This chapter; xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]
+
+| Sources of truth
+| Where do the live facts sit, and which source wins in a disagreement?
+| This chapter
+
+| People
+| Who is the Sponsor? Who does this role serve, and who does it escalate to?
+| xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7]
+
+| What it has learned
+| Which corrections and lessons from past work should carry forward?
+| This chapter; xref:16-the-model-isnt-the-problem.adoc[Chapter 16]
+|===
+
+// SOURCE: dossier §2 finding 12 (standup sensitivity rule); finding 7 (humans signal through state); finding 14 (provenance line)
+Some of the most valuable lines in CorralData's Role Packs are boundaries and unwritten rules that a human would pick up by osmosis. My stand-up agent posts a team-facing summary every morning, and its pack says that personnel, pay and acquisition topics never appear in it, however relevant they look in my calendar. My email triage agent's pack explains what I mean when I delete a draft or un-star a message (xref:15-work-in-public.adoc[Chapter 15]). My one-to-one preparation agent stamps every agenda with a line saying which agent and which model prepared it, and for whom, so nobody mistakes it for something I wrote myself.
+
+None of those would appear in a job description. A good human assistant would learn them in a month; an agent never will unless they are written down.
+
+== Lean Beats Complete
+
+The natural response to "the agent knows only what you wrote down" is to write down everything. The evidence says that is a mistake.
+
+Anthropic describes the goal of what it calls context engineering as "finding the smallest possible set of high-signal tokens that maximize the likelihood of some desired outcome."footnote:rajasekaran2025[Rajasekaran, P., Dixon, E., Ryan, C., & Hadfield, J. (2025, September 29). Effective context engineering for AI agents. _Anthropic_. https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents] A token is roughly a word or part of one. The emphasis is on _smallest_. Researchers at Chroma tested 18 models on tasks of increasing length and found that "model performance consistently degrades with increasing input length."footnote:hong2025[Hong, K., Troynikov, A., & Huber, J. (2025, July 14). Context rot: How increasing input tokens impacts LLM performance. _Chroma_. https://www.trychroma.com/research/context-rot] An earlier study led from Stanford found that models use information best when it sits at the beginning or end of what they're reading, and noticeably worse when it's buried in the middle.footnote:liu2023[Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., & Liang, P. (2023). Lost in the middle: How language models use long contexts. arXiv:2307.03172; published in _Transactions of the Association for Computational Linguistics_. https://arxiv.org/abs/2307.03172] The important rule on page nine of a long pack is the rule most likely to be missed.
+
+Anthropic's Claude Code guide draws the practical conclusion. If an agent keeps ignoring a line, adding "IMPORTANT" probably won't help: "Either the file has grown long enough that the line gets lost, or the line is a rule that can't have exceptions."footnote:ccbest[Anthropic. (n.d., accessed 2026, November 6). Best practices for Claude Code. _Claude Code documentation_. https://code.claude.com/docs/en/best-practices] Its advice on what to write down is a good rule for any Role Pack: the agent can find most things for itself, so "Only write down what isn't in there."footnote:ccbest[]
+
+The same discipline applies to people. _Team Topologies_ argues that a team's cognitive load, the amount it has to hold in its head, should be deliberately limited, because overload degrades everything the team does.footnote:skelton2019[Skelton, M., & Pais, M. (2019). _Team topologies: Organizing business and technology teams for fast flow_. IT Revolution.] An agent's attention behaves in much the same way.
+
+Lean does not mean thin. It means layered. A good Role Pack has a short core that is always read (the charter, the Story, the boundaries, the most important judgment calls) and a library behind it that the occupant opens when a task calls for it. Agent Skills work this way by design: an agent first sees only each playbook's name and a one-line description, reads the full playbook when a task matches, and opens supporting files only when needed.footnote:zhang2025[Zhang, B., Lazuka, K., & Murag, M. (2025, October 16). Equipping agents for the real world with Agent Skills. _Anthropic_. https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills] Anthropic's account of agent memory describes the same layering from bottom to top: a searchable record of past sessions, notes the agent writes for itself, more organised references such as wikis, and a small set of context that is loaded into every session.footnote:martin2026[Martin, L. (2026, November 6). The components of agent memory. _Anthropic_. https://www.anthropic.com/engineering/components-of-agent-memory] Only the top layer is always present. Keep it the smallest.
+
+Lean also doesn't mean vague. Anthropic's context-engineering guidance warns of two failure modes: instructions that hard-code "complex, brittle logic," and "vague, high-level guidance that fails to give the LLM concrete signals."footnote:rajasekaran2025[] A good Role Pack sits between them: concrete about outcomes, standards and boundaries, silent on routes the occupant can find for itself.
+
+// SOURCE: dossier §2 finding 2 (thin SOUL, rich job)
+My own agents ended up with this shape by accident. Each has a two-line statement of who it is; the real detail of its job sits in the instructions attached to its scheduled work and in its playbooks. As I put it at the time, that makes an agent "not an assistant with instructions and triggers, but something simpler… The instructions and triggers go on the scheduled job." xref:5-hire-the-role-not-the-model.adoc[Chapter 5] explains why that split matters for roles. For Role Packs, it means the identity stays thin and the knowledge stays with the work.
+
+== Give the Reason, or the Rule Breaks at the Wrong Moment
+
+{empty}G. K. Chesterton imagined a reformer who comes across a fence built across a road and can't see the point of it. The sensible response, he wrote, is not to tear it down but to "Go away and think," and come back when you know why it was put there.footnote:chesterton1929[Chesterton, G. K. (1929). _The thing_, ch. IV, "The drift from domesticity." Text via Wikiquote. https://en.wikiquote.org/wiki/G._K._Chesterton] Every Role Pack is full of fences. The question is whether the next occupant will know why each one is there.
+
+For agents, this is not a nicety. A model reading a guideline "is allowed to decide a guideline doesn't apply."footnote:ccbest[] That is the behaviour you want, but judgment needs material. An agent that knows a rule and not its reason has two choices when a case looks unusual: follow the rule where it no longer makes sense, or drop it where it matters most. Either way, you get the wrong answer at exactly the moment the rule was supposed to help.
+
+Anthropic's work on agent memory found the same thing from the other side. "We've found that it helps to tell Claude what memory is for, but not _how_ to use it," wrote Lance Martin; for stronger models, "giving them freedom to judge salience was more effective than setting fixed rules in advance." In one test, an agent maintaining a wiki let the most important material slip, and the diagnosis was a missing reason: "The contract terms were the most important part of the wiki, but the instructions didn't say that."footnote:martin2026[]
+
+Armies have long worked the same way. Mission command, the doctrine under which subordinates are given the purpose of an operation and left to choose how to achieve it, depends on what soldiers call commander's intent. As one senior US Army general put it, knowing how to communicate intent "is absolutely critical to mission command."footnote:perna2019[Perna, G. F. (2019, November 4). Mission command requires sharp commander's intent. _U.S. Army_. https://www.army.mil/article/215297/mission_command_requires_sharp_commanders_intent] The plan will meet a situation it didn't foresee. The intent tells the person on the ground what to do then.
+
+// SOURCE: dossier §2 finding 4 (corrections become dated rules in skills); §1 case 2 ("Access is not authorization.")
+In CorralData's playbooks, the reasons increasingly arrive with the rules. When I correct an agent, the correction goes into its playbook with my name and the date, and a reason: "(Gareth, 2026-10-15): a bare ticket number is useless — ALWAYS put the ticket title…" The capitals are mine and I'm not proud of them, but the reason is in the sentence, and the date tells a future reviewer how old the assumption is. The best rule I've seen an agent write carries its reason inside it: "Access is not authorization," from the charter the Agentic Resources Bot drafted for TAM Bot (xref:9-one-page-per-job.adoc[Chapter 9]). Any occupant can work out what those four words mean for a case nobody foresaw.
+
+A practical format for any rule is one line for the rule, one for the reason, and, where it helps, the date and the incident that produced it: the label Chapter 11 recommended for every lock-in. It serves both purposes: the occupant can apply the rule with judgment, and the reviewer can tell when the fence is no longer needed.
+
+== Copying a Role Pack Copies Its Mistakes
+
+Copying was the quickest way to make a new agent, and for a while it seemed harmless. But a copied Role Pack is not a template. It is someone else's pack with a new name on it, carrying every irrelevant note, every rule written for another role's situation, and every mistake the original had accumulated. Each irrelevant page is also cognitive load the occupant didn't need.footnote:skelton2019[] The project manager's rule that spread to every agent did no harm that I noticed. The next one might.
+
+[WARNING]
+====
+AUTHOR: Which project-manager rule spread to the other agents through the copied notes file, and did it ever cause a visible problem? If you have a concrete example, it would make this section; if not, confirm that "no visible harm" is accurate.
+====
+
+// SOURCE: dossier §2 finding 11 (package-skill-for-team)
+The fix is to separate what is genuinely shared from what belongs to one role. Shared knowledge, such as how CorralData's ticket tracker is organised, belongs in a common playbook that every relevant role can load, with one owner. Role-specific knowledge belongs only in that role's pack. My project-manager agent now has a playbook for exactly this: it packages one of its own skills for the team, turning my personal settings into options someone else can fill in and warning against anything that depends on "a personal wiki / machine-local path." A person's habit, or a person's laptop, is not a foundation for a role.
+
+== Shared Playbooks Rot Unless Someone Owns Them
+
+// SOURCE: dossier §1 case 12 (a shared skill goes bad, 29 Jul)
+In July 2026 one of our engineers found that a company-wide playbook for building data apps had become, in his words, "full of misinformation and AI slop causing claude desktop creating broken data apps." It had grown during prototyping, and nobody had gone back to check it. Every person and agent that loaded it was being steered wrong by a document whose job was to steer them right. He replaced it with a short "router" playbook that sends each task to the right place. My response to the team was that playbooks are fine for prototyping, but once something works we need "a round of cleanup on the skill files that 'got us there'."
+
+[WARNING]
+====
+AUTHOR: Permission check: this passage quotes one of our engineers describing a shared skill as "full of misinformation and AI slop." Who wrote the original data-apps skill? Confirm the description is fair to them, and consider showing them the passage before publication.
+====
+
+Shared playbooks rot for the same reason shared kitchens do: everyone uses them and nobody is responsible for them. Agents make it worse: they add to a playbook faster than anyone can read it, and they treat whatever is in it as true. Every playbook needs a named owner, and for a role's pack that owner is the role's Sponsor (xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7]), the human accountable for the role's purpose and lifecycle.
+
+// SOURCE: dossier §2 finding 8 (keyring; skill growing "Re-confirmed…" notes)
+Watch for a quieter kind of rot too. One of my agents' playbooks kept growing a new note each time the same login failure recurred (the keyring of xref:2-systems-run-the-business.adoc[Chapter 2]): "Re-confirmed…," over and over. The playbook had turned into a log. The notes were accurate, and each one was a sign that the underlying problem was never being fixed. xref:16-the-model-isnt-the-problem.adoc[Chapter 16] deals with that failure. For the Role Pack, the lesson is that a pack should hold what the occupant needs to do the job, not a diary of what keeps going wrong.
+
+== Trust the Live Source, and Fix the Wiki
+
+Some of what an occupant needs is not knowledge but facts: today's date, who is coming to a meeting, the status of a ticket, a customer's plan. Facts change. A Role Pack that copies them in is out of date the moment it's written.
+
+// SOURCE: dossier §2 finding 13 (CTO wiki: "trust the live source and fix the wiki"); finding 14 (calendar 1-1 prep reconciliation)
+My one-to-one preparation agent learned this the hard way. It once prepared an agenda with the wrong date and an attendee who wasn't coming, because it had trusted the date and attendee list handed to it by its own schedule. Its playbook now tells it never to act on that list alone, and to check it against the actual date and a live pull from the calendar. The CTO wiki that my agents read carries a line for exactly this reason: "trust the live source and fix the wiki."
+
+That sentence has two halves. When the note and the live system disagree, the live system wins. And the occupant's job doesn't end with the right answer: it corrects the note so the next occupant isn't misled. Anthropic recommends the same pattern for agents in general, which it calls just-in-time retrieval: keep lightweight references, such as file paths and links, and load the data when it is needed.footnote:rajasekaran2025[] A Role Pack should therefore point to where facts live rather than repeating them, say which source wins in a disagreement, and make updating the pack part of the job.
+
+Agents are starting to do some of this themselves. Anthropic describes an offline process, which it calls "dreaming," in which an agent reviews the record of its past sessions to correct its notes and improve what gets loaded next time.footnote:martin2026[] It is a machine version of a good employee's end-of-week tidy-up, and it doesn't remove the need for an owner to decide what belongs in the pack.
+
+[NOTE]
+.Under the hood
+====
+For your technical team: in Claude Code, the always-loaded layer of a Role Pack is the project's `CLAUDE.md` file (plus a personal `CLAUDE.local.md` kept out of the shared repository for individual preferences).footnote:ccbest[] Playbooks are skills, loaded on demand. At CorralData, Claude Code and my local agents share one skills folder through file links, so a fix reaches every agent at once; the cloned-profile problem was the other side of that. The packaging playbook replaces personal values with configurable settings. See xref:appendix-d-for-your-technical-team.adoc[Appendix D], and the Role Pack template in xref:appendix-b-templates.adoc[Appendix B].
+====
+
+== A Role Pack Outlives Its Occupant
+
+The real test of a Role Pack comes when the occupant changes.
+
+// SOURCE: dossier §1 case 11 (offboarding QA Bot; training brief for successor)
+In November 2026, CorralData moved its QA work from QA Bot to QA Reviewer, a bot run by our QA lead (xref:17-agentic-resources.adoc[Chapter 17]). Before anything was switched off, she asked to keep the "important knowledge you've aggregated in QA Bot," and QA Bot wrote a training brief for its successor. That brief is a Role Pack, written at the moment it was most needed by the occupant who had the knowledge. The handover worked because the knowledge could be written down in a form another occupant could use.
+
+A good Role Pack makes handover routine rather than heroic. It should pass a simple test: could a new occupant, human or agent, do this role tomorrow from the pack alone, with the Sponsor available for questions? If not, the gaps are the things that currently live in someone's head, or in one agent's private notes, or on one person's laptop. Each of those is a single point of failure. Andy Grove argued that training is among the highest-leverage things a manager can do, because the effort is spent once and the benefit is repeated across everyone who is trained.footnote:grove1983[Grove, A. S. (1983). _High output management_. Random House.] A Role Pack is training that runs every time an occupant starts work.
+
+Put enough good Role Packs together and you have the Blueprint this book keeps returning to: an organisation documented well enough to stand up again tomorrow. Gerber asked founders to imagine handing their business to a stranger.footnote:gerber1995[] With agents, you do that every morning.
+
+[TIP]
+.Try this
+====
+Take the instructions you've given one agent: a Claude Project's instructions, a custom GPT's configuration, a Grok bot's description, or a playbook from Chapter 10. Open a fresh chat, paste them in, and ask:
+
+. "For each rule here, explain in one sentence why it exists. Mark any rule whose reason you can't work out."
+. "If you started this job tomorrow, what would you need to know that isn't here?"
+. "Which parts are irrelevant to this role, duplicated, or in conflict with each other?"
+. "Which facts here should come from a live source instead of being written down?"
+
+For every rule marked in the first answer, add the reason or delete the rule. Cut whatever the third answer flags. You should end with a shorter document that does more.
+====
+
+'''''
+
+A role is only as good as what its occupant knows, and an agent knows only what you wrote down. The Role Pack works when it is lean, so the important parts aren't buried; when every rule carries its reason, so the occupant can use judgment and the reviewer can tell when a rule has had its day; and when one person owns it, so it doesn't rot or spread by copying. Point it at live sources, and ask every occupant to fix it when it is wrong.
+
+Written down, a role can be filled. It still has to be run. xref:13-track-whats-owed.adoc[Chapter 13] turns from what each role knows to what each role owes, and to the Commitment Ledger that checks those promises against evidence.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

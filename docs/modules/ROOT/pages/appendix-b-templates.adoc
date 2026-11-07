@@ -1,0 +1,570 @@
+:page-description: Copy-ready templates for Role Charters, Playbooks, Role Packs, Commitment Ledgers, Friction Reviews and agent onboarding, each with a filled-in example.
+:page-llms-description: Original copy-paste templates for running an organisation of people and agents: Role Charter, tiered Playbook, Role Pack index, Commitment Ledger with status vocabulary, Friction Review, and Agentic Resources onboarding and offboarding checklist, each with a worked mini example.
+:page-haiku: Blank page, ruled and plain. / Fill the lines once, then the work / runs without your voice.
+:description: Copy-ready templates for Role Charters, Playbooks, Role Packs, Commitment Ledgers, Friction Reviews and agent onboarding, each with a filled-in example.
+:keywords: Role Charter template, AI agent job description template, agent playbook template, commitment tracker template, AI incident review template, agent onboarding checklist
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: What should a job description for an AI agent include?
+:page-faq-1-a: The same things a good human job description includes, written as results rather than tasks. Start with a one-sentence outcome line beginning "To…", then the reporting line and the human sponsor, the work the role owns, standards for quantity, quality and behaviour, what the role may do alone, must ask about, and must never do, and how acceptance is checked with evidence. Add whether the role owns its answers or serves another role. Keep it to one page so the agent and its manager can both read it.
+:page-faq-2-q: How do I write a playbook an AI agent can follow?
+:page-faq-2-a: Write it in plain English, as you would for a capable new hire, and give the reason behind each step. Then mark every step with a tier: English for steps that need judgment, script for calculations and lookups that must give the same answer every time, and hard rule for the few steps that are irreversible, such as sending to a customer or paying money. Keep hard rules rare. Most of a good playbook stays in English so the agent can adapt when circumstances change.
+:page-faq-3-q: How do you track what AI agents have promised to do?
+:page-faq-3-a: Keep a Commitment Ledger: one row per promise, with who owes it, who it is owed to, where it was made, the due date, a status and a link to evidence. Use a small fixed set of statuses, and make "done" require evidence that a person or test can check, not the agent's word. Treat "will slip" as a trigger for a decision rather than a status update, and review the ledger on a schedule so nothing sits open without an owner.
+:page-faq-4-q: How do you run a post-mortem when an AI agent makes a mistake?
+:page-faq-4-a: Run a Friction Review. Record what happened with links, what should have happened, and the impact. Ask whether it was a one-off or a class of error. Then find the gap in the system, such as a missing playbook step, a rule in the wrong tier, a missing check, an unclear owner or conflicting instructions. "The model got it wrong" is not an acceptable root cause. Fix the system, add a test built from this failure, name an owner and a date, and check that it stays fixed.
+:page-faq-5-q: What is the checklist for onboarding or retiring an AI agent?
+:page-faq-5-a: To onboard, approve the Role Charter, name a sponsor, give the agent its own identity and the least access the role needs, load its Role Pack, introduce it in a public channel, and run it in shadow mode against a stated evidence bar before it acts alone. To retire it, name a successor, run both in parallel, have the outgoing agent write a handover brief, move its open commitments, revoke its access, and archive rather than delete its memory and logs.
+= Appendix B: Templates
+
+[.lead]
+_Role Charter, Playbook, Role Pack, Commitment Ledger, Friction Review_
+
+These templates are the paperwork of the book: the documents that turn an idea in a chapter into something a person or an agent can act on tomorrow morning. Each one has a short note on how to use it, a blank version you can copy into a document or paste into Claude, ChatGPT or Grok, and a filled-in example.
+
+The examples all come from one fictional company, so you can see how the documents connect. *Larkspur Supply* is a 22-person distributor of dental consumables. It has a founder-CEO, an operations lead, a finance lead, a small sales team, a warehouse crew, and a growing set of agents in its team chat. The company, people and figures are invented.
+
+Two rules apply to every template. First, write results, not steps, wherever you can; the steps belong in Playbooks, and the Playbook belongs to the role (xref:8-what-and-why-never-how.adoc[Chapter 8]). Second, every document has an owner and a review date. A template nobody owns drifts as surely as a skill nobody owns (xref:12-everything-they-need-on-day-one.adoc[Chapter 12]).
+
+A useful habit: paste a blank template into your AI app with the instruction "Interview me one question at a time to fill this in. Push back where my answers are vague." You will get a better first draft than if you fill it in alone.
+
+== Role Charter
+
+*How to use it.* One charter per role, not per occupant. If one agent holds three roles, it has three charters; if a person and an agent share a role, they share one. Write the outcome line first and spend the most time on it: it should say why the role exists in a sentence that starts "To…". Then write acceptance before you write the work, because how you will check the result shapes what you ask for. Run the role coherence test at the end: are the kind of work, the level of judgment and the available occupants consistent? If not, split the role. Chapters: xref:5-hire-the-role-not-the-model.adoc[5] and xref:9-one-page-per-job.adoc[9].
+
+[source,text]
+----
+ROLE CHARTER
+
+Role:                    [name of the position, not the occupant]
+Outcome line:            To [result], so that [why it matters].
+Reports to:              [the role this one answers to]
+Sponsor:                 [the human accountable for this role's agents]
+Current occupant(s):     [person / agent / both]
+Owns or serves:          [Owns its answers | Serves another role: which]
+
+THE WORK (results this role produces)
+1.
+2.
+3.
+
+STANDARDS
+Quantity:                [how much, how often, by when]
+Quality:                 [what "good" looks like; error tolerance]
+Behaviour:               [tone, disclosure, how it treats colleagues
+                          and customers]
+
+AUTHORITY
+May do alone:
+Must ask first (whom):
+Must never do:
+
+ACCEPTANCE
+How the result is checked:
+Who or what checks it:   [person / test / independent reviewer]
+Evidence required:       [link, record, screenshot from a human]
+
+HANDOFFS
+Receives work from:
+Hands work to:
+Escalates to (and when):
+
+Role Pack:               [link]
+Charter owner:           [name of role]     Last reviewed: [date]
+
+Coherence check:  Same kind of work?  Same level of judgment?
+                  Same available occupants?   [Y/N each]
+----
+
+*Example.* Larkspur's collections work used to sit with the finance lead, who chased overdue invoices on Friday afternoons when she remembered. The charter below moved it to a role, filled by an agent with the finance lead as sponsor.
+
+[source,text]
+----
+ROLE CHARTER
+
+Role:                    Collections Clerk
+Outcome line:            To turn overdue invoices into paid invoices
+                         without damaging a customer relationship, so
+                         that cash arrives when the forecast says it will.
+Reports to:              Finance Lead
+Sponsor:                 Finance Lead
+Current occupant(s):     Ledger Bot (agent)
+Owns or serves:          Owns its answers
+
+THE WORK
+1. Every overdue invoice has a current status and a next step.
+2. Customers hear from us before day 15 overdue, politely and accurately.
+3. Disputes reach the account owner in sales within one working day.
+
+STANDARDS
+Quantity:   Every invoice over 7 days overdue reviewed each weekday by 10:00.
+Quality:    Zero reminders sent for invoices already paid or credited.
+            Amounts and dates match the accounting system exactly.
+Behaviour:  Signs every message "Ledger Bot, Larkspur Accounts, on behalf
+            of [Finance Lead]". Never threatens. Never discusses another
+            customer.
+
+AUTHORITY
+May do alone:        Draft reminders; post status to #finance; open
+                     dispute tickets.
+Must ask first:      Send any reminder (Finance Lead approves in #finance
+                     during the first 30 days; see Agentic Resources review).
+Must never do:       Change an invoice, issue a credit, promise a payment
+                     plan, or contact a customer marked "account hold".
+
+ACCEPTANCE
+Checked by:          Weekly sample of 10 reminders reviewed by Finance Lead.
+Evidence:            Each reminder links to the invoice record it used,
+                     pulled at send time.
+
+HANDOFFS
+Receives:  Invoice list from the accounting system (live).
+Hands to:  Account owner in Sales (disputes), Finance Lead (write-offs).
+Escalates: Anything over £5,000, or any customer reply that is angry.
+
+Role Pack:      /roles/collections-clerk/
+Charter owner:  Finance Lead          Last reviewed: 2026-11-03
+Coherence:      Y / Y / Y
+----
+
+== Playbook
+
+*How to use it.* A Playbook is a documented procedure for one recurring piece of work, written in plain English for a capable newcomer. Give the reason for each step; an occupant that knows why can handle the case you did not foresee. Then mark every step with its tier from xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11]:
+
+[cols="1,1,3",options="header"]
+|===
+|Marker |Tier |Use it when
+
+|`[E]`
+|English
+|The step needs judgment, tone or adaptation. This is the default.
+
+|`[S]`
+|Script
+|The step is a calculation, lookup or check that must give the same answer every time.
+
+|`[H]`
+|Hard rule
+|The step is irreversible or a security boundary, and the software must enforce it whatever the occupant decides.
+|===
+
+If more than a few steps are `[H]`, you are probably encoding preferences as rules. Record the date and reason next to every `[S]` and `[H]` step so you can review it when the models improve.
+
+[source,text]
+----
+PLAYBOOK
+
+Name:            [verb + object, e.g. "Chase an overdue invoice"]
+Owning role:     [role]
+Trigger:         [schedule or event]
+Purpose:         [one sentence: what this achieves and why]
+Done means:      [the checkable end state]
+
+STEPS
+1. [E|S|H] [what to do]
+   Why: [the reason]
+2. [E|S|H]
+   Why:
+...
+
+IF THINGS GO WRONG
+- [situation] -> [what to do, whom to tell]
+
+LOCK-IN LOG
+[date] Step [n] moved to [S|H] because [reason]. Review at next model change.
+
+Owner: [role]    Last reviewed: [date]
+----
+
+*Example.*
+
+[source,text]
+----
+PLAYBOOK
+
+Name:          Chase an overdue invoice
+Owning role:   Collections Clerk
+Trigger:       Weekdays 09:00
+Purpose:       Get paid on time while keeping the customer glad to
+               order again.
+Done means:    Each invoice over 7 days overdue has a reminder sent or
+               a recorded reason for not sending, by 10:00.
+
+STEPS
+1. [S] Pull the overdue list live from the accounting system.
+   Why: copies go stale; we once chased an invoice paid the day before.
+2. [S] Remove invoices that are paid, credited, disputed or on hold.
+   Why: this is a fact check, not a judgment, so it must be identical
+   every time.
+3. [E] For each remaining invoice, read the last three messages with
+   the customer and decide on tone: first reminder, firm reminder, or
+   phone call needed.
+   Why: a customer who has just complained about a late delivery needs
+   a different note from one who forgets every month.
+4. [E] Draft the reminder. Plain language, the amount, the invoice
+   number and title, how to pay, and a named human to contact.
+   Why: a bare invoice number makes customers dig; the title saves them.
+5. [H] Sending requires the Finance Lead's approval in #finance.
+   Why: a wrong reminder to a customer cannot be unsent.
+6. [S] Log the action and the evidence link in the Commitment Ledger.
+   Why: the weekly review samples from the ledger, not from memory.
+
+IF THINGS GO WRONG
+- Customer disputes the amount -> stop, open a dispute ticket, tag the
+  account owner in Sales in #finance.
+- Accounting system unreachable -> send nothing; post in #finance.
+
+LOCK-IN LOG
+2026-10-21 Step 2 moved to [S] after a reminder went to a customer
+           whose credit note was in the system (Friction Review FR-07).
+2026-10-01 Step 5 set to [H] for the first 30 days. Review 2026-11-01.
+
+Owner: Finance Lead    Last reviewed: 2026-11-03
+----
+
+== Role Pack Index
+
+*How to use it.* The Role Pack is everything a role's occupant needs to know (xref:12-everything-they-need-on-day-one.adoc[Chapter 12]). The index is its front page: a short list of what is always loaded, what to fetch when needed, and where the live truth lives. Keep the always-loaded part brief; link to the rest. Every rule carries its reason. List what is deliberately *not* in the pack, so nobody copies it in later.
+
+[source,text]
+----
+ROLE PACK INDEX: [role]
+
+ALWAYS LOADED (keep it under a page)
+- Role Charter:            [link]
+- The Story, in brief:     [two or three sentences from the company story]
+- Rules that matter most, with reasons:
+  1. [rule] because [reason]
+  2.
+  3.
+
+LOAD WHEN NEEDED
+- Playbooks:               [links]
+- Templates and examples:  [links]
+- Reference:               [policies, price lists, glossaries]
+
+LIVE SOURCES (trust these over any copy)
+- [system]: [what it is the truth for]
+
+LESSONS LEARNED (dated; merge into Playbooks or delete at review)
+- [date] [lesson] (source: [link])
+
+NOT IN THIS PACK, ON PURPOSE
+- [item] because [reason]
+
+Pack owner: [role]     Last reviewed: [date]     Next review: [date]
+----
+
+*Example.*
+
+[source,text]
+----
+ROLE PACK INDEX: Collections Clerk
+
+ALWAYS LOADED
+- Role Charter: /roles/collections-clerk/charter
+- The Story, in brief: Larkspur exists so that small dental practices
+  never run out of what they need mid-week. We are the supplier who
+  picks up the phone. Collections should sound like that too.
+- Rules that matter most:
+  1. Pull figures live at send time, because copies go stale.
+  2. Never contact an "account hold" customer, because those are in
+     legal or commercial negotiation and one message can undo it.
+  3. Sign every message as Ledger Bot, because customers have a right
+     to know when they are talking to an agent.
+
+LOAD WHEN NEEDED
+- Playbooks: Chase an overdue invoice; Log a dispute; Month-end summary
+- Templates: First reminder, Firm reminder, Dispute acknowledgement
+- Reference: Payment terms policy (v3), Customer tiers list
+
+LIVE SOURCES
+- Accounting system: invoice status, credits, payments
+- CRM: account owner, account hold flag
+- #finance channel: approvals and escalations
+
+LESSONS LEARNED
+- 2026-10-14 Practices close on Wednesday afternoons in two regions;
+  don't send then. (source: thread in #finance)
+
+NOT IN THIS PACK, ON PURPOSE
+- Sales pipeline and pricing negotiations, because collections must not
+  trade discounts for payment.
+
+Pack owner: Finance Lead   Last reviewed: 2026-11-03   Next: 2026-12-01
+----
+
+== Commitment Ledger
+
+*How to use it.* The ledger tracks what each role owes, not what it has done (xref:13-track-whats-owed.adoc[Chapter 13]). One row per promise, whoever made it: a person in a meeting, an agent in a channel, a role on a schedule. The rule that makes it work is that "done" needs evidence someone else can check. A draft is not evidence. An agent saying "done" is not evidence. Review the ledger on a fixed schedule, and lead every review with the rows that need a decision.
+
+[cols="1,2,1,3",options="header"]
+|===
+|Column |Meaning |Column |Meaning
+
+|ID |Short unique reference |Due |Date owed
+|Owed by |The role (and current occupant) |Status |From the vocabulary below
+|Owed to |Who is waiting |Evidence |Link a person or test can check
+|Commitment |What was promised, in one line |Next |The next action and who takes it
+|Source |Where the promise was made (link) | |
+|===
+
+.Status vocabulary
+[cols="1,3",options="header"]
+|===
+|Status |Meaning and rule
+
+|`OPEN`
+|Recorded, not started. Must have an owner and a due date within a day of being recorded.
+
+|`ON TRACK`
+|In progress and expected on time. The owner can say why, with reference to similar past work.
+
+|`AT RISK`
+|Might slip. State what would bring it back.
+
+|`WILL SLIP`
+|Will miss the date. This is an intervention trigger, not a status note: it goes to the top of the next review for a decision.
+
+|`BLOCKED`
+|Cannot proceed without someone else. Name them and what is needed.
+
+|`DONE`
+|Delivered, with an evidence link. Only the person or check named in acceptance may set this.
+
+|`RELEASED`
+|No longer owed, by agreement: handed to another role, declined as "not my call", or cancelled by the person it was owed to. Not the same as done.
+|===
+
+[source,text]
+----
+ID | Owed by | Owed to | Commitment | Source | Due | Status | Evidence | Next
+----
+
+*Example.*
+
+[cols="1,2,2,3,1,1,2",options="header"]
+|===
+|ID |Owed by |Owed to |Commitment |Due |Status |Evidence / Next
+
+|C-112
+|Collections Clerk (Ledger Bot)
+|Finance Lead
+|Weekly overdue summary for Monday finance meeting
+|10 Nov
+|`ON TRACK`
+|Draft due Fri; three prior summaries on time
+
+|C-113
+|Ops Lead
+|Customer (practice in Leeds)
+|Replacement order for damaged delivery
+|7 Nov
+|`DONE`
+|Courier proof of delivery, linked
+
+|C-114
+|Sales Account Owner
+|Collections Clerk
+|Confirm whether £2,300 disputed invoice is valid
+|6 Nov
+|`WILL SLIP`
+|Owner on leave; decision needed: reassign or extend?
+
+|C-115
+|Order Desk (Order Bot)
+|CEO
+|"Look into" bulk discount request from group practice
+|—
+|`RELEASED`
+|Not the Order Desk's call; moved to Sales as C-116
+|===
+
+Note C-115: the CEO asked an agent to "look into" a pricing decision. The agent's charter does not include pricing, so the right status is `RELEASED` with a handoff, not `DONE` and not left open.
+
+== Friction Review
+
+*How to use it.* Run one whenever the same kind of thing goes wrong twice, or anything goes wrong once at an irreversible point (xref:16-the-model-isnt-the-problem.adoc[Chapter 16]). The aim is a system fix, so two root causes are not accepted on their own: "the model made a mistake" and "someone forgot". Both may be true; neither is a fix. Keep it to a page, write it in a public channel or shared document, and do not close it until the check you added has passed for a stated period.
+
+[source,text]
+----
+FRICTION REVIEW  FR-[number]
+
+Raised by:         [name of role]          Date:
+Severity:          [irreversible | customer-visible | internal]
+
+WHAT HAPPENED (facts and links only)
+
+WHAT SHOULD HAVE HAPPENED
+
+IMPACT
+
+ONE-OFF OR CLASS?
+[Could the same thing happen elsewhere? Where?]
+
+WHERE THE SYSTEM HAS A GAP (tick all that apply)
+[ ] No playbook, or the playbook is silent on this case
+[ ] Rule in the wrong tier (English where it needed a script or hard rule,
+    or a hard rule that should be judgment)
+[ ] Missing or weak acceptance check
+[ ] Stale or missing information in the Role Pack
+[ ] No owner, or the owner didn't know
+[ ] Two principals giving conflicting instructions
+[ ] Too much access, or too little
+[ ] Genuine capability limit of the current occupant
+Explanation:
+
+THE FIX
+Change:            [what changes in the system]
+Tier:              [E | S | H]
+Test from this failure: [the case that will catch it next time]
+Fix owner:         [role]               Due:
+
+CLOSED WHEN
+[The check that proves it stays fixed, and for how long]
+
+Closed on: [date]       Lesson saved to: [Playbook / Role Pack link]
+----
+
+*Example.*
+
+[source,text]
+----
+FRICTION REVIEW  FR-07
+
+Raised by:   Finance Lead              Date: 2026-10-20
+Severity:    Customer-visible
+
+WHAT HAPPENED
+Ledger Bot drafted a firm reminder to a practice for £840. The Finance
+Lead approved it without opening the record. The practice had been
+issued a credit note for the full amount on 16 Oct. The practice
+manager replied, annoyed, in a thread that was then forwarded to the CEO.
+
+WHAT SHOULD HAVE HAPPENED
+The invoice should have been excluded as credited.
+
+IMPACT
+One irritated customer; one apology call by the CEO.
+
+ONE-OFF OR CLASS?
+Class. Any invoice credited after the morning list was built could be
+chased. Two more found in the last month, both caught by luck.
+
+WHERE THE SYSTEM HAS A GAP
+[x] Rule in the wrong tier: "check for credits" was an English step the
+    agent did from a list exported at 07:00.
+[x] Missing or weak acceptance check: approval was a glance, not a check.
+Explanation: The approval step gave a feeling of safety that wasn't
+there. Approvals ran at 100% for three weeks.
+
+THE FIX
+Change:   Exclusions (paid, credited, disputed, on hold) become a script
+          that runs against the live system at send time, and the
+          approval card shows the live status beside the draft.
+Tier:     S
+Test:     Five historic invoices credited between list and send time,
+          added to the weekly test set; all must be excluded.
+Owner:    Ops Lead (systems)          Due: 2026-10-24
+
+CLOSED WHEN
+Zero reminders on paid or credited invoices for 30 days, and the test
+set passes every week.
+
+Closed on: 2026-11-24 (planned)  Lesson saved to: Playbook step 2
+----
+
+== Agent Onboarding and Offboarding Checklist
+
+*How to use it.* This is the Agentic Resources checklist from xref:17-agentic-resources.adoc[Chapter 17]: what the function (a person, a bot, or both) confirms when an agent joins a role, changes autonomy, or leaves. Use the same checklist when a role moves to a new model; that is an offboarding and an onboarding at once. Do it in a public channel, so the team sees who has joined and what it is allowed to do.
+
+[source,text]
+----
+AGENT ONBOARDING                    Agent:           Role:
+                                    Sponsor:         Date:
+
+BEFORE IT STARTS
+[ ] Role Charter written and approved by the role's manager
+[ ] Sponsor named (one human, accountable for purpose and lifecycle)
+[ ] Checked for an existing agent in the same role (no duplicates)
+[ ] Its own identity: own account, own name, never a person's login
+[ ] Disclosure signature set ("[Agent], on behalf of [role/sponsor]")
+[ ] Access granted: least needed for the charter, listed here:
+[ ] Role Pack loaded; nothing copied from another agent's memory
+[ ] Hard rules in place for the irreversible steps
+
+FIRST WEEKS
+[ ] Introduced in a public channel: what it does, whom to ask
+[ ] Shadow mode: drafts only, compared against human work
+[ ] Evidence bar for going live stated in advance: [e.g. 20 drafts,
+    zero factual errors, 10 working days]
+[ ] Commitment Ledger rows created for its scheduled work
+[ ] Acceptance tests running
+
+AUTONOMY REVIEW (repeat for each step up)
+[ ] Evidence bar met, with links (not "it seems fine")
+[ ] Sponsor and role manager agree
+[ ] Change announced in the public channel
+[ ] Next review date:
+
+AGENT OFFBOARDING                   Agent:           Role:
+                                    Reason:          Date:
+
+[ ] Successor named (agent, person, or role closed)
+[ ] Parallel run: both occupants on the same work for [period]
+[ ] Outgoing agent writes a handover brief for its successor
+[ ] Lessons learned merged into the Role Pack
+[ ] Open Commitment Ledger rows moved to the successor, by name
+[ ] Scheduled jobs moved or switched off
+[ ] Access and credentials revoked; identity disabled
+[ ] Memory and logs archived, not deleted; retention date set
+[ ] Departure announced in the public channel; org chart updated
+----
+
+*Example.* In October, Larkspur found it had two agents answering stock questions in team chat: one the CEO had set up, one the warehouse lead had built. They gave different answers about back-order dates. Agentic Resources (here, the operations lead with a checklist) ran the offboarding on the CEO's bot and the onboarding review on the warehouse lead's.
+
+[source,text]
+----
+AGENT OFFBOARDING          Agent: StockCheck (CEO's)   Role: Stock Desk
+                           Reason: duplicate role      Date: 2026-10-28
+
+[x] Successor: Shelf Bot (sponsor: Warehouse Lead, closest to the work)
+[x] Parallel run: 5 working days, answers compared in #ops; Shelf Bot
+    matched the warehouse system 41/41, StockCheck 36/41
+[x] Handover brief: StockCheck listed the 12 customers who ask most,
+    and the supplier whose dates are usually late
+[x] Lessons merged into Shelf Bot's Role Pack (2 of 3; third was wrong)
+[x] Open ledger rows: C-098, C-101 moved to Stock Desk (Shelf Bot)
+[x] Scheduled 08:00 stock digest moved to Shelf Bot
+[x] Access revoked; account disabled
+[x] Logs archived to /agents/archive/stockcheck/, keep until 2027-10-28
+[x] Announced in #general: "Stock questions now go to Shelf Bot."
+----
+
+[WARNING]
+====
+AUTHOR: Would you like one CorralData example alongside the fictional ones, such as a lightly redacted version of the Role Charter the Agentic Resources Bot drafted for TAM Bot? If so, it needs a permission check with our CEO and CS lead, since it records the Lane A disagreement.
+====
+
+'''''
+
+None of these documents is clever. Their value comes from being filled in, owned and reviewed. Start with one Role Charter for the agent that worries you most, and let the rest follow when you need them. xref:appendix-c-worked-example.adoc[Appendix C] shows a whole function run with them end to end, and xref:appendix-g-ai-org-design-advisor.adoc[Appendix G] gives you an advisor that will help you draft them.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+
+{page-faq-2-q}::
+{page-faq-2-a}
+
+{page-faq-3-q}::
+{page-faq-3-a}
+
+{page-faq-4-q}::
+{page-faq-4-a}
+
+{page-faq-5-q}::
+{page-faq-5-a}

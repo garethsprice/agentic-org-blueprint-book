@@ -1,0 +1,243 @@
+:page-description: Why your org chart should be a chart of roles, not agents: how one AI agent can hold several roles, when separate agents earn their place, and the role coherence test.
+:page-llms-description: Chapter 5 of The Blueprint: a role is not an agent. One occupant can hold several chartered roles; the number of agents is a separate staffing decision; apply the role coherence test.
+:page-haiku: One mind, many hats, / each hat with its own small page. / The hat outlasts it.
+:description: Why your org chart should be a chart of roles, not agents: how one AI agent can hold several roles, when separate agents earn their place, and the role coherence test.
+:keywords: single agent vs multi-agent, AI agent roles, org chart for AI agents, role vs agent, agent skills library, duplicate AI agents
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: Should I build one AI agent or many?
+:page-faq-1-a: Start with fewer than you think. Current evidence from LangChain, Anthropic and academic work favours one capable agent loading different skills for different jobs, until you hit a clear limit. Separate agents earn their place when work can run in parallel and mostly reads rather than writes, when it needs different access or a different accountable person, or when one agent's skill library grows so large that similar skills get confused. Draw the roles first; deciding how many agents fill them is a separate, later choice.
+:page-faq-2-q: What is the difference between a role and an agent?
+:page-faq-2-a: A role is a position on the org chart: an outcome, the work, the standards and how acceptance is checked, written in a Role Charter. An agent is an occupant, a model with instructions, tools and access that fills one or more roles. People are occupants too. Keeping the two apart means a role survives when its occupant changes, whether that's a new model release, a different vendor, or a person moving on, because everything the role needs is written down in the charter rather than living inside the agent.
+:page-faq-3-q: What is the role coherence test?
+:page-faq-3-a: A check that a role holds together. Within one role, keep three things consistent: the kind of work (reading versus changing things, routine versus novel), the level of judgment it needs, and the occupants who could actually hold it. If a role mixes routine drafting with decisions only a human may make, or junior tasks with senior calls, split it. Incoherent roles are why one agent's quality varies wildly from task to task and why nobody can say who should fill it.
+:page-faq-4-q: Why do companies end up with duplicate AI agents doing the same job?
+:page-faq-4-a: Because agents get built around whoever needed one first, not around a role on the chart. Two people with the same problem each build a bot, and both bots accumulate useful knowledge. The fix is to draw the role once, give it one sponsor, and treat each bot as a candidate occupant. Run them side by side against the role's standards, keep the better one, and transfer what the other learned before it is switched off.
+:page-faq-5-q: How do I keep an AI agent's job working when I switch to a new model?
+:page-faq-5-a: Put the job in the role, not the agent. Keep the agent's identity thin, a name and a one-line mission, and put the outcome, standards, playbooks and acceptance checks in documents any occupant can load. Avoid anything tied to one person's machine or private notes. When a new model arrives, run it in parallel against the same standards before you switch, and use the change as a chance to remove instructions that existed only to work around the old model's limits.
+= Chapter 5: Hire the Role, Not the Model
+
+[.lead]
+_Roles that survive a new model release or a resignation_
+
+[quote, William Shakespeare, "As You Like It, Act II, Scene VII, c. 1599"]
+____
+All the world's a stage, +
+And all the men and women merely players; +
+They have their exits and their entrances, +
+And one man in his time plays many parts
+____
+
+.Key Takeaways
+****
+* A role is a position on the org chart and an agent is an occupant; keeping them apart lets the role survive a new model, a new vendor or a resignation.
+* The evidence favours fewer agents than most people expect: one capable agent loading the right playbook for each role often matches a team of agents at about half the token cost.
+* One occupant can hold several roles, but each role keeps its own charter, and a role must pass the coherence test: one kind of work, one level of judgment, one realistic set of occupants.
+* Duplicate bots are a sign that agents were built around people's needs rather than roles on the chart; the fix is to draw the role once and treat each bot as a candidate.
+****
+
+// SOURCE: dossier §2 finding 2 (Thin SOUL, rich job; Gareth, 9 Oct)
+In October I was tidying up the agents that run on my own workstation. There were fourteen of them by then: a calendar assistant, an inbox triager, a project manager, a promise-keeper that tracks what I've committed to, a nightly note filer, and others. Each has a short identity file, which the software calls its soul. Read side by side, almost all were two lines: a job title and a one-sentence mission. Everything that made the calendar assistant different from the project manager lived somewhere else, in the instructions attached to its scheduled jobs and in the playbooks it loaded. All fourteen ran on the same model.
+
+I wrote a note to myself on 9 October: "So this makes an agent not an assistant with instructions and triggers, but something simpler, right? The instructions and triggers go on the scheduled job."
+
+I'd stumbled on a distinction every organisation designer knows and almost every agent builder ignores: the thing on the org chart is a role, and the thing that fills it is an occupant. I had fourteen roles and, in a real sense, one occupant wearing fourteen hats. This chapter is about why that's the right way to think about your agents, and what it changes about how many you need.
+
+[WARNING]
+====
+AUTHOR: How did that 9 October realisation feel at the time? Was it a relief (simpler than you'd thought), a worry (fourteen agents that were really one), or something else? A sentence of your reaction would make the opening land.
+====
+
+== A Role Is a Position; an Agent Is an Occupant
+
+Gerber's advice to small business owners was to organise around positions, not personalities: draw the chart of jobs the business needs, write down what each is accountable for, and only then decide who does them, even when the answer is "me" for most of the boxes.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth Revisited_. HarperCollins.] His reason was durability: a business organised around people changes shape every time someone leaves, while one organised around positions keeps its shape.
+
+Agents make this point sharper, because their occupants change far more often than people do. A model release is a resignation on a schedule: every few months the occupant you tuned your instructions for is replaced by one that is more capable and different in ways nobody fully documents. Vendors change their products and prices; your team switches apps. If the job lives inside the agent, in its prompt, its memory, its accumulated habits, the job goes with it.
+
+Anthropic's engineers make the same point about the scaffolding they build around models: "every component in a harness encodes an assumption about what the model can't do on its own," and when a new model lands they re-examine the harness and remove what no longer helps.footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic Engineering_. https://www.anthropic.com/engineering/harness-design-long-running-apps] That's only possible if you can tell which parts are the job and which parts are workarounds for the current occupant. A role written down separately is how you tell.
+
+So the rule for this part of the book is simple: *the org chart is a chart of roles.* Each role has an outcome line, starting "To…", and a Role Charter (xref:9-one-page-per-job.adoc[Chapter 9]). How many agents fill those roles, and which, is a staffing decision you make afterwards, and change whenever the evidence says to.
+
+== The Evidence Says Fewer Agents Than You Think
+
+The instinct of a leader who has just discovered agents is to hire one for every job: a sales agent, a support agent, a QA agent, a legal agent, each with its own name and avatar. It feels like building a team. The research says to slow down.
+
+LangChain, which makes widely used agent-building software, puts the consensus bluntly: "Start with a single agent and good prompt engineering," and "graduate to multi-agent patterns only when you hit clear limits."footnote:runkle2026[Runkle, S. (2026, January 14). Choosing the right multi-agent architecture. _LangChain Blog_. https://www.langchain.com/blog/choosing-the-right-multi-agent-architecture] Anthropic's guidance has said the same since 2024: "we recommend finding the simplest solution possible, and only increasing complexity when needed."footnote:schluntz2024[Schluntz, E., & Zhang, B. (2024, December 19). Building effective agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/building-effective-agents]
+
+The mechanism that makes a single agent go further than it used to is the skill: a folder of instructions and resources that an agent loads only when the task calls for it. Anthropic introduced skills as a way of "transforming general-purpose agents into specialized agents," instead of "building fragmented, custom-designed agents for each use case," and describes writing one as "like putting together an onboarding guide for a new hire."footnote:zhang2025[Zhang, B., Lazuka, K., & Murag, M. (2025, October 16). Equipping agents for the real world with Agent Skills. _Anthropic Engineering_. https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills] LangChain calls the result a "quasi-multi-agent architecture": one agent, many specialisms, loaded on demand.footnote:runkle2026[]
+
+In my terms, a skill is a playbook for a role.footnote:zhang2025[] One agent loading the QA playbook is, for the length of that task, the QA occupant.
+
+=== The Numbers
+
+In January 2026 Xiaoxiao Li published a study that tested this directly.footnote:li2026[Li, X. (2026). When single-agent with skills replace multi-agent systems and when they fail. _arXiv_, 2601.04748. https://arxiv.org/abs/2601.04748] (I shared it in our AI channel in October.) The paper takes multi-agent systems, where several specialised agents pass work between them, and compiles each into a single agent that picks from a library of skills. Across three standard benchmarks for maths, coding and multi-step question answering, the single agent stayed competitive on accuracy while using on average 53.7% fewer tokens, the unit of work you pay for, and finishing 49.5% faster.footnote:li2026[]
+
+The same paper found the limit. Choosing the right skill stayed above 90% accurate with up to about twenty skills, then degraded steadily past thirty. The author's fitted estimates put the point where accuracy halves at around 84 to 92 skills, and the practical guidance at roughly 50 to 100.footnote:li2026[] The decline wasn't only about size. Skills that resembled each other were confused more often: "semantic confusability among skills also plays a central role in this degradation."footnote:li2026[]
+
+That last finding is the one leaders should remember, because it's an org design finding. An occupant handed several roles with blurry boundaries will mix them up, as a person does with two overlapping jobs. The cure is the same for both: clearer roles, not more occupants.
+
+None of this means separate agents never pay off. Anthropic's research system, with a lead agent directing several researchers in parallel, "outperformed single-agent Claude Opus 4 by 90.2%" on its internal research test, while using "about 15× more tokens than chats."footnote:hadfield2025[Hadfield, J., Zhang, B., Lien, K., Scholz, F., Fox, J., & Ford, D. (2025, June 13). How we built our multi-agent research system. _Anthropic Engineering_. https://www.anthropic.com/engineering/multi-agent-research-system] That's a good trade for broad research that splits cleanly into parallel threads. It's a poor one for work that runs step by step, where splitting it between agents makes results worse. xref:6-one-boss-few-reports.adoc[Chapter 6] takes up when and how to split work between agents. For this chapter, the conclusion is narrower: draw the roles you need, then fill them with as few agents as the work allows.
+
+== Keep the Identity Thin and the Job Rich
+
+My fourteen agents had arrived, by accident, at a sound design: a thin identity and a rich job. It's worth making deliberate.
+
+// SOURCE: dossier §2 "The agent org chart as it stands" table (cto-wiki-updater generic SOUL; daily-standup empty shell)
+The evidence that the identity layer barely matters was on the same machine. One agent, the one that tidies our CTO wiki every Sunday, had no persona at all, just the generic default identity, and did its job perfectly well, because its job was fully described in its scheduled instructions and playbooks. Another, an old daily-standup agent, had a perfectly good identity and no job at all, replaced months earlier by a newer agent and never removed. A name with nothing behind it is not a role. It's a vacancy that looks filled.
+
+[cols="1,2,2",options="header"]
+|===
+| Layer | What belongs here | What happens if it's too heavy
+
+| Identity
+| A name, a one-line mission, who it reports to, and how it signs its work
+| Personality drifts into judgment; the agent can't be replaced without "losing" something nobody wrote down
+
+| Role
+| Outcome line, the work, standards, acceptance checks, playbooks, the access the role needs, its schedule and triggers
+| (This is where the weight should be. Written down, it survives any change of occupant.)
+
+| Occupant
+| The model, the vendor, the app, the machine it runs on
+| The job becomes inseparable from one model or one person's setup
+|===
+
+The practical test: could you hand this role to a different agent tomorrow by giving it the role's documents and nothing else? If the answer is "not quite, it also needs the way the old one…", then something that belongs in the role is living in the occupant. Write it down.
+
+== One Occupant Can Hold Several Roles, Each With Its Own Charter
+
+Founders know this pattern from their early days, when they were head of sales, finance and product at once. Gerber's point was that you should still draw three boxes, write three job descriptions, and put your name in each, because one day someone else will hold each box and they'll need to know what it was for.footnote:gerber1995[]
+
+The same goes for an agent. One capable agent might hold the roles of support drafter, release-note writer and onboarding guide. That's fine, and often efficient. What isn't fine is merging the three into one blended instruction set. *Each role keeps its own charter*, and the agent loads the support charter when it's doing support and the release-notes charter when it's writing release notes.
+
+There are three reasons for the rule.
+
+The first is the confusability finding above: blended instructions are the textbook way to make an occupant mix up two jobs.
+
+The second is accountability. Each role has a sponsor, the human accountable for it (xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7]), and support's sponsor and product's sponsor may be different people. If their rules live in one blended document, nobody can tell whose rule is whose, and when they conflict, which they will, the agent picks one silently. xref:9-one-page-per-job.adoc[Chapter 9] tells the story of a bot that exposed exactly that kind of conflict between two of our leaders, because its rules were written down clearly enough to compare.
+
+The third is portability. Next year the release-note role may move to a cheaper agent, or to a person. If it has its own charter, you move the charter. If it's tangled into a blended prompt, you have to unpick it first, and you'll miss something.
+
+[WARNING]
+====
+AUTHOR: Which roles do you personally hold at CorralData today, beyond CTO, and which of your agents hold more than one role? A short, honest list would show the reader that "one occupant, several roles" applies to the author as much as the bots.
+====
+
+== The Role Coherence Test
+
+A role on the chart is only useful if a real occupant can fill it well. The role coherence test checks that. Within one role, keep three things consistent: *the kind of work*, *the level of judgment*, and *the available occupants*.
+
+Matthew Skelton and Manuel Pais built _Team Topologies_ around a related idea: a team's responsibilities should be sized to the cognitive load it can carry, and boundaries drawn so each team can own its work without constant coordination.footnote:skelton2019[Skelton, M., & Pais, M. (2019). _Team Topologies_. IT Revolution.] The coherence test applies the same thinking to a single role, and it matters even more for agents: a person handed an incoherent job compensates with experience and complaint, while an agent just does it unevenly.
+
+*Kind of work.* Reading and reporting differs from changing things; routine, high-volume work from novel, one-off work; scheduled work from work triggered by an event. A role that mixes them will have standards that pull against each other: the speed you want from routine triage is the wrong speed for a one-off investigation.
+
+*Level of judgment.* A role should need roughly one level of judgment throughout. If most of it is junior work with a few senior decisions buried in it, the occupant you choose will be wrong for one or the other. With agents this maps directly onto cost: on my machine I deliberately send implementation to a cheaper local model and keep review with a stronger one, because the two need different levels of judgment.
+// SOURCE: dossier §2 finding 9 ("delegate to hermes not sonnet as cheaper and local", 27 Oct)
+That ladder is the subject of part of xref:6-one-boss-few-reports.adoc[Chapter 6].
+
+*Available occupants.* Some work can only be done by certain occupants, and a role has to respect that. At CorralData, any customer message touching patient data or billing must have a human decide; no agent may send it.
+// SOURCE: dossier §1 "Patterns": hard stops for PHI and billing
+So a role defined as "answer customer messages" fails the test: part of it can be held by an agent and part of it can't. Split it into "draft replies to customers", which an agent can hold, and "approve sensitive replies", which only a person can. Now each role can be filled, measured and improved on its own terms.
+
+.The role coherence test
+[cols="1,2,2,2",options="header"]
+|===
+| Check | Ask | Warning sign | Usual fix
+
+| Kind of work
+| Is it all reading, or all changing things? All routine, or all novel?
+| Standards that contradict each other; quality swings by task type
+| Split into a routine role and an exceptions role
+
+| Level of judgment
+| Would one occupant be right for every part of it?
+| Junior work with a few senior decisions buried inside
+| Pull the senior decisions into their own role, or escalate them
+
+| Available occupants
+| Could an agent hold all of it? Could a person?
+| Steps only a human may take, mixed with steps an agent does well
+| Split at the human-only step; make that step its own role
+|===
+
+[TIP]
+.Try this
+====
+Pick the assistant or bot you use most, the one with the longest custom instructions. Copy those instructions into a fresh conversation in Claude, ChatGPT or Grok and ask:
+
+"These are the standing instructions for one of my AI assistants. Break them into separate roles. For each role, write a one-sentence outcome line starting 'To…', list the instructions that belong to it, and apply three checks: is the kind of work consistent, is the level of judgment consistent, and could the same occupant (a person or an agent) do all of it? Flag any instruction that belongs to no role, and any role that fails a check."
+
+Most people find two to four roles hiding in one set of instructions, at least one instruction nobody remembers adding, and one step that should never have been delegated. Save the roles as separate documents; you'll need them for the Role Charters in xref:9-one-page-per-job.adoc[Chapter 9].
+====
+
+== Duplicate Bots Are a Chart Problem, Not a Bot Problem
+
+// SOURCE: Author Notes Q1 (two competing QA bots, day one); dossier §1 case 11 (QA Bot → QA Reviewer handover, 6 Nov); §1 "Recurring failures" (overlapping bots)
+On the first day our team had Grok Bot, two QA bots appeared (xref:introduction.adoc[Introduction]). Our CEO set one up, QA Bot. Our QA lead, whose job QA is, had her own, QA Reviewer. Both were sensible decisions and both bots were good. They covered the same ground, and anyone wanting a review had to guess which one to ask. Customer success had a similar overlap, between TAM Bot and another bot, Wrangler, covering some of the same ground.
+
+Nothing was wrong with any of the bots. What was missing was a box on the chart. Had we drawn "QA: to make sure nothing reaches a customer that hasn't been checked against its acceptance criteria", with our QA lead as its sponsor, the second bot would have arrived as a candidate occupant for an existing role, not as a rival.
+
+That, eventually, is how it resolved. In November QA moved formally to our QA lead's QA Reviewer, after the two ran in parallel and QA Bot wrote a training brief for its successor, the best offboarding I've seen (xref:17-agentic-resources.adoc[Chapter 17]). For this chapter the lesson is simpler: the role survived the change of occupant, because by then someone had written down what the role was for.
+
+The CEO's instinct here was the right one, and the kind this book is written to encourage: he saw a gap, filled it fast, and the bot he built learned things worth keeping. What the instinct needs is a chart to land on. When a leader builds a bot for a job that already has an owner, the question isn't whether the bot is good but whose role it's filling, and whether that role's sponsor asked for it.
+
+[WARNING]
+====
+AUTHOR: Permission check: this passage describes the overlap between our CEO's QA Bot and our QA lead's QA Reviewer, and refers briefly to the handover (told in Chapter 17). Confirm it's OK to include, and consider showing it to both of them. Does the framing of the CEO's decision feel fair to him?
+====
+
+The general rule: every bot belongs to a role, and every role belongs to one sponsor. When a second bot appears for the same role, don't let them compete in public. Run them side by side against the role's standards, keep the better one, and transfer what the other learned before switching it off.
+
+== Write the Slot Before You Choose the Occupant
+
+Here is the order that avoids duplicates, vacancies that look filled, and roles nobody can fill:
+
+. *Draw the role.* An outcome line starting "To…". The work. Standards of quantity, quality and behaviour. How acceptance is checked. Its sponsor.
+. *Run the coherence test.* Split the role until each part is one kind of work, one level of judgment, and holdable by a realistic occupant.
+. *Choose the occupant.* A person, an existing agent loading a new playbook, or a new agent. Default to the existing agent.
+. *Record the choice on the chart*, next to the role, with the date. Occupants are expected to change.
+
+A new, separate agent earns its place only for specific reasons. It is worth it when the work can run in parallel with other work and mostly reads rather than writes, as with Anthropic's researchers.footnote:hadfield2025[] It is worth it when the role needs different access from everything else the existing agent does, since least privilege is easier to enforce on a separate identity, or as our Agentic Resources Bot put it, "Access is not authorization" (xref:9-one-page-per-job.adoc[Chapter 9]). It is worth it when the role has a different sponsor who needs to own the agent outright: our QA lead's QA Reviewer will only talk to her, by design, because it's her bot.
+// SOURCE: dossier §1 case 6 (QA Reviewer personal-bot reply, paraphrased per privacy rules)
+And it is worth it when the existing agent's playbook library has grown large and similar enough to start confusing it, which Li's study puts in the tens of skills, not the hundreds.footnote:li2026[]
+
+Absent one of those reasons, add a playbook to an agent you already have, the simplest solution that works.footnote:schluntz2024[] You'll pay less, have fewer identities to manage, and keep the role portable.
+
+// TODO-CITE: primary source for Agent Skills becoming an open standard (agentskills.io, 18 Dec 2025)
+[NOTE]
+.Under the hood
+====
+Technically, an agent is a model plus standing instructions, tools, access, memory and a trigger. A role, in the sense of this book, is the part of that bundle that should survive a change of model: the charter, the playbooks (usually skills), the access the role needs, and its schedule. On my machine, three different agent programs share one folder of skills, so a role's playbooks are available to whichever program fills it. Skills became an open format in December 2025, and A2A, the main protocol for agents to talk to each other, is hosted by the Linux Foundation with more than 150 organisations behind it.footnote:lf2026[Linux Foundation. (2026, April 9). A2A protocol surpasses 150 organizations, lands in major cloud platforms, and sees enterprise production use in first year (Press release). https://www.linuxfoundation.org/press/a2a-protocol-surpasses-150-organizations-lands-in-major-cloud-platforms-and-sees-enterprise-production-use-in-first-year] Open formats make occupants easier to swap. Implementation notes are in xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+====
+
+== Roles Survive the Resignation, If You Let Them
+
+I should be honest about the limits of my own evidence. None of the fourteen roles on my machine has yet moved to a different model, so I can't show you a clean model swap, only the preparation for one.
+
+// SOURCE: dossier §2 finding 11 (package-skill-for-team SKILL.md)
+When I wanted to give one of my agent roles to the rest of the team, I had an agent package it, turning personal values into settings and stripping out anything that only worked on my machine (xref:3-draw-the-finished-org-chart.adoc[Chapter 3]). A role that only works on my machine, with my notes, is not a role. It's me, with extra steps.
+
+The QA handover showed the other half: when an occupant does change, run old and new side by side against the same standards before switching. Do the same for a model release. The role's standards are the test the new occupant has to pass, and the release is your chance to strip out instructions that existed only to work around the old model's weaknesses.
+
+Microsoft's agent identity system makes a related choice in software: every agent identity must have a business sponsor, and sponsorship is supposed to pass on when that person moves or leaves.footnote:entra2026[Microsoft. (2026, updated September 3). Administrative relationships in Microsoft Entra Agent ID (owners, sponsors, and managers). _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/agent-owners-sponsors-managers] Purpose is attached to a role and a person, not to the agent's code.
+
+'''''
+
+The temptation, as agents multiply, is to treat each one as a hire with a name, a personality, a job and a place on the chart. The better model is the one organisations have always used: the chart is a chart of roles. Each role has an outcome, a charter and a sponsor. Occupants, human or agent, fill roles, sometimes several at once, and change when the evidence says they should. The research says you'll need fewer agents than you think, and that clear roles matter more than many occupants. The role coherence test keeps each role fillable, and the thin-identity, rich-job design keeps it portable.
+
+Once you have roles and occupants, the next question is how they relate: who reports to whom, how many reports one manager can handle, and when a team of agents should work without a boss at all. That's xref:6-one-boss-few-reports.adoc[Chapter 6].
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

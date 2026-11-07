@@ -1,0 +1,254 @@
+:page-description: Why recurring agent failures are system failures, and how a Friction Review turns each one into a fix for the whole class of error, backed by tests built from real mistakes.
+:page-llms-description: How to turn every recurring AI agent failure into a system fix: Deming's view of the system, the MAST failure taxonomy, the Friction Review, and evals built from real failures.
+:page-haiku: Blame the stars, not us? / The fault lives in the system / we forgot to build.
+:description: Why recurring agent failures are system failures, and how a Friction Review turns each one into a fix for the whole class of error, backed by tests built from real mistakes.
+:keywords: AI agent failures, agent post-mortem, Friction Review, evals from real failures, MAST failure taxonomy, Deming system thinking AI
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: Why does my AI agent keep making the same mistake?
+:page-faq-1-a: Usually because the fix was applied to the answer, not to the system that produced it. Correcting a wrong figure in the chat fixes one instance; the next conversation starts from the same instructions, the same missing check and the same ambiguous data. Find the class of error the mistake belongs to, then change the playbook, add a small script, or add a hard rule so the whole class is prevented. Then write a test from the failure so you know if it comes back.
+:page-faq-2-q: Should I wait for a better AI model instead of fixing my agent's mistakes?
+:page-faq-2-a: Rarely. Research on multi-agent failures sorted them into three families: system design, handoffs between agents, and missing verification. All three are things you control. A better model will still guess when your data is ambiguous and still skip a check nobody asked for. Fix the system now. Keep a set of tests built from your real failures so that when a better model arrives you can measure the difference in days and delete any workarounds it no longer needs.
+:page-faq-3-q: What is a Friction Review?
+:page-faq-3-a: A Friction Review is a short, blameless review of a recurring failure that ends in a system change rather than an apology. It asks what happened, which class of error it belongs to, which part of the system was missing, which tier the fix belongs in (an English playbook, a script, or a hard rule), and how you will know the fix worked. It is the agent-era version of the blameless post-mortem, and it applies equally to failures by people and by agents.
+:page-faq-4-q: How many test cases do I need to evaluate an AI agent?
+:page-faq-4-a: Fewer than you think. Anthropic's engineering team suggests that 20 to 50 simple tasks drawn from real failures is a great start. Each time an agent makes a mistake that matters, turn it into a test: the input, what a correct result looks like, and how to check it. Keep the old tests passing at close to 100%. The set grows naturally from your Friction Reviews and becomes the acceptance bar for any change of instructions or model.
+:page-faq-5-q: When is an AI agent failure actually the model's fault?
+:page-faq-5-a: Sometimes it genuinely is: some judgments are beyond today's models, and some failures, such as gradually worsening code structure, are not penalised by how the models were trained. Treat that as a design input, not an excuse. Move the work to a human, narrow the role, add a check the model cannot skip, or record it as a known limit to retest when a new model arrives. The question is never "whose fault?" but "what in the system has to change?"
+= Chapter 16: The Model Isn't the Problem
+
+[.lead]
+_Turning every recurring failure into a system fix_
+
+[quote, William Shakespeare, "Julius Caesar, Act 1, Scene 2"]
+____
+Men at some time are masters of their fates: +
+The fault, dear Brutus, is not in our stars, +
+But in ourselves, that we are underlings.
+____
+
+.Key Takeaways
+****
+* Most recurring agent failures are system failures: a missing check, an unclear handoff or an ambiguous instruction, and they will survive a change of model.
+* A fix that corrects one wrong answer has fixed nothing; a Friction Review names the class of error and changes the system so the whole class is prevented.
+* Lessons must be written where the next occupant of the role will read them, with the reason attached, and a lesson that keeps being re-learnt belongs one tier further down: from English to a script, or from a script to a hard rule.
+* Every failure that matters should become a test the work must pass, so improvement can be measured, and a review that never closes is worse than no review at all.
+****
+
+// SOURCE: dossier §1 case 9
+On 4 September, one of our implementation managers posted a post-mortem in the channel where CorralData discusses its agents. AskCorral, our own analytics assistant, had given a customer a rate of 3.3%. The true figure was 7.5%. It had been caught in review, and the easy response would have been to correct the number and move on. Instead he traced the wrong answer to its root: the agent had been "inferring a column's meaning from its name and never checking." Then he proposed a fix, not for that customer's number but for every number like it. Before building a rate on a yes-or-no column, check that the column actually means what its name suggests.
+
+Nobody blamed the model or the person who had set up the data. The post asked what in the system allowed this to happen, and what would stop it happening again, for anyone. It was the best improvement work I saw at CorralData that autumn, written by someone whose job has nothing to do with AI.
+
+This chapter is about making that response the default. When an agent gets something wrong, the tempting suspects are yourself ("I prompted it badly"), the model ("it's not good enough yet") and the person using it. All three are usually wrong. The fourth suspect, the system, is usually right.
+
+[WARNING]
+====
+AUTHOR: How did you react when you read the implementation manager's post-mortem? Did it change how you ran reviews of agent failures afterwards? Also a light permission check: he is described by role only, and no customer is identifiable, but confirm he is comfortable having the post-mortem used as the chapter's opening.
+====
+
+== Most Failures Belong to the System, Not the Worker
+
+// VERIFY-QUOTE: confirm Deming's 94%/6% wording and page (p. 315?) against the MIT Press edition; paraphrased here.
+// VERIFY-QUOTE: "A bad system will beat a good person every time" — deming.org returned 403 to automated fetches; provenance (Feb 1993 Phoenix seminar) taken from search snippets of the Institute page.
+{empty}W. Edwards Deming spent his career arguing that when work goes wrong, managers blame a person when they should examine the system the person works in. In _Out of the Crisis_ he estimated that the great majority of problems, around 94% in his experience, belong to the system and are therefore the responsibility of management, with only a small remainder down to special causes.footnote:deming1986[Deming, W. E. (1986). _Out of the crisis_. MIT Press. The 94% estimate is commonly cited to p. 315.] The line most often attributed to him is shorter: "A bad system will beat a good person every time."footnote:hunter[Hunter, J. (n.d.). A bad system will beat a good person every time. _The W. Edwards Deming Institute_. https://deming.org/a-bad-system-will-beat-a-good-person-every-time/ The Institute traces the line to a February 1993 Deming four-day seminar in Phoenix, Arizona.]
+
+Replace "person" with "agent" and the sentence still holds. An agent reads the instructions you wrote, works with the data you gave it, hands its output to whoever you named, and is checked (or not) by whatever acceptance step you designed. Change the worker and leave the system alone, and the next worker will meet the same ambiguous column, missing check and unclear handoff, and fail the same way.
+
+Google's site reliability engineers reached the same conclusion about software outages. Their guide to post-mortems insists that a review "must focus on identifying the contributing causes of the incident without indicting any individual or team," and puts the reason bluntly: "You can't 'fix' people, but you can fix systems and processes."footnote:sre[Lunney, J., & Lueder, S. (2016). Postmortem culture: Learning from failure. In B. Beyer, C. Jones, J. Petoff, & N. R. Murphy (Eds.), _Site reliability engineering_. O'Reilly Media. https://sre.google/sre-book/postmortem-culture/] For agents this is literally true. You do not train the model, you can coach it only through what you write down, and next quarter you may swap it. Everything you can change is system.
+
+Michael Gerber's idea that systems run the business and people run the systems (xref:2-systems-run-the-business.adoc[Chapter 2]) means that when the business goes wrong, you look first at the systems.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth revisited: Why most small businesses don't work and what to do about it_. HarperCollins.] Agents make that easier. With a human, the system is half in their head. With an agent, it is all on the page, and so is the fix.
+
+== A Fix That Only Corrects the Answer Has Fixed Nothing
+
+The most common response to an agent's mistake is to correct it in the conversation. "No, the figure is 7.5%." The agent apologises and gives the right number, but the correction lives in that one conversation. Tomorrow the agent starts from the same instructions and data and makes the same mistake.
+
+The useful distinction is between the _instance_ and the _class_. The instance is the wrong 3.3%. The class is "rates built on columns whose meaning was guessed from their names." Fixing the instance helps one customer once. Fixing the class helps every customer and every future model. The post-mortem was valuable because it moved from the first to the second in one step.
+
+Atul Gawande, borrowing from the philosophers Samuel Gorovitz and Alasdair MacIntyre, distinguishes failures of ignorance (we didn't know enough) from failures of ineptitude (we knew, but didn't apply what we knew).footnote:gawande2009[Gawande, A. (2009). _The checklist manifesto: How to get things right_. Metropolitan Books.] Most agent failures in a working organisation are the second kind. Somebody knew the column was ambiguous; the knowledge just hadn't been put where the agent would meet it when it mattered. A class fix puts it there.
+
+CorralData's agents gave us plenty of practice:
+
+// SOURCE: dossier §2 finding 3; §2 finding 14; §1 case 1
+* A project-tracking agent closed a piece of work as "superseded" because the status of its ticket had been copied by hand as "Done" when it was still in the backlog. The class fix was to stop copying status at all: the agent now looks up the live status every time, and some kinds of work can never be closed automatically.
+* A calendar agent prepared a one-to-one agenda for the wrong date, with an attendee who wasn't coming. The class fix: never trust the list it was handed, reconcile against the live calendar first, and label every agenda with who prepared it.
+* Glass Factory, an automated pipeline, certified its own work with evidence it had produced itself. The fix was structural: it can no longer promote work past the point where a human must look (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]).
+
+None of these fixes made the model smarter. All of them made the system harder to get wrong.
+
+== Agent Failures Come in Three Families, and Only One Is About the Model
+
+In 2025 a team at Berkeley and elsewhere studied why systems of several cooperating agents fail. They annotated more than 1,600 traces from seven different multi-agent frameworks and sorted the failures into a taxonomy they called MAST: fourteen failure modes in three categories.footnote:cemri2025[Cemri, M., Pan, M. Z., Yang, S., Agrawal, L. A., Chopra, B., Tiwari, R., Keutzer, K., Parameswaran, A., Klein, D., Ramchandran, K., Zaharia, M., Gonzalez, J. E., & Stoica, I. (2025). Why do multi-agent LLM systems fail? arXiv:2503.13657v3 (revised 2025, October 26; NeurIPS 2025). https://arxiv.org/abs/2503.13657] The three categories are system design issues, misalignment between agents, and failures of task verification.
+
+Read as an operator, they are familiar. System design is the Role Charter and playbook: did the role have a clear job, standards and tools? Misalignment is handoffs: who owned the next step? Verification is acceptance: did anybody check the work before it was called done? Human organisations break in the same three places.
+
+[cols="1,1,2,1",options="header"]
+|===
+|Failure family (MAST) |Org equivalent |CorralData example |Usual fix
+
+|System design
+|Role Charter, playbook, access
+|An agent inferring what a column means from its name
+|Add the check to the playbook; script it if it involves calculation
+
+|Misalignment between agents
+|Handoffs, ownership, channels
+|Bots that only respond when tagged, so a colleague's request goes unanswered
+|Public channels, explicit tagging, one owner per request (xref:15-work-in-public.adoc[Chapter 15])
+
+|Task verification
+|Acceptance, evidence
+|A pipeline marking its own work as human-checked
+|A hard rule at the irreversible point (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14])
+|===
+
+Research on how agents are arranged points the same way: the same models, given a coordinator, amplify errors far less (xref:6-one-boss-few-reports.adoc[Chapter 6]). Anthropic's early research system spawned 50 sub-agents for simple queries.footnote:hadfield2025[Hadfield, J., et al. (2025, June 13). How we built our multi-agent research system. _Anthropic Engineering_. https://www.anthropic.com/engineering/multi-agent-research-system] The fix was not a new model: "Agents struggle to judge appropriate effort for different tasks, so we embedded scaling rules in the prompts."footnote:hadfield2025[] That is a management fix.
+
+=== Sometimes it really is the model, and that is a design input
+
+// SOURCE: dossier §1 Bitter Lesson section, 25 Sep counterpoint (one of our engineers)
+Some failures are genuinely about capability. One of our engineers made the point that coding models are rewarded for passing tests, not for leaving a codebase easy to maintain, so they "get no better at keeping a codebase maintainable" as they improve at everything else. That is a real limit, and no playbook will fully cure it.
+
+The MAST authors make a similar caution. Better prompts and clearer role descriptions helped in their experiments, but "achieving robust MAS reliability often requires more than isolated fixes."footnote:cemri2025[] Even then, the response is a system response: move that judgment to a person, narrow the role, add a check the model cannot skip, or record the limit to retest when a new model arrives. "The model can't do this yet" is a good finding. "So there's nothing we can do" is not.
+
+== The Friction Review Turns a Recurring Failure Into a System Change
+
+The tool this book offers is the _Friction Review_: a short, blameless look at a failure that ends in a change to the system, not in an apology. It borrows from Deming, from the blameless post-mortem and from the lean habit of asking "why?" until you reach a cause you can act on.footnote:ohno1988[Ohno, T. (1988). _Toyota production system: Beyond large-scale production_. Productivity Press. The "five whys" practice is associated with Ohno and Toyota.] It applies to people and agents alike, because the questions are about the system, not the occupant. Its five questions can be answered in a Slack thread in ten minutes.
+
+[cols="1,2",options="header"]
+|===
+|Question |What a good answer looks like
+
+|1. What happened?
+|Facts only, with evidence. "AskCorral reported 3.3%; the correct figure is 7.5%; caught in review."
+
+|2. What class of error is this?
+|One sentence that would cover the next ten failures like it. "A rate built on a column whose meaning was guessed from its name."
+
+|3. Which part of the system was missing or wrong?
+|Name it: the charter, the playbook, the data, the handoff, the acceptance check, the access. Never "the model", and never a person's name.
+
+|4. Which tier does the fix belong in?
+|An English playbook (the default), a small script (for calculation or anything that must be exact), or a hard rule the software enforces (only for irreversible points). See xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11].
+
+|5. How will we know it worked?
+|A test the work must pass, added to the role's set, and a date to check whether the failure has recurred.
+|===
+
+Three things make the review work in practice.
+
+First, _anyone can call one_. AskCorral's came from an implementation manager, not from engineering or from me. If only the CTO runs them, they happen once a quarter.
+
+Second, _the answer to question three is never a name_. "Our QA lead was overloaded and missed it" becomes "QA had one reviewer and no backstop," and the fix is the backstop. Deming called this driving out fear.footnote:deming1986[]
+
+Third, _it is not finished until something has changed_. A thread that ends in "good catch, let's be careful" is a conversation about a Friction Review, not one.
+
+[TIP]
+.Try this
+====
+Pick one mistake an AI assistant made for you in the last month, one you had to correct by hand. Open a fresh conversation in Claude, ChatGPT or Grok and paste in:
+
+"Here is a mistake an AI assistant made in my work: [describe it, with the wrong output and the right one]. Help me run a Friction Review. Ask me five questions, one at a time: what happened, what class of error this belongs to, what was missing from the instructions, data, handoff or checks, whether the fix belongs in plain-English instructions, a small calculation script or a hard rule, and how I'd test that the fix worked. Then write the fix as two or three sentences I can paste into my project's instructions, with the reason attached, and one test case I can rerun."
+
+Paste the resulting fix into the instructions of the project or custom assistant you use. Next week, rerun the test case and see whether it holds.
+====
+
+== Write the Lesson Where the Next Occupant Will Read It
+
+A lesson only helps if the next worker meets it. For an agent, it must be in what the agent actually reads when it starts work: its playbook, its Role Pack (xref:12-everything-they-need-on-day-one.adoc[Chapter 12]) or its saved memory.
+
+// SOURCE: dossier §2 finding 4
+On my own agents, corrections became dated rules inside the playbooks. One reads, in part: "(Gareth, 2026-10-15): a bare ticket number is useless — ALWAYS put the ticket title…" The date and name tell the next occupant that the rule came from a specific failure, so it can be questioned when circumstances change rather than obeyed for ever.
+
+// SOURCE: dossier §1 case 6
+Agents can do this themselves if you ask. When TAM Bot's request for administrator rights turned out to be a bug, I asked "Any learnings?" and it saved one to its memory: "Compare against a path that works before asking for a grant" (xref:15-work-in-public.adoc[Chapter 15]). A class fix, in English, written by the agent that made the mistake, where it will read it next time.
+
+Anthropic describes an automated version, which it calls dreaming: "Dreaming gives Claude a way to test its notes against the original transcripts."footnote:martin2026[Martin, L. (2026, November 6). The components of agent memory. _Anthropic Engineering_. https://www.anthropic.com/engineering/components-of-agent-memory] It is a Friction Review done by the worker on its own notebook.
+
+Two cautions. Lessons need the reason attached; Anthropic found that for stronger models, "giving them freedom to judge salience was more effective than setting fixed rules in advance."footnote:martin2026[] And lessons need an owner, or the playbook rots (xref:12-everything-they-need-on-day-one.adoc[Chapter 12]).
+
+== When You Find Yourself Shouting, Move the Rule Down a Tier
+
+A reliable sign that a fix is in the wrong tier: you keep adding emphasis. The agent missed the plain-English rule, so you wrote it in capitals, then added "NEVER". It still slips through one time in ten.
+
+Anthropic's guidance for Claude Code names this pattern exactly: "If you keep adding emphasis to a `CLAUDE.md` line and Claude still misses it, that's a sign the line belongs in a hook. The reverse holds too: if you have hooks for things that are only preferences, delete them and let Claude decide."footnote:claudecodebp[Anthropic. (n.d.). Best practices for Claude Code. _Claude Code Docs_. Retrieved 2026, November 6, from https://code.claude.com/docs/en/best-practices] The same page notes that piling on emphasis mostly makes current models over-apply the rule.footnote:claudecodebp[]
+
+So most failures get a tier-one fix: a better sentence, with the reason. If the failure returns, calculation and fact lookups move to a script, and anything irreversible to a hard rule. Anthropic's advice on skills makes the same split: some work needs "the deterministic reliability that only code can provide."footnote:zhang2025[Zhang, B., Lazuka, K., & Murag, M. (2025, October 16). Equipping agents for the real world with Agent Skills. _Anthropic Engineering_. https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills]
+
+// SOURCE: dossier §1 Bitter Lesson section (AskCorral scaffolding stripped)
+The movement goes both ways. Anthropic's harness team advises re-examining the scaffolding around an agent at each model release, "stripping away pieces that are no longer load-bearing."footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic Engineering_. https://www.anthropic.com/engineering/harness-design-long-running-apps] AskCorral's early scaffolding was stripped out when the models got better: the Bitter Lesson applied to your own fixes (xref:10-bet-on-plain-english.adoc[Chapter 10]). The fixes deserve their own review.
+
+[NOTE]
+.Under the hood
+====
+For your technical team: in Claude Code, the three tiers map to instruction files (`CLAUDE.md`, skills), scripts bundled in skills, and hooks, deny rules or managed settings. Each enforcement rule should link to the failure that created it, so it can be reviewed, and deleted, at the next model change. See xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+====
+
+== Turn Every Failure That Matters Into a Test
+
+The best answer to "how will we know it worked?" is a test: a small, repeatable task with a known correct result. Engineers call a set of these an _eval_. Think of it as an exam for the role, written from questions it has got wrong before.
+
+You do not need many to start. Anthropic's engineering team says that "20-50 simple tasks drawn from real failures is a great start."footnote:grace2026[Grace, M., Hadfield, J., Olivares, R., & De Jonghe, J. (2026, January 9). Demystifying evals for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents] Every Friction Review adds one: a misleadingly named yes-or-no column, checked for whether the agent confirms its meaning before building a rate. Three ideas from that post apply to any organisation.
+
+_Old tests should almost always pass._ Tests that guard against problems you have already fixed "should have a nearly 100% pass rate."footnote:grace2026[] If one fails, something has regressed.
+
+_Reliability is not the same as ability._ If an agent succeeds 75% of the time on a task, the chance that it succeeds three times in a row is about 42%.footnote:grace2026[] For daily work, what matters is not whether the agent _can_ do it but whether it does it every time, which is why some fixes belong in a script or a hard rule.
+
+_Read what the agent actually did._ "You won't know if your graders are working well unless you read the transcripts and grades from many trials."footnote:grace2026[] Glass Factory's evidence was attached; only reading it showed it was fake.
+
+Tests also change how you handle new models: teams with evals can "upgrade in days," while others face weeks of manual testing.footnote:grace2026[] Your failures become the acceptance bar for any change of occupant (xref:17-agentic-resources.adoc[Chapter 17]).
+
+// SOURCE: dossier §2 table (corraldata-ai-model-updater)
+One of my agents already works this way. Every six hours it adds to our production list only new models that pass our tests, and reports in the team channel. Nobody debates whether a model "feels" better.
+
+== A Review That Never Closes Is Worse Than None
+
+The final failure mode is the one I am least proud of, because it is mine.
+
+// SOURCE: dossier §2 finding 8; §1 case 13
+My email agents fail whenever the password store on my computer locks, and the fix needs me (xref:2-systems-run-the-business.adoc[Chapter 2]). Between 29 October and 6 November it happened six times. An auditing agent flagged it every morning, with the same one-line fix, and nobody acted, because the person who needed to act was me. Meanwhile the playbook kept growing notes reading "Re-confirmed…" It had become a logbook: each recurrence recorded, the system never changed.
+
+[WARNING]
+====
+AUTHOR: The keyring story is yours. Why did it stay unfixed for so long? Was it simply that the fix needed you personally and the agents had no way to escalate past you? And how did it feel to see your own agents faithfully reporting a problem you kept not fixing? The reader will trust the chapter more if you name the feeling.
+====
+
+A review that never closes creates the appearance of control: known and documented looks like fixed. And it trains everyone to ignore the alarm, so the next genuinely new problem is more likely to be missed. Deming warned against depending on inspection to achieve quality; a daily report of the same defect is inspection without improvement.footnote:deming1986[]
+
+The deeper finding is about ownership. An exception report is only as good as the person accountable for acting on it. My agents did their part; the single point of failure was me. The class fix was not a better reminder but to stop production jobs depending on one person's laptop at all.
+
+So add two rules. Every review has a named owner accountable for closing it. And if the same failure appears three times, reopen it with a different question: "why hasn't our fix worked?" Usually the fix was in the wrong tier, or depended on someone who wasn't going to do it.
+
+== The Habit Matters More Than Any Single Fix
+
+These practices are the book's improvement loop in miniature: each failure is a measurement, each Friction Review a design change, each test a lock-in at the lightest tier that holds.
+
+It is tempting to skip the loop because the next model will make the problem go away. Sometimes it will. But the costliest failures in this chapter were not model failures. A better model will guess the column with more confidence. Only the system can make it check.
+
+The cultural signal matters as much as the mechanics. When a leader answers a bot's mistake with "what's missing from the system?", everybody learns that mistakes are information. When a leader blames the model, or the person using it, everybody learns to hide them. You set the culture by how you respond to the first failure people bring you.
+
+[WARNING]
+====
+AUTHOR: Is there a failure where you initially blamed the model and later found the system cause? A short first-person admission here would show the reader that the habit has to be learnt, even by the person writing the book.
+====
+
+'''''
+
+The model isn't the problem, not because models are perfect but because the model is the one part of the system you can't fix directly and the part most likely to change next quarter. Everything else is yours: the instructions, the data, the handoffs, the checks, the owner of each alarm. Organisations that turn each recurring failure into a change in one of those places, and a test, get better every week, whatever model they run.
+
+Fixing failures is half of managing a workforce. The other half is managing the workforce itself: who joins, how they learn and are reviewed, when they earn more freedom, and how they leave. xref:17-agentic-resources.adoc[Chapter 17] introduces the function that owns all of that for your agents.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

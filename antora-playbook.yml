@@ -1,0 +1,60 @@
+site:
+  title: The Blueprint
+  url: https://www.agenticorgblueprint.com
+  start_page: ROOT::index.adoc
+  robots: |
+    User-agent: *
+    Allow: /
+
+    User-agent: GPTBot
+    Allow: /
+
+    User-agent: OAI-SearchBot
+    Allow: /
+
+    User-agent: ChatGPT-User
+    Allow: /
+
+    User-agent: ClaudeBot
+    Allow: /
+
+    User-agent: Claude-SearchBot
+    Allow: /
+
+    User-agent: PerplexityBot
+    Allow: /
+
+    User-agent: Google-Extended
+    Allow: /
+
+    User-agent: Applebot-Extended
+    Allow: /
+
+    Sitemap: https://www.agenticorgblueprint.com/sitemap.xml
+
+antora:
+  extensions:
+    - require: ./lib/llms-txt-generator
+      subtitle: "A Field Guide to Building Organisations of People and Agents"
+      description: "The Blueprint is a field guide for business leaders building organisations where people and AI agents share the work: org charts of roles, role charters, plain-English playbooks, commitment ledgers, sponsors and Agentic Resources, across 20 chapters grounded in real cases and current research."
+
+content:
+  sources:
+    - url: .
+      branches: HEAD
+      start_path: docs
+
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  supplemental_files: supplemental-ui
+
+asciidoc:
+  attributes:
+    page-toclevels: 2
+  extensions:
+    - ./lib/footnotes-heading
+
+output:
+  dir: build/site

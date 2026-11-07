@@ -1,0 +1,231 @@
+:page-description: Design the finished org chart of roles first, then fill the slots with people and agents. Why the Blueprint lets small teams outrun large ones, and how to draw yours.
+:page-llms-description: How to design an organisation of people and agents: draw the finished org chart of roles before filling it, write the Blueprint well enough to stand the organisation up again tomorrow, and size the chart for the company you are becoming.
+:page-haiku: Draw the finished chart / roles first, the names come later / then fill each slot in
+:description: Design the finished org chart of roles first, then fill the slots with people and agents. Why the Blueprint lets small teams outrun large ones, and how to draw yours.
+:keywords: AI agent org chart, design org chart for AI agents, organisation design people and agents, small team AI leverage, roles not agents, business blueprint
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: How do I make an org chart that includes AI agents?
+:page-faq-1-a: Draw a chart of roles, not of people or agents. Start from the results the organisation must produce, group them into functions, and give each role a one-sentence outcome line beginning "To…". Name a human owner for every role. Only then write the current occupant into each box: a person, an agent, or, early on, you. One occupant can hold several roles, and one agent can fill several boxes, as long as each box has its own written charter. The chart stays the same when occupants change.
+:page-faq-2-q: What is a business Blueprint?
+:page-faq-2-a: In this book, the Blueprint is your organisation documented well enough that you could stand it up again tomorrow. It contains the finished org chart of roles, a charter for each role, the owner of each role, and the playbooks that say how the work is done and why. It applies Michael Gerber's idea of treating a business as a prototype that could be reproduced. With agents it becomes literal: a role that is written down well can be handed to a new person or a new model and work from day one.
+:page-faq-3-q: Can a small company with AI agents really compete with large companies?
+:page-faq-3-a: Yes, in more kinds of work than before. Small teams have long been able to build very valuable companies, as Instagram did with 13 employees, and agents extend how much a small team can do. The advantage depends on design. Coordination between agents, like coordination between people, is costly and error-prone, and agents working without a coordinator amplify errors many times over. A small team with a clear chart of roles, owners and checks keeps its speed. A small team with sprawling agents loses it.
+:page-faq-4-q: Should I design my org chart for the company I am now or the one I want to become?
+:page-faq-4-a: Design for the company you are becoming. A chart sized for today simply records what exists, including its accidents. A chart sized for, say, three times your current scale shows the roles you will need, many of which you or an agent will hold for now. That tells you which roles to write down first, where agents can take the work, and where you will need people. Review it whenever the business or the models change significantly, and redraw it deliberately rather than letting it drift.
+:page-faq-5-q: Should each role on my org chart be a separate AI agent?
+:page-faq-5-a: Not necessarily. How many agents fill the chart is a separate decision from what the roles are. Current guidance from LangChain and others is to start with a single capable agent and add more only when there is a clear limit, and Google Research and collaborators found that splitting step-by-step work across several agents makes it markedly worse. One agent can hold several roles if each has its own charter. Separate agents earn their place for parallel work with a single coordinator.
+= Chapter 3: Draw the Finished Org Chart First
+
+[.lead]
+_Design for the company you're becoming, not the one you are_
+
+// Epigraph verified against the 1887 English translation (Moore and Aveling) at marxists.org, Capital Vol. I, ch. 7.
+[quote, Karl Marx, "Capital, Volume I, 1867"]
+____
+But what distinguishes the worst architect from the best of bees is this, that the architect raises his structure in imagination before he erects it in reality.
+____
+
+.Key Takeaways
+****
+* Most agent org charts are drawn after the fact, as a list of whatever got built; the result is an organisation shaped by its accidents.
+* Design the finished org chart first, as a chart of roles sized for the company you are becoming, then fill each slot with a person, an agent or, at first, yourself.
+* The Blueprint is the organisation documented well enough to stand up again tomorrow: every role, its charter, its owner and its playbooks, written so that a new occupant could start from the page.
+* Small teams with agents can move faster than large ones, but only when the design comes first; without it, coordination costs and duplicated work eat the advantage.
+****
+
+// SOURCE: dossier §1 case 2 (Agentic Resources Bot, #tech-general, 6 Nov)
+In November, one of our Slack bots was asked to do something unusual. The Agentic Resources Bot, which looks after the other bots at CorralData, was asked to research Michael Gerber's ideas about how small businesses should be organised and to propose an org design for our agents. It came back with a long, sensible document, and one sentence in it said everything this chapter is about: we should "design the organization around repeatable results—not around whichever agents happen to exist."
+
+It is a good sentence partly because it is so obviously not what we had done. Nobody at CorralData, me included, had designed anything. We had built agents one at a time, each for a good reason, and our agent workforce was simply the sum of those reasons.
+
+[WARNING]
+====
+AUTHOR: Confirm who asked the Agentic Resources Bot for the org design, and add a line on your reaction when it came back with that sentence. Did the proposal change anything you then did?
+====
+
+== Most Agent Org Charts Are Drawn After the Fact
+
+// SOURCE: dossier §2 "The agent org chart as it stands"
+If you want to see what an organisation shaped by its accidents looks like, here is mine. These are the agent profiles on my own machine, the ones that run on a schedule or on demand to support my work as CTO.
+
+[cols="2,3,2",options="header"]
+|===
+|Agent |When it runs |Reports to
+
+|calendar-assistant |Daily at 6am; before weekday one-to-ones; Thursday mornings |Me; needs my yes to move a meeting
+|inbox-triage-work |Every ten minutes; digests at 8am and 5:45pm |Me; drafts replies, never sends
+|linear-inbox-triage |Daily at 8am |Me
+|linear-triage-manager |On demand |Sorts and routes the ticket triage queue
+|project-manager |Daily; weekly plan to the team; Sunday rollover |"PM agent reporting to the CTO"
+|product-manager |Weekly health report |Files stories into ticket triage
+|promise-keeper-assistant |Every two hours on weekdays |Me
+|traffic-plunger |Daily audits; Monday clean-up |Me; nudges authors once I approve
+|morning-standup |Each morning, if I've accepted the standup |Me
+|dependabot-merger |Tuesdays at 2am |Comments on the change when blocked
+|corraldata-ai-model-updater |Every six hours |Posts to the team channel
+|cto-wiki-updater |Sundays at 2am |No persona at all
+|notes-organizer |Nightly |Files my notes
+|daily-standup |Never |An empty shell, replaced by morning-standup
+|===
+
+There is nothing wrong with any single line of that table; each agent solves a real problem, mostly well. But look at it as an org chart and the design flaws are obvious. Nearly every line reports to one manager, me, who is also the person who unlocks their screen in the morning. One box has no occupant and nobody has removed it. One agent has no identity at all. Two agents both triage tickets. The chart was never drawn; it was accumulated.
+
+Our team bots in Slack grew the same way, faster: about ten within two weeks, two of them doing QA (xref:introduction.adoc[Introduction]).
+// SOURCE: dossier §1 Simple and expressive (Grok Bot adoption); Author Notes Q1
+
+This is how almost every organisation grows at first, with people as well as agents. Someone is good at something, so the work goes to them, and the chart becomes a record of who happened to be there. The difference with agents is speed: a small company might take five years to accumulate an org chart by accident, and with agents a fortnight.
+
+== Design the Finished Chart First, Then Fill the Slots
+
+Gerber's remedy for the accidental organisation is to design the finished one first. Imagine the business as it will be when it is complete, draw the chart of positions that business will need, write down what each position is responsible for, and only then start filling them, even if the founder's name goes in nearly every box at the start.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth Revisited_. HarperCollins.] The chart comes before the people, not after them.
+
+Marx's line about the architect and the bee, at the head of this chapter, is about this difference. The bee builds beautifully, but it builds what bees build; the architect builds what was first imagined. An organisation that accumulates its chart is a hive. One that designs it can become something its founders chose.
+
+// SOURCE: Author Notes Q2
+I learnt this the hard way in my twenties, running a small IT company that grew faster than I could delegate (xref:introduction.adoc[Introduction]). It has been the advice I give founders most often ever since, and I had not followed it with our agents.
+
+[WARNING]
+====
+AUTHOR: Did you actually draw a finished org chart for the IT company? If so, describe it briefly: how many boxes, how many had your name in them, and what happened when you started filling them. If not, what stopped you?
+====
+
+Designing the chart first does three things the accidental chart cannot.
+
+It separates the job from the occupant. A box on a designed chart exists because the organisation needs a result, not because someone or something is available. When the occupant changes, the box stays.
+
+It makes gaps visible. A designed chart shows the roles nobody is filling yet, the most useful thing a chart can show; an accidental chart only shows what exists.
+
+It makes duplication visible too. Two agents doing QA look like initiative on an accidental chart. On a designed chart they are two occupants in one box, and someone has to decide which one owns it.
+
+== A Role Is a Box, Not a Bot
+
+The single most important rule for drawing a chart of people and agents is that the boxes are _roles_, not agents. A role is a position on the chart with an outcome, standards and an owner. An occupant, human or agent, fills it. One occupant can hold several roles, and each role keeps its own written charter, so it can be handed to a different occupant later without being untangled from the others.
+
+This matters because the research on agent architecture does not favour one agent per box. LangChain's guidance is blunt: "Many agentic tasks are best handled by a single agent with well-designed tools. You should start here."footnote:runkle2026[Runkle, S. (2026, January 14). Choosing the right multi-agent architecture. _LangChain Blog_. https://www.langchain.com/blog/choosing-the-right-multi-agent-architecture] Google Research found that splitting step-by-step work across several agents makes it markedly worse, while parallel work gains from a coordinated team (xref:6-one-boss-few-reports.adoc[Chapter 6]).
+
+So the chart is a chart of roles, and how many agents fill it is a separate decision, one you can change later without redrawing the chart. A single capable agent might hold five roles in your finance function, each with its own charter; three agents might share one research role under a coordinator. xref:5-hire-the-role-not-the-model.adoc[Chapter 5] goes into this. For now, draw boxes for results, not for software.
+
+== The Blueprint Is Your Organisation, Written Down
+
+Gerber asked founders to treat their business as a prototype that could be reproduced: documented so completely that someone else could open an identical one and get the same results.footnote:gerber1995[] This book calls that document the _Blueprint_. It is your organisation written down well enough that you could stand it up again tomorrow: the finished chart, a charter for each role, the human who owns each one, and the playbooks that say how the work is done and why.
+
+With people, that standard was always aspirational; nobody ever wrote down everything a good office manager knew. With agents it becomes literal. An agent knows nothing of your organisation beyond what you give it, so whatever is not in the Blueprint, a new agent does not know. Anthropic's engineers describe building a skill for an agent as "like putting together an onboarding guide for a new hire", and since December 2025 the format for those skills has been an open standard that other tools can read.footnote:zhang2025[Zhang, B., Lazuka, K., & Murag, M. (2025, October 16; updated 2025, December 18). Equipping agents for the real world with Agent Skills. _Anthropic Engineering_. https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills] Microsoft's agent identity platform even uses the word: agents are created from an "agent identity blueprint", and each blueprint, like each agent, must have a human sponsor.footnote:entra2026[Microsoft. (2026). Administrative relationships in Microsoft Entra Agent ID. _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/agent-owners-sponsors-managers]
+
+// SOURCE: dossier §2 finding 11 (package-skill-for-team)
+The best Blueprint in miniature I have seen at CorralData was written by one of my own agents. My project manager agent has a playbook for packaging itself so that someone else on the team could run it. It turns everything personal to me into a setting the next person can change: a note that one executive's time should be excluded from capacity planning becomes a setting instead of a hard-coded rule. And it warns explicitly against depending on "a personal wiki / machine-local path", anything that would only work on my computer.
+
+That is the Blueprint at the scale of one role: separate what the role needs from what the current occupant happens to have, write down the first, and make the second replaceable.
+
+[NOTE]
+.Under the hood
+====
+A packaged role is a folder: a plain-English description of the job, the playbooks it loads, any small scripts it uses, and a list of settings with sensible defaults. Personal values such as names, calendars and exclusions become settings rather than text buried in instructions. Paths to files on one person's computer are replaced with shared locations. Because the skills format is an open standard, the same folder can often be loaded by more than one agent product. xref:appendix-d-for-your-technical-team.adoc[Appendix D] shows the structure your technical team can use.
+====
+
+== Small Teams With Agents Can Outrun Large Ones
+
+Small teams have built remarkable companies before, as the xref:introduction.adoc[Introduction] showed, and agents widen the range of work where that is possible. Microsoft's Work Trend Index describes the "Frontier Firm" as one "structured around on-demand intelligence and powered by 'hybrid' teams of humans + agents", and suggests that the traditional org chart "may be replaced by a Work Chart".footnote:wti2025[Microsoft WorkLab. (2025, April 23). 2025: The year the Frontier Firm is born. _Work Trend Index Annual Report_. https://www.microsoft.com/en-us/worklab/work-trend-index/2025-the-year-the-frontier-firm-is-born]
+// VERIFY-QUOTE: Work Trend Index "Frontier Firm", "Work Chart" and human-agent ratio wording (also quoted later in this chapter) read through a summarising fetch; re-check at source.
+
+A small company's advantage is not that its people are better but that it can change its design quickly. A ten-person team can decide on Monday that QA is now a role held by an agent and supervised by its QA lead, and have it working by Friday. A large company has to renegotiate jobs, policies, budgets and reporting lines across thousands of people first. The capability is available to both; the ability to reorganise around it is not.
+
+== The Advantage Depends on Design
+
+Speed without design does not stay speed for long. Fred Brooks observed in 1975 that adding people to a late software project makes it later, because the number of communication paths in a team grows much faster than its headcount.footnote:brooks1975[Brooks, F. P., Jr. (1975). _The Mythical Man-Month_. Addison-Wesley.] Agents obey a version of the same law: every agent you add is another party that can misunderstand, duplicate or contradict the others. Uncoordinated agents amplify one another's errors (xref:6-one-boss-few-reports.adoc[Chapter 6]). Anthropic's multi-agent research system used about fifteen times as many tokens as a chat, and its early versions made errors like "spawning 50 subagents for simple queries".footnote:hadfield2025[Hadfield, J., et al. (2025, June 13). How we built our multi-agent research system. _Anthropic Engineering_. https://www.anthropic.com/engineering/multi-agent-research-system] Gartner predicted in 2025 that more than 40% of agentic AI projects would be cancelled by the end of 2027 because of escalating costs and unclear business value.footnote:gartner2025[Kachwala, Z. (2025, June 25). Over 40% of agentic AI projects will be scrapped by 2027, Gartner says. _Reuters_, via _The Star_. https://www.thestar.com.my/tech/tech-news/2025/06/25/over-40-of-agentic-ai-projects-will-be-scrapped-by-2027-gartner-says] Unclear value is what an undesigned organisation produces: lots of activity, no agreed result.
+
+There is a deeper reason the design has to come first. In 1968 Melvin Conway observed that "organizations which design systems … are constrained to produce designs which are copies of the communication structures of these organizations."footnote:conway1968[Conway, M. E. (1968, April). How do committees invent? _Datamation_. https://www.melconway.com/Home/Committees_Paper.html] Skelton and Pais turned this into a design method: shape your teams deliberately, because the shape of your teams will become the shape of your systems whether you plan it or not.footnote:skelton2019[Skelton, M., & Pais, M. (2019). _Team Topologies_. IT Revolution.] An organisation of people and agents is subject to the same law. If your agents are organised around whoever built them, your customers will experience an organisation built around whoever built them: two answers to one question, a handoff that goes nowhere, a bot that speaks for the wrong person.
+
+The small team's advantage is real, but it is the advantage of being able to design quickly. A small team that does not design spends its speed on coordination, and ends up as slow as a large one, with less money.
+
+== Size the Chart for the Company You Are Becoming
+
+A chart drawn for the company you are today records what exists; one drawn for the company you are becoming shows what you need. Gerber's founder draws the business as it will be when it is finished, then holds most of the roles personally until the business can afford to fill them.footnote:gerber1995[] With agents, the same chart has a third kind of occupant: some boxes will be held by you, some by people, and some by agents, and the mix will change.
+
+Pick a horizon you can picture. Three times your current revenue is a useful one, or the organisation you would need if your biggest plan worked. Then draw the roles that organisation would need, not the people. You will find roles nobody holds today, roles you hold without realising it, and roles that agents already fill without a charter.
+
+Size it with the trend in mind. METR found that the length of task AI agents can complete has been doubling roughly every seven months.footnote:metr2025[METR. (2025, March 19). Measuring AI ability to complete long tasks. https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/] Gartner expects at least 15% of day-to-day work decisions to be made autonomously by agents by 2028, up from none in 2024.footnote:gartner2025[] Microsoft's survey suggested organisations will need a new number, the human-agent ratio, and asked "How many agents are needed for which roles and tasks? And how many humans are needed to guide them?"footnote:wti2025[] A chart sized for the future should expect some boxes held by people today to be held by agents later, and should say which human owns each box regardless.
+
+That is why the chart is drawn in roles. If a box is defined by its result, its standards and its owner, the occupant can change from you to a person to an agent, or back, without the organisation having to be redesigned. You redraw the chart when the business changes, not every time the occupants do.
+
+== How to Draw the Finished Chart
+
+The method is simple enough to do in an afternoon, and the rest of the book fills in each step.
+
+. *List the results.* Write down every recurring result the organisation must produce at your chosen horizon: invoices sent, customers onboarded, releases tested, numbers reported. Results, not tasks.
+. *Group them into functions.* Sales, delivery, customer success, finance, product, operations: whatever grouping makes sense for your business.
+. *Turn each group of results into roles.* Give each role an _outcome line_, one sentence beginning "To…" that says why it exists. Keep the kind of work and the level of judgment consistent within a role.
+. *Name a human owner for every role.* Even the roles an agent will fill. Especially those.
+. *Write in today's occupant.* A person, an agent, or you. Many boxes will have your name in them. That is fine; it is honest.
+. *Mark the gaps and the duplicates.* An empty box is a hiring or building decision. Two occupants in one box is a decision someone has to make.
+
+The result looks something like this simplified sketch for one function of a small analytics company.
+
+[cols="2,3,2,2,2",options="header"]
+|===
+|Role |Outcome line |Owner |Occupant today |Occupant at destination
+
+|Customer onboarding
+|To get each new customer's data connected and their first dashboard live
+|Head of customer success
+|An implementation manager
+|An implementation manager, with an agent drafting the setup
+
+|Customer questions
+|To answer customer questions accurately and quickly, in our voice
+|Head of customer success
+|A technical account manager and TAM Bot
+|TAM Bot, with a human approving anything that can't be undone
+
+|Release QA
+|To make sure nothing reaches a customer that a human hasn't validated
+|QA lead
+|Two QA bots and the QA lead
+|One QA agent, owned and supervised by the QA lead
+
+|Renewal risk
+|To spot customers at risk of leaving while there is still time to act
+|Head of customer success
+|Nobody
+|An agent reporting to the head of customer success
+|===
+
+// The sketch is illustrative; it draws on TAM Bot and the two QA bots (dossier §1 cases 3 and 11) but is not CorralData's actual chart.
+
+[WARNING]
+====
+AUTHOR: Would you be willing to include a real, simplified version of CorralData's destination chart, even for one function? A real chart, with your actual boxes and the gaps you found, would be much stronger than the illustrative sketch above.
+====
+
+Notice what the sketch does not say. It does not say which model TAM Bot runs on, how many agents fill the QA box, or what software any of them use. Those are occupant decisions, and they will change. The boxes, the outcome lines and the owners are the design, and they should not.
+
+[TIP]
+.Try this
+====
+Take the agent inventory you made in the introduction's exercise, or start fresh. Open Claude, ChatGPT or Grok and paste this prompt:
+
+_"Help me draw the finished org chart for my organisation as it would need to be at three times its current size. Ask me about the business one question at a time. Then: (1) list the recurring results the organisation must produce; (2) group them into functions; (3) propose roles, each with a one-sentence outcome line beginning 'To…'; (4) ask me who the human owner of each role should be; (5) ask me who or what fills each role today, including me and any AI agents. Present the result as a table with columns for function, role, outcome line, owner, occupant today, and likely occupant at that size. Finally, list every empty role, every role with more than one occupant, and every role where I am the occupant."_
+
+Print the table. Circle the three roles that would hurt most if their occupant disappeared tomorrow. They are the first ones to write down properly.
+====
+
+'''''
+
+The Agentic Resources Bot was right: design around repeatable results, not around whichever people or agents happen to exist. The finished org chart is how you do that: a chart of roles, sized for the company you are becoming, each with an outcome, an owner and a charter, filled today by whoever or whatever can do the work. Written down completely, it becomes the Blueprint, the organisation documented well enough to stand up again tomorrow. The window for small teams is open because they can redesign quickly. Design is how you use it.
+
+A chart needs a purpose before it can be finished: you can't decide what "finished" looks like until you know what the organisation is for, and what you want it to give you. xref:4-know-what-its-for.adoc[Chapter 4] starts there.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

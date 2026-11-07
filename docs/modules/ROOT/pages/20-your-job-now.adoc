@@ -1,0 +1,217 @@
+:page-description: What a leader's job becomes when most of the organisation is agents: shaping the system, holding standards, owning the irreversible decisions and moving fast while the window is open.
+:page-llms-description: The closing chapter of The Blueprint: the leader's job in an organisation of people and agents is Shape work, consistency, holding standards, deciding at irreversible points, keeping the Blueprint current and acting while small teams have the advantage.
+:page-haiku: The work runs itself. / What's left is choosing what for, / and saying "not that."
+:description: What a leader's job becomes when most of the organisation is agents: shaping the system, holding standards, owning the irreversible decisions and moving fast while the window is open.
+:keywords: leading AI agents, CEO role with AI agents, working on the business not in it, AI organisation design, managing people and agents, agentic organisation leadership
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: What is a leader's job when AI agents do most of the work?
+:page-faq-1-a: Shape work: deciding what the organisation is for, designing the roles that deliver it, setting the standards each role must meet, and owning the decisions that can't be undone. Agents and people do the Steer and Do work inside that design. The leader's measure stops being personal output and becomes the consistency of the organisation's results. A useful test is the question to ask every agent and report: what can you do automatically, and what decisions do you need from me? The second list is your job.
+:page-faq-2-q: How do you stop doing the work yourself when an AI agent makes it so easy?
+:page-faq-2-a: Recognise that agents make doing feel free when it isn't. When a leader does the work through an agent, they bypass the role that owns it, collide with the people already doing it, and skip the gates that work would normally face. Before acting, ask which role on the chart owns the outcome. If one does, send it a request with the what and why. If none does, you have found a gap in the chart: fill it rather than doing the work yourself.
+:page-faq-3-q: How often should you review an organisation of people and agents?
+:page-faq-3-a: Run a light weekly rhythm and a heavier one at each model release. Weekly, read the Commitment Ledger's exceptions and decisions and run at least one Friction Review. Monthly, review each role against its Scorecard numbers and decide on promotions to more autonomy. Quarterly, revisit the Aim, the Destination and the finished org chart. Whenever a significantly better model arrives, review every lock-in: scripts and hard rules that were added because an older model couldn't cope may now be holding the new one back.
+:page-faq-4-q: Do small companies really have an advantage with AI agents?
+:page-faq-4-a: They have a temporary one. Every company can buy the same models, so access isn't the advantage. The advantage is how fast an organisation can redesign itself around them, and small organisations have fewer roles, fewer approvals and fewer legacy systems to change. That speed only pays off with design: research shows that agents working without a coordinator amplify one another's errors far more than coordinated ones. Small teams that move fast without structure just make mistakes faster.
+:page-faq-5-q: How do you know your organisation of people and agents is finished?
+:page-faq-5-a: It's never finished, but it's working when it would run the same way without you. The test is the Blueprint: could the organisation be stood up again tomorrow from what is written down? Every role has a charter and a named owner, every procedure is a Playbook someone maintains, every commitment is in a ledger, and no system waits for one person to unlock it. When your own absence no longer stops anything, your job has become what it should be.
+= Chapter 20: Your Job Now
+
+[.lead]
+_Leading an organisation that's mostly not human_
+
+[quote, J. R. R. Tolkien, "The Fellowship of the Ring, 1954"]
+____
+"I wish it need not have happened in my time," said Frodo.
+
+"So do I," said Gandalf, "and so do all who live to see such times. But that is not for them to decide. All we have to decide is what to do with the time that is given us."
+____
+
+.Key Takeaways
+****
+* A leader's job in an organisation of people and agents is Shape work: deciding what the organisation is for, designing the roles that deliver it and holding the standards, while people and agents do the rest.
+* Agents make doing the work yourself feel free, and it isn't: every task a leader does through an agent bypasses a role, a person or a gate.
+* Consistency is the product an organisation of agents delivers, and it comes from the system, not from effort, so the leader's main lever is the system.
+* The window in which small organisations of people and agents can outrun large ones is open now, and the Blueprint is what lets you move fast without the organisation depending on you.
+****
+
+// SOURCE: dossier §2 delegation thesis, local evidence (4 Nov question; scorecard)
+On 4 November I asked my agents a question I now ask of every new one: "What can you as an agent do automatically for me, and what decisions do you need from me?"
+
+The question splits the work in two. The first half is everything that can run without me: scheduled, checked, reported. The second half is what stays mine because of what it is, not because nobody else could physically do it: which work matters most, which promises to make, which risks to accept, which mistakes are tolerable.
+
+That second half is the job description of a leader in an organisation that is mostly not human. I track it as a number on my own Scorecard: the share of my week spent on multiplier work against contributor work. The job has changed faster than the habits of the people doing it, including mine.
+
+[WARNING]
+====
+AUTHOR: What is your actual multiplier-versus-contributor split in a typical recent week, and how has it moved since the bots multiplied? A real number, even a rough one, will do more for the reader than any argument in this chapter.
+====
+
+This book has argued that agent sprawl is an organisation design problem you already know how to solve. Systems run the business; people and agents run the systems; humans own the outcomes. This last chapter is about the human at the top of that sentence, and what owning the outcomes asks of you once the work itself is no longer the bottleneck.
+
+== Your work is the work on the organisation
+
+Michael Gerber's best-known idea is the difference between working _in_ your business and working _on_ it.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth revisited: Why most small businesses don't work and what to do about it_. HarperCollins.] Working in it is doing the work. Working on it is designing the system that does the work. For most small businesses the distinction was aspirational: founders worked in the business because there was nobody else to do the work.
+
+Agents remove that excuse. There is now somebody else to do almost any piece of work, at almost any hour, for very little money. What there isn't, unless you build it, is a design: the Aim and Destination that say what the organisation is for (xref:4-know-what-its-for.adoc[Chapter 4]), the chart of roles that delivers it (xref:3-draw-the-finished-org-chart.adoc[Chapter 3]), the charters and Playbooks that say what good looks like (xref:9-one-page-per-job.adoc[Chapter 9], xref:10-bet-on-plain-english.adoc[Chapter 10]), and the ledgers and reviews that keep it honest (xref:13-track-whats-owed.adoc[Chapter 13], xref:16-the-model-isnt-the-problem.adoc[Chapter 16]).
+
+In this book's terms, that design work is Shape. Steer is keeping the system running to standard. Do is the work itself (xref:1-you-already-know-how.adoc[Chapter 1]). In an organisation of people and agents, Do belongs to whichever occupant holds the role. Steer is shared between people, agents and the scheduled checks the agents run. Shape stays with you.
+
+Andy Grove defined a manager's output as the output of the organisation they run, plus the parts of other organisations they influence.footnote:grove1983[Grove, A. S. (1983). _High output management_. Random House.] That definition gets more literal, not less, when the organisation includes agents. Your output is what the roles produce, and its quality depends mostly on decisions you made before any of the work started. Drucker's effective executive asked what contribution was needed, not what effort to put in.footnote:drucker1967[Drucker, P. F. (1967). _The effective executive_. Harper & Row.] Anthropic's engineers found the same with agents: "it helps to tell Claude what memory is for, but not _how_ to use it."footnote:martin2026[Martin, L. (2026, November 6). The components of agent memory. _Anthropic Engineering_. https://www.anthropic.com/engineering/components-of-agent-memory] Purpose is the leader's to set. Procedure mostly isn't.
+
+== Agents make doing feel free, and it isn't
+
+The trap for a leader with agents is that doing the work yourself has never been easier. You can open a desktop app and have a report, a dashboard, a customer email or a code change in minutes. It feels like leverage. Often it is the opposite.
+
+// SOURCE: dossier §1 case 10 (#t_sales, 4 Nov; 9 Oct)
+At CorralData our CEO saw the power of agents before any of us. He is the archetype of this book's reader: an executive who delegates by instinct and saw at once what agents could do. When his bots collided with work a seller's bots already owned, he was the first to say he needed to slow down and delegate better (xref:1-you-already-know-how.adoc[Chapter 1]); when he offered to knock a job out himself, the person closest to it claimed it (xref:18-when-the-work-moves.adoc[Chapter 18]).
+
+When a leader does the work through an agent, three things get bypassed. The role that owns the work, and the person or agent occupying it. The gates that work would normally face: review, testing, the evidence bar. And the Commitment Ledger, because work done around the chart is work nobody else knows is done. The leader experiences speed. The organisation experiences a collision.
+
+// SOURCE: dossier §1 case 3 (#tam_customer-success, 3 Nov)
+The same instinct shows up in autonomy decisions, where a written shadow bar holds only if waiving it is a visible, deliberate decision (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]).
+
+None of this makes the instinct wrong. The instinct to act is what builds companies. The design answer is to aim it. Before you do anything yourself, ask which role on the chart owns the outcome. If a role owns it, send that role a request with the what and why (xref:8-what-and-why-never-how.adoc[Chapter 8]). If no role owns it, you have found a gap in the chart, and filling the gap is Shape work. Doing it yourself, through an agent or otherwise, leaves the gap in place for next time.
+
+== Consistency is the product you are building
+
+What a customer buys from an organisation is not its best day. It is its typical day, repeated. Gerber made predictability the heart of his franchise prototype: a business that delivers the same result every time, whoever is on shift.footnote:gerber1995[] Deming made variation the central enemy of quality, and placed responsibility for reducing it on management, because only management can change the system that produces it.footnote:deming1986[Deming, W. E. (1986). _Out of the crisis_. MIT Press.]
+
+Agents make this more urgent, not less. A model that does a task well three times in four looks impressive in a demonstration. Anthropic's guidance on testing agents shows what that means in practice: an agent that succeeds 75% of the time on a single attempt succeeds on all three of three attempts only about 42% of the time.footnote:grace2026[Grace, M., Hadfield, J., Olivares, R., & De Jonghe, J. (2026, January 9). Demystifying evals for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents] A customer who deals with you three times will notice.
+
+Structure is what closes the gap. The same models, arranged with a coordinator, amplify one another's errors far less than when they work independently (xref:6-one-boss-few-reports.adoc[Chapter 6]). An analysis of more than 1,600 traces from multi-agent systems found the same: the failures clustered in system design, misalignment between agents and missing verification, not in the raw ability of the models.footnote:cemri2025[Cemri, M., et al. (2025). Why do multi-agent LLM systems fail? arXiv:2503.13657. https://arxiv.org/abs/2503.13657] The arrangement is yours.
+
+Our Agentic Resources Bot put it in a sentence I would happily have written: "design the organization around repeatable results—not around whichever agents happen to exist" (xref:9-one-page-per-job.adoc[Chapter 9]). Repeatable results are the product. Roles, charters, Playbooks, ledgers and gates are how you make them.
+// SOURCE: dossier §1 case 2 (#tech-general, 6 Nov)
+
+== Holding standards means owning the decisions only you can make
+
+Standards are written in Role Charters: quantity, quality, behaviour, and how acceptance is checked. Writing them is the easy part. Holding them, week after week, against your own impatience and other leaders' preferences, is the job.
+
+Holding standards does not mean approving everything. A leader who approves nearly everything is not exercising judgment; they are a rubber stamp with a calendar. Put yourself at the irreversible points (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]) and let the system handle the rest.
+
+// SOURCE: dossier §2 finding 6
+The best description I have of this part of the job is a charter I wrote for an agent. My project-manager agent's instructions tell it to "LEAD with the 'NEEDS YOUR DECISION' items", to treat "WILL SLIP" as "an INTERVENTION trigger, not a status note", and to "Use direct language ('will slip', not 'slightly at risk')." That is how I want to be managed by my own organisation. Decisions first. Slippage as a call to act. No softening.
+
+Holding standards also means settling conflicts between leaders' standards in the right place. When TAM Bot's position contract put two leaders' contradictory rules side by side, the contradiction was for the leaders to resolve, not for a bot's onboarding thread (xref:9-one-page-per-job.adoc[Chapter 9]).
+// SOURCE: dossier §1 case 2
+
+The standard applies to you as well. When my own agents merged partial changes, one of our engineers told me, in public, to "follow the process we agreed." Leaders whose agents are exempt from the gates teach everyone else that the gates are optional.
+// SOURCE: dossier §1 exec-versus-IC thesis
+
+Finally, own the outcomes. Microsoft's model for agent identity requires at least one sponsor for every agent: a person "accountable for the agent's purpose and lifecycle decisions".footnote:entra[Microsoft. (2026, updated September 3). Administrative relationships in Microsoft Entra Agent ID (owners, sponsors, and managers). _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/agent-owners-sponsors-managers] At CorralData, one person in each function owns that function's bots (xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7]). Above every sponsor is you. When an agent gets it wrong, the question is not whose model it was. It is which part of the system you designed let it happen.
+
+== The Blueprint has to be kept, not just written
+
+A Blueprint written once and left alone drifts. Playbooks pick up slop, profiles get cloned, rules accumulate for problems that no longer exist (xref:12-everything-they-need-on-day-one.adoc[Chapter 12]). Keeping it current is a standing part of the job, and it needs a rhythm.
+
+[cols="1,2,2",options="header"]
+|===
+| Cadence | What you review | What it produces
+
+| Weekly
+| The Commitment Ledger's exceptions and the decisions waiting for you; at least one recurring failure
+| Decisions made; one Friction Review closed with a system fix
+
+| Monthly
+| Each role against its Scorecard numbers; requests for more autonomy
+| Promotions earned with evidence, demotions where needed, roles merged or retired
+
+| Quarterly
+| The Aim, the Destination and the finished org chart
+| A chart that still describes the company you are becoming
+
+| At each major model release
+| Every script and hard rule added because an older model couldn't cope
+| Lock-ins kept, rewritten or deleted
+|===
+
+The last row is the one leaders forget. Anthropic's engineers put the principle plainly: "every component in a harness encodes an assumption about what the model can't do on its own", and "when a new model lands, it is generally good practice to re-examine a harness".footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic Engineering_. https://www.anthropic.com/engineering/harness-design-long-running-apps] The Bitter Lesson is the long-run version of the argument (xref:10-bet-on-plain-english.adoc[Chapter 10]). Every lock-in you add (xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11]) is a bet against the next model. Some bets are worth making forever: a human signs off before money moves or a message reaches a customer. Many aren't. Anthropic's memory research reached the same conclusion from the other side: "For stronger models, giving them freedom to judge salience was more effective than setting fixed rules in advance".footnote:martin2026[]
+
+Anthropic's own guidance for its coding agent says the same thing in both directions: if you keep adding emphasis to a written guideline and the agent still misses it, make it a hard rule; and if you have hard rules for things that are only preferences, delete them and let the agent decide.footnote:bestpractices[Anthropic. (n.d.). Best practices for Claude Code. _Claude Code Docs_. Retrieved November 6, 2026, from https://code.claude.com/docs/en/best-practices] Philipp Schmid's version is shorter: "Build to Delete".footnote:schmid2026[Schmid, P. (2026, January 5). The importance of Agent Harness in 2026. _philschmid.de_. https://www.philschmid.de/agent-harness-2026]
+
+The tools will change underneath you, too. OpenAI notified developers on 3 June 2026 that its drag-and-drop Agent Builder was being deprecated, with shutdown scheduled for 30 November 2026.footnote:openai2026[OpenAI. (2026). Deprecations. _OpenAI API documentation_. https://developers.openai.com/api/docs/deprecations] Anyone whose organisation lived inside that canvas has a migration on their hands. Anyone whose organisation lived in plain-English charters and Playbooks has a change of occupant. That is the point of hiring the role, not the model (xref:5-hire-the-role-not-the-model.adoc[Chapter 5]).
+
+[NOTE]
+.Under the hood
+====
+A model-release review is a short, repeatable exercise for your technical team. List every enforced rule and every script in your agents' setup, with the date and reason it was added. Run the agents' existing tests on the new model with each optional rule switched off in turn. Keep the rules guarding irreversible actions, security and acceptance regardless. Delete or soften the rest where the new model passes without them, and record the result. xref:appendix-d-for-your-technical-team.adoc[Appendix D] covers it in more detail.
+====
+
+== The window is open now, and design is what lets you use it
+
+Every company can buy the same models. Access is not an advantage, and it will be less of one every quarter. The advantage is how quickly an organisation can redesign itself around what the models can now do, and that favours small organisations: fewer roles to rewrite, fewer approvals to clear, fewer systems that assume the old way of working.
+
+The speed is real. At CorralData, about ten team bots appeared within two weeks of us adopting Grok Bot, many built by people who aren't engineers.
+// SOURCE: dossier §1 simple and expressive versus structured (Grok Bot adoption)
+At the far end of what's possible, Nicholas Carlini at Anthropic had sixteen agents build a 100,000-line C compiler, capable of building the Linux kernel, over nearly 2,000 sessions for just under $20,000.footnote:carlini2026[Carlini, N. (2026, February 5). Building a C compiler with a team of parallel Claudes. _Anthropic Engineering_. https://www.anthropic.com/engineering/building-c-compiler] Work that once needed a department is now a matter of design and a budget.
+
+But the same research that shows the upside shows its condition. Carlini's agents worked because "the task verifier is nearly perfect".footnote:carlini2026[] On sequential work, adding agents without design makes results worse (xref:6-one-boss-few-reports.adoc[Chapter 6]). Speed without design is a faster way to make mistakes: our first day with Grok Bot produced two competing QA bots before anyone drew a chart. The window favours organisations that can move fast _and_ stay coherent. That is what the Blueprint is for.
+
+The window will not stay open. Large organisations are slower, not stupid, and they are working on the same problem. What a small organisation does in the next year or two (writing down its roles, building its ledgers, learning to run Friction Reviews) is a head start that compounds. To borrow Gandalf's answer to Frodo, it isn't for you to decide when this happened. All you can decide is what to do with the time.
+
+== The people are the part you can't hand to a role
+
+An organisation that is mostly not human is still run for humans and, at the points that matter, by them. The agents don't care whether the work moves fairly; the people losing and gaining it do (xref:18-when-the-work-moves.adoc[Chapter 18]). The agents won't notice that one engineer has spent a month reviewing other people's unchecked output; the engineer will, and so should you (xref:19-from-doing-to-delegating.adoc[Chapter 19]).
+
+Agentic Resources can run the agent workforce: onboarding, reviews, promotions and retirements (xref:17-agentic-resources.adoc[Chapter 17]). It can't own the people's side of the shift. That means being open about what is changing, renegotiating each person's deal rather than quietly changing it, protecting attention, which _Team Topologies_ rightly treats as a finite resource to be designed for,footnote:skelton2019[Skelton, M., & Pais, M. (2019). _Team topologies: Organizing business and technology teams for fast flow_. IT Revolution.] and making sure every agent has a human sponsor who will answer for it.footnote:entra[] The people closest to the work are the best owners of its agents. They are also the people most likely to leave if the shift is done to them rather than with them.
+
+The standing rule that every agent's request goes through a public channel, with only the access the task needs, protects the company. It also protects the people who would otherwise have to say no to a senior leader's bot in private. TAM Bot's position contract put it in four words: "Access is not authorization" (xref:9-one-page-per-job.adoc[Chapter 9]). That applies to leaders' agents most of all.
+// SOURCE: dossier §1 case 2 (TAM Bot contract); §1 case 5 [Sensitive], referred to only by its rule
+
+== Finished means the organisation no longer needs you holding it together
+
+// SOURCE: dossier §2 finding 8; §1 case 13
+I'll end with a failure of my own: the keyring that stops my email agents whenever my workstation locks, reported honestly by those agents every day for a week, with a fix only I could apply (xref:2-systems-run-the-business.adoc[Chapter 2]).
+
+That is the whole book in one recurring error. A system that waits for one person to unlock it isn't a system. An escalation with no owner who reads it isn't an escalation. And a Friction Review that keeps adding "Re-confirmed" notes to a skill, instead of changing the design, isn't a review. It is a log. The single point of failure in my agent organisation is not a model. It is me.
+
+[WARNING]
+====
+AUTHOR: Has the keyring problem been fixed by the time of publication, and if so, how? If it hasn't, say why honestly. Either way, a sentence on how it felt to find yourself as the single point of failure in a system you designed would land the chapter.
+====
+
+The test of a Blueprint is the one this book started with, after Gerber's franchise prototype: could the organisation be stood up again tomorrow from what is written down?footnote:gerber1995[] Every role has a charter and a sponsor. Every procedure is a Playbook someone maintains. Every promise is in a ledger, checked against evidence. Every recurring failure has a system fix and a date to check it, in the spirit of Gawande's checklists: the expert's knowledge of what goes wrong, written where the next person will see it.footnote:gawande2009[Gawande, A. (2009). _The checklist manifesto: How to get things right_. Metropolitan Books.] And nothing waits for you to unlock it.
+
+When that is true, your job is what it should be. You decide what the organisation is for. You design the roles and set the standards. You make the calls that can't be undone. You keep the Blueprint current as the models change. And you spend the rest of your time on the work only a person can do: talking to customers, building trust with your team, and deciding where to go next.
+
+[WARNING]
+====
+AUTHOR: What does "finished" look like for CorralData, in your own words? One paragraph on the organisation you are building towards, people and agents together, would make a fitting close to the book.
+====
+
+[TIP]
+.Try this
+====
+Peter Drucker's advice to executives began with a record of where their time actually goes, not where they think it goes.footnote:drucker1967[] Do the agent-era version.
+
+. List everything you did last week: meetings, messages, documents, tasks you did yourself or through an agent. Your calendar and sent items will get you most of the way.
+. Paste the list into Claude, ChatGPT or Grok and ask it to tag each item as Shape (designing the organisation), Steer (keeping it to standard) or Do (the work itself), and to add up the hours in each.
+. Take the three biggest Do items. For each, name the role on your chart that should own it. If no role exists, write its outcome line, starting "To…".
+. Ask the assistant: "Which of these items could a role I already have do, if it had a better charter or Playbook?"
+
+Repeat it in a month and compare the numbers. That is the first entry on your own Scorecard.
+====
+
+'''''
+
+Agents have made it cheap to add workers and no easier to build an organisation. That has been the argument from the first page. The answer was never a better model or a cleverer tool. It was the oldest discipline in management, applied to a new kind of worker: decide what the organisation is for, design the roles that deliver it, write down what each one owes, check it against evidence, fix the system when it fails, and put people where the decisions can't be undone.
+
+None of it requires you to be technical. All of it requires you to stop doing the work and start designing the organisation that does it. The time to start is now, while the window is open and the organisation is still small enough to redraw.
+
+The appendices are where you begin: xref:appendix-a-first-thirty-days.adoc[Appendix A] gives a week-by-week build order for your first thirty days, xref:appendix-b-templates.adoc[Appendix B] holds the templates, and xref:appendix-c-worked-example.adoc[Appendix C] shows one function run end to end by people and agents.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

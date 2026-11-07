@@ -1,0 +1,5 @@
+name: ROOT
+version: ~
+title: The Blueprint
+nav:
+  - modules/ROOT/nav.adoc

@@ -1,0 +1,223 @@
+:page-description: Plain-English definitions of the book's vocabulary and the AI industry terms a business leader meets when building an organisation of people and agents.
+:page-llms-description: Glossary of The Blueprint's terms (Role Charter, Role Pack, Commitment Ledger, Friction Review, sponsor, Agentic Resources, three lock-in tiers) and common agent terms (agent, skill, MCP, A2A, eval, harness, hook, context window), each linked to its chapter.
+:page-haiku: Words we agreed on, / so the bot and the founder / mean the same by "done".
+:description: Plain-English definitions of the book's vocabulary and the AI industry terms a business leader meets when building an organisation of people and agents.
+:keywords: AI agent glossary, agentic AI terms explained, what is an AI agent skill, what is MCP, what is an agent harness, AI eval definition
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: What is the difference between an AI agent and a chatbot?
+:page-faq-1-a: A chatbot answers in a conversation and waits for the next message. An agent is given a goal and works towards it in a loop: it decides what to do, uses tools such as search, email, a ticket system or code, checks the result, and carries on until the goal is met or it needs help. Agents can run on a schedule or in response to events, without a person typing each step, which is why they need roles, owners and limits.
+:page-faq-2-q: What is an AI agent skill?
+:page-faq-2-a: A skill is a packaged set of instructions, and sometimes small scripts and reference files, that teaches an agent how to do one kind of task the way your organisation does it. The agent sees a short description of each skill and loads the full contents only when the task calls for it. Anthropic compares building a skill to writing an onboarding guide for a new hire. In this book's terms, a skill is the usual home for a Playbook.
+:page-faq-3-q: What is MCP in AI?
+:page-faq-3-a: MCP, the Model Context Protocol, is an open standard for connecting AI agents to tools and data, such as a CRM, a ticket system, a database or a file store. Instead of building a custom connection for each AI app, a company provides one MCP server and any compatible agent can use it. The current revision, dated 28 July 2026, also lets a tool pause and ask for human input before continuing, which matters at irreversible points.
+:page-faq-4-q: What is an agent harness?
+:page-faq-4-a: The harness is the software around an AI model that turns it into a working agent. It supplies the instructions and context, gives the model its tools, runs the loop of thinking and acting, enforces permissions and hard rules, and records what happened. Claude Code, ChatGPT's agent features and Grok's bots each include a harness. The book's hard rules usually live in the harness, because the harness applies them whatever the model decides.
+:page-faq-5-q: What does "eval" mean for AI agents?
+:page-faq-5-a: An eval, short for evaluation, is a set of test tasks with a way of grading the results, used to check whether an agent does its job well enough. Graders can be code, another model, or a person. Good evals are built from real failures, so each mistake becomes a test the agent must keep passing. In this book's terms, an eval is how a Role Charter's acceptance clause is checked repeatedly and without relying on the agent's own word.
+= Appendix E: Glossary
+
+Each entry gives the meaning used in this book, in plain English, and points to the chapter that covers it most fully. Terms the book coined or adapted come first; industry terms follow. Where an idea comes from another writer, the chapter credits them.
+
+== The Book's Vocabulary
+
+Acceptance::
+How a role's result is checked, by whom, and with what evidence. It is written into every Role Charter, before the work starts, and never rests on the occupant's own word. See xref:9-one-page-per-job.adoc[Chapter 9].
+
+Agentic Resources::
+Human Resources for agents: the function on the org chart, run by a person, a bot or both, that writes charters, onboards agents, reviews their performance, settles duplicates and retires them. See xref:17-agentic-resources.adoc[Chapter 17].
+
+Aim::
+What the organisation is for, from the founder's point of view: what you want it to give you and the people it serves. See xref:4-know-what-its-for.adoc[Chapter 4].
+
+Blueprint::
+The organisation documented well enough that you could stand it up again tomorrow: roles, charters, playbooks, Role Packs and the rules that connect them. The idea follows Michael Gerber's "franchise prototype". See xref:3-draw-the-finished-org-chart.adoc[Chapter 3].
+
+Commitment Ledger::
+A record of what each role owes, to whom and by when, checked against evidence. It tracks what is owed rather than what is done, so problems surface before the deadline. See xref:13-track-whats-owed.adoc[Chapter 13] and the template in xref:appendix-b-templates.adoc[Appendix B].
+
+Design, Measure, Lock in::
+The improvement loop: design a better way of doing the work, measure whether it is better, then lock in what proves itself. It follows Gerber's innovation, quantification and orchestration. See xref:2-systems-run-the-business.adoc[Chapter 2] and xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11].
+
+Destination::
+What "finished" looks like for the organisation, including its shape and its mix of people and agents. See xref:4-know-what-its-for.adoc[Chapter 4].
+
+Friction Review::
+A short, blame-free review that turns a recurring failure into a change to the system, so the whole class of error stops. "The model got it wrong" is not an accepted root cause. See xref:16-the-model-isnt-the-problem.adoc[Chapter 16].
+
+Hard rule::
+The third lock-in tier: a rule the software enforces whatever the occupant decides, reserved for irreversible actions, security boundaries and the acceptance check. See xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11].
+
+Irreversible point::
+A step that cannot be undone once taken, such as sending to a customer, paying, deleting, publishing or merging. This is where humans and hard rules belong. See xref:14-humans-at-the-irreversible-points.adoc[Chapter 14].
+
+Lock in, the three tiers::
+How firmly a step is fixed: plain English by default, a script for calculation and lookup, a hard rule only where nothing may go wrong. Lock in the checks, not the steps, and review every lock-in when the models improve. See xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11].
+
+Occupant::
+Whoever currently fills a role: a person, an agent, or both. One occupant can hold several roles, and a role survives a change of occupant. See xref:5-hire-the-role-not-the-model.adoc[Chapter 5].
+
+Outcome line::
+One sentence at the top of a Role Charter saying why the role exists, starting "To…". See xref:9-one-page-per-job.adoc[Chapter 9].
+
+Owns or serves::
+A line in the Role Charter saying whether the role owns its answers or works as a helper for another role that does. See xref:9-one-page-per-job.adoc[Chapter 9].
+
+Playbook::
+A documented procedure for a recurring piece of work, written in plain English by default, with the reason for each step and a tier marker where a step is locked in. See xref:10-bet-on-plain-english.adoc[Chapter 10].
+
+Role::
+A position on the org chart, defined by the result it produces. An occupant fills it. Design the roles first, then fill them. See xref:5-hire-the-role-not-the-model.adoc[Chapter 5].
+
+Role Charter::
+A role's one-page specification: outcome line, the work, standards (quantity, quality, behaviour), authority, acceptance, handoffs, sponsor. The same format serves people and agents. See xref:9-one-page-per-job.adoc[Chapter 9].
+
+Role coherence test::
+A check that a role keeps three things consistent: the kind of work, the level of judgment it needs, and the occupants available to do it. If they pull apart, split the role. See xref:5-hire-the-role-not-the-model.adoc[Chapter 5].
+
+Role Pack::
+Everything a role's occupant needs to know to do the job on day one, with the reasons behind the rules, kept lean and linked to live sources. See xref:12-everything-they-need-on-day-one.adoc[Chapter 12].
+
+Scorecard::
+The few numbers that say whether the organisation is working. See xref:4-know-what-its-for.adoc[Chapter 4].
+
+Script::
+The second lock-in tier: a small program, often written by the agent itself, that does a calculation or lookup the same way every time. See xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11].
+
+Shadow mode::
+A trial period in which an agent drafts or recommends but does not act, so its work can be compared with a human's before it earns autonomy. See xref:14-humans-at-the-irreversible-points.adoc[Chapter 14].
+
+Shape, Steer, Do::
+The three kinds of work: shaping what the organisation becomes, steering how it runs, and doing the work itself. They follow Gerber's Entrepreneur, Manager and Technician. See xref:1-you-already-know-how.adoc[Chapter 1].
+
+Single writer::
+The rule that only one role changes any given piece of work at a time, while others may advise or review. See xref:6-one-boss-few-reports.adoc[Chapter 6].
+
+Sponsor::
+The named human accountable for an agent's purpose and lifecycle: why it exists, what it may access, and when it retires. See xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7].
+
+Story::
+The organisation's purpose, written so that people and agents can make decisions from it. See xref:4-know-what-its-for.adoc[Chapter 4].
+
+What and why, never how::
+The briefing rule: tell an occupant the result you need and why it matters, and leave the method to the role that owns it. See xref:8-what-and-why-never-how.adoc[Chapter 8].
+
+Work in public::
+Making requests, handoffs and approvals in shared channels rather than private messages, so they can be seen, tracked and picked up. See xref:15-work-in-public.adoc[Chapter 15].
+
+== Industry Terms
+
+A2A (Agent2Agent)::
+An open standard, version 1.0 since April 2026, for agents from different vendors or organisations to talk to each other and prove who they are. See xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+
+Agent::
+An AI system given a goal that works towards it in a loop: deciding what to do, using tools, checking the result, and continuing until done or stuck. See xref:5-hire-the-role-not-the-model.adoc[Chapter 5].
+
+Agent identity::
+An agent's own account and name, separate from any person's, so its actions can be traced, limited and switched off. See xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7].
+
+Agent team, multi-agent system::
+Several agents working on one task, either under a coordinating agent or as peers sharing a task list. Useful for parallel work; usually worse for sequential work. See xref:6-one-boss-few-reports.adoc[Chapter 6].
+
+Approval prompt::
+A request for a human to say yes before an agent acts. People approve almost all of them, so a prompt is only useful at a genuinely irreversible point. See xref:14-humans-at-the-irreversible-points.adoc[Chapter 14].
+
+Bitter Lesson::
+Rich Sutton's 2019 observation that general methods which use more computation have beaten hand-built human knowledge in AI over the long run. This book applies it to management: over-specified instructions hold capable agents back. See xref:8-what-and-why-never-how.adoc[Chapter 8].
+
+Compaction::
+What an agent does when its context window fills: it summarises the conversation so far and carries on from the summary. Details can be lost, which is one reason ledgers live outside the conversation. See xref:13-track-whats-owed.adoc[Chapter 13].
+
+Context engineering::
+Choosing what information an agent sees at each moment, aiming for the smallest set that gets the job done well. The technical side of a Role Pack. See xref:12-everything-they-need-on-day-one.adoc[Chapter 12].
+
+Context window::
+The amount of text a model can consider at once, including instructions, documents and the conversation. Anything outside it, the model cannot see. See xref:12-everything-they-need-on-day-one.adoc[Chapter 12].
+
+Deny rule::
+A setting that forbids an agent a particular action or file outright, whatever it has been asked. A common form of hard rule. See xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11].
+
+Durable execution::
+Software that records each step of a long-running job so it can resume where it left off after a crash or restart. See xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+
+Eval::
+Short for evaluation: a set of test tasks and a way of grading them, used to check that an agent does its job well enough and keeps doing so. See xref:16-the-model-isnt-the-problem.adoc[Chapter 16].
+
+Evaluator, verifier::
+The person, agent or test that checks another occupant's work. It works best with its own context and its own evidence. See xref:9-one-page-per-job.adoc[Chapter 9].
+
+Handoff::
+Passing a piece of work, and responsibility for it, from one role to another. Most lost work goes missing here. See xref:15-work-in-public.adoc[Chapter 15].
+
+Harness::
+The software around a model that makes it an agent: it supplies instructions and tools, runs the loop, enforces permissions and records what happened. See xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11].
+
+Hook::
+A small piece of the harness that runs automatically at a fixed point, such as before a tool is used or before the agent says it is finished, and can block the action. A common form of hard rule. See xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11].
+
+Human in the loop::
+A design in which a person reviews or approves an agent's work at chosen points. This book's version: humans at the irreversible points, not everywhere. See xref:14-humans-at-the-irreversible-points.adoc[Chapter 14].
+
+Least privilege::
+Giving any occupant, human or agent, only the access its role needs, for only as long as it needs it. See xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7].
+
+MCP (Model Context Protocol)::
+An open standard for connecting agents to tools and data, so one connection to your CRM or ticket system works with any compatible agent. See xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+
+Memory::
+Notes an agent keeps between sessions about what it has learned. Useful, but it drifts unless reviewed and merged into the Role Pack. See xref:12-everything-they-need-on-day-one.adoc[Chapter 12].
+
+Model::
+The underlying AI system, such as a version of Claude, GPT or Grok, that does the reasoning. An agent is a model plus a harness, instructions and tools. See xref:5-hire-the-role-not-the-model.adoc[Chapter 5].
+
+Orchestrator::
+An agent, or person, that breaks work into pieces, hands them to other agents and assembles the results. The manager in a hierarchy of agents. See xref:6-one-boss-few-reports.adoc[Chapter 6].
+
+pass@k, pass^k::
+Two ways of scoring repeated attempts. pass@k is the chance of at least one success in k tries; pass^k is the chance that all k succeed, which is what matters for unattended work. See xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+
+Progressive disclosure::
+Showing an agent a short summary of each skill and loading the full detail only when needed, which keeps its context lean. See xref:12-everything-they-need-on-day-one.adoc[Chapter 12].
+
+Prompt injection::
+An attack in which text the agent reads, such as an email or web page, contains instructions meant to hijack it. A reason to limit access and keep hard rules outside the model. See xref:14-humans-at-the-irreversible-points.adoc[Chapter 14].
+
+Scheduled job::
+Work an agent does at fixed times (every weekday at nine, say) rather than when someone asks. Engineers often call it a cron job. See xref:13-track-whats-owed.adoc[Chapter 13].
+
+Skill::
+A packaged set of instructions, and sometimes scripts and reference files, that teaches an agent one kind of task the way your organisation does it. The usual home for a Playbook. See xref:10-bet-on-plain-english.adoc[Chapter 10].
+
+Subagent::
+A helper agent started by another agent for a narrow task, working in its own context and reporting back a summary. See xref:6-one-boss-few-reports.adoc[Chapter 6].
+
+System prompt::
+The standing instructions an agent receives before any conversation, setting who it is and how it behaves. In this book, the thin part of a role: identity and limits, not the whole job. See xref:5-hire-the-role-not-the-model.adoc[Chapter 5].
+
+Token::
+The unit models read and write in, roughly three-quarters of an English word. Context windows and costs are measured in tokens. See xref:12-everything-they-need-on-day-one.adoc[Chapter 12].
+
+Tool, tool call::
+An action an agent can take beyond writing text, such as searching, sending a message, querying a database or editing a file. Each use is a tool call. See xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7].
+
+Workflow builder::
+A visual drag-and-drop tool for wiring steps and AI calls into a fixed flow. Precise, but this book argues plain-English playbooks usually spread further and adapt better. See xref:10-bet-on-plain-english.adoc[Chapter 10].
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+
+{page-faq-2-q}::
+{page-faq-2-a}
+
+{page-faq-3-q}::
+{page-faq-3-a}
+
+{page-faq-4-q}::
+{page-faq-4-a}
+
+{page-faq-5-q}::
+{page-faq-5-a}

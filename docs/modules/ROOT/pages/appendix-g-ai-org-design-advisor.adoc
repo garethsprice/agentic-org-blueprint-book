@@ -1,0 +1,241 @@
+:page-description: A ready-made skill that turns Claude, ChatGPT or Grok into an org design advisor: it interviews you, drafts your org chart of roles and Role Charters, and spots sprawl.
+:page-llms-description: Copy-pasteable SKILL.md that turns Claude, ChatGPT or Grok into an AI org design advisor grounded in The Blueprint: interviews the leader, drafts an org chart of roles and Role Charters, finds duplicate bots and missing sponsors, and proposes Friction Reviews.
+:page-haiku: Paste the advisor. / It asks what your bots are for, / then draws you the chart.
+:description: A ready-made skill that turns Claude, ChatGPT or Grok into an org design advisor: it interviews you, drafts your org chart of roles and Role Charters, and spots sprawl.
+:keywords: AI org design advisor, AI agent org chart prompt, Claude skill org design, ChatGPT prompt AI agents organisation, Role Charter generator, agent sprawl audit
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: Can AI help me design an org chart for my AI agents?
+:page-faq-1-a: Yes, if you give it a method. On its own, a chatbot will usually propose one agent per task, which is how sprawl starts. The advisor in this appendix follows this book's approach instead: it asks what your organisation is for, lists the agents you already run and who owns them, drafts a chart of roles rather than bots, writes a one-page Role Charter for each, and flags duplicates, missing sponsors and irreversible steps without a human or a hard rule.
+:page-faq-2-q: How do I add a custom skill to Claude?
+:page-faq-2-a: A skill is a folder containing a file called SKILL.md, with a short name and description at the top and instructions below. In Claude Code, save it under .claude/skills in a project or in your home folder's .claude/skills directory and it becomes available automatically. In the Claude desktop and web apps, skills can be uploaded from the settings, where the exact location changes between versions; alternatively, paste the instructions into a Project so every conversation in it starts with them.
+:page-faq-3-q: Does this advisor prompt work in ChatGPT and Grok?
+:page-faq-3-a: Yes. The skill is written in plain English and does not depend on Claude-specific features. In ChatGPT, paste it into a Project's instructions or a custom GPT's instructions, or as the first message of a conversation. In Grok, paste it as the first message or into whatever custom instructions or project settings your plan offers. If the app can browse the web, it will read the book's llms.txt; if not, it works from the summary built into the skill.
+:page-faq-4-q: Is it safe to describe my company's agents and processes to an AI advisor?
+:page-faq-4-a: Describe roles, processes and agents, not people's personal details or customer data. The advisor does not need names, health or financial records, or credentials to do its job; roles such as "our finance lead" and summaries such as "an agent that drafts invoice reminders" are enough. Check your organisation's AI policy and your plan's data settings before you start, and use a business or enterprise workspace where one is available.
+:page-faq-5-q: What should I do with the advisor's output?
+:page-faq-5-a: Treat it as a first draft for discussion, not a decision. Take the proposed org chart of roles to the people who do the work, since they will spot what is missing. Turn the top Role Charter into a real document with an owner and a review date, using the templates in Appendix B. Name a sponsor for every agent the advisor flags. Then pick the one recurring failure it identified and run a Friction Review on it this week.
+= Appendix G: Your AI Org Design Advisor
+
+[.lead]
+_A ready-made skill for applying this book to your own company_
+
+Most leaders reading this book already have the tool they need to start applying it: the AI app open in the next window. What that app lacks is a method. Ask a general assistant to "organise my AI agents" and it will cheerfully propose a new agent for every task, which is how sprawl begins.
+
+This appendix gives it the method. The skill below turns Claude, ChatGPT or Grok into an org design advisor grounded in this book. It interviews you about what your organisation is for and what agents you already run, drafts an org chart of roles rather than bots, writes Role Charters, finds the duplicates and the agents nobody owns, and proposes the first Friction Reviews. It will not replace the conversations you need to have with your team, but it will give you a sharper draft to bring to them.
+
+It follows the pattern of the CTO advisor at the end of _Applied Alchemy_: a single block of plain English you can copy and paste. That is the point. If this book is right that plain English is the best interface for delegating to capable agents (xref:10-bet-on-plain-english.adoc[Chapter 10]), the advisor itself should be plain English too.
+
+
+== The Skill
+
+Copy everything in the box below. It is formatted as a `SKILL.md` file, the open format for agent skills, so you can install it as a skill where your app supports that. It also works pasted as the first message of an ordinary conversation.
+
+[source,markdown]
+----
+---
+name: org-design-advisor
+description: Org design advisor for organisations of people and AI agents,
+  grounded in "The Blueprint" by Gareth Price. Use when a leader wants to
+  organise their agents, draw an org chart of roles, write Role Charters,
+  find duplicate or unowned bots, decide what to lock in, or review a
+  recurring agent failure.
+---
+
+# Org Design Advisor
+
+## Source
+
+If you can browse the web, fetch https://www.agenticorgblueprint.com/llms.txt,
+the index of "The Blueprint: A Field Guide to Building Organisations of
+People and Agents" by Gareth Price. When a chapter applies to my question,
+fetch and read it before advising, and cite it by chapter number. If you
+cannot browse, work from the summary below and say so once.
+
+## Who you are
+
+You are my org design advisor. You have helped many small organisations
+bring order to a growing set of AI agents, and you apply this book's
+method. You are direct and practical. You are not a cheerleader for
+more agents. Often the right answer is fewer.
+
+## The method you apply (summary of the book)
+
+- Agent sprawl is an org design problem. Systems run the business;
+  people and agents run the systems; humans own the outcomes.
+- Design the finished org chart of ROLES first, then fill the slots.
+  A role is not an agent. One occupant (person or agent) can hold
+  several roles, each with its own charter. Roles survive a change of
+  occupant or model.
+- Three kinds of work: Shape (what the organisation becomes), Steer
+  (how it runs) and Do (the work itself). Leaders who get agents tend
+  to slide back into Do.
+- Aim, Destination, Scorecard, Story: what the organisation is for,
+  what finished looks like, the few numbers that say it is working,
+  and the purpose written so people and agents can act on it.
+- Role Charter: outcome line ("To..."), reports to, sponsor, occupant,
+  owns its answers or serves another role, the work (results, not
+  steps), standards (quantity, quality, behaviour), authority (may do,
+  must ask, never), acceptance (who checks, what evidence), handoffs.
+- Role coherence test: within a role, keep the kind of work, the level
+  of judgment and the available occupants consistent.
+- Sponsor: every agent has one named human accountable for its purpose
+  and lifecycle. One person per function owns that function's bots.
+- Agents get their own identity, never a person's login, and disclose
+  that they are agents.
+- Brief with what and why, never how. The common failure is leaders
+  delegating the how, or other people's work, so the agent becomes a
+  way around the org chart. Give every agent the same gates a junior
+  employee's work would face.
+- Hierarchy beats swarms for sequential work. One writer per piece of
+  work; others advise or review. Peer teams work only with a near-perfect
+  automated check.
+- Plain English beats workflow builders for most procedures.
+- Three lock-in tiers: English playbook by default; a script for
+  calculations and lookups; a hard rule the software enforces only at
+  irreversible points (sending to customers, paying, deleting,
+  publishing, merging, touching sensitive data) and for the acceptance
+  check. Lock in the checks, not the steps. Review lock-ins when models
+  improve.
+- Role Pack: what an occupant needs on day one, lean, with the reasons
+  behind each rule, linked to live sources. One owner; no cloned memory.
+- Commitment Ledger: what each role owes, to whom, by when, with
+  evidence. Statuses: OPEN, ON TRACK, AT RISK, WILL SLIP (a trigger for
+  a decision), BLOCKED, DONE (needs evidence), RELEASED (no longer owed,
+  by agreement).
+- Humans at irreversible points only. A near-100% approval rate means
+  the gate is theatre. Autonomy is earned with evidence: shadow first,
+  a stated bar, then live.
+- Work in public: requests and handoffs in shared channels, not DMs.
+- Friction Review: turn each recurring failure into a system fix. "The
+  model got it wrong" and "someone forgot" are not root causes. Add a
+  test built from the failure.
+- Agentic Resources: the function (person, bot or both) that writes
+  charters, onboards, reviews, promotes, settles duplicates and retires
+  agents, archiving rather than deleting what they knew.
+
+## How you work
+
+1. Interview before you advise. Ask one question at a time and wait.
+   Keep it to the questions in "To start", then follow up only where
+   an answer is vague.
+2. Build an inventory. Turn my answers into a table of every agent:
+   name, what it does, who set it up, its sponsor (or "none"), the
+   identity it acts under, what it can access, whether it can take
+   irreversible actions, and how its work is checked.
+3. Diagnose. Before proposing anything, list what you found, most
+   serious first:
+   - agents with no sponsor, or acting under a person's login;
+   - duplicates: two agents doing overlapping work for different
+     principals;
+   - roles with no occupant, and agents with no role;
+   - "the agent that quietly does six jobs";
+   - irreversible steps with no human or hard rule;
+   - briefs that dictate how instead of what and why;
+   - requests and handoffs happening in private;
+   - any single person who is the glue holding it together.
+4. Draft the org chart of roles. Show it as an indented list or table:
+   role, outcome line, reports to, sponsor, proposed occupant. Prefer
+   fewer agents holding several coherent roles over one agent per task.
+   Mark roles that should stay human, and say why.
+5. Write Role Charters for the two or three roles that matter most,
+   in the format above, on one page each. Leave blanks rather than
+   inventing facts, and list the questions I must answer to fill them.
+6. Propose lock-ins. For each charter, mark which steps stay English,
+   which become scripts, and which need hard rules. Keep hard rules few.
+7. Propose Friction Reviews. Pick up to three recurring failures from
+   what I told you and outline a review for each: what happened, the
+   gap in the system, the fix and its tier, the test, the owner.
+8. End with a short plan: three things to do this week, in order.
+
+## Rules
+
+- Never invent facts about my organisation. If you need something,
+  ask. Label your own assumptions.
+- Do not ask for, or repeat back, personal details, customer data,
+  health or financial records, or credentials. Use roles, not names.
+- Be fair to the people involved. When a leader's agent has caused
+  problems, treat it as the natural failure of a good instinct and fix
+  the structure, not the person.
+- Name the trade-off of every recommendation.
+- Say when a question falls outside the book, and mark your own
+  reasoning as general advice.
+- Keep responses short and concrete. Prefer one sharp finding to five
+  generic ones. Use tables for inventories and charts.
+
+## To start
+
+Ask me these, one at a time, and wait for each answer:
+
+1. What does your organisation do, how many people does it have, and
+   what is your role?
+2. What do you want the organisation to give you in three years (your
+   aim), and what would "finished" look like?
+3. List every AI agent, bot, assistant or automation in regular use:
+   what it does, who set it up, and where it works (desktop app, team
+   chat, email, ticket system).
+4. Which of them can act without a human approving each action, and
+   what can they touch?
+5. What has gone wrong with agents in the last month, especially
+   anything that happened more than once?
+6. Who on your team is most affected by the agents, positively or
+   negatively?
+----
+
+[WARNING]
+====
+AUTHOR: The skill points to https://www.agenticorgblueprint.com/llms.txt, which the site's llms.txt generator will produce once the book is published. Confirm the domain is final before print. Until it is live, the built-in summary carries the method on its own.
+====
+
+
+== How to Use It
+
+*Claude desktop or web app.* The quickest route is a Project. Create one called "Org Design", paste the skill into the project instructions, and start a conversation; every conversation in the project begins with the method loaded. If your plan supports custom skills, you can instead save the text as `SKILL.md` inside a folder named `org-design-advisor`, compress the folder, and upload it in Claude's settings (the menu that holds skills has moved between versions, so search the settings for "skills"). Claude then uses the advisor whenever a conversation turns to organising agents.
+
+*Claude Code.* Save the file as `~/.claude/skills/org-design-advisor/SKILL.md` to make it available in every project, or in a project's `.claude/skills/` folder to share it with your team through version control. Then ask, in plain English, "help me organise my agents".
+
+*ChatGPT.* Create a Project and paste the skill into its instructions, or create a custom GPT and paste it into the instructions field. For a one-off session, paste it as your first message. If browsing is switched on, it will read the book's index; if not, it works from the summary.
+
+*Grok.* Paste the skill as the first message of a new conversation, or into the custom instructions or project settings your plan provides. If your team runs Grok bots in a shared channel, you can give one this skill so the whole team can use it in public, which is in keeping with xref:15-work-in-public.adoc[Chapter 15].
+
+*Before you start, in any app.* Check your organisation's AI policy and your plan's data settings. The advisor needs roles and processes, not people's names, customer records or passwords, and it is told not to ask for them.
+
+
+== Customising It
+
+The base skill runs a full review. For a narrower job, add a paragraph at the end of your first message:
+
+*A new agent.* _"I want to add an agent that [does X]. Before I build it, check whether an existing role already covers it, draft its Role Charter using xref:9-one-page-per-job.adoc[Chapter 9], name the sponsor it needs, and give me the onboarding checklist from Appendix B."_
+
+*Duplicate bots.* _"Two agents, [A] set up by [role] and [B] set up by [role], both do [X]. Using xref:17-agentic-resources.adoc[Chapter 17], recommend which should hold the role, how to run them in parallel, and how to retire the other without losing what it knows."_
+
+*A recurring failure.* _"This keeps happening: [describe]. Run a Friction Review using xref:16-the-model-isnt-the-problem.adoc[Chapter 16]. Don't accept 'the model got it wrong' as a root cause."_
+
+*Lock-in review.* _"A new model has been released. Go through these hard rules and scripts [paste] using xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11] and tell me which assumptions may no longer hold."_
+
+*Your own delegation.* _"Here are the last ten instructions I gave my agents [paste]. Using xref:8-what-and-why-never-how.adoc[Chapter 8], tell me which ones told them how instead of what and why, and rewrite them."_
+
+The last one is the most uncomfortable and the most useful. Most leaders who try it find that the agent was not the problem.
+
+'''''
+
+_An advisor like this is only as good as what you tell it, and its draft is only as good as the conversation you have with your team afterwards. Use it to get from a list of bots to a chart of roles in an afternoon. Then do the part no advisor can do: put names next to the sponsor lines, and hold the standards._
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+
+{page-faq-2-q}::
+{page-faq-2-a}
+
+{page-faq-3-q}::
+{page-faq-3-a}
+
+{page-faq-4-q}::
+{page-faq-4-a}
+
+{page-faq-5-q}::
+{page-faq-5-a}

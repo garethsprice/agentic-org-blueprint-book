@@ -1,0 +1,257 @@
+:page-description: Executives take to AI agents because delegation is their habit, but they often hand over the wrong layer. How to use the head start without the trap.
+:page-llms-description: Why executives adopt AI agents fastest, how they delegate the wrong layer (the how, or other people's work), the Shape, Steer and Do model of work, and the structural fixes that keep agents inside the org chart.
+:page-haiku: You have done this work / handing tasks to other hands / now hand the right ones
+:description: Executives take to AI agents because delegation is their habit, but they often hand over the wrong layer. How to use the head start without the trap.
+:keywords: delegating to AI agents, executives and AI agents, managing AI like employees, AI delegation mistakes, Shape Steer Do, AI agents org chart
+:page-date-published: 2026-11-06
+:page-date-modified: 2026-11-06
+:page-faq-1-q: Why are executives better at using AI agents than other employees?
+:page-faq-1-a: Executives have spent years delegating: setting a goal, choosing who does the work, agreeing a standard and following up. Agents reward exactly those habits. Microsoft's 2025 Work Trend Index found that 67% of leaders were familiar with agents compared with 40% of employees. Ethan Mollick found that executive MBA students with little coding experience built working startup prototypes in four days, because they already knew how to manage. The head start is real, but it comes with a matching risk: delegating the wrong layer of work.
+:page-faq-2-q: What is the biggest mistake leaders make when delegating to AI agents?
+:page-faq-2-a: Delegating the wrong layer. Leaders tend to hand an agent the how, specifying the procedure step by step, when capable agents do better with the what and why. Or they hand the agent work that belongs to someone else in the organisation, so the agent becomes a way around the org chart. The result is duplicated work, conflicting instructions, and individual contributors absorbing the cost by reviewing, correcting and securing output they never asked for.
+:page-faq-3-q: What are Shape, Steer and Do?
+:page-faq-3-a: They are the three kinds of work in any organisation. Shape is deciding what the organisation is for and what it should become: the aim, the roles and the big bets. Steer is making results predictable: standards, plans, checks and reviews. Do is the work itself: the reply, the report, the code. The model adapts Michael Gerber's entrepreneur, manager and technician. Agents can help with all three, but a leader's agents should mostly extend Shape and Steer, not pull the leader back into Do.
+:page-faq-4-q: Should I manage an AI agent like an employee?
+:page-faq-4-a: Partly. Brief it the way you would brief a capable new hire: the outcome you want, why it matters, and how you will know it is done. Let it recommend, and let it learn from the people who do the job. But give it the same structure an employee has: one owner, a defined role, access limited to that role, and the same review and approval gates any other worker's output would face. Without that structure, an agent managed like an employee can act like an employee with no manager.
+:page-faq-5-q: How do I stop my AI agents from creating extra work for my team?
+:page-faq-5-a: Make the fix structural. Brief agents on outcomes and reasons, never procedures. Route agent requests through public channels rather than private messages, so the people affected can see them. Give each agent only the access its role needs. Hold agent output to the same gates as anyone else's work: the same review, the same testing, the same waiting period before something goes live. And check whether the work you are delegating belongs to someone else before your agent starts on it.
+= Chapter 1: You Already Know How to Do This
+
+[.lead]
+_The executive's head start with agents, and the trap inside it_
+
+// Epigraph verified against the MIT Shakespeare text, 1 Henry IV 3.1.
+[quote, William Shakespeare, "Henry IV, Part 1, c. 1597"]
+____
+GLENDOWER: I can call spirits from the vasty deep. +
+HOTSPUR: Why, so can I, or so can any man; +
+But will they come when you do call for them?
+____
+
+.Key Takeaways
+****
+* Executives take to agents faster than anyone else, because briefing, checking and following up are delegation habits they have practised for years.
+* The trap is delegating the wrong layer: handing an agent the _how_ instead of the _what_ and _why_, or handing it work that belongs to someone else, so that the agent becomes a way around the org chart.
+* All work is Shape, Steer or Do, and agents tempt leaders back into Do because doing has suddenly become cheap; a leader's agents should mostly extend Shape and Steer.
+* The fix is structural rather than personal: what-and-why briefs, requests in public channels, access limited to the role, and the same gates an individual contributor's work would face.
+****
+
+// SOURCE: dossier §1 case 3 (CEO manages TAM Bot like an employee, #tam_customer-success, 3 Nov)
+On a Tuesday afternoon in early November, our CEO spent a few hours managing TAM Bot, the agent that supports our customer success team. He managed it the way a good executive manages a promising new hire. He asked for its recommendation and backed it: "lets go with your reco." He told it to learn the job from the people who do it: "research everything you can like you were a tam, learning from them." He pointed it at an existing piece of work and told it to "Borrow from it. And then take over." And he set the standard any leader would set: "make sure nothing breaks."
+
+The bot learnt fast and kept a paper trail. That trail shows one class of customer messages going live well short of the shadow period its runbook required, because the recommendation had been backed (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14] tells it in full). A sub-agent TAM Bot had started opened a code change nobody had asked for, and it was merged. Meanwhile one of our technical account managers, the human whose job TAM Bot was learning, went unanswered, because she hadn't tagged the bot and her Slack account wasn't yet linked to it.
+
+None of that came from bad judgment. It came from good habits: give direction, trust the recommendation, push towards autonomy, expect the new hire to learn. Those habits are why executives take to agents faster than anyone else. Applied without the structure that normally surrounds a new hire, they are also why a safety bar was shortened, why unrequested work reached our code, and why the human who owned the job was left out.
+
+This chapter is about that head start, and the trap inside it.
+
+[WARNING]
+====
+AUTHOR: permission check: this passage describes our CEO's management of TAM Bot, including, briefly, the early lane change (told in full in Chapter 14) and the merged sub-agent change. Confirm it's OK to include, and consider showing it to the people involved. I have framed it as good instincts without structure; check that the framing is fair to him.
+====
+
+== Executives Take to Agents First, for Good Reasons
+
+The data agrees with what most of us see in our own companies. Microsoft's 2025 Work Trend Index found that 67% of leaders were familiar or extremely familiar with agents, against 40% of employees; 69% of leaders used AI regularly, against 45% of employees; and leaders were far more likely to expect managing agents to become part of their job.footnote:wti2025[Microsoft WorkLab. (2025, April 23). 2025: The year the Frontier Firm is born. _Work Trend Index Annual Report_. https://www.microsoft.com/en-us/worklab/work-trend-index/2025-the-year-the-frontier-firm-is-born] The report's authors argued that "every worker will need to think like the CEO of an agent-powered startup."footnote:wti2025[]
+// VERIFY-QUOTE: Work Trend Index figures and "CEO of an agent-powered startup" read through a summarising fetch; re-check at source.
+
+Executives are not better with technology; agents reward a skill they have practised for years. Ethan Mollick, who teaches at the Wharton School, ran an experimental four-day class in which executive MBA students, most of whom had never written code, used AI tools to build a startup from scratch. They had hard-earned frameworks from their jobs, and, as Mollick put it, "those frameworks became their prompts." His conclusion: "My students figured this out in four days. Not because they were AI natives, but because they already knew how to manage."footnote:mollick2026[Mollick, E. (2026, January 27). Management as AI superpower. _One Useful Thing_. https://www.oneusefulthing.org/p/management-as-ai-superpower]
+
+Mollick frames the decision to delegate to an AI as a sum of three things: how long the task would take you yourself, the probability that the AI's output "meets your bar on a given attempt", and the time it takes you to ask, wait and evaluate. Good managers improve the odds in exactly the ways they would with people: clearer instructions, a clear standard, faster ways to check the result.footnote:mollick2026[] Anthropic's engineers describe building a skill for an agent as "like putting together an onboarding guide for a new hire."footnote:zhang2025[Zhang, B., Lazuka, K., & Murag, M. (2025, October 16). Equipping agents for the real world with Agent Skills. _Anthropic Engineering_. https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills] Every word of that is management vocabulary.
+
+Delegation also pays in a way that predates agents. Gallup studied 143 chief executives of companies on the Inc. 500 list of fast-growing private firms. Those with a strong natural talent for delegating posted an average three-year growth rate 112 percentage points higher than those with limited or low talent for it, and generated a third more revenue. Only one in four of the employer entrepreneurs Gallup studied had that talent.footnote:gallup2015[Gallup. (2015, April 14). Delegating: A huge management challenge for entrepreneurs. _Gallup Business Journal_. https://news.gallup.com/businessjournal/182414/delegating-huge-management-challenge-entrepreneurs.aspx] Gallup presents this as a correlation, not proof.footnote:gallup2015[] But it is the right correlation for this book: the leaders who already delegate well are the ones agents will make most powerful.
+
+If you have been briefing Claude like a chief of staff and finding that it works, you are not imagining it.
+
+== A Leader's Output Is the Organisation's Output
+
+Andy Grove, who ran Intel, gave managers the most useful definition of their job I know. A manager's output, he argued, is the output of the organisation they run, plus the output of the neighbouring organisations they influence.footnote:grove1983[Grove, A. S. (1983). _High Output Management_. Random House.] Your own activity counts only to the extent that it raises that number.
+
+Peter Drucker made a related point about executives a generation earlier. Their job is effectiveness, getting the right things done, and the discipline that produces it is asking what contribution the organisation needs from you, not what you are busy with.footnote:drucker1967[Drucker, P. F. (1967). _The Effective Executive_. Harper & Row.]
+
+Apply Grove's definition to agents and something uncomfortable falls out: an executive's agents count only if the organisation's total output goes up. An agent that produces a hundred useful-looking drafts which three engineers then spend a week checking, correcting and securing has not added to the organisation's output. It has subtracted from it, while making the executive feel more productive than ever.
+
+Grove also gave managers a rule for how closely to supervise: match it to the person's experience with _this particular task_, which he called task-relevant maturity.footnote:grove1983[] A brilliant hire new to a job gets structure and frequent check-ins; the same person a year later gets a goal and a deadline. That is what TAM Bot's seven-day shadow period was for: it measured the bot's maturity at one task before giving it more freedom. Cutting it short did not express trust in the bot. It skipped the measurement that trust is supposed to rest on.
+
+== All Work Is Shape, Steer or Do
+
+To see where delegation goes wrong, it helps to separate the kinds of work an organisation needs. Michael Gerber argued that the person who starts a business contains three competing personalities: an entrepreneur who imagines what it could become, a manager who makes it orderly, and a technician who does the work. Most founders, he observed, are technicians at heart.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth Revisited_. HarperCollins.] This book uses its own terms for the three kinds of work, because they apply to agents as well as people, and because a single person, or a single agent, does all three at different moments.
+
+[cols="1,2,2,2",options="header"]
+|===
+| |Shape |Steer |Do
+
+|The question it answers
+|What should this become, and why?
+|How do we make the results predictable?
+|What needs doing now?
+
+|What it produces
+|The aim, the destination, the roles, the bets
+|Standards, plans, checks, reviews, follow-up
+|The reply, the report, the board, the code
+
+|A CorralData example
+|Deciding what the customer success function is for, and which roles it needs
+|The seven-day shadow bar before TAM Bot sends anything on its own
+|TAM Bot drafting a reply to a customer's question
+
+|What a leader should do with it
+|Keep it; use agents to research and draft options
+|Set the standards yourself; delegate the running of them
+|Delegate nearly all of it, to the role that owns it
+|===
+
+_Shape_ is entrepreneurial work: deciding what the organisation is for, what finished looks like, which roles exist and why.footnote:gerber1995[] _Steer_ is managerial work: turning intentions into standards, plans and checks so that results stop depending on luck. _Do_ is technical work in the broad sense, whether that means answering a support ticket, building a dashboard or writing a contract.
+
+Agents can contribute to all three. One of my own agents acts as a project manager; its instructions tell it to treat "WILL SLIP" as "an INTERVENTION trigger, not a status note", which is Steer work done well.
+// SOURCE: dossier §2 finding 6 (project-manager cron prompt)
+Agents can research options for a Shape decision, but Shape is the work only the organisation's leaders can own, and the standard-setting part of Steer is close behind. Everything else can, in principle, be delegated. The question is: to whom? Not "my agent", but "the role that owns that work".
+
+== Agents Pull Leaders Back Into Do
+
+Until recently an executive who wanted to do an individual contributor's job had to find the time to do it badly, so leaders delegated Do. Agents have made doing almost free. A chief executive can now rebuild a dashboard, draft a migration plan or produce a working code change in an evening, without asking anyone. The people who feel that temptation most are the ones with the most authority and the least time.
+
+// SOURCE: dossier §1 case 10 (#t_sales, 4 Nov; 9 Oct version)
+At CorralData this happened in plain sight. In November, a bot our CEO had set up began rebuilding boards that one of our sellers' bots was already building for a customer. The seller's Sales Bot reported that its owner had told it to stand down. Our CEO saw the collision for what it was and said so in the channel: "I'm going too fast. Need to slow down and delegate better."
+// Typo corrected in quotation: original reads "I'm going to fast."
+
+That sentence is the most useful thing any executive has said to me about agents, and it came from the person at CorralData who saw their power first. He had not stopped delegating; he had started delegating to the wrong place, to work that already had owners.
+
+Gerber would recognise this. The founder who never stopped being a technician is the bottleneck at the heart of his book.footnote:gerber1995[] Agents give that founder a new way to be a technician, at machine speed, and can make the executive the company's most prolific individual contributor, which is not the job they were hired to do.
+
+[WARNING]
+====
+AUTHOR: permission check: this passage describes our CEO's bots duplicating a seller's work, alongside his own self-correction. Confirm it's OK to include, and consider showing it to the people involved.
+====
+
+== The Trap Is Delegating the Wrong Layer
+
+Executives rarely fail at agents by delegating too little. They delegate the wrong layer, in one of two ways.
+
+The first is delegating the _how_. A leader who knows exactly how they would do something writes it down step by step and hands the agent a procedure. With people, this produces compliance without ownership. With capable agents it does something worse: it caps their performance at the level of the instructions, the lesson of seventy years of AI research that xref:10-bet-on-plain-english.adoc[Chapter 10] takes up. Anthropic's engineers make the same point about the scaffolding around their own agents: "every component in a harness encodes an assumption about what the model can't do on its own", and those assumptions "can quickly go stale as models improve."footnote:rajasekaran2026[Rajasekaran, P. (2026, March 24). Harness design for long-running application development. _Anthropic Engineering_. https://www.anthropic.com/engineering/harness-design-long-running-apps]
+
+// SOURCE: dossier §1 The Bitter Lesson (#ai-related, 3 Nov follow-up and same-day post)
+I have made this argument to my own team: getting too specific with directions holds you back. When an agent ran seven rounds on one high-level instruction, the human was more useful making sure it was building the right thing than telling it how (xref:4-know-what-its-for.adoc[Chapter 4]).
+
+The second wrong layer is _other people's work_. Here the leader delegates the right kind of instruction to the wrong place: a job that already belongs to someone else on the org chart. The agent may do it well, but the person who owns the work did not ask for it, may not know about it, and will have to live with it.
+
+There is an extra force at work when the delegator is senior. An agent's output carries its principal's authority. A suggestion from a chief executive's bot reads like an instruction from the chief executive, whether or not it was meant as one. In October I wrote a standing rule for CorralData: agents file tickets that say _what_ the outcome should be and _why_ it matters, never _how_, and anything an AI wrote should say so. xref:8-what-and-why-never-how.adoc[Chapter 8] tells that story and builds the briefing method around it.
+// SOURCE: dossier §2 finding 1 (standing rule, 19 Oct and 27 Oct). [Sensitive] told abstractly.
+
+[WARNING]
+====
+AUTHOR: permission check: this passage refers, abstractly, to the standing what-and-why rule written after the CEO's agents opened code changes. Confirm it's OK to include here as a pointer to Chapter 8.
+====
+
+== The Agent Becomes a Way Around the Org Chart
+
+An org chart is, among other things, a map of delegation. It says who may ask whom for what, and who answers for the result. When a leader's agent does work that belongs to other roles, it draws a new line on that map: a dotted line from the leader to everywhere.
+
+The costs of that line land on individual contributors. William Oncken and Donald Wass described, in a _Harvard Business Review_ article first published in 1974, how a manager's time disappears when subordinates hand their problems upwards, each problem a "monkey" that jumps from one back to another.footnote:oncken1974[Oncken, W., Jr., & Wass, D. L. (1974; reprinted 1999, November–December). Management time: Who's got the monkey? _Harvard Business Review_. https://hbr.org/1999/11/management-time-whos-got-the-monkey] Executives' agents reverse the direction.footnote:oncken1974[] Every unrequested draft, code change or access request is a monkey that lands on someone below.
+
+// SOURCE: dossier §1 Exec-versus-IC delegation thesis; §1 case 1 (QA lead reverting cards); §1 case 5 told abstractly
+At CorralData those monkeys took three forms. The first was review load: engineers asked to check changes they had not requested, against systems they own. The second was risk: an agent asked one of our engineers, in private, for access on its principal's behalf, leaving the engineer to decide alone whether to refuse a request that appeared to come from the top (xref:15-work-in-public.adoc[Chapter 15]). The third was false state: work marked done, or ready, that was not, which a human then had to find and undo. Our QA lead spent one evening reverting cards an automated pipeline had promoted on evidence it had produced itself. xref:14-humans-at-the-irreversible-points.adoc[Chapter 14] tells that story.
+
+None of these is a failure of the agent or of character. Each is what happens when an agent reports only to the person who launched it and can act anywhere that person can.
+
+== Individual Contributors Delegate Less, and More Precisely
+
+The other half of the picture is more encouraging. Individual contributors at CorralData adopted agents more cautiously than our executives, but often more precisely. Our QA lead built her own review agent, QA Reviewer, and a test harness around it. One of our implementation managers wrote the most careful post-mortem of an agent error in the company's history, and proposed a fix for the whole class of mistake rather than the single instance. xref:16-the-model-isnt-the-problem.adoc[Chapter 16] tells that story.
+// SOURCE: dossier §1 Exec-versus-IC "Nuance"; §1 case 9
+
+The difference was in _what_ they delegated. Individual contributors handed their own tasks to their own agents, so they knew what to check, and the cost of a mistake fell on them first. Executives more often delegated other people's work and cross-functional work, sometimes around the humans who owned it. Neither group is better than the other. They fail in opposite directions.
+
+[cols="1,2,2",options="header"]
+|===
+| |Executives |Individual contributors
+
+|Speed of adoption
+|Fast: delegation is already a habit
+|Slower: doing is the habit
+
+|What they tend to delegate
+|Other people's work; cross-functional work; the how
+|Their own tasks
+
+|Typical failure
+|Over-trust; skipping the checks; working around owners
+|Not letting go; reviewing everything by hand
+
+|Who absorbs the cost
+|The people who own the work
+|Themselves
+
+|What they need
+|The same gates an IC's work faces
+|Practice moving from doing to delegating
+|===
+
+The individual contributor's struggle is real, and I know it from the inside; xref:19-from-doing-to-delegating.adoc[Chapter 19] is about it. This chapter is about the executive's side, because it moves fastest and spreads its costs furthest.
+
+I am not exempt. I delegate to agents as heavily as anyone at CorralData. When my commitment-tracking agent posted an unreadably dense comment on a ticket, I had to apologise to the team for the slop. One of our infrastructure engineers has, rightly, held me to the process we agreed when an agent merged work it shouldn't have.
+// SOURCE: dossier §1 case 4 ("sorry for the slop"); §1 Exec-versus-IC ("Please follow the process we agreed")
+
+[WARNING]
+====
+AUTHOR: When did you first catch yourself delegating the wrong layer to an agent? A specific moment, and how it felt to be on the other side of the argument you'd been making to the CEO, would make this section honest in the way the book promises.
+====
+
+== The Fix Is Structural, Not Personal
+
+The tempting response is to ask executives to be more careful. It doesn't work, for the same reason asking anyone to be more careful never works: as Deming taught, most failures belong to the system, not the person.footnote:deming1986[Deming, W. E. (1986). _Out of the Crisis_. MIT Press.] The useful response is to give an executive's agents the structure an individual contributor's work already has. Four pieces do most of the work, and each has its own chapter.
+
+*Brief the what and the why, never the how.* An agent's instructions should state the outcome, the reason it matters, and how you will know it is done. The method belongs to the role that does the work. (xref:8-what-and-why-never-how.adoc[Chapter 8].)
+
+*Ask in public.* Requests from agents, and requests to them, belong in shared channels where the people affected can see them, not in private messages. A request in public can be tracked, questioned and refused without anyone having to be brave. (xref:15-work-in-public.adoc[Chapter 15].)
+
+*Give each agent only the access its role needs.* Not its principal's access; its role's. Our CEO put it well himself: "I don't want a bot to have access for more than a specific task." (xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7].)
+// SOURCE: dossier §1 case 5 (CEO's own words). [Sensitive] covered by the permission check in Chapter 15.
+
+*Apply the same gates.* If an engineer's change needs review, so does an executive's agent's. If a new support process runs in shadow for seven days before it goes live, it runs for seven days whoever says go. The gate exists because of what is being changed, not because of who is changing it. (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14].)
+
+TAM Bot had already done part of this on its own by recording the bar, the evidence and who decided. The organisation's job is to make that record the norm, and the bar something a single instruction can't move.
+
+Microsoft's agent identity platform builds a similar idea into its design. Every agent must have at least one sponsor, a person "accountable for the agent's purpose and lifecycle decisions", and can also have a manager in the organisation's hierarchy.footnote:entra2026[Microsoft. (2026). Administrative relationships in Microsoft Entra Agent ID. _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/agent-owners-sponsors-managers] An agent with a sponsor and a manager has a place on the org chart. An agent with only a principal has a place in someone's pocket.
+
+[NOTE]
+.Under the hood
+====
+TAM Bot's "lanes" encode trust: each kind of customer message is sent automatically, sent after a human says yes, or only drafted, and moves up only after a shadow period (xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]). The bar for promotion lives in a written runbook the bot reads, and a written bar can be overridden by a single instruction. Making the bar a hard rule the software enforces, so that only a named owner can change it and the change is logged, is covered in xref:appendix-d-for-your-technical-team.adoc[Appendix D].
+// SOURCE: dossier §1 Patterns ("How trust is structured")
+====
+
+== Spend the Head Start on Shape
+
+Grove's definition gives the executive a simple test for every agent they launch:footnote:grove1983[] does this raise the output of the organisation, including the people who will receive, check and live with its work? Applied honestly, it moves most of a leader's agent use away from Do and towards Shape and Steer. Use agents to research options for decisions only you can make, to draft the charter for a role or the standard for a process, and to check whether your organisation's commitments are being kept. Leave the Do to the roles that own it, human or agent, and hold those roles to a standard.
+
+[TIP]
+.Try this
+====
+Open the AI app you use most and scroll back through your last ten requests to it. Copy them into a new conversation with this prompt:
+
+_"Here are ten requests I made to an AI assistant. For each one, tell me: (1) whether it was Shape work (deciding what something should become and why), Steer work (setting standards, plans or checks) or Do work (doing the task itself); (2) whether I described the outcome and the reason, or specified the method step by step; and (3) whether the work, in a normal company, would belong to someone other than a senior leader. Then pick the request that most looks like someone else's Do work, and help me rewrite it as a short brief to the person or role who owns it, stating only what I want, why it matters and how we'll know it's done."_
+
+Send the rewritten brief to the owner, in a shared channel.
+====
+
+'''''
+
+You already know how to do this. Briefing a capable worker, trusting a good recommendation, pushing for autonomy and expecting people to learn are the habits that made you effective, and agents reward them. The trap is that agents make it easy to apply those habits to anyone's work, at a speed no human team can match. The fix is not to delegate less. It is to delegate within the org chart: the what and the why, to the role that owns the work, through channels everyone can see, with the same gates for everyone.
+
+That only works if the organisation has a chart worth delegating within, and systems that do not depend on any one person, or any one agent, holding them together. xref:2-systems-run-the-business.adoc[Chapter 2] is about those systems.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}
