@@ -3,8 +3,9 @@
 :page-haiku: Someone built this fence. / Write down why, or the next hand / will tear it away.
 :description: The Role Pack: everything a person or agent needs to do a role from day one, kept lean, with the reasons behind every rule and one source of truth.
 :keywords: onboarding AI agents, agent context and memory, role documentation for agents, AI agent system prompt best practices, keeping agent instructions up to date, explaining rules to AI agents
+:page-search-title: What Should You Give an AI Agent on Day One?
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: What should I give an AI agent so it can do a job well from the start?
 :page-faq-1-a: Give it a Role Pack: the role's charter (why it exists, what it owns, how its work is accepted), the purpose of the organisation in a paragraph, the playbooks for its recurring work, the boundaries it must not cross, where the live facts are kept, and who to ask when stuck. Attach the reason to every rule. Keep the always-loaded part short and link to the detail. The same pack should let a capable new human hire do the job too.
 :page-faq-2-q: Why do AI agents ignore instructions in long prompts?
@@ -19,6 +20,9 @@
 
 [.lead]
 _The Role Pack, and the reasons behind every rule_
+
+[.in-short]
+*In short:* On day one, an AI agent needs a Role Pack: a lean package holding the role's charter, a paragraph on what the organisation is for, playbooks for recurring work, boundaries, where live facts sit and who to ask. Attach the reason to every rule and keep the always-loaded core short, because an agent knows only what was written down.
 
 [quote, G. K. Chesterton, "The Thing, 1929"]
 ____

@@ -3,8 +3,9 @@
 :page-haiku: Ask where all can see. / A whisper to one person / is a lost request.
 :description: Why handoffs between people and agents go missing, why requests belong in public channels rather than private messages, and how least privilege makes asking in the open cheap.
 :keywords: AI agent handoffs, public channels vs direct messages, AI agent access requests, least privilege AI agents, Slack bots coordination, working out loud
+:page-search-title: Should AI Agent Requests Go in Public Channels or DMs?
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: Why shouldn't AI agents send requests by direct message?
 :page-faq-1-a: A request in a private message can't be tracked, checked or safely refused. Nobody else sees it, so there is no second opinion, no record and no way for the agent's sponsor to notice what it is asking for. The person receiving it must decide alone, often under social pressure if the agent works for someone senior. In a public channel the request is visible to the people affected, can be challenged, leaves a trail, and teaches everyone else how the work is done. Keep private only the sensitive subjects, not the routine requests.
 :page-faq-2-q: How should an AI agent ask for access to a system?
@@ -19,6 +20,9 @@
 
 [.lead]
 _Handoffs, channels, and why requests don't belong in DMs_
+
+[.in-short]
+*In short:* AI agents should make and receive requests in public channels, not direct messages, because a private request can't be tracked, checked or safely refused. Least privilege makes asking in the open cheap: an agent requesting only what one task needs, for a set time, can ask without embarrassment. Keep sensitive subjects private, never the routine request.
 
 [quote, Louis D. Brandeis, "What Publicity Can Do, Harper's Weekly, 1913"]
 ____

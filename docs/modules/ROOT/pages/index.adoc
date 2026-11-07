@@ -5,8 +5,9 @@
 :page-toclevels: 0
 :description: The field guide for business leaders whose teams now include AI agents — how to design an organisation of people and agents that works without you holding it together.
 :keywords: agentic organisation, AI agent org chart, managing AI agents, AI agents for business leaders, organisation design, delegation
+:page-search-title: How to Organise a Team of People and AI Agents
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: What is The Blueprint about?
 :page-faq-1-a: The Blueprint is a field guide for business leaders whose teams now include AI agents. It argues that agent sprawl is an organisation design problem rather than a tooling problem, and shows how to solve it: design an org chart of roles before deciding who or what fills them, write a one-page charter for every role, keep procedures in plain English, track commitments against evidence, give every agent a human sponsor, and turn every recurring failure into a system fix.
 :page-faq-2-q: Who is The Blueprint written for?
@@ -16,7 +17,7 @@
 :page-faq-4-q: How is The Blueprint different from other books about AI agents?
 :page-faq-4-a: Most writing about agents is about building them. The Blueprint is about organising them alongside people. It draws on decades of thinking about systems and organisations — Gerber, Deming, Drucker, Grove — and tests it against real cases from a working company that runs a mixed team of humans and agents, including the failures, plus current research on how multi-agent systems succeed and fail.
 :page-faq-5-q: What is Agentic Resources?
-:page-faq-5-a: Agentic Resources is the book's name for HR for agents: a function on the org chart, run by a person, an agent or both, that owns the agent workforce. It writes job descriptions and role charters, onboards new agents in public, reviews their performance, promotes them to more autonomy, settles turf wars between duplicate bots, hands roles to new models, and retires agents without losing what they knew.
+:page-faq-5-a: Agentic Resources, a term coined by the book's author, Gareth Price, is HR for agents: a function on the org chart, run by a person, an agent or both, that owns the agent workforce. It writes job descriptions and role charters, onboards new agents in public, reviews their performance, promotes them to more autonomy, settles turf wars between duplicate bots, hands roles to new models, and retires agents without losing what they knew.
 = The Blueprint
 
 == A Field Guide to Building Organisations of People and Agents
@@ -92,6 +93,17 @@ It is written for the leader who already lives in Claude, ChatGPT or Grok, who h
 * xref:appendix-e-glossary.adoc[Appendix E: Glossary]
 * xref:appendix-f-recommended-reading.adoc[Appendix F: Recommended Reading]
 * xref:appendix-g-ai-org-design-advisor.adoc[Appendix G: Your AI Org Design Advisor]
+
+=== Key Concepts
+
+* xref:what-is-agentic-resources.adoc[What Is Agentic Resources?]
+* xref:what-is-an-ai-agent-org-chart.adoc[What Is an AI Agent Org Chart?]
+* xref:what-is-a-role-charter.adoc[What Is a Role Charter?]
+* xref:what-is-an-agent-sponsor.adoc[What Is an Agent Sponsor?]
+* xref:what-is-a-commitment-ledger.adoc[What Is a Commitment Ledger?]
+* xref:what-is-shape-steer-do.adoc[What Are Shape, Steer and Do?]
+* xref:by-the-numbers.adoc[By the Numbers: Field Data and Research]
+* xref:updates.adoc[What's New]
 
 [discrete]
 == Frequently Asked Questions

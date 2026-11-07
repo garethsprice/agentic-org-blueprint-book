@@ -3,8 +3,9 @@
 :page-haiku: Many hands, one pen. / Each report checked before it / spreads into the whole.
 :description: Why AI agents work better in a hierarchy than a swarm: error amplification, one writer per piece of work, one boss per role, small spans of control, and when peer teams win.
 :keywords: multi-agent hierarchy vs swarm, orchestrator agent, AI agent span of control, agents managing agents, multi-agent error amplification, agent teams
+:page-search-title: How Many AI Agents Should One Person Manage?
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: Do AI agents work better with a manager agent or on their own?
 :page-faq-1-a: Usually with a manager. A Google Research study of 180 agent configurations found that agents working in parallel without coordination amplified errors 17.2 times, against 4.4 times when an orchestrator checked their work. The manager acts as a checkpoint that catches mistakes before they spread. The exception is a peer team with a near-perfect automatic test, where the test does the checking. Without such a test, give every group of agents a coordinator, and make sure a human sits at the top.
 :page-faq-2-q: How many AI agents should report to one manager?
@@ -19,6 +20,9 @@
 
 [.lead]
 _Why hierarchy beats a swarm, and when it doesn't_
+
+[.in-short]
+*In short:* One manager, human or agent, should start with three to five AI agent reports, and every group of AI agents needs a coordinator. In one large study, agents working without a coordinator amplified errors more than seventeen-fold, against about four-fold with one. Give each role one boss and each piece of work one writer, with a human at the top.
 
 [quote, Homer, "The Iliad, Book II (trans. Samuel Butler, 1898)"]
 ____

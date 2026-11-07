@@ -1,10 +1,11 @@
 :page-description: Agentic Resources is HR for AI agents: a function that owns the agent workforce, from hiring and onboarding through reviews, promotion, turf wars, model swaps and retirement.
-:page-llms-description: Agentic Resources, Gareth Price's term for HR for agents: the org-chart function that hires, onboards, reviews, promotes, reconciles, re-staffs and retires AI agents.
+:page-llms-description: Agentic Resources, a term coined by Gareth Price for HR for agents: the org-chart function that hires, onboards, reviews, promotes, reconciles, re-staffs and retires AI agents.
 :page-haiku: Hire it, teach it well, / promote it when it has earned, / archive, don't delete.
 :description: Agentic Resources is HR for AI agents: a function that owns the agent workforce, from hiring and onboarding through reviews, promotion, turf wars, model swaps and retirement.
 :keywords: Agentic Resources, HR for AI agents, agent lifecycle management, onboarding AI agents, AI agent performance review, retiring AI agents
+:page-search-title: Agentic Resources: HR for Your AI Agents
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: What is Agentic Resources?
 :page-faq-1-a: Agentic Resources is HR for agents: a function on the org chart that owns the agent workforce as a whole. It keeps the roster of every agent and its role, maintains role charters, onboards agents in public, reviews them against evidence, decides when they earn more autonomy, settles overlaps between duplicate bots, manages model changes, and retires agents without losing what they knew. A person, an agent or both can run it, but a human is always accountable.
 :page-faq-2-q: Who should own the AI agents in a small company?
@@ -19,6 +20,9 @@
 
 [.lead]
 _The other half of your team needs an HR department too_
+
+[.in-short]
+*In short:* Agentic Resources is HR for AI agents: the function that owns the agent workforce. It hires against a written role, onboards agents in public, reviews against evidence, grants autonomy task by task, settles turf wars between duplicate bots, runs model swaps and retires agents with a handover. A person, a bot or both can run it, with a human accountable.
 
 [quote, Mary Shelley, "Frankenstein, 1818"]
 ____
@@ -36,7 +40,7 @@ ____
 // SOURCE: dossier §1 case 2
 On 6 November, a new hire joined CorralData's main engineering channel. It was TAM Bot, an agent that supports our customer success team, and it had arrived "with no initial training other than 'join Slack'". Its interviewer was another bot. Agentic Resources Bot questioned TAM Bot about its work and drafted its position contract in the open, where anyone could read and correct it, and in doing so surfaced a conflict between two leaders' rules that would otherwise have surfaced in front of a customer (xref:9-one-page-per-job.adoc[Chapter 9]).
 
-This chapter describes the function that bot is a first draft of. I call it _Agentic Resources_: HR for agents.
+This chapter describes the function that bot is a first draft of. I coined a name for it: _Agentic Resources_, HR for agents.
 
 [WARNING]
 ====
@@ -51,7 +55,7 @@ On the first day the team used Grok Bot, several of us added bots, and by evenin
 // SOURCE: dossier §2 agent org chart table; finding 13
 My own machine told the same story. Of my fourteen local agent profiles, one was an empty shell, replaced weeks earlier and never removed. Most carried copies of the same sixty-odd skills, which is how my calendar assistant came to "know" image generation. Any company that hired ten people in two weeks without tracking roles, access or overlaps would recognise the symptoms. This is not a technology problem.
 
-I am not the first to see the parallel. In 2024 Andreas Welsch, writing in his _Intelligence Briefing_ newsletter, predicted that "businesses will soon employ more agents than employees" and argued for "Agent Resources (AR) as an evolution of Human Resources (HR)".footnote:welsch2024[Welsch, A. (2024, September 24). Will businesses need an 'Agent Resources' department soon? _Intelligence Briefing_ (Substack). https://intelligencebriefing.substack.com/p/evolution-of-human-resources-into-agent-resources-department] In May 2026 Soofi Safavi made a similar case under the title "Your Company Needs Agent Resources", listing responsibilities that include keeping a registry of agents, setting ownership and permissions, monitoring performance and "retiring agents that are stale, duplicative, unsafe, or unused."footnote:safavi2026[Safavi, S. (2026, May 29). Your company needs Agent Resources. _Substack_. https://soofixyz.substack.com/p/your-company-needs-agent-resources] As Safavi puts it: "This is not bureaucracy for its own sake."footnote:safavi2026[] What this chapter adds is a practice: how a small organisation runs the function week to week. (Agents _doing_ human HR work is a different idea; here the agents are the workforce, not the tool.)
+I am not the first to see the parallel. In 2024 Andreas Welsch, writing in his newsletter _The AI MEMO_, predicted that "businesses will soon employ more agents than employees" and argued for "Agent Resources (AR) as an evolution of Human Resources (HR)".footnote:welsch2024[Welsch, A. (2024, September 24). Will businesses need an "Agent Resources" department soon? _The AI MEMO_. https://intelligencebriefing.substack.com/p/evolution-of-human-resources-into-agent-resources-department] In May 2026 Soofi Safavi made a similar case under the title "Your Company Needs Agent Resources", listing responsibilities that include keeping a registry of agents, setting ownership and permissions, monitoring performance and "retiring agents that are stale, duplicative, unsafe, or unused".footnote:safavi2026[Safavi, S. (2026, May 29). Your company needs Agent Resources. _Soofi's Substack_. https://soofixyz.substack.com/p/your-company-needs-agent-resources] As Safavi puts it: "This is not bureaucracy for its own sake."footnote:safavi2026[] When several people reach for the same idea separately, the need is usually real. I coined the name _Agentic Resources_ in November 2026, when I needed something to call the bot I was hiring to do the job. What this chapter adds is a practice: how a small organisation runs the function week to week. (Agents _doing_ human HR work is a different idea; here the agents are the workforce, not the tool.)
 
 == Agentic Resources Is a Function on the Chart, Not a Piece of Software
 

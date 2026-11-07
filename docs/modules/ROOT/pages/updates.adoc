@@ -1,0 +1,30 @@
+:page-description: What has changed in The Blueprint since it was first published: new chapters, revised guidance and refreshed research on organising people and AI agents.
+:page-llms-description: Dated change log for The Blueprint, a field guide to organisations of people and AI agents, listing new pages, revised guidance and refreshed research.
+:page-llms-optional: true
+:page-haiku: The field moves each month. / The book is a living thing — / here is what has changed.
+:page-toclevels: 0
+:description: What has changed in The Blueprint since it was first published: new chapters, revised guidance and refreshed research on organising people and AI agents.
+:keywords: The Blueprint updates, AI agent organisation design changes, agentic organisation research updates
+:page-search-title: What's New in The Blueprint
+:page-date-published: 2026-11-07
+:page-date-modified: 2026-11-07
+= What's New
+
+[.lead]
+_The book is updated as the field moves. This page records what changed and when._
+
+[.in-short]
+*In short:* _The Blueprint_ is a living field guide. Its method for organising people and AI agents is meant to outlast any particular model, but the evidence, tools and examples change every few months, so the book is revised at least once a quarter and every change is dated here.
+
+== November 2026
+
+*7 November 2026*
+
+* Added the xref:by-the-numbers.adoc[By the Numbers] page, collecting the field data and research figures cited across the book.
+* Added key-concept pages: xref:what-is-agentic-resources.adoc[Agentic Resources], xref:what-is-an-ai-agent-org-chart.adoc[the AI agent org chart], xref:what-is-a-role-charter.adoc[the Role Charter], xref:what-is-an-agent-sponsor.adoc[the agent Sponsor], xref:what-is-a-commitment-ledger.adoc[the Commitment Ledger] and xref:what-is-shape-steer-do.adoc[Shape, Steer and Do].
+* Added a short "In short" answer at the top of every chapter.
+* Credited earlier proposals of an "Agent Resources" function by Andreas Welsch and Soofi Safavi.
+
+*6 November 2026*
+
+* First public draft: the introduction, twenty chapters and seven appendices.

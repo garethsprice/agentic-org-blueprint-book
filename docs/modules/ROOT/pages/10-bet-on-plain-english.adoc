@@ -3,8 +3,9 @@
 :page-haiku: Write it as you'd speak. / The tape that held the whole film / won the living room.
 :description: Why simple, expressive tools keep beating structured ones, from VHS and PHP to plain-English playbooks, and why the Bitter Lesson applies to how you instruct agents.
 :keywords: plain English playbooks for AI agents, workflow builder versus prompt, Bitter Lesson for managers, agent skills as onboarding guides, VHS Betamax simplicity, no-code AI agents
+:page-search-title: Should AI Agents Use Workflow Builders or Plain English?
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: Should I use a visual workflow builder or plain English to set up AI agents?
 :page-faq-1-a: Start with plain English. A one-page playbook written the way you would brief a capable new hire can be read by everyone in the business, by agents from any vendor, and by whoever inherits the job. Workflow builders fix the steps in place, and the steps are what change as models improve. Keep code and hard rules for calculation and for actions that cannot be undone; everything else belongs in a document anyone can edit in a minute.
 :page-faq-2-q: What is the Bitter Lesson and why does it matter for business leaders?
@@ -12,13 +13,16 @@
 :page-faq-3-q: What is a playbook for an AI agent?
 :page-faq-3-a: A playbook is a documented procedure, written in plain English by default, that tells the occupant of a role how a recurring piece of work gets done and why. It reads like an onboarding guide for a new hire: what good looks like, the judgment calls and the common traps. Anthropic describes its Agent Skills in exactly those terms. The same playbook should work whether the occupant is a person, an agent or both.
 :page-faq-4-q: Why did VHS beat Betamax, and what does it have to do with AI?
-:page-faq-4-a: Betamax arrived first, in 1975, with slightly better pictures, but early tapes held only an hour. VHS followed in 1976 with two-hour tapes, and JVC licensed it broadly while Sony initially resisted licensing Beta. By 1987 VHS held 90% of the US market. The format that more people could use for what they actually wanted won. In agent work, plain English is the VHS: less precise than structured tools, but usable by everyone, so it spreads.
+:page-faq-4-a: VHS won on usefulness rather than picture quality: Betamax arrived first, in 1975, with slightly better pictures, but early tapes held only an hour. VHS followed in 1976 with two-hour tapes, and JVC licensed it broadly while Sony initially resisted licensing Beta. By 1987 VHS held 90% of the US market. The format that more people could use for what they actually wanted won. In agent work, plain English is the VHS: less precise than structured tools, but usable by everyone, so it spreads.
 :page-faq-5-q: Is plain English precise enough to run a business process?
 :page-faq-5-a: For most of the process, yes, provided you write it well: the outcome, the reasons, the standards and the boundaries, in short sentences. Capable models are good at applying a guideline to the case in front of them. English is not precise enough for arithmetic, for facts that must come from a live system, or for actions that cannot be undone. Those belong in scripts and hard rules the software enforces, which Chapter 11 covers. English is the default, not the only tier.
 = Chapter 10: Bet on Plain English
 
 [.lead]
 _Why the simple, expressive option keeps winning_
+
+[.in-short]
+*In short:* AI agents are best directed with plain-English playbooks, not visual workflow builders. A playbook written like an onboarding guide for a capable new hire can be read by everyone in the business and by agents from any vendor, and it improves as models improve. Workflow builders fix the steps in place, and the steps are what models outgrow.
 
 [quote, George Orwell, "Politics and the English Language, 1946"]
 ____

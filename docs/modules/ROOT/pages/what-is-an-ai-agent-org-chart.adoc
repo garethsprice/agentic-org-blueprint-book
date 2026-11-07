@@ -1,0 +1,110 @@
+:page-description: An AI agent org chart is a chart of roles with human owners, where people and agents are written in as occupants. What it is, why it beats an agent inventory, and how to draw one.
+:page-llms-description: Definition of an AI agent org chart as used in Gareth Price's The Blueprint: a chart of roles, each with an outcome line and a human owner, sized for the company you are becoming, with people and agents as occupants, one boss per role and small spans. Includes an example and how to draw one this week.
+:page-haiku: Boxes for the work, / names pencilled in underneath. / The box outlasts them.
+:page-toclevels: 0
+:description: An AI agent org chart is a chart of roles with human owners, where people and agents are written in as occupants. What it is, why it beats an agent inventory, and how to draw one.
+:keywords: AI agent org chart, org chart for AI agents, organisation chart people and agents, how to organise AI agents, agent inventory vs org chart, roles not agents
+:page-search-title: What Is an AI Agent Org Chart? Roles First, Agents Second
+:page-date-published: 2026-11-07
+:page-date-modified: 2026-11-07
+:page-schema: term
+:page-term-name: AI Agent Org Chart
+:page-term-definition: An AI agent org chart is a chart of roles, each with an outcome line and a human owner, with people and AI agents written in as occupants, not drawn as the boxes.
+:page-faq-1-q: What is an AI agent org chart?
+:page-faq-1-a: An AI agent org chart is a chart of the roles an organisation needs, each with a one-sentence outcome line and a named human owner, with the current occupant of each role written in: a person, an agent, or both. The boxes are roles, not bots. One agent can hold several roles if each has its own charter, and the chart stays the same when occupants change, whether that is a new hire, a new model or a move from a person to an agent.
+:page-faq-2-q: Should each AI agent get its own box on the org chart?
+:page-faq-2-a: No. Each role gets a box, and agents are written in as occupants. How many agents fill the chart is a separate decision from what the roles are. Current guidance is to start with one capable agent and add more only when there is a clear limit, so a single agent might hold several roles, each with its own charter. Separate agents earn their place for parallel work, different access, a different sponsor, or when one agent's playbooks start to get confused.
+:page-faq-3-q: Who should AI agents report to on an org chart?
+:page-faq-3-a: Each role, and so each agent filling it, should report to exactly one boss, and every chain should end in a human who owns the outcome. An agent with two bosses tends to obey whichever spoke last. Keep spans small, three to five reports is a sensible start, and count the human who must review the agents' work, because the human span usually breaks first.
+:page-faq-4-q: How is an AI agent org chart different from a list of our AI tools?
+:page-faq-4-a: A list of tools records what exists, including its accidents: two bots doing the same job, an agent nobody uses, a box with no owner. An org chart starts from the results the organisation must produce, defines the roles that produce them, and then records who or what fills each one. That is what makes gaps and duplicates visible. A list tells you what you have built; a chart tells you what you need and who answers for it.
+:page-faq-5-q: Should I draw the org chart for my company now or the one I want to become?
+:page-faq-5-a: Draw it for the company you are becoming. A chart sized for today simply records what exists. A chart sized for, say, three times your current scale shows the roles you will need, many of which you or an agent will hold for now. That tells you which roles to write down first, where agents can take the work, and where you will need people. Redraw it when the business changes, not every time the occupants do.
+
+= What Is an AI Agent Org Chart?
+
+[.lead]
+_Draw the roles first, then write in the people and the agents_
+
+[.in-short]
+*In short:* An AI agent org chart is a chart of the roles an organisation needs, each with a one-sentence outcome line and a named human owner, with people and agents written in as the current occupants. In Gareth Price's _The Blueprint_, the boxes are roles, not bots, and the chart is drawn for the company you are becoming.
+
+== A Chart of Roles, With Occupants Written In
+
+Each box is a role: a position defined by the result it produces, with an outcome line beginning "To…", standards, a charter and one human owner. An occupant fills it: a person, an agent, both, or, early on, the founder.
+
+Three rules keep the chart useful:
+
+* *Roles, not bots.* One agent can hold several roles, each with its own charter. How many agents fill the chart is a separate decision you can change later without redrawing it.
+* *One boss per role, one writer per piece of work.* Every role reports to exactly one boss, only one role changes any given piece of work, and every chain ends in a human who owns the outcome.
+* *Small spans.* Three to five reports is a sensible start for an agent manager. Count the human who reviews the agents' work too, because that span usually breaks first.
+
+Size it for the company you are becoming, perhaps three times your current scale, so it shows the roles you will need.
+
+== Why It Matters: Most Agent Org Charts Are Accidents
+
+Most agent org charts are drawn after the fact, as a list of whatever got built. The author's own workstation had fourteen agent profiles. Nearly all reported to one person. One box had no occupant and nobody had removed it. One agent had no identity at all. Two agents both triaged tickets. The chart was never drawn; it was accumulated.
+
+With people, an accidental chart takes years to collect. With agents it takes a fortnight. A designed chart separates the job from the occupant, so the box survives a new model or a resignation. It shows the gaps, the roles nobody fills. And it shows duplicates: two QA agents look like initiative on a list, but on a chart they are two occupants in one box, and someone must choose.
+
+== Example: Customer Success at a Small Software Company
+
+xref:appendix-c-worked-example.adoc[Appendix C] follows a fictional 26-person software company that drew its customer success chart before filling it. Two agents hold five roles between them:
+
+[cols="2,3,2",options="header"]
+|===
+|Role |Outcome line (shortened) |Occupant
+
+|Account Owner
+|To own each customer's relationship and results
+|Two people
+
+|Customer Correspondent
+|To give customers accurate, clear answers within two working hours
+|A general agent
+
+|Account Health Monitor
+|To spot customers at risk early enough to help
+|The same general agent
+
+|Draft Reviewer
+|To check every customer-bound draft before a person sees it
+|A separate agent, so the checker never shares the context of what it checks
+
+|Renewal Preparer
+|To prepare each renewal conversation sixty days ahead
+|Vacant: Account Owners cover for now
+|===
+
+One draft role failed the role coherence test: a "Customer Agent" that answered questions and also offered credits for outages. Answers are routine and reversible; credits are money. Credits moved to the Account Owner.
+
+== How to Draw One This Week
+
+. *List the results* the organisation must produce at your chosen size: invoices sent, customers onboarded, releases tested. Results, not tasks.
+. *Group them into functions*, then turn each group into roles with an outcome line starting "To…".
+. *Name a human owner for every role*, especially the ones an agent will fill.
+. *Write in today's occupant:* a person, an agent, or you.
+. *Mark the gaps and duplicates.* Ask Claude, ChatGPT or Grok to interview you one question at a time and produce the table, then list every empty role, every role with two occupants and every role you hold yourself.
+
+== How It Differs From an Agent Inventory or a Workflow Diagram
+
+An agent inventory lists what exists, accidents included; nothing on it says what the organisation needs. A workflow diagram shows how work moves step by step between tools; that is the how, which belongs in a role's playbooks. An AI agent org chart answers different questions: which results the organisation needs, which role owns each one, who that role reports to, and which human answers for it. Build the inventory, then use it to fill in the chart.
+
+*Go deeper:* xref:3-draw-the-finished-org-chart.adoc[Chapter 3: Draw the Finished Org Chart First], xref:5-hire-the-role-not-the-model.adoc[Chapter 5: Hire the Role, Not the Model] and xref:6-one-boss-few-reports.adoc[Chapter 6: One Boss, Few Reports]. See also xref:what-is-a-role-charter.adoc[What Is a Role Charter?] and xref:what-is-an-agent-sponsor.adoc[What Is an Agent Sponsor?]
+
+'''''
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

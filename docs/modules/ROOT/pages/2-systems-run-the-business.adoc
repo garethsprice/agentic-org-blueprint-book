@@ -3,8 +3,9 @@
 :page-haiku: The system runs it / people and agents run that / someone owns the end
 :description: Systems run the business; people and agents run the systems; humans own the outcomes. Why model dependency is the new people dependency, and how to fix it.
 :keywords: systems run the business, AI agent single point of failure, model dependency, key person risk AI, Deming systems thinking AI, AI agent accountability
+:page-search-title: How to Stop Your Business Depending on One AI Agent
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: What does "systems run the business, people run the systems" mean with AI agents?
 :page-faq-1-a: It means results should come from documented, repeatable ways of working rather than from the memory and goodwill of particular individuals. Michael Gerber made the point about people; with agents it extends naturally. People and agents both run the systems: they are occupants who follow a playbook, meet a standard and hand work on. Humans own the outcomes: every system has a named person accountable for whether it produces the result. Any occupant, human or agent, can then change without the business stopping.
 :page-faq-2-q: What is model dependency in an AI-enabled business?
@@ -14,11 +15,14 @@
 :page-faq-4-q: How do I know if one AI agent is doing too many jobs?
 :page-faq-4-a: Try listing everything the agent does, then ask who would notice if it stopped tomorrow and how long it would take someone else to restart each job. Warning signs are an agent whose list keeps growing because it already worked, jobs nobody remembers assigning, instructions that read like a log of past incidents, and a single person who is the only one able to explain it. Each distinct job should become a written role with its own charter, even if the same agent keeps doing all of them.
 :page-faq-5-q: What is the cost of being the "human glue" between AI agents?
-:page-faq-5-a: The human glue is the person who routes requests between agents, unlocks their access, remembers how they fit together and notices when one stops. The work feels small, a few minutes here and there, so its cost is hidden. But it grows with every agent, it consumes the attention that should go into improving the organisation, and it makes that person a single point of failure. When they are away, the agents fail quietly. The fix is to move each piece of glue into a system with an owner.
+:page-faq-5-a: Being the human glue, the person who routes requests between agents, unlocks their access, remembers how they fit together and notices when one stops, costs more than it looks. The work feels small, a few minutes here and there, so its cost is hidden. But it grows with every agent, it consumes the attention that should go into improving the organisation, and it makes that person a single point of failure. When they are away, the agents fail quietly. The fix is to move each piece of glue into a system with an owner.
 = Chapter 2: Systems Run the Business
 
 [.lead]
 _People and agents run the systems; humans own the outcomes_
+
+[.in-short]
+*In short:* Stop a business depending on one AI agent by putting the work into systems: written ways of working that someone else could run tomorrow. Systems run the business, people and agents run the systems, and humans own the outcomes. Model dependency, where a business result rests on one agent running on one model, is the new key-person risk.
 
 // Epigraph verified against the 1911 Home University Library text (archive.org: anintroductionto00whituoft), chapter 5.
 [quote, Alfred North Whitehead, "An Introduction to Mathematics, 1911"]

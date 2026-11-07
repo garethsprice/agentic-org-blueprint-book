@@ -3,8 +3,9 @@
 :page-haiku: Most doors swing both ways. / Stand guard where one only shuts. / Then let the rest run.
 :description: Where to put human approval in a team of people and agents: only at irreversible points, backed by evidence the agent can't fake, with autonomy earned in tiers.
 :keywords: human in the loop AI agents, AI agent approval, irreversible actions, approval fatigue, agent autonomy levels, shadow mode AI agents
+:page-search-title: When Should Humans Approve AI Agent Actions?
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: Where should humans approve the actions of AI agents?
 :page-faq-1-a: At the points where an action cannot be taken back: sending something to a customer, moving money, deleting data, granting access, shipping to production, or anything touching regulated information. Everywhere else, make the work reversible and let the agent proceed, with a record you can check later. Asking people to approve everything trains them to approve without reading. Fewer, better-placed approvals, each with clear evidence and a named approver, protect the organisation far more than a constant stream of permission prompts.
 :page-faq-2-q: What is approval fatigue with AI agents?
@@ -19,6 +20,9 @@
 
 [.lead]
 _Approval that isn't theatre_
+
+[.in-short]
+*In short:* Humans should approve AI agent actions only at irreversible points: sending to a customer, moving money, deleting data, granting access, releasing to production or touching regulated data. Make everything else reversible and let the agent proceed, with a record. Approvals need evidence the agent cannot fake, and autonomy is earned per kind of action through draft, ask and act tiers.
 
 [quote, William Shakespeare, "Macbeth, Act 5, Scene 1"]
 ____

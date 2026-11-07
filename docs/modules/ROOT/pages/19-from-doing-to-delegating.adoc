@@ -3,10 +3,11 @@
 :page-haiku: My hands knew the work. / Now I write down what done means / and check what comes back.
 :description: Why individual contributors find the move from doing work to delegating it to agents so hard, and the renegotiated deal that makes the shift fair and sustainable.
 :keywords: individual contributor AI agents, delegating to AI agents, personal AI agents at work, AI workslop burnout, reviewing AI output, verification bar
+:page-search-title: Why Employees Struggle to Delegate Work to AI Agents
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: Why do individual contributors adopt AI agents more slowly than executives?
-:page-faq-1-a: Executives already spend their days delegating, so handing work to an agent feels familiar. Individual contributors earn their standing by doing the work well, so delegating it threatens their craft and identity. They also know how the work is done, which makes them sceptical of confident output. The result is slower but more precise adoption: they delegate their own tasks, set sharper checks and catch errors executives miss. Treat that caution as an asset.
+:page-faq-1-a: Because executives already spend their days delegating, so handing work to an agent feels familiar, while individual contributors earn their standing by doing the work well, so delegating it threatens their craft and identity. They also know how the work is done, which makes them sceptical of confident output. The result is slower but more precise adoption: they delegate their own tasks, set sharper checks and catch errors executives miss. Treat that caution as an asset.
 :page-faq-2-q: What should change in an individual contributor's job when they start working with agents?
 :page-faq-2-a: The deal changes from "do this task" to "own this outcome". The organisation hands the individual contributor outcomes and constraints; they own the spec, the choice of agents and the verification. They are measured on whether the outcome arrived to standard, and their manager reviews specs and plans, not every line of output. Write the new deal into the role's charter and agree it with the person rather than assuming it.
 :page-faq-3-q: Why does reviewing AI-generated work burn people out?
@@ -19,6 +20,9 @@
 
 [.lead]
 _The individual contributor's hardest shift_
+
+[.in-short]
+*In short:* Individual contributors, specialists who do the work rather than manage it, struggle to delegate to AI agents because their standing rests on doing the work well, so delegating feels like a loss. Offer a renegotiated deal: the organisation hands them outcomes and constraints, and they own the spec, the agents and the verification. Whoever generates agent output checks it first.
 
 [quote, Henry David Thoreau, "Walden, 1854"]
 ____

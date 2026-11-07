@@ -3,8 +3,9 @@
 :page-haiku: Say where, not which road. / The able find their own way. / Tell them why it counts.
 :description: Brief AI agents the way great executives brief people: state the outcome, the reason and the bar for done, and leave the method to the agent doing the work.
 :keywords: how to brief AI agents, delegate to AI agents, what and why not how, AI agent instructions, Bitter Lesson for managers, executive AI delegation
+:page-search-title: How to Delegate Work to AI Agents Without Micromanaging
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: How should I write instructions for an AI agent?
 :page-faq-1-a: Describe the outcome you want, why it matters, the constraints it must respect and how you will know it is done. Leave out the steps unless a step is itself a requirement, such as a legal check. Capable models are better at finding a method than most of us are at writing one down, and a method you specify goes stale as the model improves. The reason behind the request is the part the agent cannot discover for itself, so it deserves the most care.
 :page-faq-2-q: Isn't "what and why, never how" just vague delegation?
@@ -19,6 +20,9 @@
 
 [.lead]
 _Briefing agents the way great executives brief people_
+
+[.in-short]
+*In short:* Delegate work to AI agents by stating what outcome you want, why it matters, the boundaries and the evidence that will show it is done, then leave the method to the agent. The rule is what and why, never how: capable models find better methods than most managers can write down, and step-by-step procedures go stale as models improve.
 
 [quote, George S. Patton Jr., "War As I Knew It, 1947"]
 ____

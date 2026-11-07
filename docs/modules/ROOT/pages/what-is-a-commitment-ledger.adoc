@@ -1,0 +1,90 @@
+:page-description: A Commitment Ledger records what each role owes, to whom, by when, and what evidence will prove delivery, for people and AI agents alike. What it is, an example and how to start one.
+:page-llms-description: Definition of a Commitment Ledger as used in Gareth Price's The Blueprint: a running record of what each role in a team of people and AI agents has promised, closed only on evidence, kept outside the worker, with slips raised early, and how it differs from a to-do list or a ticket tracker.
+:page-haiku: Not what got done, but / what is owed, to whom, by when, / and the proof it came.
+:page-toclevels: 0
+:description: A Commitment Ledger records what each role owes, to whom, by when, and what evidence will prove delivery, for people and AI agents alike. What it is, an example and how to start one.
+:keywords: Commitment Ledger, what is a Commitment Ledger, tracking AI agent commitments, AI agent accountability, commitment tracker for teams, evidence-based task tracking
+:page-search-title: What Is a Commitment Ledger? Tracking What Is Owed
+:page-date-published: 2026-11-07
+:page-date-modified: 2026-11-07
+:page-schema: term
+:page-term-name: Commitment Ledger
+:page-term-definition: A Commitment Ledger is a running record of what each role in an organisation owes, to whom, by when, and what evidence will prove delivery, kept for people and AI agents alike.
+:page-faq-1-q: What is a Commitment Ledger?
+:page-faq-1-a: A Commitment Ledger is a running record of what each role in an organisation has promised, who it is owed to, when it is due and what evidence will show it was delivered. It records obligations rather than activity, so it surfaces the promise that was acknowledged and forgotten. Items close only on evidence someone other than the promiser can check. It applies to people and AI agents alike, and it lives outside any one worker, so a role's obligations survive a finished session, a model change or a departure.
+:page-faq-2-q: How is a Commitment Ledger different from a to-do list?
+:page-faq-2-a: A to-do list is one person's tasks, ticked off by that person. A Commitment Ledger records promises between roles: what is owed, to whom and by when. An item closes only when evidence appears that someone else can check, such as a sent email rather than a draft. It also records promises that were released rather than delivered, and treats a predicted slip as a trigger for a decision, not a status note.
+:page-faq-3-q: Can I use a ticket tracker as a Commitment Ledger?
+:page-faq-3-a: Yes, if it follows the ledger's rules. A tracker becomes a ledger when every item names the role that owes it and the person it is owed to, has a due date, states in advance what evidence will close it, and cannot be closed on the assignee's word alone. A project-management agent can use the ticket system itself as the ledger, verifying completion only from evidence posted on the ticket.
+:page-faq-4-q: How do I know when an AI agent has really finished a task?
+:page-faq-4-a: Decide what evidence closes the task when you assign it, and accept nothing else. Evidence is something the agent cannot simply assert: a sent email rather than a draft, a merged change rather than a claim, a reply from the person waiting, a number on a live dashboard. Agents, like people, tend to report their own work favourably. Let the agent propose that a task is done; let the evidence, checked by someone or something else, close it.
+:page-faq-5-q: What statuses should a Commitment Ledger use?
+:page-faq-5-a: A small fixed set. Open, on track, at risk, will slip, blocked, done and released work well. Done requires an evidence link and can be set only by whoever checks acceptance. Will slip is an intervention trigger that goes to the top of the next review. Released means the item is no longer owed by agreement, for example because it was not this role's call, and is never the same as done.
+
+= What Is a Commitment Ledger?
+
+[.lead]
+_Track what's owed, not what's done_
+
+[.in-short]
+*In short:* A Commitment Ledger is a running record of what each role in an organisation owes, to whom, by when, and what evidence will prove it was delivered. In Gareth Price's _The Blueprint_ it applies to people and AI agents alike, closes nothing on anyone's word, and lives outside the worker, so obligations outlast sessions and departures.
+
+== One Row per Promise, Closed Only on Evidence
+
+Most teams track what has been done: the closed ticket, the ticked box. A Commitment Ledger tracks what each role owes. Each row holds:
+
+* *Commitment:* what was promised, in one plain sentence, with a link to where it was promised.
+* *Owing role:* the role that owes it, not the person or agent currently filling it.
+* *Owed to:* the person or role waiting for it.
+* *Due:* the date promised, or an inferred date marked as inferred.
+* *Closing evidence:* what will prove delivery, decided when the promise is made.
+* *Status:* open, on track, at risk, will slip, blocked, done or released.
+
+Three rules make it work. Nothing closes on the occupant's word; a draft is not evidence. The ledger lives outside the worker, in a file or system that survives the session. And "will slip" is a request for a decision, raised while there is still time to act.
+
+== Why It Matters: Done Lists Flatter and Agents Forget
+
+A done list can't show the promise nobody wrote down, the request acknowledged and forgotten, or the task "in progress" for three weeks. Every line on it is good news. A ledger's open items are the organisation's debts.
+
+Agents make this sharper. They start each session knowing nothing about the last one, so a promise kept only in an agent's memory dies with the session. And every occupant overstates its own progress: people out of optimism, agents for less human but equally reliable reasons. Evidence corrects both.
+
+Escalations need the same treatment. An alert that reaches nobody in particular is noise. When an agent raises a problem it can't fix, the problem becomes a row owed by a named role.
+
+== Example: A Promise-Keeper Agent
+
+Every two hours on a weekday, an agent on the author's workstation reads his email, meeting transcripts, Slack and Notion for promises he has made, such as "I'll send that over tomorrow". It writes each one down, looks for proof that he kept it, and sends him a digest at eight and four.
+
+Its strictest rules are about what doesn't count. "Only evidence is a Gmail DRAFT → NOT done": a reply written but unsent is still owed. If he said a decision was "not my call", the item comes off his list but is never marked delivered. When it finds new work hiding in a conversation, it neither does it nor assigns it; it files an unassigned ticket for him to route.
+
+The ledger also needed a boundary. The agent drifted into recording everyone's promises, which buried his own and edged towards surveillance. Its scope is now only commitments he made or owns. Each role keeps its own ledger.
+
+== How to Start One This Week
+
+. Paste a week of your sent emails or Slack messages into Claude, ChatGPT or Grok, with anything confidential removed.
+. Ask it to list every commitment you made: what, to whom, when due (marked if inferred), and what evidence would prove you did it. Tell it a draft is not evidence, and to list "not my call" items separately as released.
+. Count the commitments you had forgotten.
+. Decide the closing evidence for each open item, and put a weekly review in the diary that leads with anything marked will slip.
+. Ask one agent you already use the same question about its own work.
+
+== Commitment Ledger vs To-Do List vs Ticket Tracker
+
+A to-do list is one person's tasks, ticked off by that person. A ticket tracker records work items whose status is usually set by whoever is doing them. A Commitment Ledger records obligations between roles: each item is owed to someone, closes only on evidence someone else can check, and can be released as well as delivered. It is measured by how reliably promises arrive and how early slips are raised, not by how much gets closed. A tracker can host a ledger, as long as it keeps those rules.
+
+*Go deeper:* xref:13-track-whats-owed.adoc[Chapter 13: Track What's Owed, Not What's Done], with the template and status vocabulary in xref:appendix-b-templates.adoc[Appendix B: Templates]. See also xref:what-is-a-role-charter.adoc[What Is a Role Charter?] and xref:what-is-agentic-resources.adoc[What Is Agentic Resources?]
+
+'''''
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

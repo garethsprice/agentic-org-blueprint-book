@@ -34,6 +34,7 @@ site:
 
 antora:
   extensions:
+    - require: ./lib/sitemap-lastmod
     - require: ./lib/llms-txt-generator
       subtitle: "A Field Guide to Building Organisations of People and Agents"
       description: "The Blueprint is a field guide for business leaders building organisations where people and AI agents share the work: org charts of roles, role charters, plain-English playbooks, commitment ledgers, sponsors and Agentic Resources, across 20 chapters grounded in real cases and current research."

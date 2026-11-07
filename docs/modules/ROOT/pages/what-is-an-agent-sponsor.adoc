@@ -1,0 +1,109 @@
+:page-description: An agent sponsor is the one named human accountable for an AI agent: why it exists, what it may access, how it performs and when it retires. What sponsors do, an example and how to assign them.
+:page-llms-description: Definition of an agent sponsor as used in Gareth Price's The Blueprint: the one named human accountable for an AI agent's purpose, access, performance and retirement, why function owners make the best sponsors, and how a sponsor differs from an agent's owner, administrator or manager.
+:page-haiku: One name by each bot: / the person who answers for / what it did today.
+:page-toclevels: 0
+:description: An agent sponsor is the one named human accountable for an AI agent: why it exists, what it may access, how it performs and when it retires. What sponsors do, an example and how to assign them.
+:keywords: agent sponsor, what is an AI agent sponsor, who is accountable for AI agents, AI agent ownership, agent sponsor vs owner, orphaned AI agents
+:page-search-title: What Is an Agent Sponsor? Who Is Accountable for an AI Agent
+:page-date-published: 2026-11-07
+:page-date-modified: 2026-11-07
+:page-schema: term
+:page-term-name: Agent Sponsor
+:page-term-definition: An agent sponsor is the one named human accountable for an AI agent: why it exists, what it may access, how well it performs and when it is retired.
+:page-faq-1-q: What is an agent sponsor?
+:page-faq-1-a: An agent sponsor is the one named person accountable for an AI agent. The sponsor decides why the agent exists, what it may access, whether it is still needed and when it retires, approves its access grants, reads its exception reports, and answers for its mistakes. The sponsor does not have to build or configure the agent. An agent without a sponsor is an orphan with a login: it keeps doing what it was set up to do, with whatever access it was given, after anyone remembers why.
+:page-faq-2-q: Who should sponsor an AI agent in a small company?
+:page-faq-2-a: The person who owns the function the agent works in. The customer success lead sponsors the customer success bots; the QA lead sponsors the QA bots. They know what good looks like, they already own the outcome whether a person or a bot does the work, and the model scales with the org chart rather than the number of agents. When an executive's agent settles into someone else's function, sponsorship should move to that function's owner.
+:page-faq-3-q: What is the difference between an agent's sponsor and its owner?
+:page-faq-3-a: The owner handles the plumbing: setting the agent up, configuring it and managing its credentials. The sponsor owns the purpose: why the agent exists, what it should be allowed to do and when it should stop. Microsoft's Entra Agent ID draws the same line and also names a manager, who gives the agent its day-to-day work. One person often wears two or three of these hats in a small company. Can it do this is an owner's question; should it do this is a sponsor's.
+:page-faq-4-q: How many AI agents can one person sponsor?
+:page-faq-4-a: There is no fixed number; the limit is attention. A sponsor has to know what each agent is for, review its access, read its exception reports and decide when to retire it. If a sponsor cannot say in one sentence what each of their agents does, or has agents whose reports nobody reads, they have too many. Consolidate duplicates and give each function its own sponsor.
+:page-faq-5-q: What happens to an AI agent when its sponsor leaves the company?
+:page-faq-5-a: Without a plan, it becomes an orphan and keeps its access long after anyone remembers why. Sponsorship should pass to a named successor, usually the new owner of the function, as part of the leaver's handover. Check sponsors at least quarterly, and if an agent has been idle for a month with no sponsor, retire it by default: hand over what it knew, revoke its access, and archive rather than delete it.
+
+= What Is an Agent Sponsor?
+
+[.lead]
+_The person who answers when an agent gets it wrong_
+
+[.in-short]
+*In short:* An agent sponsor is the one named human accountable for an AI agent: why it exists, what it may access, how well it performs and when it is retired. In Gareth Price's _The Blueprint_, the simplest rule for a small company is that the person who owns a function sponsors the agents that work in it.
+
+== One Person Answers for Each Agent
+
+Every piece of agent work raises two questions: who did this, and who answers for it? With people the answer is usually one person. With agents it splits in two, and unless you design for it, the record shows neither. The sponsor is the answer to the second question.
+
+A sponsor:
+
+* decides why the agent exists and whether it is still needed;
+* approves each access grant on the record, so the agent gets what its role needs, not everything its sponsor can reach;
+* reads its exception reports and reviews its results;
+* decides which decisions the agent must bring back to a human;
+* owns both the apology and the system fix when it gets something wrong;
+* decides when it retires, and makes sure it hands over what it knew.
+
+The sponsor's job is judging whether the agent should exist and what it may do, not how it works. Microsoft's Entra Agent ID makes the role mandatory: every agent identity must have at least one sponsor.footnote:entra2026[Microsoft. (2026, September 3). Administrative relationships in Microsoft Entra Agent ID (owners, sponsors, and managers). _Microsoft Learn_. https://learn.microsoft.com/en-us/entra/agent-id/agent-owners-sponsors-managers]
+
+== Why It Matters: An Agent Without a Sponsor Is an Orphan With a Login
+
+Agents are cheap to start and easy to forget. Someone sets up a custom GPT, connects it to company email and moves on. Nobody decides it should stop, so it keeps doing exactly what it was set up to do, with its day-one access, long after anyone remembers why.
+
+The author found both kinds of orphan on his own machine. One agent flagged the same failure in its daily digest, day after day, and nobody acted on it. Another sat on the chart as an empty shell, replaced by a newer agent and never removed. One raises alarms nobody hears; the other holds a job that no longer exists.
+
+== Example: The Function Owner Sponsors the Function's Bots
+
+At CorralData the sponsor model arrived by accident. Within two weeks of adding team bots to Slack there were about ten, and two did QA. When a bot did something wrong, "whose is this?" had several plausible answers and no right one.
+
+What emerged, and is now deliberate, is that one person in each function answers for that function's bots. The QA lead answers for the QA agents; QA work moved to the agent she owns. Customer success answers for the customer success agent.
+
+Sponsorship also means answering in public. When the author's own commitment-tracking agent posted an unreadably dense comment on a ticket, nobody else was going to apologise, because nobody else owned it. He did, then changed the agent's instructions so the next comment would be readable.
+
+== How to Assign Sponsors This Week
+
+. List every agent you and your team use: custom GPTs, Claude Projects, scheduled tasks, Slack bots.
+. Paste the list into Claude, ChatGPT or Grok and ask it to build a register: each agent's purpose in one sentence starting "To…", its sponsor, its access, whether it acts under its own account or a person's, how it signs its work, and what happens if the sponsor leaves.
+. Make each sponsor the owner of the function the agent works in.
+. For any agent with no sponsor, name one today or switch it off.
+. Give each agent its own account where the tool allows, and a signature line that names the agent and the human it works for.
+
+== Sponsor vs Owner, Administrator and Manager
+
+The words get used loosely, so separate the hats:
+
+[cols="1,2,2",options="header"]
+|===
+|Hat |What it covers |Its question
+
+|Owner or administrator
+|Setup, configuration, credentials: the plumbing
+|"Can it do this?"
+
+|Sponsor
+|Purpose, access, results and retirement
+|"Should it do this?"
+
+|Manager
+|Day-to-day work and reading its output
+|"Did it do this well today?"
+|===
+
+In a small company one person often wears two or all three, which is fine if they know which hat they are wearing. The danger is the technical owner becoming the sponsor by default, so purpose decisions get made as configuration decisions by whoever is at the keyboard. A sponsor also differs from Agentic Resources: the sponsor is the line manager for particular agents, while Agentic Resources looks after the whole workforce.
+
+*Go deeper:* xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7: Every Agent Needs a Sponsor] and xref:17-agentic-resources.adoc[Chapter 17: Agentic Resources]. See also xref:what-is-agentic-resources.adoc[What Is Agentic Resources?] and xref:what-is-a-role-charter.adoc[What Is a Role Charter?]
+
+'''''
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

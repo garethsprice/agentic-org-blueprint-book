@@ -3,8 +3,9 @@
 :page-haiku: Promises outlive / the meeting where they were made. / Write down what you owe.
 :description: The Commitment Ledger: how to track what each role in a team of people and agents has promised, close items only on evidence, and raise slips before deadlines.
 :keywords: commitment ledger, tracking AI agent commitments, agent accountability, agent progress tracking, escalation ownership, scheduled AI agents
+:page-search-title: How to Track Commitments Across People and AI Agents
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: What is a Commitment Ledger for AI agents and people?
 :page-faq-1-a: A Commitment Ledger is a running record of what each role in the organisation has promised, who it is owed to, when it is due, and what evidence will show it was delivered. Unlike a done list, it records obligations rather than activity, so it surfaces the promise that was acknowledged and forgotten. It applies equally to people and agents, and it lives outside any one occupant, so a role's open obligations survive a finished session or a departure.
 :page-faq-2-q: How do I know when an AI agent has really finished a task?
@@ -19,6 +20,9 @@
 
 [.lead]
 _The Commitment Ledger_
+
+[.in-short]
+*In short:* Track commitments across people and AI agents with a Commitment Ledger: a running record of what each role owes, to whom, by when, and what evidence will prove delivery. Close items only on evidence the promiser cannot simply assert, keep the ledger outside the worker so obligations outlive sessions and job changes, and flag likely slips before the deadline.
 
 [quote, Robert Frost, "Stopping by Woods on a Snowy Evening, 1923"]
 ____

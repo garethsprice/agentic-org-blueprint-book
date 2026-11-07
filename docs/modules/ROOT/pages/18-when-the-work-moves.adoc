@@ -3,10 +3,11 @@
 :page-haiku: The work walks away. / Tell the hands that held it first, / then give them the reins.
 :description: How to move work from people to AI agents honestly: decide in the open, give the people closest to the work ownership of its agents, and be clear about what changes.
 :keywords: moving work to AI agents, AI and jobs, AI change management, who should own AI agents, AI career paths, telling employees about AI automation
+:page-search-title: How to Move Work From People to AI Agents Fairly
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: How do I tell my team that AI agents will take over some of their work?
-:page-faq-1-a: Before the work moves, not after. Say in a public channel which tasks are moving, from which role to which agent, who will sponsor that agent, what evidence will show it is working, and what the person currently doing the work will do instead. Talk to the affected person first, privately, so the announcement is not news to them. Avoid hinting. People cope better with a clear change they disagree with than with a vague one they have to guess at.
+:page-faq-1-a: Tell them before the work moves, not after, and be specific about what is changing. Say in a public channel which tasks are moving, from which role to which agent, who will sponsor that agent, what evidence will show it is working, and what the person currently doing the work will do instead. Talk to the affected person first, privately, so the announcement is not news to them. Avoid hinting. People cope better with a clear change they disagree with than with a vague one they have to guess at.
 :page-faq-2-q: Who should own an AI agent that takes over someone's job?
 :page-faq-2-a: By default, the person who did the work. They know its edge cases and failure modes, they can tell when the agent's output is wrong, and they have the strongest interest in the work being done well. Making them the agent's sponsor turns a loss into a promotion: from doing the task to owning the system that does it. Only choose someone else if the person is leaving, does not want the role, or the work is being restructured across several roles.
 :page-faq-3-q: Is it fair to ask employees whether they have tried using AI before helping them?
@@ -19,6 +20,9 @@
 
 [.lead]
 _Moving work from people to agents, honestly_
+
+[.in-short]
+*In short:* Move work from people to AI agents as an explicit, public decision, not something the person doing the work discovers afterwards. Tell the affected person first, announce what is moving and why, and make the person closest to the work the agent's sponsor. Be open about what moves, fair about who gains and firm that some work won't come back.
 
 [quote, Alfred, Lord Tennyson, "The Passing of Arthur, Idylls of the King"]
 ____
@@ -205,7 +209,7 @@ _Running Friction Reviews._ The best post-mortem I saw at CorralData this year c
 
 _Writing and maintaining playbooks._ The person who keeps a role's Role Pack accurate (xref:12-everything-they-need-on-day-one.adoc[Chapter 12]) becomes the organisation's expert on how that work is done.
 
-_Agentic Resources._ The function that manages the agent workforce (xref:17-agentic-resources.adoc[Chapter 17]) is a new kind of job, drawing on HR, operations and domain knowledge. Commentators have been calling for such a function since at least 2024;footnote:welsch2024[Welsch, A. (2024, September 24). Will businesses need an 'Agent Resources' department soon? _Intelligence Briefing_ (Substack). https://intelligencebriefing.substack.com/p/evolution-of-human-resources-into-agent-resources-department] Soofi Safavi's list of its duties, from keeping a registry of agents to retiring stale ones, reads like a job description.footnote:safavi2026[Safavi, S. (2026, May 29). Your company needs Agent Resources. _Substack_. https://soofixyz.substack.com/p/your-company-needs-agent-resources]
+_Agentic Resources._ The function that manages the agent workforce (xref:17-agentic-resources.adoc[Chapter 17]) is a new kind of job, drawing on HR, operations and domain knowledge. Commentators have been calling for such a function since at least 2024;footnote:welsch2024[Welsch, A. (2024, September 24). Will businesses need an "Agent Resources" department soon? _The AI MEMO_. https://intelligencebriefing.substack.com/p/evolution-of-human-resources-into-agent-resources-department] Soofi Safavi's list of its duties, from keeping a registry of agents to retiring stale ones, reads like a job description.footnote:safavi2026[Safavi, S. (2026, May 29). Your company needs Agent Resources. _Soofi's Substack_. https://soofixyz.substack.com/p/your-company-needs-agent-resources]
 
 None of these paths is automatic. They have to be designed, offered and supported, in the same way a good company designs a graduate programme. Michael Gerber argued that a business should not depend on any one extraordinary person: the systems hold the standard, and people, well trained, run the systems.footnote:gerber1995[Gerber, M. E. (1995). _The E-Myth revisited: Why most small businesses don't work and what to do about it_. HarperCollins.] The same design discipline that lets agents fill roles can give people a path from one role to the next.
 

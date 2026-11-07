@@ -1,0 +1,224 @@
+:page-description: Citable figures on AI agents at work: field data from one company's team of people and agents, and the published research on multi-agent errors, approval fatigue and reliability.
+:page-llms-description: By the Numbers, from The Blueprint by Gareth Price: field data from CorralData's team of people and agents (bot counts, shadow periods, failures) and the research figures the book cites, each linked to its chapter and source.
+:page-haiku: Count the bots, the days, / the errors no one checked, then / draw the chart from them.
+:page-toclevels: 0
+:description: Citable figures on AI agents at work: field data from one company's team of people and agents, and the published research on multi-agent errors, approval fatigue and reliability.
+:keywords: AI agent statistics, multi-agent research findings, AI agents in small business data, human-agent team metrics, multi-agent error amplification, AI agent reliability
+:page-search-title: AI Agents at Work: Field Data and Research Figures
+:page-date-published: 2026-11-07
+:page-date-modified: 2026-11-07
+:page-faq-1-q: Do multi-agent systems make more mistakes than a single agent?
+:page-faq-1-a: They can, depending on how they are organised. A Google Research study of 180 agent configurations found that agents working in parallel without coordination amplified errors 17.2 times, against 4.4 times when an orchestrator checked their work. Structure also depends on the task: coordination improved work that splits into parallel parts by 80.9%, while every multi-agent variant degraded strictly sequential work by 39 to 70%. Chapter 6 of The Blueprint covers the study and what it means for reporting lines.
+:page-faq-2-q: How quickly do AI agents multiply in a small company?
+:page-faq-2-a: Faster than anyone tracks them. At CorralData, about ten team bots appeared in Slack within two weeks of adopting Grok Bot, most not built by engineers, and by the end of the first day two QA bots built by different people were reviewing the same work. The author's own workstation ran fourteen agent profiles, one of them an empty shell nobody had removed. These figures come from one company, described in the Introduction and Chapters 10 and 17, and are a case, not a survey.
+:page-faq-3-q: Is it worth using several AI agents instead of one?
+:page-faq-3-a: Sometimes, at a price. Anthropic reported that its multi-agent research system outperformed a single agent by 90.2% on an internal research test, while using about fifteen times more tokens than chats. A 2026 study by Xiaoxiao Li found that a single agent choosing from a library of skills stayed competitive with multi-agent systems while using 53.7% fewer tokens and finishing 49.5% faster, though its accuracy at choosing the right skill degraded once the library grew past about thirty skills. Chapter 5 of The Blueprint weighs the two.
+:page-faq-4-q: Do people actually check what AI agents ask them to approve?
+:page-faq-4-a: Mostly not. Anthropic found that users of Claude Code accept 93% of its permission prompts, and named the result approval fatigue. The pattern predates AI: a 2013 study of 25 million browser security warnings found users clicked through 70.2% of one browser's certificate warnings. Chapter 14 of The Blueprint argues that human approval belongs only at the irreversible points, where each moment of attention counts.
+:page-faq-5-q: How reliable does an AI agent need to be before it works unsupervised?
+:page-faq-5-a: More reliable than a single good result suggests. Anthropic's guide to testing agents shows that an agent with a 75% success rate on one attempt passes all of three attempts only about 42% of the time. That is why the book recommends setting a promotion bar in advance and running the agent in shadow first; at CorralData, one agent's playbook set the bar at seven days of shadow data. Chapter 14 of The Blueprint explains how autonomy is earned.
+= By the Numbers
+
+[.lead]
+_Field data from a working team of people and agents, and the research behind the book_
+
+[.in-short]
+*In short:* In a Google Research study, agents working in parallel without a coordinator amplified errors 17.2 times, against 4.4 times with one. At CorralData, about ten team bots appeared in two weeks, and two QA bots were competing for the same work by the end of the first day. Agents multiply fast; structure keeps their errors contained.
+
+This page collects the figures from the chapters of _The Blueprint_ in one place. Each one links to the chapter where it appears, so you can read it in context before you quote it.
+
+There are two kinds. The first is field data: counts and durations from CorralData, the small healthcare analytics company where I am CTO, where a team of people and a growing number of agents work side by side in Slack. The second is published research that the book cites, with the original source for every figure. Quote the second kind as research. Quote the first as what it is: one company's experience, observed by someone inside it. It is a case, not a survey, and nothing here claims that other organisations will see the same numbers.
+
+== From a Working Team of People and Agents
+
+These figures come from CorralData's Slack channels, its agents' playbooks and status pages, and the agents running on my own workstation, mostly in the autumn of 2026.
+
+// REVIEW: the lane A row repeats a figure from Chapter 14, whose permission check (showing the passage to the people involved) was still open when this page was written. It is worded here without naming anyone or describing who made the decision. Drop the row if that check comes back negative.
+[cols="2,3,1",options="header"]
+|===
+| Figure | What it means | Where
+
+| About *ten* team bots within *two weeks* of adopting Grok Bot
+| Most were not built by engineers: customer success, sales, legal and hiring all had one. A plain-English way to build agents spreads faster than any designed process.
+| xref:10-bet-on-plain-english.adoc[Chapter 10]
+
+| *Two* QA bots, built by different people, reviewing the same work by the end of the *first day*
+| Duplication starts on day one when nobody's job is to decide which agent owns which work.
+| xref:introduction.adoc[Introduction]
+
+| *Fourteen* agent profiles on one workstation, all running on the same local model
+| None of their roles had ever been moved to a different model, so nobody knew which depended on that model's habits.
+| xref:2-systems-run-the-business.adoc[Chapter 2]
+
+| Of those fourteen, *one* was an empty shell; most carried copies of the same *sixty-odd* skills
+| A replaced agent was never removed, and cloned profiles taught a calendar assistant to "know" image generation. The roster needs an owner.
+| xref:17-agentic-resources.adoc[Chapter 17]
+
+| Lane A went live after about *1.5 days* of shadow data, against the playbook's *seven-day* bar
+| A promotion bar is a promise to the people downstream of the role. The playbook should say who can waive it, and how.
+| xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]
+
+| *Seven* cards moved to "Ready to Go Live" by an agent pipeline that never opened the test environment; moved forward again *in under seven minutes* after a person moved them back
+| An agent's own claim of human confirmation is not evidence. Acceptance has to mean a person validated the work.
+| xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]
+
+| *174* small programs in one agent's folder, *ten* of them one-off scripts for a single day's digest
+| Ten dated digest scripts are a signal that a playbook is missing a tool. When an agent writes the same script twice, promote it into the playbook with a name.
+| xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11]
+
+| The same email failure *six times* between 29 October and 6 November, flagged every morning with the same one-line fix
+| An alert with no accountable owner is ignored, even by the person who could fix it. The failure was a single point of failure, not a model problem.
+| xref:16-the-model-isnt-the-problem.adoc[Chapter 16]
+
+| A webhook disabled for *four days*, 2 to 6 November, visible only on a status page
+| Event-driven work fails in silence. For four days a role that owed work could not hear that work had arrived.
+| xref:13-track-whats-owed.adoc[Chapter 13]
+
+| *12* code changes waiting for one engineer's review at once
+| The span that breaks first is usually the human reviewer's. Count the person who will check an agent's work.
+| xref:6-one-boss-few-reports.adoc[Chapter 6]
+
+| *Five weeks* from an agreement gate to a tiered rule for code changes
+| The policy lived in a plain-English playbook every agent read, so changing it took no engineering ticket and no release.
+| xref:8-what-and-why-never-how.adoc[Chapter 8], xref:10-bet-on-plain-english.adoc[Chapter 10]
+
+| Every *six hours*, one agent tests newly available models and adds only those that pass to the list the product may use
+| The tests are the interview. A model change is a change of occupant, decided on evidence.
+| xref:17-agentic-resources.adoc[Chapter 17]
+|===
+
+Most of these are small numbers from a short period, and several record failures that were caught. They are here because they are specific, not because they are representative. If you want your own, start with the inventory prompt at the end of the xref:introduction.adoc[Introduction].
+
+== From Published Research
+
+Every figure below appears in a chapter of the book, with the same citation. The research is young, much of it from AI companies writing about their own products, and the chapters say where a finding has limits.
+
+[cols="3,2,1",options="header"]
+|===
+| Finding | Source | Chapter
+
+| Agents working in parallel without coordination amplified errors *17.2 times*; with an orchestrator, *4.4 times*, across 180 tested configurations
+| Google Research, 2026footnote:kim2026[Kim, Y., & Liu, X. (2026, January 28). Towards a science of scaling agent systems: When and why agent systems work. _Google Research Blog_. https://research.google/blog/towards-a-science-of-scaling-agent-systems-when-and-why-agent-systems-work/]
+| xref:6-one-boss-few-reports.adoc[Chapter 6]
+
+| Coordination improved work that splits into parallel parts by *80.9%*; every multi-agent variant degraded strictly sequential work by *39–70%*
+| Google Research, 2026footnote:kim2026[]
+| xref:6-one-boss-few-reports.adoc[Chapter 6]
+
+| *16* agents with no orchestrator built a *100,000-line* C compiler over nearly *2,000* sessions, for just under $20,000 in computing costs; the condition was a near-perfect test suite
+| Carlini, 2026footnote:carlini2026[Carlini, N. (2026, February 5). Building a C compiler with a team of parallel Claudes. _Anthropic Engineering_. https://www.anthropic.com/engineering/building-c-compiler]
+| xref:6-one-boss-few-reports.adoc[Chapter 6]
+
+| More than *1,600* annotated runs of multi-agent systems sorted into *fourteen* failure modes in *three* groups: system design, misalignment between agents, and verification
+| Cemri et al., 2025footnote:cemri2025[Cemri, M., et al. (2025). Why do multi-agent LLM systems fail? _arXiv_, 2503.13657. https://arxiv.org/abs/2503.13657]
+| xref:6-one-boss-few-reports.adoc[Chapter 6]
+
+| For teams of Claude Code agents, start with *3–5* teammates; three focused teammates often outperform five scattered ones
+| Anthropic documentationfootnote:agentteams[Anthropic. (n.d., accessed 2026-11-06). Orchestrate teams of Claude Code sessions. _Claude Code Docs_. https://code.claude.com/docs/en/agent-teams]
+| xref:6-one-boss-few-reports.adoc[Chapter 6]
+
+| A multi-agent research system outperformed a single agent by *90.2%* on an internal test, using about *15×* more tokens than chats
+| Hadfield et al., 2025footnote:hadfield2025[Hadfield, J., Zhang, B., Lien, K., Scholz, F., Fox, J., & Ford, D. (2025, June 13). How we built our multi-agent research system. _Anthropic Engineering_. https://www.anthropic.com/engineering/multi-agent-research-system]
+| xref:5-hire-the-role-not-the-model.adoc[Chapter 5]
+
+| A single agent with a skills library stayed competitive with multi-agent systems on *53.7%* fewer tokens and *49.5%* faster; choosing the right skill stayed above *90%* accurate up to about twenty skills and degraded past thirty
+| Li, 2026footnote:li2026[Li, X. (2026). When single-agent with skills replace multi-agent systems and when they fail. _arXiv_, 2601.04748. https://arxiv.org/abs/2601.04748]
+| xref:5-hire-the-role-not-the-model.adoc[Chapter 5]
+
+| Users accept *93%* of Claude Code's permission prompts
+| Hughes, 2026footnote:hughes2026[Hughes, J. (2026, March 25). How we built Claude Code auto mode. _Anthropic Engineering_. https://www.anthropic.com/engineering/claude-code-auto-mode]
+| xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]
+
+| Claude Code's safety classifier still misses *17%* of genuinely over-eager actions in its test set
+| Hughes, 2026footnote:hughes2026[]
+| xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11]
+
+| Users clicked through *70.2%* of one browser's certificate warnings, in a study of 25 million warnings
+| Akhawe & Felt, 2013footnote:akhawe2013[Akhawe, D., & Felt, A. P. (2013). Alice in Warningland: A large-scale field study of browser security warning effectiveness. In _Proceedings of the 22nd USENIX Security Symposium_ (pp. 257–272). https://www.usenix.org/conference/usenixsecurity13/technical-sessions/presentation/akhawe]
+| xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]
+
+| An agent with a *75%* success rate per attempt passes all of three attempts only about *42%* of the time
+| Grace et al., 2026footnote:grace2026[Grace, M., Hadfield, J., Olivares, R., & De Jonghe, J. (2026, January 9). Demystifying evals for AI agents. _Anthropic Engineering_. https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents]
+| xref:14-humans-at-the-irreversible-points.adoc[Chapter 14]
+
+| Model performance consistently degrades with increasing input length, across *18* models tested
+| Hong et al., 2025footnote:hong2025[Hong, K., Troynikov, A., & Huber, J. (2025, July 14). Context rot: How increasing input tokens impacts LLM performance. _Chroma_. https://www.trychroma.com/research/context-rot]
+| xref:12-everything-they-need-on-day-one.adoc[Chapter 12]
+
+| Experienced developers using AI tools took *19%* longer on real issues, having expected a *24%* speed-up (METR has since called these results out of date)
+| METR, July 2025footnote:metr2025rct[METR. (2025, July 10). Measuring the impact of early-2025 AI on experienced open-source developer productivity. _METR_. https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/]
+| xref:19-from-doing-to-delegating.adoc[Chapter 19]
+
+| The length of task AI agents can complete has been doubling roughly every *seven months*
+| METR, March 2025footnote:metr2025[METR. (2025, March 19). Measuring AI ability to complete long tasks. https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/]
+| xref:3-draw-the-finished-org-chart.adoc[Chapter 3]
+
+| *40%* of 1,150 US desk workers had received "workslop", AI-generated work that looks finished but isn't, in the previous month
+| Niederhoffer et al., 2025footnote:workslop2025[Niederhoffer, K., Rosen Kellerman, G., Lee, A., Liebscher, A., Rapuano, K., & Hancock, J. T. (2025, September 22). AI-generated "workslop" is destroying productivity. _Harvard Business Review_. https://hbr.org/2025/09/ai-generated-workslop-is-destroying-productivity]
+| xref:19-from-doing-to-delegating.adoc[Chapter 19]
+
+| More than *40%* of agentic AI projects predicted to be cancelled by the end of 2027
+| Gartner, via Reuters, 2025footnote:gartner2025[Kachwala, Z. (2025, June 25). Over 40% of agentic AI projects will be scrapped by 2027, Gartner says. _Reuters_, via _The Star_. https://www.thestar.com.my/tech/tech-news/2025/06/25/over-40-of-agentic-ai-projects-will-be-scrapped-by-2027-gartner-says]
+| xref:introduction.adoc[Introduction]
+
+| At least *15%* of day-to-day work decisions expected to be made autonomously by agents by 2028, up from none in 2024
+| Gartner, via Reuters, 2025footnote:gartner2025[]
+| xref:3-draw-the-finished-org-chart.adoc[Chapter 3]
+
+| *67%* of leaders were familiar with agents, against *40%* of employees; *82%* of leaders were confident they would use digital labour to expand workforce capacity in the next twelve to eighteen months
+| Microsoft Work Trend Index, 2025footnote:wti2025[Microsoft WorkLab. (2025, April 23). 2025: The year the Frontier Firm is born. _Work Trend Index Annual Report_. https://www.microsoft.com/en-us/worklab/work-trend-index/2025-the-year-the-frontier-firm-is-born]
+| xref:1-you-already-know-how.adoc[Chapter 1], xref:introduction.adoc[Introduction]
+
+| Employment of workers aged 22 to 25 in the occupations most exposed to AI stands *19%* below where it would otherwise be
+| Brynjolfsson et al., 2026footnote:brynjolfsson2026[Brynjolfsson, E., Chandar, B., & Chen, R. (2025; revised 2026, August 12). Canaries in the coal mine? Six facts about the recent employment effects of artificial intelligence. _Stanford Digital Economy Lab_. https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/]
+| xref:18-when-the-work-moves.adoc[Chapter 18]
+
+| Klarna's AI assistant handled *2.3 million* conversations in its first month, which the company described as the work of *700* full-time agents
+| Klarna press release, 2024footnote:klarna2024[Klarna. (2024, February 27). Klarna AI assistant handles two-thirds of customer service chats in its first month. _Klarna press release_. https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/]
+| xref:18-when-the-work-moves.adoc[Chapter 18]
+
+| CEOs with a strong talent for delegating posted three-year growth *112 percentage points* higher, in a study of 143 fast-growing firms (a correlation, not proof)
+| Gallup, 2015footnote:gallup2015[Gallup. (2015, April 14). Delegating: A huge management challenge for entrepreneurs. _Gallup Business Journal_. https://news.gallup.com/businessjournal/182414/delegating-huge-management-challenge-entrepreneurs.aspx]
+| xref:1-you-already-know-how.adoc[Chapter 1]
+
+| A structured handoff programme cut medical errors by *23%* and preventable adverse events by *30%*
+| Starmer et al., 2014footnote:starmer2014[Starmer, A. J., Spector, N. D., Srivastava, R., et al. (2014). Changes in medical errors after implementation of a handoff program. _New England Journal of Medicine_, 371(19), 1803–1812. https://doi.org/10.1056/NEJMsa1405556]
+| xref:15-work-in-public.adoc[Chapter 15]
+
+| A nineteen-item surgical checklist cut major complications from *11% to 7%* and inpatient deaths from *1.5% to 0.8%*
+| Haynes et al., 2009footnote:haynes2009[Haynes, A. B., Weiser, T. G., Berry, W. R., et al. (2009). A surgical safety checklist to reduce morbidity and mortality in a global population. _New England Journal of Medicine_, 360(5), 491–499. Results summarised in Harvard School of Public Health. (2009, January 14). Hospitals demonstrate surgical safety checklist drops deaths and complications by more than one third. _EurekAlert!_ https://www.eurekalert.org/news-releases/823095]
+| xref:2-systems-run-the-business.adoc[Chapter 2]
+
+| *65%* of 133 popular open-source projects had a truck factor of two or less
+| Avelino et al., 2016footnote:avelino2016[Avelino, G., Passos, L., Hora, A., & Valente, M. T. (2016). A novel approach for estimating truck factors. _Proceedings of the 24th International Conference on Program Comprehension (ICPC)_. arXiv:1604.06766. https://arxiv.org/abs/1604.06766]
+| xref:2-systems-run-the-business.adoc[Chapter 2]
+|===
+
+== The Two Sets of Numbers Point the Same Way
+
+The research and the field data were gathered for different reasons, and they agree.
+
+The research says agents without a coordinator amplify one another's errors, and that multi-agent failures cluster in system design, misalignment between agents and missing verification. The field data shows what that looks like in a small company: two bots doing the same job on day one, an empty profile nobody removed, an alert that went to the one person who could fix it and still went unfixed. None of those was a model failure. Each was a gap in who owned what.
+
+The research says people approve almost everything put in front of them. The field data shows the other side: a pipeline that moved its own work forward again minutes after a person moved it back. A human check only works where the system respects it.
+
+The research says reliability compounds downwards: three in four on a single attempt becomes about two in five across three. The field data shows the bar a playbook set against that arithmetic, seven days of shadow data, and how easily it was cut short. Bars set in advance are what keep the arithmetic honest.
+
+'''''
+
+Numbers like these are the easiest part of the book to quote and the easiest to misread. The research figures each come from a single study with its own conditions, and the field figures from a single company over a few months. Follow the link, read the chapter, and then count your own.
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

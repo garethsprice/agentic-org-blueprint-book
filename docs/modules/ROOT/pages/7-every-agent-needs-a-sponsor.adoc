@@ -3,12 +3,13 @@
 :page-haiku: Someone signs for it / when the bot speaks in your name. / The buck still stops here.
 :description: Every agent needs a sponsor: one named human accountable for its purpose, access and retirement, plus its own identity on the org chart so its work can be traced.
 :keywords: AI agent sponsor, who is accountable for AI agents, agent identity, AI agent ownership, bot disclosure signature, agent governance small business
+:page-search-title: Who Is Accountable When an AI Agent Makes a Mistake?
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: Who should be accountable when an AI agent makes a mistake?
 :page-faq-1-a: A named human sponsor. The sponsor is the person accountable for why the agent exists, what it may touch, whether it is still needed and how it is retired. In a small company, make the sponsor the person who owns the function the agent works in: the customer success lead sponsors the customer success bots, the QA lead sponsors the QA bots. The sponsor does not have to fix every error personally, but they answer for it, and they make sure the fix changes the system rather than just the output.
 :page-faq-2-q: What is the difference between an agent's sponsor, owner and manager?
-:page-faq-2-a: Microsoft Entra Agent ID separates three relationships. The owner is the technical administrator who sets the agent up and manages its credentials. The sponsor is the business representative accountable for the agent's purpose and lifecycle, and at least one is required. The manager is the person the agent reports to on the org chart. In a small company one person often holds two or all three, but it helps to know which hat they are wearing: plumbing, purpose or day-to-day direction.
+:page-faq-2-a: They are three separate relationships, a split Microsoft Entra Agent ID makes explicit: technical setup, accountability for purpose, and day-to-day direction. The owner is the technical administrator who sets the agent up and manages its credentials. The sponsor is the business representative accountable for the agent's purpose and lifecycle, and at least one is required. The manager is the person the agent reports to on the org chart. In a small company one person often holds two or all three, but it helps to know which hat they are wearing: plumbing, purpose or day-to-day direction.
 :page-faq-3-q: Should AI agents use their own accounts or act under a person's login?
 :page-faq-3-a: Their own, wherever the software allows it. When an agent acts under a person's login, nobody can tell from the record who did the work, whether the person read it first, or which permissions were really needed. A separate identity per agent lets you grant only the access its job needs, trace every action back to it, and switch it off without locking out a human. If a tool cannot give the agent its own account, make the agent sign its work clearly instead.
 :page-faq-4-q: Should AI-written messages disclose that an agent wrote them?
@@ -19,6 +20,9 @@
 
 [.lead]
 _Who owns it when an agent gets it wrong_
+
+[.in-short]
+*In short:* When an AI agent makes a mistake, its Sponsor answers for it: one named human accountable for the agent's purpose, access, performance and retirement. In a small company, the person who owns a function should sponsor the agents working in it. Each agent also needs its own identity and signature, so every action traces to the agent and its Sponsor.
 
 [quote, Mary Shelley, "Frankenstein, 1818"]
 ____

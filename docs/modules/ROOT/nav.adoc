@@ -46,3 +46,13 @@
 * xref:appendix-e-glossary.adoc[Glossary]
 * xref:appendix-f-recommended-reading.adoc[Recommended Reading]
 * xref:appendix-g-ai-org-design-advisor.adoc[Your AI Org Design Advisor]
+
+.Key Concepts
+* xref:what-is-agentic-resources.adoc[Agentic Resources]
+* xref:what-is-an-ai-agent-org-chart.adoc[The AI Agent Org Chart]
+* xref:what-is-a-role-charter.adoc[The Role Charter]
+* xref:what-is-an-agent-sponsor.adoc[The Agent Sponsor]
+* xref:what-is-a-commitment-ledger.adoc[The Commitment Ledger]
+* xref:what-is-shape-steer-do.adoc[Shape, Steer and Do]
+* xref:by-the-numbers.adoc[By the Numbers]
+* xref:updates.adoc[What's New]

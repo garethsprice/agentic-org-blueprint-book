@@ -3,8 +3,9 @@
 :page-haiku: You have done this work / handing tasks to other hands / now hand the right ones
 :description: Executives take to AI agents because delegation is their habit, but they often hand over the wrong layer. How to use the head start without the trap.
 :keywords: delegating to AI agents, executives and AI agents, managing AI like employees, AI delegation mistakes, Shape Steer Do, AI agents org chart
+:page-search-title: How Should Executives Delegate Work to AI Agents?
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: Why are executives better at using AI agents than other employees?
 :page-faq-1-a: Executives have spent years delegating: setting a goal, choosing who does the work, agreeing a standard and following up. Agents reward exactly those habits. Microsoft's 2025 Work Trend Index found that 67% of leaders were familiar with agents compared with 40% of employees. Ethan Mollick found that executive MBA students with little coding experience built working startup prototypes in four days, because they already knew how to manage. The head start is real, but it comes with a matching risk: delegating the wrong layer of work.
 :page-faq-2-q: What is the biggest mistake leaders make when delegating to AI agents?
@@ -19,6 +20,9 @@
 
 [.lead]
 _The executive's head start with agents, and the trap inside it_
+
+[.in-short]
+*In short:* Executives should delegate to AI agents within the org chart: brief the outcome and the reason rather than the method, and never hand an agent work that belongs to someone else. All work is Shape (deciding direction), Steer (setting standards and checks) or Do (the work itself), and a leader's agents should mostly extend Shape and Steer.
 
 // Epigraph verified against the MIT Shakespeare text, 1 Henry IV 3.1.
 [quote, William Shakespeare, "Henry IV, Part 1, c. 1597"]

@@ -1,12 +1,13 @@
-:page-description: About Gareth Price — CTO at CorralData, author of Applied Alchemy, and a leader running a team of people and AI agents.
+:page-description: About Gareth Price — CTO at CorralData, author of The Blueprint and Applied Alchemy, and a leader running a team of people and AI agents.
 :page-llms-description: About Gareth Price — CTO at CorralData, author of Applied Alchemy, former technologist at The New York Times and Codecademy, who runs a mixed team of people and AI agents.
 :page-llms-optional: true
 :page-schema: person
 :page-toclevels: 0
-:description: About Gareth Price — CTO at CorralData, author of Applied Alchemy, and a leader running a team of people and AI agents.
+:description: About Gareth Price — CTO at CorralData, author of The Blueprint and Applied Alchemy, and a leader running a team of people and AI agents.
 :keywords: Gareth Price, CTO, CorralData, Applied Alchemy, AI agents, organisation design
+:page-search-title: Gareth Price, CTO and Author of The Blueprint
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: Who wrote The Blueprint?
 :page-faq-1-a: The Blueprint was written by Gareth Price, CTO at CorralData, an AI-powered business intelligence platform serving the healthcare industry, and author of Applied Alchemy, a field guide for startup CTOs. He runs a team in which people and AI agents share the work, and the book's cases come from that team.
 :page-faq-2-q: What is Gareth Price's background?
@@ -19,7 +20,7 @@
 :page-faq-5-a: On the first day his company's team started adding AI agents to Slack, there were soon two competing QA bots and no clear owner for either. He recognised it as the same problem he had faced running his first business in his twenties — work organised around whoever happened to be available — and reached for the same answer: an org chart of roles, defined before anyone fills them.
 = About the Author
 
-Gareth Price is CTO at CorralData, an AI-powered business intelligence platform serving the healthcare industry, and the author of https://www.startupctobook.com/[_Applied Alchemy: The Startup CTO's Field Guide to Building Technology Companies from Nothing_].
+Gareth Price is CTO at CorralData, an AI-powered business intelligence platform serving the healthcare industry, the author of _The Blueprint_, and the author of https://www.startupctobook.com/[_Applied Alchemy: The Startup CTO's Field Guide to Building Technology Companies from Nothing_].
 He runs a team in which a growing share of the work is done by agents — a project manager that reports to him, a promise-keeper that checks whether he did what he said he would, a QA reviewer that belongs to his QA lead, and a bot whose job is onboarding the other bots — and he has made most of the mistakes this book describes, usually before lunch.
 
 He came to the United States in his twenties and ran a small IT company that grew faster than his ability to delegate.
@@ -28,7 +29,7 @@ A book about organising a business around roles rather than people got him throu
 Before CorralData, Gareth was a technologist at The New York Times, where he worked on the Storylines team, and at Codecademy, where he built tools for the people who teach other people to code.
 He studied artificial intelligence at the University of Manchester, back when that was considered a respectable but mildly eccentric career choice.
 
-He writes about technology, leadership and AI at Res·cog.
+He writes about technology, leadership and AI at https://garethsprice.github.io/blog/[Res·cog].
 
 [WARNING]
 ====

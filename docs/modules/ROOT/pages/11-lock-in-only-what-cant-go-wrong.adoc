@@ -3,12 +3,13 @@
 :page-haiku: Bind me to the mast / only where the song is sweet / and the rocks are near.
 :description: When to move agent instructions out of plain English: three tiers of lock-in (playbooks, scripts, hard rules), locking in checks rather than steps, and reviewing every lock-in.
 :keywords: AI agent guardrails, when to hard-code agent rules, deterministic versus LLM workflows, agent hooks and deny rules, three tiers of lock-in, reviewing agent rules after model upgrades
+:page-search-title: When Should AI Agents Follow Hard-Coded Rules?
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: When should an AI agent follow hard-coded rules instead of plain-English instructions?
 :page-faq-1-a: Use hard rules, enforced by the software rather than read by the model, only where a mistake cannot be undone or where a rule must have zero exceptions: sending to customers, deleting data, moving money, security boundaries, and the final check that work is done. Everything else should stay in plain English, where a capable model can apply judgment to the case in front of it. A good test: if the rule ever has a legitimate exception, it is a guideline, not a hard rule.
 :page-faq-2-q: What are the three tiers of lock-in for agent instructions?
-:page-faq-2-a: Tier one is the plain-English playbook, the default, holding procedure, judgment and preferences with their reasons. Tier two is a small script inside the playbook for anything that is calculation, a lookup from a live system, or must be repeated identically; agents often write these themselves. Tier three is a hard rule the software enforces whatever the model decides, kept for irreversible actions, security and acceptance checks. Most work lives in tier one, and each step down needs a reason.
+:page-faq-2-a: The three tiers are plain-English playbooks, small scripts and hard rules the software enforces; tier one, the playbook, is the default, holding procedure, judgment and preferences with their reasons. Tier two is a small script inside the playbook for anything that is calculation, a lookup from a live system, or must be repeated identically; agents often write these themselves. Tier three is a hard rule the software enforces whatever the model decides, kept for irreversible actions, security and acceptance checks. Most work lives in tier one, and each step down needs a reason.
 :page-faq-3-q: Why isn't it enough to tell an agent "never" do something?
 :page-faq-3-a: Because an instruction is read by a model that decides, each time, whether and how to apply it. Anthropic's own Claude Code guidance says that however strongly you word a line, following it on a given turn is still the model's call. A rule followed 99% of the time will, across a hundred actions, slip at least once about 63% of the time. For a reversible task that is fine. For an irreversible one, put the "never" in a rule the software enforces.
 :page-faq-4-q: What does "lock in the checks, not the steps" mean?
@@ -19,6 +20,9 @@
 
 [.lead]
 _Three tiers: English, scripts, hard rules_
+
+[.in-short]
+*In short:* AI agents should follow hard-coded rules only where a mistake cannot be undone: actions that leave the business, destroy data, move money, cross security boundaries, or confirm work is finished. Everything else belongs in plain-English playbooks, with small scripts for facts and arithmetic. Lock in the checks, not the steps, and review every lock-in when models change.
 
 [quote, Homer, "The Odyssey, Book XII (trans. Samuel Butler, 1900)"]
 ____

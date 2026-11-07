@@ -1,0 +1,102 @@
+:page-description: A Role Charter is a one-page job specification that works for a person or an AI agent: outcome line, the work, standards, authority and acceptance. What it is, an example and how to write one.
+:page-llms-description: Definition of a Role Charter, the one-page role specification in Gareth Price's The Blueprint for people and AI agents alike: outcome line, owns and serves, quantity, quality and behaviour standards, authority, acceptance agreed in advance, and how it differs from a job description or a system prompt.
+:page-haiku: Why the job exists, / what it owns, how good is good, / who checks, on one page.
+:page-toclevels: 0
+:description: A Role Charter is a one-page job specification that works for a person or an AI agent: outcome line, the work, standards, authority and acceptance. What it is, an example and how to write one.
+:keywords: Role Charter, what is a Role Charter, AI agent job description, job description for AI agents, role charter template, system prompt vs job description
+:page-search-title: What Is a Role Charter? A Job Description for AI Agents
+:page-date-published: 2026-11-07
+:page-date-modified: 2026-11-07
+:page-schema: term
+:page-term-name: Role Charter
+:page-term-definition: A Role Charter is a one-page specification of a role, for a person or an AI agent: its outcome line, the work it owns and serves, its standards, its authority and how acceptance is checked.
+:page-faq-1-q: What is a Role Charter?
+:page-faq-1-a: A Role Charter is a one-page specification of a role on the org chart, written for the role rather than whoever fills it, so the same page works for a person or an AI agent. It contains an outcome line starting "To…", what the role owns, serves and hands off, standards for quantity, quality and behaviour, what the role may do alone, must ask about and must never do, how acceptance is checked, and who sponsors it. Step-by-step procedure stays out; it belongs in playbooks.
+:page-faq-2-q: Is a Role Charter the same as a system prompt?
+:page-faq-2-a: No. A system prompt is an agent's standing instructions, and the best ones are thin: identity, mission and limits. A Role Charter describes the whole job. For an agent its parts often live in different places: the outcome line and behaviour standards in the standing instructions, the work in scheduled jobs and playbooks, the acceptance checks in automatic tests. One human-readable charter should say where each part lives and stay the source of truth.
+:page-faq-3-q: How is a Role Charter different from a job description?
+:page-faq-3-a: A typical job description lists tasks and qualifications to help hire a person. A Role Charter states the result the role exists to produce, whether it owns its answers or serves another role, standards specific enough for someone else to check, and how acceptance is checked against evidence agreed before the work starts. It is written for the role, not the candidate, so it survives a change of occupant, including a move from a person to an agent and back.
+:page-faq-4-q: How long should a Role Charter be?
+:page-faq-4-a: One page. If it runs longer, it is usually carrying procedure that belongs in a playbook, or it is describing two roles that should be split. The detail still exists, in the playbooks the role uses and the Role Pack that onboards a new occupant. The charter is the page that comes before them: why the role exists, what it owns, what good looks like and how anyone will know.
+:page-faq-5-q: How often should a Role Charter be reviewed?
+:page-faq-5-a: Quarterly suits most roles, plus whenever the occupant, its model or its tools change, or a recurring failure shows a rule is missing. For agent roles, review on every model change, because rules written for a weaker model can hold a stronger one back. Date each correction and say who made it, and check the sponsor is still in post: a charter whose sponsor has left is orphaned along with the agent.
+
+= What Is a Role Charter?
+
+[.lead]
+_One page per job, for a person or an agent_
+
+[.in-short]
+*In short:* A Role Charter is a one-page specification of a role, for a person or an AI agent: why it exists, the work it owns and serves, its standards, what it may decide, and how acceptance is checked. In Gareth Price's _The Blueprint_ it describes the role, not the occupant, so it works whoever fills the job.
+
+== One Page That Describes the Role, Not the Occupant
+
+A charter specifies a position on the org chart, so it survives a new hire, a new model, or a move from a person to an agent and back. It has six parts:
+
+* *Outcome line:* one sentence starting "To…" that names a result, not an activity. "To get every client invoice paid within terms" rather than "to send payment reminders".
+* *Reports to and sponsor:* the role it answers to, and the human accountable for its occupant.
+* *Owns, serves, hands off:* what the role is accountable for, which roles it produces work for, and what it passes on, to whom and how fast.
+* *Standards:* quantity, quality and behaviour, each specific enough that someone else could check it.
+* *Authority:* what it may do alone, must ask about first, and must never do.
+* *Acceptance:* who checks the result, against what evidence, how often, and what counts as a fail.
+
+What it leaves out matters as much: no step-by-step procedure. The how lives in the playbooks the role uses.
+
+== Why It Matters: Writing It Down Exposes Contradictions
+
+Any role that has run for a while has collected rules from several people. A person resolves them case by case; an agent applies whichever it happens to read. A charter puts every rule on one page, where contradictions are hard to miss.
+
+// REVIEW: this paragraph refers to the TAM Bot position contract exposing a conflict between two leaders' rules. Chapter 9 has a pending permission check on that story; the wording here is deliberately abstract.
+At CorralData, a bot drafting a customer success agent's position contract put two leaders' rules side by side for the first time. Both were sensible, both were in force, and they contradicted each other. The contract also carried a line worth borrowing for every agent: "Access is not authorization."
+
+Charters also fix acceptance before the work starts. Agents, like people, report their own work favourably, so the evidence must come from somewhere other than the occupant.
+
+== Example: A Collections Role at a Small Distributor
+
+The fictional dental supplies distributor in xref:appendix-b-templates.adoc[Appendix B] moved invoice chasing from the finance lead's Friday afternoons to an agent. An extract from its charter:
+
+[cols="1,3"]
+|===
+|Outcome line |To turn overdue invoices into paid invoices without damaging a customer relationship, so that cash arrives when the forecast says it will.
+
+|Sponsor |Finance Lead
+
+|Quality |Zero reminders sent for invoices already paid or credited. Amounts and dates match the accounting system exactly.
+
+|Must never do |Change an invoice, issue a credit, promise a payment plan, or contact a customer marked "account hold".
+
+|Acceptance |A weekly sample of ten reminders reviewed by the Finance Lead. Each reminder links to the invoice record it used, pulled at send time.
+|===
+
+Notice what isn't there: how to write a reminder, which tool to use, the order of steps.
+
+== How to Write Your First One This Week
+
+. Pick one role that an agent fills, or that you would like one to.
+. Ask Claude, ChatGPT or Grok to interview you one question at a time for a one-page Role Charter: outcome line, owns, serves and hands off, the three kinds of standard, acceptance checks, and decisions reserved for a human. Tell it to leave out procedure.
+. Paste in every instruction the role already has, from you and anyone else who directs it, and ask which ones conflict.
+. Settle each conflict in the open and write the ruling into the charter.
+. Name the sponsor, set a quarterly review, and review again whenever the model changes.
+
+== Role Charter vs Job Description vs System Prompt
+
+A job description usually lists tasks and qualifications, to help hire a person. A system prompt is an agent's standing instructions; the best are thin, an identity and a few limits. A Role Charter does more than either: it says why the role exists, what it owns, how good is good and how anyone will know, for any occupant. It follows Michael Gerber's idea of a written contract for each position, extended for a workforce in which many occupants are agents. For an agent, its parts may live in the standing instructions, scheduled jobs, playbooks and tests, but one readable charter remains the source of truth.
+
+*Go deeper:* xref:9-one-page-per-job.adoc[Chapter 9: One Page Per Job], with the full template in xref:appendix-b-templates.adoc[Appendix B: Templates]. See also xref:what-is-an-ai-agent-org-chart.adoc[What Is an AI Agent Org Chart?] and xref:what-is-an-agent-sponsor.adoc[What Is an Agent Sponsor?]
+
+'''''
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

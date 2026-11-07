@@ -3,8 +3,9 @@
 :page-haiku: One mind, many hats, / each hat with its own small page. / The hat outlasts it.
 :description: Why your org chart should be a chart of roles, not agents: how one AI agent can hold several roles, when separate agents earn their place, and the role coherence test.
 :keywords: single agent vs multi-agent, AI agent roles, org chart for AI agents, role vs agent, agent skills library, duplicate AI agents
+:page-search-title: Should You Build One AI Agent or Many?
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: Should I build one AI agent or many?
 :page-faq-1-a: Start with fewer than you think. Current evidence from LangChain, Anthropic and academic work favours one capable agent loading different skills for different jobs, until you hit a clear limit. Separate agents earn their place when work can run in parallel and mostly reads rather than writes, when it needs different access or a different accountable person, or when one agent's skill library grows so large that similar skills get confused. Draw the roles first; deciding how many agents fill them is a separate, later choice.
 :page-faq-2-q: What is the difference between a role and an agent?
@@ -19,6 +20,9 @@
 
 [.lead]
 _Roles that survive a new model release or a resignation_
+
+[.in-short]
+*In short:* Build fewer AI agents than you expect: one capable agent loading a separate playbook for each role often matches a team of agents at about half the token cost. Draw the org chart as a chart of roles, each with its own written Role Charter, then decide separately how many agents fill them. Roles then survive a new model.
 
 [quote, William Shakespeare, "As You Like It, Act II, Scene VII, c. 1599"]
 ____

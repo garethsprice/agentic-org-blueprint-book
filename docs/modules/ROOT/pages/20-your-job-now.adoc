@@ -3,8 +3,9 @@
 :page-haiku: The work runs itself. / What's left is choosing what for, / and saying "not that."
 :description: What a leader's job becomes when most of the organisation is agents: shaping the system, holding standards, owning the irreversible decisions and moving fast while the window is open.
 :keywords: leading AI agents, CEO role with AI agents, working on the business not in it, AI organisation design, managing people and agents, agentic organisation leadership
+:page-search-title: What Is a Leader's Job When AI Agents Do the Work?
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: What is a leader's job when AI agents do most of the work?
 :page-faq-1-a: Shape work: deciding what the organisation is for, designing the roles that deliver it, setting the standards each role must meet, and owning the decisions that can't be undone. Agents and people do the Steer and Do work inside that design. The leader's measure stops being personal output and becomes the consistency of the organisation's results. A useful test is the question to ask every agent and report: what can you do automatically, and what decisions do you need from me? The second list is your job.
 :page-faq-2-q: How do you stop doing the work yourself when an AI agent makes it so easy?
@@ -19,6 +20,9 @@
 
 [.lead]
 _Leading an organisation that's mostly not human_
+
+[.in-short]
+*In short:* When AI agents do most of the work, a leader's job is Shape work: deciding what the organisation is for, designing the roles that deliver it, holding the standards and owning the decisions that can't be undone. People and agents handle Steer (keeping things to standard) and Do (the work itself), and the leader's measure becomes the consistency of results.
 
 [quote, J. R. R. Tolkien, "The Fellowship of the Ring, 1954"]
 ____

@@ -3,8 +3,9 @@
 :page-haiku: Blame the stars, not us? / The fault lives in the system / we forgot to build.
 :description: Why recurring agent failures are system failures, and how a Friction Review turns each one into a fix for the whole class of error, backed by tests built from real mistakes.
 :keywords: AI agent failures, agent post-mortem, Friction Review, evals from real failures, MAST failure taxonomy, Deming system thinking AI
+:page-search-title: How to Fix Recurring AI Agent Mistakes for Good
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: Why does my AI agent keep making the same mistake?
 :page-faq-1-a: Usually because the fix was applied to the answer, not to the system that produced it. Correcting a wrong figure in the chat fixes one instance; the next conversation starts from the same instructions, the same missing check and the same ambiguous data. Find the class of error the mistake belongs to, then change the playbook, add a small script, or add a hard rule so the whole class is prevented. Then write a test from the failure so you know if it comes back.
 :page-faq-2-q: Should I wait for a better AI model instead of fixing my agent's mistakes?
@@ -12,13 +13,16 @@
 :page-faq-3-q: What is a Friction Review?
 :page-faq-3-a: A Friction Review is a short, blameless review of a recurring failure that ends in a system change rather than an apology. It asks what happened, which class of error it belongs to, which part of the system was missing, which tier the fix belongs in (an English playbook, a script, or a hard rule), and how you will know the fix worked. It is the agent-era version of the blameless post-mortem, and it applies equally to failures by people and by agents.
 :page-faq-4-q: How many test cases do I need to evaluate an AI agent?
-:page-faq-4-a: Fewer than you think. Anthropic's engineering team suggests that 20 to 50 simple tasks drawn from real failures is a great start. Each time an agent makes a mistake that matters, turn it into a test: the input, what a correct result looks like, and how to check it. Keep the old tests passing at close to 100%. The set grows naturally from your Friction Reviews and becomes the acceptance bar for any change of instructions or model.
+:page-faq-4-a: Fewer than you think: a few dozen simple tests built from your own real failures are enough to start. Anthropic's engineering team suggests that 20 to 50 simple tasks drawn from real failures is a great start. Each time an agent makes a mistake that matters, turn it into a test: the input, what a correct result looks like, and how to check it. Keep the old tests passing at close to 100%. The set grows naturally from your Friction Reviews and becomes the acceptance bar for any change of instructions or model.
 :page-faq-5-q: When is an AI agent failure actually the model's fault?
 :page-faq-5-a: Sometimes it genuinely is: some judgments are beyond today's models, and some failures, such as gradually worsening code structure, are not penalised by how the models were trained. Treat that as a design input, not an excuse. Move the work to a human, narrow the role, add a check the model cannot skip, or record it as a known limit to retest when a new model arrives. The question is never "whose fault?" but "what in the system has to change?"
 = Chapter 16: The Model Isn't the Problem
 
 [.lead]
 _Turning every recurring failure into a system fix_
+
+[.in-short]
+*In short:* Recurring AI agent mistakes are usually system failures, not model failures: a missing check, an unclear handoff or an ambiguous instruction that survives a model change. The fix is a Friction Review: a short, blameless review that names the class of error, changes the playbook, a script or a hard rule, and adds a test built from the real failure.
 
 [quote, William Shakespeare, "Julius Caesar, Act 1, Scene 2"]
 ____

@@ -3,8 +3,9 @@
 :page-haiku: Ask where you are bound / before the tireless hands move. / They will go somewhere.
 :description: How to write your organisation's Aim, Destination, Scorecard and Story so that people and AI agents can work towards the same result without constant supervision.
 :keywords: business purpose for AI agents, company scorecard metrics, mission statement for AI agents, org design destination, Goodhart's law AI agents, commander's intent for agents
+:page-search-title: How to Set Company Goals and Metrics for AI Agents
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: How do I tell AI agents what my company is for?
 :page-faq-1-a: Write a short Story: a page that says what the organisation is for, who it serves, what it will never do, and the reasons behind its few firm rules. Keep it to purpose, not procedure. Load the same Story into every agent's standing instructions and every person's onboarding, so both read one source. Then test it: give a new agent the Story alone, hand it three awkward decisions, and see whether it chooses as you would. Where it doesn't, the Story is missing a reason.
 :page-faq-2-q: How many metrics should a small company track when using AI agents?
@@ -19,6 +20,9 @@
 
 [.lead]
 _Your aim, your destination, and the few numbers that say it's working_
+
+[.in-short]
+*In short:* Set company goals for AI agents by writing four things down before adding another agent: an Aim (what you want the organisation to give you), a Destination (the finished organisation, including the mix of people and agents), a Scorecard (five to seven numbers, each paired with a counterweight) and a Story (the purpose, with reasons, loaded into every role).
 
 [quote, Lewis Carroll, "Alice's Adventures in Wonderland, 1865"]
 ____

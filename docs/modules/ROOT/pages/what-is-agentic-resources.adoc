@@ -1,0 +1,93 @@
+:page-description: Agentic Resources is HR for AI agents: the function that hires, onboards, reviews, promotes and retires an organisation's agents, with a human accountable. A plain definition, an example and how to start.
+:page-llms-description: Definition of Agentic Resources, a term coined by Gareth Price in The Blueprint for HR for AI agents: the org-chart function that owns the agent workforce from hiring to retirement, how it differs from sponsorship, how to start this week, and how it relates to earlier Agent Resources proposals.
+:page-haiku: Someone keeps the list / of workers who never sleep: / HR for the bots.
+:page-toclevels: 0
+:description: Agentic Resources is HR for AI agents: the function that hires, onboards, reviews, promotes and retires an organisation's agents, with a human accountable. A plain definition, an example and how to start.
+:keywords: Agentic Resources, what is Agentic Resources, HR for AI agents, Agent Resources, AI agent lifecycle management, managing an AI agent workforce
+:page-search-title: What Is Agentic Resources? HR for AI Agents
+:page-date-published: 2026-11-07
+:page-date-modified: 2026-11-07
+:page-schema: term
+:page-term-name: Agentic Resources
+:page-term-definition: Agentic Resources is the function that owns the AI agent workforce of an organisation: hiring, onboarding, reviewing, promoting and retiring agents, run by a person, an agent or both, with a human accountable.
+:page-faq-1-q: What does Agentic Resources mean?
+:page-faq-1-a: Agentic Resources means HR for AI agents. It is a function on the org chart that owns the agent workforce as a whole: it keeps a roster of every agent, makes sure each fills a written role and has a sponsor, onboards agents in public, reviews them against evidence, grants more autonomy when it is earned, settles overlaps between duplicate bots, manages model changes and retires agents without losing what they knew. A person, an agent or both can run it, but a human is always accountable.
+:page-faq-2-q: Is Agentic Resources the same as Agent Resources?
+:page-faq-2-a: They are close relatives. Andreas Welsch in 2024 and Soofi Safavi in 2026 both argued for an Agent Resources function that treats agents as part of the workforce, with roles, ownership, evaluation and retirement. The Blueprint's Agentic Resources shares that premise and adds a working practice for small organisations: one person per function owns that function's bots, onboarding happens in public, promotion is earned task by task, turf wars are settled by role, and retiring agents hand over what they learnt.
+:page-faq-3-q: Who should run Agentic Resources in a small company?
+:page-faq-3-a: One named leader, usually with an agent helping. In a company of about twenty people it might take a few hours a week of that leader's time, assisted by a bot that drafts charters, audits the roster and flags overlaps. In a company of two hundred it might be a whole job. Whoever does the work, a human is accountable for it, and the function itself needs a sponsor like any other role.
+:page-faq-4-q: What is the difference between Agentic Resources and an agent's sponsor?
+:page-faq-4-a: It is the difference between HR and a line manager. A sponsor is the one person accountable for a particular agent: its purpose, its access, its results and its retirement. Agentic Resources looks after the whole agent workforce: it sets the standards every sponsor follows, keeps the roster, spots duplicates and orphans, and owns the moments when agents join, change role or leave. Each agent needs a sponsor; the organisation needs Agentic Resources.
+:page-faq-5-q: Do I need Agentic Resources if I only have a few AI agents?
+:page-faq-5-a: You need the habit, even if not the job title. Once an organisation has more than a handful of agents, someone should own the workforce as a whole. With fewer, start with the roster: one list of every agent, the role it fills, its sponsor, what it can access and when it was last used. The first time you build one you will usually find an agent nobody remembers creating and at least one overlap.
+
+= What Is Agentic Resources?
+
+[.lead]
+_HR for the half of your team that isn't human_
+
+[.in-short]
+*In short:* Agentic Resources is HR for AI agents: the function that owns an organisation's agent workforce, from hiring and onboarding through performance reviews, promotion, turf wars, model changes and retirement. Gareth Price coined the term in _The Blueprint_, where it is a box on the org chart, run by a person, an agent or both, with a human accountable.
+
+== It Is a Function on the Org Chart, Not a Piece of Software
+
+Like any role, it has a charter, an occupant, an accountable human and an outcome line: _To make sure every agent in the organisation fills a defined role, is owned by someone, earns its autonomy with evidence, and leaves without taking its knowledge with it._
+
+Each agent has a sponsor, who manages it and answers for its mistakes. Agentic Resources manages the workforce, much as HR does for line managers. It owns seven stages:
+
+* *Hiring:* confirm the vacancy is a real role and write its charter first.
+* *Onboarding:* introduce the agent in public, with its role, sponsor and limits.
+* *Review:* judge it on evidence, not impressions.
+* *Promotion:* grant more autonomy task by task.
+* *Turf wars:* one occupant per role at a time.
+* *Model swaps:* treat a new model as a new occupant.
+* *Retirement:* hand over, revoke access, archive rather than delete.
+
+Its basic tool is the roster: every agent, its role, sponsor, access and last review.
+
+== Agents Multiply Faster Than Anyone Can Track Them
+
+Agents can be created in minutes. The first day CorralData's team used Grok Bot, two QA bots ended up competing for the same work. Within two weeks there were about ten, and nobody knew what each was for or who answered for it. A company that hired ten people that way would call it an HR problem. It is one.
+
+== Example: A Bot That Interviews Bots
+
+// REVIEW: this section refers to the TAM Bot contract surfacing a conflict between two leaders' rules. Chapter 9 still has a pending permission check on that story; keep this wording abstract or cut it if permission is not given.
+At CorralData the function began as a bot. When a new customer success agent joined the engineering channel "with no initial training other than 'join Slack'", Agentic Resources Bot interviewed it in public and drafted its position contract where anyone could correct it. The contract surfaced a conflict between two leaders' rules before it reached a customer. Later, when QA moved to the QA lead's own agent, the outgoing QA agent wrote a training brief for its successor and was archived, not deleted.
+
+== How to Start This Week
+
+. List every AI assistant you and your team use: custom GPTs, Claude Projects, Grok bots, Slack bots, scheduled tasks.
+. Paste the list into Claude, ChatGPT or Grok and ask it to build a roster: each agent's role in one sentence starting "To…", its sponsor, its access, how much it may do alone, and any overlaps.
+. Write a sponsor's name next to every agent. A blank is an orphan.
+. Retire one this week, archiving its instructions first.
+. Name the person accountable for the roster and book a monthly review.
+
+== Agentic Resources Is Not the Same as Sponsorship
+
+An agent's owner changes its settings; that is plumbing. Its sponsor answers for its purpose and lifecycle; that is line management. Agentic Resources answers for the workforce: it spots duplicate bots, gives every new agent a sponsor and a charter, and checks every sponsor is still at the company. Nor is it agents doing human HR work: here the agents are the workforce.
+
+== Where the Idea Sits
+
+Gareth Price coined the term Agentic Resources in November 2026, when he set up a bot to do the job. Others have proposed a similar function under a different name, Agent Resources. In 2024 Andreas Welsch wrote: "I am advocating for Agent Resources (AR) as an evolution of Human Resources (HR)". He mapped roles, knowledge, rules and performance reviews onto agents, and suggested an AI Centre of Excellence might take on HR skills.footnote:welsch2024[Welsch, A. (2024, September 24). Will businesses need an "Agent Resources" department soon? _The AI MEMO_. https://intelligencebriefing.substack.com/p/evolution-of-human-resources-into-agent-resources-department] In 2026 Soofi Safavi argued that agents doing real work need roles, permissions, ownership, evaluation and lifecycle management, with a function that keeps an agent registry, monitors performance and retires stale or unsafe agents: "Agent Resources is the function that makes agents manageable as part of the workforce."footnote:safavi2026[Safavi, S. (2026, May 29). Your company needs Agent Resources. _Soofi's Substack_. https://soofixyz.substack.com/p/your-company-needs-agent-resources]
+
+
+_The Blueprint_ shares their premise and adds a week-to-week practice for a small organisation. One person per function owns that function's bots. Agents are onboarded in public. Promotion means more autonomy, earned task by task against a bar set in advance. Turf wars between duplicate bots are settled by role, not rank. Model changes are run like a change of occupant, and retiring agents hand over what they learnt. Part of the function can itself be an agent: a bot that interviews other bots.
+
+*Go deeper:* xref:17-agentic-resources.adoc[Chapter 17: Agentic Resources] covers the whole lifecycle, and the onboarding and offboarding checklist is in xref:appendix-b-templates.adoc[Appendix B: Templates]. See also xref:what-is-an-agent-sponsor.adoc[What Is an Agent Sponsor?] and xref:what-is-a-role-charter.adoc[What Is a Role Charter?]
+
+'''''
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

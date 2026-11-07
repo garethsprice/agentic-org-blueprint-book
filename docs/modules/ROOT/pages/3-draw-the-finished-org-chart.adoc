@@ -3,8 +3,9 @@
 :page-haiku: Draw the finished chart / roles first, the names come later / then fill each slot in
 :description: Design the finished org chart of roles first, then fill the slots with people and agents. Why the Blueprint lets small teams outrun large ones, and how to draw yours.
 :keywords: AI agent org chart, design org chart for AI agents, organisation design people and agents, small team AI leverage, roles not agents, business blueprint
+:page-search-title: How to Make an Org Chart That Includes AI Agents
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: How do I make an org chart that includes AI agents?
 :page-faq-1-a: Draw a chart of roles, not of people or agents. Start from the results the organisation must produce, group them into functions, and give each role a one-sentence outcome line beginning "To…". Name a human owner for every role. Only then write the current occupant into each box: a person, an agent, or, early on, you. One occupant can hold several roles, and one agent can fill several boxes, as long as each box has its own written charter. The chart stays the same when occupants change.
 :page-faq-2-q: What is a business Blueprint?
@@ -19,6 +20,9 @@
 
 [.lead]
 _Design for the company you're becoming, not the one you are_
+
+[.in-short]
+*In short:* An org chart that includes AI agents should be a chart of roles, not people or agents, sized for the company you are becoming. Give each role an outcome and a human owner, then fill it with a person, an agent or yourself. Fully written down, it becomes the Blueprint: the organisation documented well enough to stand up again tomorrow.
 
 // Epigraph verified against the 1887 English translation (Moore and Aveling) at marxists.org, Capital Vol. I, ch. 7.
 [quote, Karl Marx, "Capital, Volume I, 1867"]

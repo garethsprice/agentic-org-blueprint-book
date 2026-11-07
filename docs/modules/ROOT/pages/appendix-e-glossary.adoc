@@ -3,8 +3,10 @@
 :page-haiku: Words we agreed on, / so the bot and the founder / mean the same by "done".
 :description: Plain-English definitions of the book's vocabulary and the AI industry terms a business leader meets when building an organisation of people and agents.
 :keywords: AI agent glossary, agentic AI terms explained, what is an AI agent skill, what is MCP, what is an agent harness, AI eval definition
+:page-search-title: AI Agent Glossary for Business Leaders
+:page-schema: termset
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: What is the difference between an AI agent and a chatbot?
 :page-faq-1-a: A chatbot answers in a conversation and waits for the next message. An agent is given a goal and works towards it in a loop: it decides what to do, uses tools such as search, email, a ticket system or code, checks the result, and carries on until the goal is met or it needs help. Agents can run on a schedule or in response to events, without a person typing each step, which is why they need roles, owners and limits.
 :page-faq-2-q: What is an AI agent skill?
@@ -25,7 +27,7 @@ Acceptance::
 How a role's result is checked, by whom, and with what evidence. It is written into every Role Charter, before the work starts, and never rests on the occupant's own word. See xref:9-one-page-per-job.adoc[Chapter 9].
 
 Agentic Resources::
-Human Resources for agents: the function on the org chart, run by a person, a bot or both, that writes charters, onboards agents, reviews their performance, settles duplicates and retires them. See xref:17-agentic-resources.adoc[Chapter 17].
+Human Resources for agents, a term coined by the author: the function on the org chart, run by a person, a bot or both, that writes charters, onboards agents, reviews their performance, settles duplicates and retires them. See xref:17-agentic-resources.adoc[Chapter 17]. In brief: xref:what-is-agentic-resources.adoc[What Is Agentic Resources?]
 
 Aim::
 What the organisation is for, from the founder's point of view: what you want it to give you and the people it serves. See xref:4-know-what-its-for.adoc[Chapter 4].
@@ -34,7 +36,7 @@ Blueprint::
 The organisation documented well enough that you could stand it up again tomorrow: roles, charters, playbooks, Role Packs and the rules that connect them. The idea follows Michael Gerber's "franchise prototype". See xref:3-draw-the-finished-org-chart.adoc[Chapter 3].
 
 Commitment Ledger::
-A record of what each role owes, to whom and by when, checked against evidence. It tracks what is owed rather than what is done, so problems surface before the deadline. See xref:13-track-whats-owed.adoc[Chapter 13] and the template in xref:appendix-b-templates.adoc[Appendix B].
+A record of what each role owes, to whom and by when, checked against evidence. It tracks what is owed rather than what is done, so problems surface before the deadline. See xref:13-track-whats-owed.adoc[Chapter 13] and the template in xref:appendix-b-templates.adoc[Appendix B]. In brief: xref:what-is-a-commitment-ledger.adoc[What Is a Commitment Ledger?]
 
 Design, Measure, Lock in::
 The improvement loop: design a better way of doing the work, measure whether it is better, then lock in what proves itself. It follows Gerber's innovation, quantification and orchestration. See xref:2-systems-run-the-business.adoc[Chapter 2] and xref:11-lock-in-only-what-cant-go-wrong.adoc[Chapter 11].
@@ -67,10 +69,10 @@ Playbook::
 A documented procedure for a recurring piece of work, written in plain English by default, with the reason for each step and a tier marker where a step is locked in. See xref:10-bet-on-plain-english.adoc[Chapter 10].
 
 Role::
-A position on the org chart, defined by the result it produces. An occupant fills it. Design the roles first, then fill them. See xref:5-hire-the-role-not-the-model.adoc[Chapter 5].
+A position on the org chart, defined by the result it produces. An occupant fills it. Design the roles first, then fill them. See xref:5-hire-the-role-not-the-model.adoc[Chapter 5]. In brief: xref:what-is-an-ai-agent-org-chart.adoc[What Is an AI Agent Org Chart?]
 
 Role Charter::
-A role's one-page specification: outcome line, the work, standards (quantity, quality, behaviour), authority, acceptance, handoffs, sponsor. The same format serves people and agents. See xref:9-one-page-per-job.adoc[Chapter 9].
+A role's one-page specification: outcome line, the work, standards (quantity, quality, behaviour), authority, acceptance, handoffs, sponsor. The same format serves people and agents. See xref:9-one-page-per-job.adoc[Chapter 9]. In brief: xref:what-is-a-role-charter.adoc[What Is a Role Charter?]
 
 Role coherence test::
 A check that a role keeps three things consistent: the kind of work, the level of judgment it needs, and the occupants available to do it. If they pull apart, split the role. See xref:5-hire-the-role-not-the-model.adoc[Chapter 5].
@@ -88,13 +90,13 @@ Shadow mode::
 A trial period in which an agent drafts or recommends but does not act, so its work can be compared with a human's before it earns autonomy. See xref:14-humans-at-the-irreversible-points.adoc[Chapter 14].
 
 Shape, Steer, Do::
-The three kinds of work: shaping what the organisation becomes, steering how it runs, and doing the work itself. They follow Gerber's Entrepreneur, Manager and Technician. See xref:1-you-already-know-how.adoc[Chapter 1].
+The three kinds of work: shaping what the organisation becomes, steering how it runs, and doing the work itself. They follow Gerber's Entrepreneur, Manager and Technician. See xref:1-you-already-know-how.adoc[Chapter 1]. In brief: xref:what-is-shape-steer-do.adoc[What Is Shape, Steer, Do?]
 
 Single writer::
 The rule that only one role changes any given piece of work at a time, while others may advise or review. See xref:6-one-boss-few-reports.adoc[Chapter 6].
 
 Sponsor::
-The named human accountable for an agent's purpose and lifecycle: why it exists, what it may access, and when it retires. See xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7].
+The named human accountable for an agent's purpose and lifecycle: why it exists, what it may access, and when it retires. See xref:7-every-agent-needs-a-sponsor.adoc[Chapter 7]. In brief: xref:what-is-an-agent-sponsor.adoc[What Is an Agent Sponsor?]
 
 Story::
 The organisation's purpose, written so that people and agents can make decisions from it. See xref:4-know-what-its-for.adoc[Chapter 4].

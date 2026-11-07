@@ -1,0 +1,101 @@
+:page-description: Shape, Steer, Do names the three kinds of work in any organisation: deciding what it becomes, making results predictable, and doing the work. How it guides what leaders delegate to AI agents.
+:page-llms-description: Definition of Shape, Steer, Do, the model of work in Gareth Price's The Blueprint adapted from Michael Gerber's entrepreneur, manager and technician: Shape decides what the organisation becomes, Steer makes results predictable, Do is the work itself. Explains why agents pull leaders back into Do and how to delegate the right layer.
+:page-haiku: Decide what it's for, / make results dependable, / then hand off the rest.
+:page-toclevels: 0
+:description: Shape, Steer, Do names the three kinds of work in any organisation: deciding what it becomes, making results predictable, and doing the work. How it guides what leaders delegate to AI agents.
+:keywords: Shape Steer Do, what is Shape Steer Do, three kinds of work, delegating to AI agents, entrepreneur manager technician, leadership and AI agents
+:page-search-title: What Is Shape, Steer, Do? Three Kinds of Work
+:page-date-published: 2026-11-07
+:page-date-modified: 2026-11-07
+:page-schema: term
+:page-term-name: Shape, Steer, Do
+:page-term-definition: Shape, Steer, Do is a model of the three kinds of work in any organisation: shaping what it becomes, steering how it runs so results are predictable, and doing the work itself.
+:page-faq-1-q: What does Shape, Steer, Do mean?
+:page-faq-1-a: Shape, Steer, Do names the three kinds of work in any organisation. Shape is deciding what the organisation is for and what it should become: the aim, the destination, the roles and the big bets. Steer is making results predictable: standards, plans, checks, reviews and follow-up. Do is the work itself: the reply, the report, the board, the code. One person or one agent does all three at different moments; the model helps decide which layer to keep and which to delegate.
+:page-faq-2-q: Where does Shape, Steer, Do come from?
+:page-faq-2-a: It adapts Michael Gerber's idea, from The E-Myth Revisited, that the person who starts a business contains three personalities: an entrepreneur who imagines what it could become, a manager who makes it orderly, and a technician who does the work. The Blueprint uses its own terms for three kinds of work rather than three personalities, because they apply to AI agents as well as people, and because one person or one agent does all three at different moments.
+:page-faq-3-q: Which kind of work should leaders delegate to AI agents?
+:page-faq-3-a: Nearly all of the Do, to the role that owns it, not to the leader's own agent. Leaders should keep Shape, using agents to research and draft options, and set the standards in Steer themselves while delegating the running of them. A leader's agents should mostly extend Shape and Steer. If they pull the leader back into Do, especially other people's Do, the leader becomes the organisation's most prolific individual contributor, which is not the job.
+:page-faq-4-q: Why do AI agents pull leaders back into doing the work?
+:page-faq-4-a: Because doing has become almost free. Until recently a leader who wanted to do an individual contributor's job had to find time to do it badly, so they delegated it. Now a leader can rebuild a dashboard or draft a code change in an evening without asking anyone. The people most tempted are those with the most authority and least time, and the work often already belongs to someone else on the org chart.
+:page-faq-5-q: How does Shape, Steer, Do apply to individual contributors?
+:page-faq-5-a: For individual contributors the move runs the other way: from Do towards Steer. When agents take on the doing, the contributor owns the spec, the choice and briefing of agents, and the verification bar, meaning which errors matter and how to catch them. Their expertise moves from the work itself into the checks. That shift is hard because their standing rests on doing the work well, so it should be offered as a renegotiated deal, not imposed.
+
+= What Is Shape, Steer, Do?
+
+[.lead]
+_Three kinds of work, and which ones to hand to an agent_
+
+[.in-short]
+*In short:* Shape, Steer, Do is a model of the three kinds of work in any organisation: shaping what it becomes, steering how it runs so results are predictable, and doing the work itself. In Gareth Price's _The Blueprint_ it guides delegation: leaders keep Shape, set Steer's standards, and hand the Do to the role that owns it.
+
+== Three Kinds of Work, Done by the Same People and Agents
+
+[cols="1,2,2,2",options="header"]
+|===
+| |Shape |Steer |Do
+
+|The question it answers
+|What should this become, and why?
+|How do we make the results predictable?
+|What needs doing now?
+
+|What it produces
+|The aim, the destination, the roles, the bets
+|Standards, plans, checks, reviews, follow-up
+|The reply, the report, the board, the code
+
+|What a leader should do with it
+|Keep it; use agents to research and draft options
+|Set the standards; delegate the running of them
+|Delegate nearly all of it, to the role that owns it
+|===
+
+The model adapts Michael Gerber's entrepreneur, manager and technician. It describes kinds of work rather than kinds of people, because a single person, or a single agent, does all three at different moments.
+
+Agents can contribute to all three. A project-management agent told to treat "WILL SLIP" as "an INTERVENTION trigger, not a status note" is doing Steer work well. But Shape is the work only an organisation's leaders can own, and setting standards is close behind. Everything else can be delegated. The question is to whom: not "my agent", but the role that owns the work.
+
+== Why It Matters: Agents Pull Leaders Back Into Do
+
+Until recently a leader who wanted to do an individual contributor's job had to find the time to do it badly, so leaders delegated Do. Agents have made doing almost free. A chief executive can now rebuild a dashboard or draft a working code change in an evening, without asking anyone.
+
+That creates a trap. A leader's output is the output of the organisation they run. An agent that produces a hundred useful-looking drafts which three engineers then spend a week checking has subtracted from that output, while making the leader feel more productive than ever. Worse, when the Do already belongs to someone else, the leader's agent becomes a way around the org chart.
+
+Individual contributors face the mirror image. When agents take on their Do, their job moves towards Steer: writing the spec, briefing the agents and owning the verification bar. Their expertise moves into the checks.
+
+== Example: A Customer Success Function
+
+In one customer success function, the three layers look like this. Shape is deciding what the function is for and which roles it needs. Steer is a written bar such as a seven-day shadow period before a customer success agent may send anything on its own. Do is the agent drafting a reply to a customer's question.
+
+The fictional company in xref:appendix-c-worked-example.adoc[Appendix C] puts the model on its scorecard. Its Head of Customer Success spent about 10% of her week on Shape work. The target, once agents took on more of the Do, is half her week on onboarding, playbooks and product feedback.
+
+== How to Start This Week
+
+. Scroll back through your last ten requests to Claude, ChatGPT or Grok and paste them into a new conversation.
+. Ask it to label each one Shape, Steer or Do, say whether you described the outcome or dictated the method, and flag any that would normally belong to someone else.
+. Take the request that most looks like someone else's Do. Rewrite it as a short brief to the role that owns it: what you want, why it matters, and how you will know it's done.
+. Send that brief in a shared channel.
+. Block an hour this week for Shape work only, with an agent researching options for one decision only you can make.
+
+== How It Differs From Doer and Manager
+
+The familiar split is between doers and managers: two kinds of people, two job titles. Shape, Steer, Do splits the work, not the people. It adds Shape, which the doer-and-manager split leaves out, and it applies to agents as well as people. With agents, the useful question is not whether someone is a doer or a manager, but which layer of work they are delegating, and to whom.
+
+*Go deeper:* xref:1-you-already-know-how.adoc[Chapter 1: You Already Know How to Do This] and xref:19-from-doing-to-delegating.adoc[Chapter 19: From Doing to Delegating]. See also xref:what-is-an-ai-agent-org-chart.adoc[What Is an AI Agent Org Chart?] and xref:what-is-a-role-charter.adoc[What Is a Role Charter?]
+
+'''''
+
+[discrete]
+== Frequently Asked Questions
+
+[qanda]
+{page-faq-1-q}::
+{page-faq-1-a}
+{page-faq-2-q}::
+{page-faq-2-a}
+{page-faq-3-q}::
+{page-faq-3-a}
+{page-faq-4-q}::
+{page-faq-4-a}
+{page-faq-5-q}::
+{page-faq-5-a}

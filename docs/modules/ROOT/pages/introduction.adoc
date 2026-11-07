@@ -3,22 +3,26 @@
 :page-haiku: Bots bloom overnight / two QA bots, one question: / who do they answer?
 :description: Agent sprawl is an organisation design problem leaders already know how to solve. This introduction explains why, who the book is for, and how to use it.
 :keywords: agent sprawl, AI agents org chart, managing AI agents, organisation design for AI, people and agents, agentic organisation
+:page-search-title: How to Manage AI Agent Sprawl in a Small Business
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: What is agent sprawl?
 :page-faq-1-a: Agent sprawl is what happens when an organisation adds AI agents faster than it decides what each one is for. Different people build bots that overlap, two agents claim the same job, nobody knows who answers for a bot's mistakes, and the knowledge of how it all fits together lives in one person's head. It is not a technology failure. Each agent may work perfectly. It is an organisation design failure, and the remedies are the ones leaders already use for people: defined roles, one accountable owner, written standards and public handoffs.
 :page-faq-2-q: Do I need to be technical to organise AI agents in my business?
 :page-faq-2-a: No. The hard problems in running a team of people and agents are deciding what each role is for, who owns it, what good work looks like and where a human must approve. Those are management questions, and most of the answers can be written in plain English. Technical colleagues are needed for a few hard rules at the points that can't be undone, such as payments, customer data and production systems. This book keeps that detail in clearly marked sidebars and an appendix for your technical team.
 :page-faq-3-q: Should I build one AI agent per job or one agent that does everything?
-:page-faq-3-a: Start by designing roles, not agents. A role is a position with an outcome, standards and an owner; an agent is one possible occupant. Current research favours starting with a single capable agent and adding more only when there is a clear limit, because coordination between agents is expensive and error-prone. One general agent can hold several roles, each with its own written charter. How many agents fill your chart is a separate decision you can change later without redrawing the chart.
+:page-faq-3-a: Start with one capable agent, and design roles rather than agents. A role is a position with an outcome, standards and an owner; an agent is one possible occupant. Current research favours starting with a single capable agent and adding more only when there is a clear limit, because coordination between agents is expensive and error-prone. One general agent can hold several roles, each with its own written charter. How many agents fill your chart is a separate decision you can change later without redrawing the chart.
 :page-faq-4-q: Why does the window for small companies to benefit from AI agents feel so short?
-:page-faq-4-a: Small organisations can redesign themselves around agents in weeks, while large ones need years of change programmes. That gap is the opportunity. But capability is rising quickly, with METR finding that the length of tasks AI can complete has doubled roughly every seven months, and large companies are investing heavily. The advantage goes to small teams that design their organisation now, before their larger competitors finish catching up and before their own agent sprawl hardens into habit.
+:page-faq-4-a: The window is short because the advantage small organisations have, redesigning around agents in weeks while large ones need years of change programmes, will not last. That gap is the opportunity. But capability is rising quickly, with METR finding that the length of tasks AI can complete has doubled roughly every seven months, and large companies are investing heavily. The advantage goes to small teams that design their organisation now, before their larger competitors finish catching up and before their own agent sprawl hardens into habit.
 :page-faq-5-q: What is Michael Gerber's idea of designing the org chart before hiring?
 :page-faq-5-a: Michael Gerber argued in The E-Myth Revisited that a small business should design its finished organisation first, as a chart of positions with written responsibilities, and only then fill those positions, even if the founder occupies most of them at the start. This book applies that idea to organisations of people and agents. The chart is a chart of roles; people and agents are occupants who can change without the role changing. Gerber is one influence among several, alongside Deming, Drucker, Grove and Team Topologies.
 = Introduction: The Day the Bots Multiplied
 
 [.lead]
 _Why agent sprawl is an org design problem you already know how to solve_
+
+[.in-short]
+*In short:* Manage AI agent sprawl as an organisation design problem, not a technology problem. Sprawl happens when a business adds AI agents faster than it decides what each one is for. The remedies are the ones leaders already use for people: roles defined before occupants, one accountable human per role, written standards and work done in public.
 
 // Epigraph: first printing, Schiller's Musen-Almanach für das Jahr 1798, verified at de.wikisource.org (Der_Zauberlehrling_(1798)). Translation is ours.
 [quote, Johann Wolfgang von Goethe, "Der Zauberlehrling, 1797"]

@@ -3,22 +3,26 @@
 :page-haiku: One page for one job, / written plainly enough that / two bosses collide.
 :description: The Role Charter puts any job on one page, for a person or an agent: an outcome line, the work, standards for quantity, quality and behaviour, and how acceptance is checked.
 :keywords: AI agent job description, role charter template, position contract for AI agents, acceptance criteria for agents, writing agent instructions, roles for people and agents
+:page-search-title: How to Write a Job Description for an AI Agent
 :page-date-published: 2026-11-06
-:page-date-modified: 2026-11-06
+:page-date-modified: 2026-11-07
 :page-faq-1-q: What should a job description for an AI agent include?
 :page-faq-1-a: Four things, on one page. An outcome line saying why the role exists, starting "To…". The work: what the role owns, which roles it serves, and what it hands off. Standards for quantity, quality and behaviour, specific enough to check. And acceptance: how, and how often, someone confirms the standards are met. Add who the role reports to, who sponsors its occupant and which decisions it must bring back to a human. Leave out the steps; those belong in the playbooks the role uses.
 :page-faq-2-q: Should AI agents and human employees have the same kind of job description?
 :page-faq-2-a: Yes. A Role Charter describes the role, not whoever fills it, so the same format works for a person, an agent, or a person supported by an agent. That is what lets work move between occupants without being redesigned. The differences belong elsewhere: an agent may need its access written down more precisely, and a person's charter sits alongside a contract of employment. But the outcome, the work, the standards and the acceptance check should read the same whoever does the job.
 :page-faq-3-q: How do you write acceptance criteria for an AI agent?
 :page-faq-3-a: Agree them before the work starts and make each one checkable by someone other than the agent. Good criteria name the evidence: a figure that reconciles with a source system, a sample a human reviews, a link to the finished item, a test that must pass. Set a threshold for each, so a miss is unambiguous. Never accept the agent's own report as the evidence. Anthropic found that its evaluator agent would spot real problems and then talk itself into approving the work anyway until it was tuned.
-:page-faq-4-q: What is the difference between a role that owns the answer and one that serves another role?
-:page-faq-4-a: A role that owns the answer takes over the task and responds directly; a role that serves another does a bounded piece of work and hands the result back. OpenAI's agent framework draws the same line between a handoff, where a specialist "becomes the active agent," and using an agent as a tool, where a manager keeps control. Write which one each role is into its charter. When it is unclear, two roles end up answering the same question, or nobody answers it.
+:page-faq-4-q: How do you decide which AI agent owns a task?
+:page-faq-4-a: Decide for each role whether it owns the answer, taking over the task and responding directly, or serves another role, doing a bounded piece of work and handing the result back. OpenAI's agent framework draws the same line between a handoff, where a specialist "becomes the active agent," and using an agent as a tool, where a manager keeps control. Write which one each role is into its charter. When it is unclear, two roles end up answering the same question, or nobody answers it.
 :page-faq-5-q: How often should a Role Charter be reviewed?
 :page-faq-5-a: On a schedule, such as quarterly, and whenever something important changes: a new occupant, a new model, a new tool, or a recurring failure. A model change matters most for agent roles, because rules written for a weaker model can hold a stronger one back. When a correction is added, date it and say who made it, so the next reviewer knows why it is there and whether it still applies. A charter that has not been reviewed in a year is probably describing a job nobody is doing.
 = Chapter 9: One Page Per Job
 
 [.lead]
 _The Role Charter, for people and agents alike_
+
+[.in-short]
+*In short:* Write a job description for an AI agent as a one-page Role Charter: an outcome line saying why the role exists; what the role owns, serves and hands off; standards for quantity, quality and behaviour; and how acceptance is checked against evidence. A Role Charter describes the role, not its occupant, so it works for people and agents alike.
 
 [quote, Blaise Pascal, "The Provincial Letters, 1657 (trans. Thomas M'Crie)"]
 ____
