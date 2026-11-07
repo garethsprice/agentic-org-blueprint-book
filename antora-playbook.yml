@@ -1,6 +1,6 @@
 site:
   title: The Blueprint
-  url: https://www.agenticorgblueprint.com
+  url: https://garethsprice.github.io/agentic-org-blueprint-book
   start_page: ROOT::index.adoc
   robots: |
     User-agent: *
@@ -30,7 +30,7 @@ site:
     User-agent: Applebot-Extended
     Allow: /
 
-    Sitemap: https://www.agenticorgblueprint.com/sitemap.xml
+    Sitemap: https://garethsprice.github.io/agentic-org-blueprint-book/sitemap.xml
 
 antora:
   extensions:

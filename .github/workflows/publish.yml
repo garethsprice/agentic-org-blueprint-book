@@ -1,10 +1,9 @@
 name: Publish to GitHub Pages
 
 on:
-  # Manual-only until the book is ready to publish. Restore the push trigger to auto-publish:
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:

@@ -46,7 +46,7 @@ description: Org design advisor for organisations of people and AI agents,
 
 ## Source
 
-If you can browse the web, fetch https://www.agenticorgblueprint.com/llms.txt,
+If you can browse the web, fetch https://garethsprice.github.io/agentic-org-blueprint-book/llms.txt,
 the index of "The Blueprint: A Field Guide to Building Organisations of
 People and Agents" by Gareth Price. When a chapter applies to my question,
 fetch and read it before advising, and cite it by chapter number. If you
@@ -184,7 +184,7 @@ Ask me these, one at a time, and wait for each answer:
 
 [WARNING]
 ====
-AUTHOR: The skill points to https://www.agenticorgblueprint.com/llms.txt, which the site's llms.txt generator will produce once the book is published. Confirm the domain is final before print. Until it is live, the built-in summary carries the method on its own.
+AUTHOR: The skill points to https://garethsprice.github.io/agentic-org-blueprint-book/llms.txt, which the site's llms.txt generator will produce once the book is published. This is the GitHub Pages address; update it here and in antora-playbook.yml if the book moves to its own domain. Until it is live, the built-in summary carries the method on its own.
 ====
 
 
